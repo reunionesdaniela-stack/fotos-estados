@@ -35,13 +35,30 @@ button.compartir svg{width:32px;height:32px;flex:none}
 .aviso{display:none;margin:12px 4px 0;padding:12px 14px;border-radius:12px;background:#FBF0CF;color:#4A3B0B;font-size:17px}
 .aviso.ver{display:block}
 .vacio{text-align:center;color:var(--muted);padding:40px 10px}
+.lineas{margin-bottom:26px}
+.lineas h2,.semana h2{font-size:24px;margin:0 0 12px}
+details.linea{background:var(--surface);border:2px solid var(--line);border-radius:16px;margin-bottom:10px}
+details.linea>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;min-height:64px;padding:12px 16px;font-size:21px;font-weight:800}
+details.linea>summary::-webkit-details-marker{display:none}
+details.linea>summary .cant{margin-left:auto;font-size:15px;font-weight:700;color:var(--muted);white-space:nowrap}
+details.linea>summary::after{content:"";width:12px;height:12px;border-right:3px solid var(--leaf);border-bottom:3px solid var(--leaf);transform:rotate(45deg);flex:none;margin:0 4px -2px 2px;transition:transform .2s}
+details.linea[open]>summary::after{transform:rotate(-135deg);margin-bottom:-8px}
+details.linea[open]>summary{border-bottom:2px solid var(--line)}
+.linea-cuerpo{padding:14px 12px 4px}
+.linea-cuerpo .pista{margin:0 4px 14px;color:var(--muted);font-size:17px}
+.linea-cuerpo .foto{border-width:1px}
 footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <h1 id="titulo">Fotos para tus estados</h1>
-  <p class="sub" id="fecha"></p>
+  <h1>Fotos para tus estados</h1>
+  <p class="sub">Elegí una foto, tocá <b>COMPARTIR</b> y subila a tu estado de WhatsApp.</p>
+
+  <section class="lineas" aria-label="Fotos de estados según línea">
+    <h2>Fotos de estados según línea</h2>
+    <div id="lineas"></div>
+  </section>
 
   <section class="ayuda" aria-label="Cómo se usa">
     <h2>¿Cómo se usa?</h2>
@@ -52,11 +69,16 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
     </ol>
   </section>
 
-  <div id="fotos"></div>
+  <section class="semana">
+    <h2 id="titulo">Fotos de esta semana</h2>
+    <p class="sub" id="fecha"></p>
+    <div id="fotos"></div>
+  </section>
   <footer>¿Dudas? Escribile a tu líder 🌿</footer>
 </main>
 
 <script src="semana.js"></script>
+<script src="lineas.js"></script>
 <script>
 const S = window.SEMANA || {fotos: []};
 const $ = s => document.querySelector(s);
@@ -66,17 +88,29 @@ const ICONO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 if(S.titulo) $("#titulo").textContent = S.titulo;
 if(S.desde) $("#fecha").textContent = "Desde el " + new Date(S.desde + "T00:00").toLocaleDateString("es-AR", {weekday:"long", day:"numeric", month:"long"});
 
-$("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => `
+const L = window.LINEAS || [];
+let nAviso = 0;
+const fotoHTML = (f, i, total) => { const id = nAviso++; return `
   <article class="foto">
-    <span class="num">Foto ${i + 1} de ${S.fotos.length}</span>
-    <img src="${esc(f.archivo)}" alt="${esc(f.texto || "Foto " + (i + 1))}" loading="${i < 2 ? "eager" : "lazy"}">
+    <span class="num">Foto ${i + 1} de ${total}</span>
+    <img src="${esc(f.archivo)}" alt="${esc(f.texto || "Foto " + (i + 1))}" loading="lazy">
     ${f.texto ? `<p>${esc(f.texto)}</p>` : `<div style="height:12px"></div>`}
-    <button class="compartir" data-i="${i}">${ICONO}COMPARTIR</button>
-    <div class="aviso" id="aviso-${i}" role="status"></div>
-  </article>`).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
+    <button class="compartir" data-src="${esc(f.archivo)}" data-aviso="${id}">${ICONO}COMPARTIR</button>
+    <div class="aviso" id="aviso-${id}" role="status"></div>
+  </article>`; };
+
+$("#lineas").innerHTML = L.map(l => `
+  <details class="linea">
+    <summary><span>${esc(l.nombre)}</span><span class="cant">${l.fotos.length ? l.fotos.length + (l.fotos.length === 1 ? " foto" : " fotos") : "Pronto"}</span></summary>
+    <div class="linea-cuerpo">
+      ${l.fotos.length ? `<p class="pista">Tocá <b>COMPARTIR</b>, elegí <b>WhatsApp</b> y después <b>Mi estado</b>.</p>` + l.fotos.map((f, i) => fotoHTML(f, i, l.fotos.length)).join("") : `<p class="pista">Pronto vas a encontrar fotos de esta línea acá.</p>`}
+    </div>
+  </details>`).join("");
+
+$("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
 
 document.querySelectorAll("button.compartir").forEach(b => b.onclick = async () => {
-  const f = S.fotos[+b.dataset.i], aviso = $("#aviso-" + b.dataset.i);
+  const f = {archivo: b.dataset.src}, aviso = $("#aviso-" + b.dataset.aviso);
   aviso.classList.remove("ver");
   try{
     const blob = await (await fetch(f.archivo)).blob();

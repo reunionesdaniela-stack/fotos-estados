@@ -294,7 +294,7 @@ a.herra:active{background:var(--soft)}
       <div class="etapa-cab"><span class="big">2</span><div><small>Paso 2</small><h2>Categorías y ganancias</h2></div></div>
       <div class="etapa-cuerpo">
         <p>Todo se mide en <b>puntos</b>: cada producto suma puntos según su precio (figuran en el catálogo).</p>
-        <div class="ejemplo"><span class="e">🧴</span><div>Hoy <b>1 punto = $19.999</b> a precio de catálogo. Por ejemplo, un Capullos de Lino de 500 ml = 1 punto.</div></div>
+        <div class="ejemplo"><span class="e">🧴</span><div>Hoy <b>1 punto = $20.999</b> a precio de catálogo. Por ejemplo, un Capullos de Lino de 500 ml = 1 punto.</div></div>
         <p>Según cuántos puntos pedís en el ciclo, tu categoría y tu ganancia:</p>
         <div class="medallas">
           <div class="medalla" style="--c:var(--bronce)"><div class="nom">Bronce</div><div class="desde">desde 5 pts</div><div class="pct">20%</div><div class="lbl">regulares</div><span class="promo">10% promos</span></div>
@@ -457,7 +457,7 @@ function pintar(){
     if(!r){
       h += `<div class="resultado"><div class="grande">${total} pts en total</div><p>Para ser <b>Líder Plata</b> necesitás <b>50 pts</b> entre tu venta y la de tu equipo: te faltan <b>${50 - total}</b>.</p></div>`;
     } else {
-      const c = r.compra, gp = n("pers") * (NG.precioPublico - c), gd = n("dist") * (13999.20 - c), glp = n("lp") * Math.max(0, 12879.36 - c), glo = n("lo") * Math.max(0, 12319.38 - c), t = gp + gd + glp + glo;
+      const c = r.compra, gp = n("pers") * (NG.precioPublico - c), gd = n("dist") * (NG.distribuidoras[1].compra - c), glp = n("lp") * Math.max(0, NG.lideres[0].compra - c), glo = n("lo") * Math.max(0, NG.lideres[1].compra - c), t = gp + gd + glp + glo;
       h += `<div class="resultado"><p>Con ${total} pts sos <b>${r.nombre}</b></p><div class="grande">Ganás ${plata(t)}</div><p>por ciclo · unos <b>${plata(mes(t))} por mes</b></p>
         <p>Tu venta: ${plata(gp)} · Tus distribuidoras: ${plata(gd)}${glp ? ` · Tus Líderes Plata: ${plata(glp)}` : ""}${glo ? ` · Tus Líderes Oro: ${plata(glo)}` : ""}</p>${r.extra ? `<p>${r.extra}</p>` : ""}</div>`;
       if(sig) h += `<p>Con <b>${sig.desde - total} pts más</b> entre todo tu equipo llegás a <b>${sig.nombre}</b>.</p>`;

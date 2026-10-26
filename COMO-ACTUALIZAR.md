@@ -34,7 +34,7 @@ Las fotos de la semana anterior las podés borrar de la carpeta.
 
 ## 3. Precios de la calculadora
 
-Si cambian los precios por punto, se actualizan en `negocio.js`.
+Si cambia el valor del punto, se cambia el número `PUNTO` al principio de `negocio.js` (por ejemplo `20999`) y la calculadora se recalcula sola. Acordate de cambiar también el texto «1 punto = $…» en Primeros pasos (`index.html`).
 
 ## 4. Publicar
 

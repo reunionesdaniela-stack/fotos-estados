@@ -81,6 +81,7 @@ window.LINEAS = [
   {nombre: "Línea Premium", fotos: [
     {archivo: "fotos/lineas/premium/arabia.jpg", texto: "Línea Premium Arabia · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/toscana.jpg", texto: "Línea Premium Toscana · $14.899 (30% OFF) 🌍"},
+    {archivo: "fotos/lineas/premium/serrana.jpg", texto: "Línea Premium Serrana · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/alerces.jpg", texto: "Línea Premium Alerces · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/ipanema.jpg", texto: "Línea Premium Ipanema · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/indonesia.jpg", texto: "Línea Premium Indonesia · $18.499 🌍"},

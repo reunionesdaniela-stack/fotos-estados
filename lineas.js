@@ -87,7 +87,23 @@ window.LINEAS = [
     {archivo: "fotos/lineas/premium/andalucia.jpg", texto: "Línea Premium Andalucía · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/parisina.jpg", texto: "Línea Premium Parisina · $18.499 🌍"}
   ]},
-  {nombre: "Línea Hogar", fotos: []},
+  {nombre: "Esencias de Armonización", fotos: [
+    {archivo: "fotos/lineas/esencias-de-armonizacion/union.jpg", texto: "Esencia de Armonización Unión · aromatizante 300 ml $29.499 🌙"},
+    {archivo: "fotos/lineas/esencias-de-armonizacion/prosperidad.jpg", texto: "Esencia de Armonización Prosperidad · aromatizante 300 ml $29.499 🌙"},
+    {archivo: "fotos/lineas/esencias-de-armonizacion/energia.jpg", texto: "Esencia de Armonización Energía · aromatizante 300 ml $29.499 🌙"},
+    {archivo: "fotos/lineas/esencias-de-armonizacion/proteccion.jpg", texto: "Esencia de Armonización Protección · aromatizante 300 ml $29.499 🌙"},
+    {archivo: "fotos/lineas/esencias-de-armonizacion/purificacion.jpg", texto: "Esencia de Armonización Purificación · aromatizante 300 ml $29.499 🌙"},
+    {archivo: "fotos/lineas/esencias-de-armonizacion/equilibrio.jpg", texto: "Esencia de Armonización Equilibrio · aromatizante 300 ml $29.499 🌙"}
+  ]},
+  {nombre: "Línea Hogar", fotos: [
+    {archivo: "fotos/lineas/hogar/limpiador-multiuso-800.jpg", texto: "Limpiador Multiuso 800 ml · $29.499 · colaborás con TECHO 🏠"},
+    {archivo: "fotos/lineas/hogar/limpiador-electronicos.jpg", texto: "Limpiador para Electrónicos 100 ml · $10.399 (30% OFF) · incluye paño 📱"},
+    {archivo: "fotos/lineas/hogar/liquido-lavado-ropa.jpg", texto: "Líquido para Lavado de Ropa 800 ml · $36.499 · rinde 26 lavados 👕"},
+    {archivo: "fotos/lineas/hogar/limpiador-automovil.jpg", texto: "Limpiador para Automóvil · 800 ml $29.799 · 300 ml $14.999 🚗"},
+    {archivo: "fotos/lineas/hogar/limpiador-vidrios.jpg", texto: "Limpiador para Vidrios, Alfombras y Tapizados · 800 ml $24.999 · 300 ml $12.999 ✨"},
+    {archivo: "fotos/lineas/hogar/lavavajillas.jpg", texto: "Líquido Lavavajillas Limón o Menta · 800 ml $29.499 · 300 ml $14.499 🍋"},
+    {archivo: "fotos/lineas/hogar/pano-y-multiuso-300.jpg", texto: "Paño Multiuso $11.499 · Limpiador Multiuso 300 ml $14.499 🧽"}
+  ]},
   {nombre: "Bidones", fotos: []},
   {nombre: "Body Splash", fotos: []},
   {nombre: "Promociones", fotos: [

@@ -35,6 +35,10 @@ button.compartir svg{width:32px;height:32px;flex:none}
 .aviso{display:none;margin:12px 4px 0;padding:12px 14px;border-radius:12px;background:#FBF0CF;color:#4A3B0B;font-size:17px}
 .aviso.ver{display:block}
 .vacio{text-align:center;color:var(--muted);padding:40px 10px}
+.catalogo{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:24px}
+.catalogo h2{font-size:22px;margin:0 0 6px}
+.boton-grande{display:flex;align-items:center;justify-content:center;width:100%;min-height:64px;border:0;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);font-size:22px;font-weight:900;text-decoration:none;margin-top:10px;box-shadow:0 4px 0 var(--leaf-dark);cursor:pointer;font-family:inherit}
+.boton-grande.secundario{background:var(--surface);color:var(--leaf-dark);border:3px solid var(--leaf);box-shadow:none}
 .lineas{margin-bottom:26px}
 .lineas h2,.semana h2{font-size:24px;margin:0 0 12px}
 details.linea{background:var(--surface);border:2px solid var(--line);border-radius:16px;margin-bottom:10px}
@@ -60,6 +64,13 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
     <h2 id="titulo">Fotos de esta semana</h2>
     <p class="sub" id="fecha"></p>
     <div id="fotos"></div>
+  </section>
+
+  <section class="catalogo" aria-label="Catálogo">
+    <h2>Catálogo con precios</h2>
+    <p class="sub">El catálogo de Biogreen siempre actualizado, para mirar precios o mandárselo a tus clientas.</p>
+    <a class="boton-grande" href="https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1" target="_blank" rel="noopener">VER EL CATÁLOGO</a>
+    <button class="boton-grande secundario" id="compCat">COMPARTIR EL CATÁLOGO</button>
   </section>
 
   <section class="ayuda" aria-label="Cómo se usa">
@@ -110,6 +121,11 @@ $("#lineas").innerHTML = L.map(l => `
 
 $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
 
+$("#compCat").onclick = async () => {
+  const url = "https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1", texto = "Mirá el catálogo de Biogreen con los precios 🌿";
+  try{ if(navigator.share){ await navigator.share({title: "Catálogo Biogreen", text: texto, url}); return; } }catch(e){ if(e && e.name === "AbortError") return; }
+  location.href = "https://wa.me/?text=" + encodeURIComponent(texto + " " + url);
+};
 document.querySelectorAll("button.compartir").forEach(b => b.onclick = async () => {
   const f = {archivo: b.dataset.src}, aviso = $("#aviso-" + b.dataset.aviso);
   aviso.classList.remove("ver");
@@ -117,6 +133,7 @@ document.querySelectorAll("button.compartir").forEach(b => b.onclick = async () 
     const blob = await (await fetch(f.archivo)).blob();
     const nombre = f.archivo.split("/").pop();
     const file = new File([blob], nombre, {type: blob.type || "image/jpeg"});
+    try{ navigator.sendBeacon("https://ciclos-sg.netlify.app/api/compartir", JSON.stringify({f: f.archivo})); }catch(e){} // solo cuenta cuántas veces se comparte cada foto
     if(navigator.canShare && navigator.canShare({files: [file]})){
       await navigator.share({files: [file]});
       return;

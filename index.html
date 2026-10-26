@@ -414,11 +414,13 @@ const SECCIONES = [
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
-  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
+  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."},
+  {url: "https://forms.gle/XanErSHSpXLDXqaJ8", ico: "💬", nombre: "Sugerencias", desc: "Contanos qué te gustaría encontrar en la página."}
 ];
-const itemMenu = s => `<a href="#${s.v}"><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
+// las que tienen url abren un link afuera de la página (no tienen vista propia)
+const itemMenu = s => `<a href="${s.url || "#" + s.v}"${s.url ? ' target="_blank" rel="noopener"' : ""}><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
 $("#v-inicio .menu").innerHTML = SECCIONES.map(itemMenu).join("");
-SECCIONES.forEach(s => $("#v-" + s.v).insertAdjacentHTML("beforeend", `<section class="seguir"><h2>Seguí con…</h2><nav class="menu">${SECCIONES.filter(o => o !== s).map(itemMenu).join("")}</nav></section>`));
+SECCIONES.filter(s => s.v).forEach(s => $("#v-" + s.v).insertAdjacentHTML("beforeend", `<section class="seguir"><h2>Seguí con…</h2><nav class="menu">${SECCIONES.filter(o => o !== s).map(itemMenu).join("")}</nav></section>`));
 
 // vistas
 function mostrar(){

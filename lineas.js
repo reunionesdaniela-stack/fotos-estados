@@ -8,7 +8,6 @@ window.LINEAS = [
     {archivo: "fotos/lineas/esenciales/nardos-y-magnolias.jpg", texto: "Nardos & Magnolias · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/asarina.jpg", texto: "Asarina · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/cedro-y-jazmin.jpg", texto: "Cedro & Jazmín · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/oceano-y-savia.jpg", texto: "Océano & Savia · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/peonias-y-oud.jpg", texto: "Peonías & Oud · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/jengibre-limon-y-rosas.jpg", texto: "Jengibre, Limón & Rosas · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/praline-y-rosa-china.jpg", texto: "Praliné & Rosa China · 500 ml $20.999 · 240 ml $12.499 🌿"},
@@ -86,8 +85,7 @@ window.LINEAS = [
     {archivo: "fotos/lineas/premium/ipanema.jpg", texto: "Línea Premium Ipanema · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/indonesia.jpg", texto: "Línea Premium Indonesia · $18.499 🌍"},
     {archivo: "fotos/lineas/premium/andalucia.jpg", texto: "Línea Premium Andalucía · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/parisina.jpg", texto: "Línea Premium Parisina · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/serrana.jpg", texto: "Línea Premium Serrana · $18.499 🌍"}
+    {archivo: "fotos/lineas/premium/parisina.jpg", texto: "Línea Premium Parisina · $18.499 🌍"}
   ]},
   {nombre: "Línea Hogar", fotos: []},
   {nombre: "Bidones", fotos: []},

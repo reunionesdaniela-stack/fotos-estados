@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fotos para tus estados</title>
+<title>Tu negocio Biogreen</title>
 <meta name="robots" content="noindex">
 <style>
 :root{
@@ -52,45 +52,148 @@ details.linea[open]>summary{border-bottom:2px solid var(--line)}
 .linea-cuerpo .pista{margin:0 4px 14px;color:var(--muted);font-size:17px}
 .linea-cuerpo .foto{border-width:1px}
 footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 22px}
+.menu a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:96px;padding:10px;border-radius:18px;background:var(--surface);border:2px solid var(--line);color:var(--ink);text-decoration:none;font-weight:800;font-size:18px;text-align:center;line-height:1.2}
+.menu a span{font-size:30px}
+.menu a[aria-current="page"]{background:var(--leaf);border-color:var(--leaf);color:var(--leaf-ink)}
+.vista{display:none}
+.vista.activa{display:block}
+.tarjeta{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:18px}
+.tarjeta h2{font-size:23px;margin:0 0 8px}
+.tarjeta h3{font-size:20px;margin:14px 0 6px}
+.tarjeta p{margin:0 0 10px}
+.tarjeta ol,.tarjeta ul{margin:0 0 6px;padding-left:24px}
+.tarjeta li{margin-bottom:8px}
+.paso{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.paso .n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--leaf);color:var(--leaf-ink);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px}
+.destacado{background:#EDF2EA;border-left:6px solid var(--leaf);border-radius:12px;padding:12px 14px;margin:10px 0;font-size:18px}
+.herr{border-top:1px solid var(--line);padding:12px 0}
+.herr b{display:block;font-size:19px}
+.herr a{display:inline-block;margin-top:6px;font-weight:800;color:var(--leaf-dark)}
+.cats{width:100%;border-collapse:collapse;font-size:17px;margin:6px 0}
+.cats td,.cats th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left}
+.cats th{font-size:15px;color:var(--muted)}
+.seg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.seg2 button{min-height:54px;border-radius:14px;border:2px solid var(--leaf);background:var(--surface);color:var(--leaf-dark);font-size:17px;font-weight:800;font-family:inherit;cursor:pointer}
+.seg2 button[aria-pressed="true"]{background:var(--leaf);color:var(--leaf-ink)}
+.contador{display:flex;align-items:center;gap:10px;margin:6px 0 10px}
+.contador button{width:58px;height:58px;border-radius:14px;border:2px solid var(--leaf);background:var(--surface);color:var(--leaf-dark);font-size:30px;font-weight:900;cursor:pointer}
+.contador input{flex:1;min-width:0;height:58px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-size:28px;font-weight:900;text-align:center}
+.rapidos{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.rapidos button{border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;font-size:16px;font-weight:700;cursor:pointer}
+.resultado{background:var(--leaf);color:var(--leaf-ink);border-radius:18px;padding:16px 18px;margin:12px 0}
+.resultado .grande{font-size:34px;font-weight:900;line-height:1.1}
+.resultado p{margin:6px 0 0;font-size:17px}
+.campo{display:block;font-weight:700;margin:12px 0 0;font-size:17px}
+.nota{font-size:15px;color:var(--muted)}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <h1>Fotos para tus estados</h1>
-  <p class="sub">Elegí una foto, tocá <b>COMPARTIR</b> y subila a tu estado de WhatsApp.</p>
+  <h1>Tu negocio Biogreen</h1>
+  <p class="sub">Todo lo que necesitás, en un solo lugar. Tocá una opción.</p>
+  <nav class="menu" aria-label="Secciones">
+    <a href="#fotos" data-v="fotos"><span>📸</span>Fotos para estados</a>
+    <a href="#catalogo" data-v="catalogo"><span>📖</span>Catálogo</a>
+    <a href="#primeros" data-v="primeros"><span>🌱</span>Primeros pasos</a>
+    <a href="#calculadora" data-v="calculadora"><span>🧮</span>Calculá tu ganancia</a>
+  </nav>
 
+  <div class="vista" id="v-fotos">
+    <section class="ayuda" aria-label="Cómo se usa">
+      <h2>¿Cómo se usa?</h2>
+      <ol>
+        <li>Tocá el botón verde <b>COMPARTIR</b> debajo de la foto.</li>
+        <li>Elegí <b>WhatsApp</b>.</li>
+        <li>Tocá <b>Mi estado</b> y después la flechita para enviar.</li>
+      </ol>
+    </section>
+    <section class="semana">
+      <h2 id="titulo">Fotos de esta semana</h2>
+      <p class="sub" id="fecha"></p>
+      <div id="fotos"></div>
+    </section>
+    <section class="lineas" style="margin-top:28px" aria-label="Fotos de estados según línea">
+      <h2>Fotos de estados según línea</h2>
+      <div id="lineas"></div>
+    </section>
+  </div>
 
-  <section class="semana">
-    <h2 id="titulo">Fotos de esta semana</h2>
-    <p class="sub" id="fecha"></p>
-    <div id="fotos"></div>
-  </section>
+  <div class="vista" id="v-catalogo">
+    <section class="catalogo" aria-label="Catálogo">
+      <h2>Catálogo con precios</h2>
+      <p class="sub">El catálogo de Biogreen siempre actualizado, para mirar precios o mandárselo a tus clientas.</p>
+      <a class="boton-grande" href="https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1" target="_blank" rel="noopener">VER EL CATÁLOGO</a>
+      <button class="boton-grande secundario" id="compCat">COMPARTIR EL CATÁLOGO</button>
+    </section>
+  </div>
 
-  <section class="catalogo" aria-label="Catálogo">
-    <h2>Catálogo con precios</h2>
-    <p class="sub">El catálogo de Biogreen siempre actualizado, para mirar precios o mandárselo a tus clientas.</p>
-    <a class="boton-grande" href="https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1" target="_blank" rel="noopener">VER EL CATÁLOGO</a>
-    <button class="boton-grande secundario" id="compCat">COMPARTIR EL CATÁLOGO</button>
-  </section>
+  <div class="vista" id="v-primeros">
+    <section class="tarjeta">
+      <h2>1. Empezá conectando</h2>
+      <p>El negocio crece cuando más personas conocen la propuesta. <b>El primer paso no es vender: es conectar.</b></p>
+      <div class="paso"><span class="n">1</span><div><b>Tu círculo cercano.</b> Familia, amistades, conocidos, compañeros de trabajo y tus contactos. Ya te conocen y confían en vos: son tus primeras ventas.</div></div>
+      <div class="paso"><span class="n">2</span><div><b>Pedí recomendaciones.</b> Preguntale a cada clienta si conoce a alguien a quien le pueda interesar. Así tu red crece más allá de tus conocidos.</div></div>
+      <div class="paso"><span class="n">3</span><div><b>Usá tus redes.</b> Mostrá los productos, contá tu experiencia y mantené el contacto. Las fotos de esta página son para eso.</div></div>
+      <div class="destacado">Cada contacto es una oportunidad. Cada oportunidad bien acompañada puede ser una venta.</div>
+    </section>
 
-  <section class="ayuda" aria-label="Cómo se usa">
-    <h2>¿Cómo se usa?</h2>
-    <ol>
-      <li>Tocá el botón verde <b>COMPARTIR</b> debajo de la foto.</li>
-      <li>Elegí <b>WhatsApp</b>.</li>
-      <li>Tocá <b>Mi estado</b> y después la flechita para enviar.</li>
-    </ol>
-  </section>
+    <section class="tarjeta">
+      <h2>2. Categorías y ganancias</h2>
+      <p>Todo se mide en <b>puntos</b>: cada producto suma puntos según su precio (figuran en el catálogo). Hoy <b>1 punto = $19.999</b> a precio de catálogo. Por ejemplo, un Capullos de Lino de 500 ml = 1 punto.</p>
+      <table class="cats">
+        <tr><th>Categoría</th><th>Desde</th><th>Regulares</th><th>Promos</th></tr>
+        <tr><td><b>Bronce</b></td><td>5 pts</td><td>20%</td><td>10%</td></tr>
+        <tr><td><b>Plata</b></td><td>10 pts</td><td>30%</td><td>20%</td></tr>
+        <tr><td><b>Oro</b></td><td>20 pts</td><td>30%</td><td>20%</td></tr>
+      </table>
+      <p class="nota">El <b>pedido mínimo es de 5 pts</b>. Con Oro, además sumás premios en productos para vender.</p>
+      <a class="boton-grande secundario" href="#calculadora">CALCULÁ TU GANANCIA</a>
+    </section>
 
-  <section class="lineas" style="margin-top:28px" aria-label="Fotos de estados según línea">
-    <h2>Fotos de estados según línea</h2>
-    <div id="lineas"></div>
-  </section>
-  <footer>¿Dudas? Escribile a tu líder 🌿</footer>
+    <section class="tarjeta">
+      <h2>3. Tus herramientas</h2>
+      <div class="herr"><b>📖 Catálogo</b>Tu principal herramienta para mostrar los productos. Lo podés ver online y compartir por WhatsApp.<br><a href="#catalogo">Ver el catálogo ›</a></div>
+      <div class="herr"><b>🧴 Muestrarios y demostradores</b>Para que tus clientas prueben los aromas. Hacer vivir la experiencia es lo que más vende.</div>
+      <div class="herr"><b>🎁 Kit de inicio</b>Lo que necesitás para dar tus primeros pasos. Consultá a tu líder por el Kit de Inicio promocional.</div>
+      <div class="herr"><b>💻 Bionet</b>La plataforma para hacer pedidos, ver información actualizada y bajar materiales. También tiene la Escuela de Negocios, con cursos gratis.<br><a href="https://bionet.vgs.com.ar/movistock/public/login" target="_blank" rel="noopener">Entrar a Bionet ›</a></div>
+      <div class="herr"><b>👥 Bioportunidad</b>Una presentación para mostrar el negocio en una reunión y sumar más personas.<br><a href="https://docs.google.com/presentation/d/1cott8zfiU3FYZ6FclP10KlLmQbEDQ_Dt/edit" target="_blank" rel="noopener">Ver la Bioportunidad ›</a></div>
+      <div class="herr"><b>📱 Posteos para tus redes</b>Lo que publica Biogreen, listo para que lo compartas en tus redes.<br><a href="https://drive.google.com/drive/folders/19pHMK1xzHBGsDsnseQ0LbxUXeN0T7k9X" target="_blank" rel="noopener">Ver los posteos ›</a></div>
+    </section>
+
+    <section class="tarjeta">
+      <h2>4. Cómo funciona un ciclo</h2>
+      <p>El año tiene <b>17 ciclos de 21 días</b>. En cada ciclo hay lanzamientos, promociones y objetivos nuevos, y podés hacer <b>todos los pedidos que necesites</b>.</p>
+      <div class="paso"><span class="n">1</span><div><b>Vendé y tomá pedidos.</b> Mostrá, recomendá y anotá lo que te piden tus clientas.</div></div>
+      <div class="paso"><span class="n">2</span><div><b>Recibí la mercadería.</b> Te llega por la logística de Biogreen.</div></div>
+      <div class="paso"><span class="n">3</span><div><b>Entregá y cobrá</b> a cada clienta.</div></div>
+      <div class="paso"><span class="n">4</span><div><b>Pagá tu pedido:</b> con el botón de pago (si sos directa) o a través de tu líder.</div></div>
+      <div class="paso"><span class="n">5</span><div><b>Seguí en contacto.</b> Preguntá cómo les fue, pedí recomendaciones y planificá el próximo ciclo.</div></div>
+    </section>
+
+    <section class="tarjeta">
+      <h2>5. Dos formas de trabajar</h2>
+      <h3>Con tu líder (modelo delegado)</h3>
+      <p>Tu líder recibe tu pedido, lo prepara, lo entrega y se ocupa del pago. Vos te dedicás a vender y atender a tus clientas.</p>
+      <h3>Directa con Biogreen (Biogreen Te Impulsa)</h3>
+      <p>Biogreen recibe, prepara, cobra, factura y te envía el pedido. Tenés stock en línea, varios medios de pago y opciones de envío.</p>
+      <div class="destacado">¿No sabés cuál te conviene? Consultá a tu líder 🌿</div>
+    </section>
+  </div>
+
+  <div class="vista" id="v-calculadora">
+    <section class="tarjeta">
+      <h2>Calculá tu ganancia</h2>
+      <div class="seg2" role="group" aria-label="Tipo de cálculo"><button data-modo="dist" aria-pressed="true">Soy distribuidora</button><button data-modo="lider" aria-pressed="false">Tengo equipo</button></div>
+      <div id="calc"></div>
+      <p class="nota">Valores aproximados, a precio de catálogo. Pueden cambiar con las promociones y los precios de cada ciclo. Ante cualquier duda, consultá a tu líder.</p>
+    </section>
+  </div>
 </main>
 
 <script src="semana.js"></script>
 <script src="lineas.js"></script>
+<script src="negocio.js"></script>
 <script>
 const S = window.SEMANA || {fotos: []};
 const $ = s => document.querySelector(s);
@@ -120,6 +223,53 @@ $("#lineas").innerHTML = L.map(l => `
   </details>`).join("");
 
 $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
+
+// vistas (menú de arriba)
+function mostrar(){
+  const v = (location.hash || "#fotos").slice(1), ok = ["fotos", "catalogo", "primeros", "calculadora"].includes(v) ? v : "fotos";
+  document.querySelectorAll(".vista").forEach(x => x.classList.toggle("activa", x.id === "v-" + ok));
+  document.querySelectorAll(".menu a").forEach(a => a.setAttribute("aria-current", a.dataset.v === ok ? "page" : "false"));
+}
+window.addEventListener("hashchange", () => { mostrar(); document.querySelector(".menu").scrollIntoView({behavior:"smooth"}); });
+mostrar();
+
+// calculadora
+const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;
+const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0};
+function contador(k, label){ return `<label class="campo" for="c-${k}">${label}</label><div class="contador"><button data-menos="${k}" aria-label="Menos">−</button><input id="c-${k}" data-k="${k}" type="number" inputmode="numeric" min="0" value="${calc[k]}"><button data-mas="${k}" aria-label="Más">+</button></div>`; }
+function pintar(){
+  let h = "";
+  if(calc.modo === "dist"){
+    const p = Math.max(0, +calc.pts || 0), cat = NG.distribuidoras.find(c => p >= c.desde && p <= c.hasta), sig = NG.distribuidoras.find(c => c.desde > p);
+    h += contador("pts", "¿Cuántos puntos vendés por ciclo?") + `<div class="rapidos">${[5, 10, 20, 30, 50].map(n => `<button data-rapido="${n}">${n} pts</button>`).join("")}</div>`;
+    if(!cat) h += `<div class="resultado"><div class="grande">Te faltan ${5 - p} pts</div><p>El pedido mínimo es de 5 puntos. Desde ahí ya tenés 20% de ganancia.</p></div>`;
+    else {
+      const gana = (NG.precioPublico - cat.compra) * p;
+      h += `<div class="resultado"><p>Sos <b>Distribuidora ${cat.nombre}</b> (${cat.descuento}% en productos regulares)</p><div class="grande">Ganás ${plata(gana)}</div><p>por ciclo · unos <b>${plata(mes(gana))} por mes</b></p><p>Vendés ${plata(NG.precioPublico * p)} a precio de catálogo y lo comprás a ${plata(cat.compra * p)}.</p>${cat.extra ? `<p>${cat.extra}</p>` : ""}</div>`;
+      if(sig){ const g2 = (NG.precioPublico - sig.compra) * sig.desde; h += `<p>Con <b>${sig.desde - p} pts más</b> pasás a <b>${sig.nombre}</b> y ganarías ${plata(g2)} por ciclo.</p>`; }
+    }
+  } else {
+    const n = k => Math.max(0, +calc[k] || 0), total = n("pers") + n("dist") + n("lp") + n("lo");
+    const r = NG.lideres.find(c => total >= c.desde && total <= c.hasta), sig = NG.lideres.find(c => c.desde > total);
+    h += contador("pers", "Tu venta personal (pts)") + contador("dist", "Lo que venden tus distribuidoras (pts)") + contador("lp", "Lo que venden tus Líderes Plata (pts)") + contador("lo", "Lo que venden tus Líderes Oro (pts)");
+    if(!r){
+      h += `<div class="resultado"><div class="grande">${total} pts en total</div><p>Para ser <b>Líder Plata</b> necesitás <b>50 pts</b> entre tu venta y la de tu equipo: te faltan <b>${50 - total}</b>.</p></div>`;
+    } else {
+      const c = r.compra, gp = n("pers") * (NG.precioPublico - c), gd = n("dist") * (13999.20 - c), glp = n("lp") * Math.max(0, 12879.36 - c), glo = n("lo") * Math.max(0, 12319.38 - c), t = gp + gd + glp + glo;
+      h += `<div class="resultado"><p>Con ${total} pts sos <b>${r.nombre}</b></p><div class="grande">Ganás ${plata(t)}</div><p>por ciclo · unos <b>${plata(mes(t))} por mes</b></p>
+        <p>Tu venta: ${plata(gp)} · Tus distribuidoras: ${plata(gd)}${glp ? ` · Tus Líderes Plata: ${plata(glp)}` : ""}${glo ? ` · Tus Líderes Oro: ${plata(glo)}` : ""}</p>${r.extra ? `<p>${r.extra}</p>` : ""}</div>`;
+      if(sig) h += `<p>Con <b>${sig.desde - total} pts más</b> entre todo tu equipo llegás a <b>${sig.nombre}</b>.</p>`;
+    }
+    h += `<p class="nota">Cálculo con el modelo delegado: tus distribuidoras te compran a vos con el 30%. Además suman los premios por productividad.</p>`;
+  }
+  $("#calc").innerHTML = h;
+  document.querySelectorAll("#calc [data-k]").forEach(i => i.oninput = () => { calc[i.dataset.k] = i.value; const y = i.selectionStart; pintar(); const n = $("#c-" + i.dataset.k); n.focus(); try{ n.setSelectionRange(y, y); }catch(e){} });
+  document.querySelectorAll("#calc [data-mas]").forEach(b => b.onclick = () => { calc[b.dataset.mas] = (+calc[b.dataset.mas] || 0) + 1; pintar(); });
+  document.querySelectorAll("#calc [data-menos]").forEach(b => b.onclick = () => { calc[b.dataset.menos] = Math.max(0, (+calc[b.dataset.menos] || 0) - 1); pintar(); });
+  document.querySelectorAll("#calc [data-rapido]").forEach(b => b.onclick = () => { calc.pts = +b.dataset.rapido; pintar(); });
+}
+document.querySelectorAll("[data-modo]").forEach(b => b.onclick = () => { calc.modo = b.dataset.modo; document.querySelectorAll("[data-modo]").forEach(x => x.setAttribute("aria-pressed", x === b)); pintar(); });
+pintar();
 
 $("#compCat").onclick = async () => {
   const url = "https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1", texto = "Mirá el catálogo de Biogreen con los precios 🌿";

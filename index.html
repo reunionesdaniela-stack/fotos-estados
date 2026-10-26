@@ -47,6 +47,8 @@ button.compartir:active{transform:translateY(3px);box-shadow:0 1px 0 var(--leaf-
 button.compartir svg{width:32px;height:32px;flex:none}
 .aviso{display:none;margin:12px 4px 0;padding:12px 14px;border-radius:12px;background:#FBF0CF;color:#4A3B0B;font-size:17px}
 .aviso.ver{display:block}
+.novedades{margin-bottom:28px}
+.nuevo{display:inline-block;vertical-align:middle;font-size:13px;font-weight:900;letter-spacing:1px;background:#C2185B;color:#fff;border-radius:999px;padding:3px 10px;margin-right:4px}
 .vacio{text-align:center;color:var(--muted);padding:40px 10px}
 .catalogo{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:24px}
 .catalogo h2{font-size:22px;margin:0 0 6px}
@@ -223,6 +225,11 @@ a.herra:active{background:var(--soft)}
         <li>Tocá <b>Mi estado</b> y después la flechita para enviar.</li>
       </ol>
     </section>
+    <section class="semana novedades" id="sec-novedades" hidden>
+      <h2><span class="nuevo">NUEVO</span> <span id="nov-titulo">Novedades</span></h2>
+      <p class="sub" id="nov-vigencia"></p>
+      <div id="novedades"></div>
+    </section>
     <section class="semana">
       <h2 id="titulo">Fotos de esta semana</h2>
       <p class="sub" id="fecha"></p>
@@ -363,6 +370,7 @@ a.herra:active{background:var(--soft)}
 </main>
 
 <script src="semana.js"></script>
+<script src="novedades.js"></script>
 <script src="lineas.js"></script>
 <script src="negocio.js"></script>
 <script>
@@ -393,11 +401,19 @@ $("#lineas").innerHTML = L.map(l => `
     </div>
   </details>`).join("");
 
+const N = window.NOVEDADES || {fotos: []};
+if(N.fotos.length){
+  $("#sec-novedades").hidden = false;
+  if(N.titulo) $("#nov-titulo").textContent = N.titulo;
+  if(N.vigencia) $("#nov-vigencia").textContent = N.vigencia;
+  $("#novedades").innerHTML = N.fotos.map((f, i) => fotoHTML(f, i, N.fotos.length)).join("");
+}
+
 $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
 
 // secciones: la portada las lista y cada sección muestra las otras al final
 const SECCIONES = [
-  {v: "fotos", ico: "📸", nombre: "Fotos para estados", desc: "Fotos listas para compartir en tu WhatsApp."},
+  {v: "fotos", ico: "📸", nombre: "Fotos para estados", desc: "Novedades y fotos listas para tu WhatsApp."},
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},

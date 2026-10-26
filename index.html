@@ -8,12 +8,13 @@
 <style>
 :root{
   --bg:#EDF2EA; --surface:#FFFFFF; --ink:#17291D; --muted:#4F6155; --line:#D3DECF;
-  --leaf:#2E6A44; --leaf-ink:#FFFFFF; --leaf-dark:#1F4E31;
+  --leaf:#2E6A44; --leaf-ink:#FFFFFF; --leaf-dark:#1F4E31; --leaf-deep:#1A4029; --hero1:#2E6A44; --soft:#E3EEDF;
+  --bronce:#A86A3D; --plata:#7D8A94; --oro:#B8922A;
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ --bg:#0F1712; --surface:#17231B; --ink:#E4EEE5; --muted:#A9BCAE; --line:#2A3B2F; --leaf:#6FB585; --leaf-ink:#0F1712; --leaf-dark:#8FCBA2; }
+  :root:not([data-theme="light"]){ --bg:#0F1712; --surface:#17231B; --ink:#E4EEE5; --muted:#A9BCAE; --line:#2A3B2F; --leaf:#6FB585; --leaf-ink:#0F1712; --leaf-dark:#8FCBA2; --leaf-deep:#173323; --hero1:#2B5A3B; --soft:#213328; --bronce:#D29A6E; --plata:#AEBAC3; --oro:#E2C060; }
 }
-:root[data-theme="dark"]{ --bg:#0F1712; --surface:#17231B; --ink:#E4EEE5; --muted:#A9BCAE; --line:#2A3B2F; --leaf:#6FB585; --leaf-ink:#0F1712; --leaf-dark:#8FCBA2; }
+:root[data-theme="dark"]{ --bg:#0F1712; --surface:#17231B; --ink:#E4EEE5; --muted:#A9BCAE; --line:#2A3B2F; --leaf:#6FB585; --leaf-ink:#0F1712; --leaf-dark:#8FCBA2; --leaf-deep:#173323; --hero1:#2B5A3B; --soft:#213328; --bronce:#D29A6E; --plata:#AEBAC3; --oro:#E2C060; }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:19px;line-height:1.45}
@@ -52,10 +53,37 @@ details.linea[open]>summary{border-bottom:2px solid var(--line)}
 .linea-cuerpo .pista{margin:0 4px 14px;color:var(--muted);font-size:17px}
 .linea-cuerpo .foto{border-width:1px}
 footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 22px}
-.menu a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:96px;padding:10px;border-radius:18px;background:var(--surface);border:2px solid var(--line);color:var(--ink);text-decoration:none;font-weight:800;font-size:18px;text-align:center;line-height:1.2}
-.menu a span{font-size:30px}
-.menu a[aria-current="page"]{background:var(--leaf);border-color:var(--leaf);color:var(--leaf-ink)}
+/* portada */
+.hero{background:linear-gradient(160deg,var(--hero1) 0%,var(--leaf-deep) 100%);color:#fff;border-radius:26px;padding:26px 22px 24px;margin:4px 0 22px;position:relative;overflow:hidden}
+.hero::after{content:"🌿";position:absolute;right:-14px;bottom:-22px;font-size:120px;opacity:.16;transform:rotate(-18deg)}
+.hero .marca{display:inline-block;font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:rgba(255,255,255,.18);padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.hero h1{color:#fff;font-size:32px;margin:0 0 10px}
+.hero p{margin:0 0 10px;font-size:18px;color:rgba(255,255,255,.92);position:relative;z-index:1}
+.hero p:last-child{margin-bottom:0}
+.titulo-sec{font-size:22px;margin:0 0 4px}
+.menu{display:flex;flex-direction:column;gap:12px;margin:12px 0 24px}
+.menu a{display:flex;align-items:center;gap:14px;min-height:92px;padding:14px 16px;border-radius:20px;background:var(--surface);border:2px solid var(--line);color:var(--ink);text-decoration:none}
+.menu a:active{transform:scale(.99)}
+.menu .ico{flex:none;width:58px;height:58px;border-radius:16px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:30px}
+.menu .txt{flex:1;min-width:0}
+.menu .txt b{display:block;font-size:20px;line-height:1.2}
+.menu .txt small{display:block;color:var(--muted);font-size:16px;line-height:1.3;margin-top:3px}
+.menu .flecha{flex:none;width:12px;height:12px;border-right:3px solid var(--leaf);border-top:3px solid var(--leaf);transform:rotate(45deg);margin-right:6px}
+.tip{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px dashed var(--line);border-radius:18px;padding:14px 16px;font-size:17px;color:var(--muted)}
+.tip span{font-size:24px}
+/* barra de sección */
+.barra{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;align-items:center;gap:10px;padding:10px 0;margin:-20px 0 14px;border-bottom:2px solid var(--line)}
+.barra[hidden]{display:none}
+.barra a{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 16px 0 12px;border-radius:999px;background:var(--surface);border:2px solid var(--line);color:var(--leaf-dark);font-weight:800;font-size:17px;text-decoration:none}
+.barra a::before{content:"";width:9px;height:9px;border-left:3px solid currentColor;border-bottom:3px solid currentColor;transform:rotate(45deg);margin-left:4px}
+.barra .donde{font-weight:800;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cab{margin:4px 0 18px}
+.cab h1{margin:0 0 6px}
+.cab .sub{margin:0}
+.seguir{margin-top:30px}
+.seguir h2{font-size:20px;margin:0 0 4px;color:var(--muted)}
+.seguir .menu a{min-height:72px}
+.seguir .menu .ico{width:46px;height:46px;font-size:24px;border-radius:12px}
 .vista{display:none}
 .vista.activa{display:block}
 .tarjeta{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:18px}
@@ -66,7 +94,7 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .tarjeta li{margin-bottom:8px}
 .paso{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
 .paso .n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--leaf);color:var(--leaf-ink);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px}
-.destacado{background:#EDF2EA;border-left:6px solid var(--leaf);border-radius:12px;padding:12px 14px;margin:10px 0;font-size:18px}
+.destacado{background:var(--soft);border-left:6px solid var(--leaf);border-radius:12px;padding:12px 14px;margin:10px 0;font-size:18px}
 .herr{border-top:1px solid var(--line);padding:12px 0}
 .herr b{display:block;font-size:19px}
 .herr a{display:inline-block;margin-top:6px;font-weight:800;color:var(--leaf-dark)}
@@ -86,20 +114,84 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .resultado p{margin:6px 0 0;font-size:17px}
 .campo{display:block;font-weight:700;margin:12px 0 0;font-size:17px}
 .nota{font-size:15px;color:var(--muted)}
+/* primeros pasos */
+.indice{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:6px 8px;margin-bottom:22px}
+.indice button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:6px 8px;border:0;background:none;color:var(--ink);font:inherit;font-size:18px;font-weight:700;text-align:left;cursor:pointer;border-bottom:1px solid var(--line)}
+.indice button:last-child{border-bottom:0}
+.indice button i{flex:none;font-style:normal;width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--leaf-dark);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+.etapa{background:var(--surface);border:2px solid var(--line);border-radius:22px;margin-bottom:20px;overflow:hidden;scroll-margin-top:84px}
+.etapa-cab{display:flex;align-items:center;gap:14px;padding:18px 18px 14px;background:var(--soft)}
+.etapa-cab .big{flex:none;width:52px;height:52px;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900}
+.etapa-cab small{display:block;font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--leaf-dark)}
+.etapa-cab h2{font-size:23px;line-height:1.15;margin:2px 0 0}
+.etapa-cuerpo{padding:16px 18px 18px}
+.etapa-cuerpo>p{margin:0 0 14px}
+.puntos{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.punto{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.punto .e{flex:none;font-size:26px;line-height:1.2}
+.punto b{display:block}
+.etapa-cuerpo a:not([class]){color:var(--leaf-dark);font-weight:700}
+.medallas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 12px}
+.medalla{border:2px solid var(--line);border-top:6px solid var(--c);border-radius:16px;padding:12px 6px 10px;text-align:center}
+.medalla .nom{font-weight:900;font-size:18px;color:var(--c)}
+.medalla .desde{font-size:14px;color:var(--muted);margin-bottom:6px}
+.medalla .pct{font-size:30px;font-weight:900;line-height:1}
+.medalla .lbl{font-size:13px;color:var(--muted);margin-bottom:6px}
+.medalla .promo{font-size:13px;font-weight:700;background:var(--soft);border-radius:999px;padding:2px 8px;display:inline-block;white-space:nowrap}
+.ejemplo{display:flex;gap:12px;align-items:center;background:var(--soft);border-radius:16px;padding:12px 14px;margin-bottom:12px;font-size:17px}
+.ejemplo .e{font-size:28px}
+.herrs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.herra{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line);border-radius:16px;padding:14px 12px;color:var(--ink);text-decoration:none;font-size:16px;line-height:1.35}
+.herra .e{font-size:30px;line-height:1}
+.herra b{font-size:18px;margin-top:4px}
+.herra .ir{margin-top:auto;padding-top:6px;font-weight:800;color:var(--leaf-dark);font-size:16px}
+a.herra:active{background:var(--soft)}
+.linea-tiempo{list-style:none;margin:0 0 4px;padding:0;position:relative}
+.linea-tiempo::before{content:"";position:absolute;left:21px;top:20px;bottom:24px;width:3px;background:var(--line);border-radius:2px}
+.linea-tiempo li{position:relative;display:flex;gap:14px;align-items:flex-start;padding-bottom:16px}
+.linea-tiempo li:last-child{padding-bottom:0}
+.linea-tiempo .n{flex:none;position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:var(--leaf);color:var(--leaf-ink);display:flex;align-items:center;justify-content:center;font-size:22px;border:4px solid var(--surface)}
+.linea-tiempo div{padding-top:8px}
+.linea-tiempo b{display:block}
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.dato{background:var(--soft);border-radius:16px;padding:12px;text-align:center}
+.dato b{display:block;font-size:30px;line-height:1.1;color:var(--leaf-dark)}
+.dato span{font-size:15px;color:var(--muted)}
+.formas{display:flex;flex-direction:column;gap:12px;margin-bottom:12px}
+.forma{border:2px solid var(--line);border-radius:18px;padding:14px 16px}
+.forma .tag{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--leaf-dark);background:var(--soft);border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.forma h3{font-size:20px;margin:0 0 8px}
+.forma ul{list-style:none;margin:0;padding:0}
+.forma li{position:relative;padding-left:28px;margin-bottom:6px;font-size:17px}
+.forma li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--leaf);font-weight:900}
+.final{background:linear-gradient(160deg,var(--hero1) 0%,var(--leaf-deep) 100%);color:#fff;border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:8px}
+.final h2{font-size:24px;margin:0 0 6px;color:#fff}
+.final p{margin:0 0 6px;color:rgba(255,255,255,.92)}
+.final .boton-grande{background:#fff;color:var(--leaf-deep);box-shadow:none}
+.final .boton-grande.secundario{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <h1>Tu negocio Biogreen</h1>
-  <p class="sub">Todo lo que necesitás, en un solo lugar. Tocá una opción.</p>
-  <nav class="menu" aria-label="Secciones">
-    <a href="#fotos" data-v="fotos"><span>📸</span>Fotos para estados</a>
-    <a href="#catalogo" data-v="catalogo"><span>📖</span>Catálogo</a>
-    <a href="#primeros" data-v="primeros"><span>🌱</span>Primeros pasos</a>
-    <a href="#calculadora" data-v="calculadora"><span>🧮</span>Calculá tu ganancia</a>
-  </nav>
+  <div class="vista" id="v-inicio">
+    <header class="hero">
+      <span class="marca">Biogreen</span>
+      <h1>Tu negocio Biogreen</h1>
+      <p>Este es tu espacio para hacer crecer tu negocio. Acá encontrás todo lo que necesitás para vender, en un solo lugar y siempre actualizado.</p>
+      <p>Fotos listas para tus estados, el catálogo con precios, una guía para empezar y una calculadora para saber cuánto podés ganar.</p>
+    </header>
+
+    <h2 class="titulo-sec">¿Qué necesitás hoy?</h2>
+    <p class="sub">Tocá una opción para entrar.</p>
+    <nav class="menu" aria-label="Secciones"></nav>
+
+    <div class="tip"><span>💡</span><div><b>Guardala en tu celular.</b> Abrí el menú del navegador y elegí «Agregar a la pantalla de inicio» para tenerla siempre a mano.</div></div>
+  </div>
+
+  <div class="barra" id="barra" hidden><a href="#inicio">Inicio</a><span class="donde" id="donde"></span></div>
 
   <div class="vista" id="v-fotos">
+    <div class="cab"><h1>Fotos para estados</h1><p class="sub">Fotos listas para compartir en tu estado de WhatsApp.</p></div>
     <section class="ayuda" aria-label="Cómo se usa">
       <h2>¿Cómo se usa?</h2>
       <ol>
@@ -120,6 +212,7 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
   </div>
 
   <div class="vista" id="v-catalogo">
+    <div class="cab"><h1>Catálogo</h1></div>
     <section class="catalogo" aria-label="Catálogo">
       <h2>Catálogo con precios</h2>
       <p class="sub">El catálogo de Biogreen siempre actualizado, para mirar precios o mandárselo a tus clientas.</p>
@@ -129,59 +222,100 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
   </div>
 
   <div class="vista" id="v-primeros">
-    <section class="tarjeta">
-      <h2>1. Empezá conectando</h2>
-      <p>El negocio crece cuando más personas conocen la propuesta. <b>El primer paso no es vender: es conectar.</b></p>
-      <div class="paso"><span class="n">1</span><div><b>Tu círculo cercano.</b> Familia, amistades, conocidos, compañeros de trabajo y tus contactos. Ya te conocen y confían en vos: son tus primeras ventas.</div></div>
-      <div class="paso"><span class="n">2</span><div><b>Pedí recomendaciones.</b> Preguntale a cada clienta si conoce a alguien a quien le pueda interesar. Así tu red crece más allá de tus conocidos.</div></div>
-      <div class="paso"><span class="n">3</span><div><b>Usá tus redes.</b> Mostrá los productos, contá tu experiencia y mantené el contacto. Las fotos de esta página son para eso.</div></div>
-      <div class="destacado">Cada contacto es una oportunidad. Cada oportunidad bien acompañada puede ser una venta.</div>
+    <div class="cab"><h1>Primeros pasos</h1><p class="sub">Tu guía para empezar con Biogreen, en 5 pasos simples. Tocá un paso para ir directo.</p></div>
+
+    <nav class="indice" aria-label="Pasos">
+      <button data-ir="p1"><i>1</i>Empezá conectando</button>
+      <button data-ir="p2"><i>2</i>Categorías y ganancias</button>
+      <button data-ir="p3"><i>3</i>Tus herramientas</button>
+      <button data-ir="p4"><i>4</i>Cómo funciona un ciclo</button>
+      <button data-ir="p5"><i>5</i>Dos formas de trabajar</button>
+    </nav>
+
+    <section class="etapa" id="p1">
+      <div class="etapa-cab"><span class="big">1</span><div><small>Paso 1</small><h2>Empezá conectando</h2></div></div>
+      <div class="etapa-cuerpo">
+        <p>El negocio crece cuando más personas conocen la propuesta. <b>El primer paso no es vender: es conectar.</b></p>
+        <div class="puntos">
+          <div class="punto"><span class="e">👨‍👩‍👧</span><div><b>Tu círculo cercano</b>Familia, amistades, compañeros de trabajo y tus contactos. Ya te conocen y confían en vos: son tus primeras ventas.</div></div>
+          <div class="punto"><span class="e">🤝</span><div><b>Pedí recomendaciones</b>Preguntale a cada clienta si conoce a alguien a quien le pueda interesar. Así tu red crece más allá de tus conocidos.</div></div>
+          <div class="punto"><span class="e">📱</span><div><b>Usá tus redes</b>Mostrá los productos, contá tu experiencia y mantené el contacto. <a href="#fotos">Las fotos para estados</a> son para eso.</div></div>
+        </div>
+        <div class="destacado">Cada contacto es una oportunidad. Cada oportunidad bien acompañada puede ser una venta.</div>
+      </div>
     </section>
 
-    <section class="tarjeta">
-      <h2>2. Categorías y ganancias</h2>
-      <p>Todo se mide en <b>puntos</b>: cada producto suma puntos según su precio (figuran en el catálogo). Hoy <b>1 punto = $19.999</b> a precio de catálogo. Por ejemplo, un Capullos de Lino de 500 ml = 1 punto.</p>
-      <table class="cats">
-        <tr><th>Categoría</th><th>Desde</th><th>Regulares</th><th>Promos</th></tr>
-        <tr><td><b>Bronce</b></td><td>5 pts</td><td>20%</td><td>10%</td></tr>
-        <tr><td><b>Plata</b></td><td>10 pts</td><td>30%</td><td>20%</td></tr>
-        <tr><td><b>Oro</b></td><td>20 pts</td><td>30%</td><td>20%</td></tr>
-      </table>
-      <p class="nota">El <b>pedido mínimo es de 5 pts</b>. Con Oro, además sumás premios en productos para vender.</p>
+    <section class="etapa" id="p2">
+      <div class="etapa-cab"><span class="big">2</span><div><small>Paso 2</small><h2>Categorías y ganancias</h2></div></div>
+      <div class="etapa-cuerpo">
+        <p>Todo se mide en <b>puntos</b>: cada producto suma puntos según su precio (figuran en el catálogo).</p>
+        <div class="ejemplo"><span class="e">🧴</span><div>Hoy <b>1 punto = $19.999</b> a precio de catálogo. Por ejemplo, un Capullos de Lino de 500 ml = 1 punto.</div></div>
+        <p>Según cuántos puntos pedís en el ciclo, tu categoría y tu ganancia:</p>
+        <div class="medallas">
+          <div class="medalla" style="--c:var(--bronce)"><div class="nom">Bronce</div><div class="desde">desde 5 pts</div><div class="pct">20%</div><div class="lbl">regulares</div><span class="promo">10% promos</span></div>
+          <div class="medalla" style="--c:var(--plata)"><div class="nom">Plata</div><div class="desde">desde 10 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span></div>
+          <div class="medalla" style="--c:var(--oro)"><div class="nom">Oro</div><div class="desde">desde 20 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span></div>
+        </div>
+        <p class="nota">El <b>pedido mínimo es de 5 pts</b>. Con Oro, además sumás premios en productos para vender.</p>
+        <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
+      </div>
+    </section>
+
+    <section class="etapa" id="p3">
+      <div class="etapa-cab"><span class="big">3</span><div><small>Paso 3</small><h2>Tus herramientas</h2></div></div>
+      <div class="etapa-cuerpo">
+        <div class="herrs">
+          <a class="herra" href="#catalogo"><span class="e">📖</span><b>Catálogo</b>Para mostrar los productos y compartir por WhatsApp.<span class="ir">Ver ›</span></a>
+          <div class="herra"><span class="e">🧴</span><b>Muestrarios</b>Para que tus clientas prueben los aromas. La experiencia es lo que más vende.</div>
+          <div class="herra"><span class="e">🎁</span><b>Kit de inicio</b>Para dar tus primeros pasos. Consultá a tu líder por el Kit promocional.</div>
+          <a class="herra" href="https://bionet.vgs.com.ar/movistock/public/login" target="_blank" rel="noopener"><span class="e">💻</span><b>Bionet</b>Pedidos, materiales y la Escuela de Negocios con cursos gratis.<span class="ir">Entrar ›</span></a>
+          <a class="herra" href="https://docs.google.com/presentation/d/1cott8zfiU3FYZ6FclP10KlLmQbEDQ_Dt/edit" target="_blank" rel="noopener"><span class="e">👥</span><b>Bioportunidad</b>Presentación para mostrar el negocio y sumar personas.<span class="ir">Ver ›</span></a>
+          <a class="herra" href="https://drive.google.com/drive/folders/19pHMK1xzHBGsDsnseQ0LbxUXeN0T7k9X" target="_blank" rel="noopener"><span class="e">📲</span><b>Posteos</b>Lo que publica Biogreen, listo para tus redes.<span class="ir">Ver ›</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="etapa" id="p4">
+      <div class="etapa-cab"><span class="big">4</span><div><small>Paso 4</small><h2>Cómo funciona un ciclo</h2></div></div>
+      <div class="etapa-cuerpo">
+        <div class="datos">
+          <div class="dato"><b>17</b><span>ciclos por año</span></div>
+          <div class="dato"><b>21</b><span>días cada ciclo</span></div>
+        </div>
+        <p>En cada ciclo hay lanzamientos, promociones y objetivos nuevos, y podés hacer <b>todos los pedidos que necesites</b>.</p>
+        <ol class="linea-tiempo">
+          <li><span class="n">🗒️</span><div><b>Vendé y tomá pedidos</b>Mostrá, recomendá y anotá lo que te piden tus clientas.</div></li>
+          <li><span class="n">📦</span><div><b>Recibí la mercadería</b>Te llega por la logística de Biogreen.</div></li>
+          <li><span class="n">🛍️</span><div><b>Entregá y cobrá</b>a cada clienta.</div></li>
+          <li><span class="n">💳</span><div><b>Pagá tu pedido</b>Con el botón de pago (si sos directa) o a través de tu líder.</div></li>
+          <li><span class="n">💬</span><div><b>Seguí en contacto</b>Preguntá cómo les fue, pedí recomendaciones y planificá el próximo ciclo.</div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="etapa" id="p5">
+      <div class="etapa-cab"><span class="big">5</span><div><small>Paso 5</small><h2>Dos formas de trabajar</h2></div></div>
+      <div class="etapa-cuerpo">
+        <div class="formas">
+          <div class="forma"><span class="tag">Modelo delegado</span><h3>Con tu líder</h3>
+            <ul><li>Tu líder recibe tu pedido, lo prepara y lo entrega.</li><li>Se ocupa del pago.</li><li>Vos te dedicás a vender y atender a tus clientas.</li></ul></div>
+          <div class="forma"><span class="tag">Biogreen Te Impulsa</span><h3>Directa con Biogreen</h3>
+            <ul><li>Biogreen recibe, prepara, cobra, factura y te envía el pedido.</li><li>Stock en línea.</li><li>Varios medios de pago y opciones de envío.</li></ul></div>
+        </div>
+        <div class="destacado">¿No sabés cuál te conviene? Consultá a tu líder 🌿</div>
+      </div>
+    </section>
+
+    <section class="final">
+      <h2>¡Ya podés empezar! 🌱</h2>
+      <p>Compartí tus primeras fotos y mirá cuánto podés ganar.</p>
+      <a class="boton-grande" href="#fotos">FOTOS PARA ESTADOS</a>
       <a class="boton-grande secundario" href="#calculadora">CALCULÁ TU GANANCIA</a>
-    </section>
-
-    <section class="tarjeta">
-      <h2>3. Tus herramientas</h2>
-      <div class="herr"><b>📖 Catálogo</b>Tu principal herramienta para mostrar los productos. Lo podés ver online y compartir por WhatsApp.<br><a href="#catalogo">Ver el catálogo ›</a></div>
-      <div class="herr"><b>🧴 Muestrarios y demostradores</b>Para que tus clientas prueben los aromas. Hacer vivir la experiencia es lo que más vende.</div>
-      <div class="herr"><b>🎁 Kit de inicio</b>Lo que necesitás para dar tus primeros pasos. Consultá a tu líder por el Kit de Inicio promocional.</div>
-      <div class="herr"><b>💻 Bionet</b>La plataforma para hacer pedidos, ver información actualizada y bajar materiales. También tiene la Escuela de Negocios, con cursos gratis.<br><a href="https://bionet.vgs.com.ar/movistock/public/login" target="_blank" rel="noopener">Entrar a Bionet ›</a></div>
-      <div class="herr"><b>👥 Bioportunidad</b>Una presentación para mostrar el negocio en una reunión y sumar más personas.<br><a href="https://docs.google.com/presentation/d/1cott8zfiU3FYZ6FclP10KlLmQbEDQ_Dt/edit" target="_blank" rel="noopener">Ver la Bioportunidad ›</a></div>
-      <div class="herr"><b>📱 Posteos para tus redes</b>Lo que publica Biogreen, listo para que lo compartas en tus redes.<br><a href="https://drive.google.com/drive/folders/19pHMK1xzHBGsDsnseQ0LbxUXeN0T7k9X" target="_blank" rel="noopener">Ver los posteos ›</a></div>
-    </section>
-
-    <section class="tarjeta">
-      <h2>4. Cómo funciona un ciclo</h2>
-      <p>El año tiene <b>17 ciclos de 21 días</b>. En cada ciclo hay lanzamientos, promociones y objetivos nuevos, y podés hacer <b>todos los pedidos que necesites</b>.</p>
-      <div class="paso"><span class="n">1</span><div><b>Vendé y tomá pedidos.</b> Mostrá, recomendá y anotá lo que te piden tus clientas.</div></div>
-      <div class="paso"><span class="n">2</span><div><b>Recibí la mercadería.</b> Te llega por la logística de Biogreen.</div></div>
-      <div class="paso"><span class="n">3</span><div><b>Entregá y cobrá</b> a cada clienta.</div></div>
-      <div class="paso"><span class="n">4</span><div><b>Pagá tu pedido:</b> con el botón de pago (si sos directa) o a través de tu líder.</div></div>
-      <div class="paso"><span class="n">5</span><div><b>Seguí en contacto.</b> Preguntá cómo les fue, pedí recomendaciones y planificá el próximo ciclo.</div></div>
-    </section>
-
-    <section class="tarjeta">
-      <h2>5. Dos formas de trabajar</h2>
-      <h3>Con tu líder (modelo delegado)</h3>
-      <p>Tu líder recibe tu pedido, lo prepara, lo entrega y se ocupa del pago. Vos te dedicás a vender y atender a tus clientas.</p>
-      <h3>Directa con Biogreen (Biogreen Te Impulsa)</h3>
-      <p>Biogreen recibe, prepara, cobra, factura y te envía el pedido. Tenés stock en línea, varios medios de pago y opciones de envío.</p>
-      <div class="destacado">¿No sabés cuál te conviene? Consultá a tu líder 🌿</div>
     </section>
   </div>
 
   <div class="vista" id="v-calculadora">
+    <div class="cab"><h1>Calculá tu ganancia</h1><p class="sub">Elegí tu caso y cargá tus puntos.</p></div>
     <section class="tarjeta">
       <h2>Calculá tu ganancia</h2>
       <div class="seg2" role="group" aria-label="Tipo de cálculo"><button data-modo="dist" aria-pressed="true">Soy distribuidora</button><button data-modo="lider" aria-pressed="false">Tengo equipo</button></div>
@@ -224,14 +358,27 @@ $("#lineas").innerHTML = L.map(l => `
 
 $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
 
-// vistas (menú de arriba)
+// secciones: la portada las lista y cada sección muestra las otras al final
+const SECCIONES = [
+  {v: "fotos", ico: "📸", nombre: "Fotos para estados", desc: "Fotos listas para compartir en tu WhatsApp."},
+  {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
+  {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
+  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
+];
+const itemMenu = s => `<a href="#${s.v}"><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
+$("#v-inicio .menu").innerHTML = SECCIONES.map(itemMenu).join("");
+SECCIONES.forEach(s => $("#v-" + s.v).insertAdjacentHTML("beforeend", `<section class="seguir"><h2>Seguí con…</h2><nav class="menu">${SECCIONES.filter(o => o !== s).map(itemMenu).join("")}</nav></section>`));
+
+// vistas
 function mostrar(){
-  const v = (location.hash || "#fotos").slice(1), ok = ["fotos", "catalogo", "primeros", "calculadora"].includes(v) ? v : "fotos";
+  const v = location.hash.slice(1), s = SECCIONES.find(x => x.v === v), ok = s ? v : "inicio";
   document.querySelectorAll(".vista").forEach(x => x.classList.toggle("activa", x.id === "v-" + ok));
-  document.querySelectorAll(".menu a").forEach(a => a.setAttribute("aria-current", a.dataset.v === ok ? "page" : "false"));
+  $("#barra").hidden = !s;
+  $("#donde").textContent = s ? s.nombre : "";
 }
-window.addEventListener("hashchange", () => { mostrar(); document.querySelector(".menu").scrollIntoView({behavior:"smooth"}); });
+window.addEventListener("hashchange", () => { mostrar(); window.scrollTo(0, 0); });
 mostrar();
+document.querySelectorAll("[data-ir]").forEach(b => b.onclick = () => document.getElementById(b.dataset.ir).scrollIntoView({behavior: "smooth"}));
 
 // calculadora
 const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;

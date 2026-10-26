@@ -148,13 +148,13 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .punto .e{flex:none;font-size:26px;line-height:1.2}
 .punto b{display:block}
 .etapa-cuerpo a:not([class]){color:var(--leaf-dark);font-weight:700}
-.medallas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 12px}
-.medalla{border:2px solid var(--line);border-top:6px solid var(--c);border-radius:16px;padding:12px 6px 10px;text-align:center}
+.medallas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:4px 0 12px}
+.medalla{min-width:0;border:2px solid var(--line);border-top:6px solid var(--c);border-radius:16px;padding:12px 4px 10px;text-align:center}
 .medalla .nom{font-weight:900;font-size:18px;color:var(--c)}
 .medalla .desde{font-size:14px;color:var(--muted);margin-bottom:6px}
-.medalla .pct{font-size:30px;font-weight:900;line-height:1}
+.medalla .pct{font-size:clamp(24px,7.5vw,30px);font-weight:900;line-height:1}
 .medalla .lbl{font-size:13px;color:var(--muted);margin-bottom:6px}
-.medalla .promo{font-size:13px;font-weight:700;background:var(--soft);border-radius:999px;padding:2px 8px;display:inline-block;white-space:nowrap}
+.medalla .promo{font-size:12px;font-weight:700;background:var(--soft);border-radius:999px;padding:2px 6px;display:inline-block;line-height:1.25}
 .ejemplo{display:flex;gap:12px;align-items:center;background:var(--soft);border-radius:16px;padding:12px 14px;margin-bottom:12px;font-size:17px}
 .ejemplo .e{font-size:28px}
 .herrs{display:grid;grid-template-columns:1fr 1fr;gap:10px}

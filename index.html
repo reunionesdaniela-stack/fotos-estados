@@ -133,7 +133,7 @@ document.querySelectorAll("button.compartir").forEach(b => b.onclick = async () 
     const blob = await (await fetch(f.archivo)).blob();
     const nombre = f.archivo.split("/").pop();
     const file = new File([blob], nombre, {type: blob.type || "image/jpeg"});
-    try{ navigator.sendBeacon("https://ciclos-sg.netlify.app/api/compartir", JSON.stringify({f: f.archivo})); }catch(e){} // solo cuenta cuántas veces se comparte cada foto
+    try{ navigator.sendBeacon("https://salvadorgaviota.netlify.app/api/compartir", JSON.stringify({f: f.archivo})); }catch(e){} // solo cuenta cuántas veces se comparte cada foto
     if(navigator.canShare && navigator.canShare({files: [file]})){
       await navigator.share({files: [file]});
       return;

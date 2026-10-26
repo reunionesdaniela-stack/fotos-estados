@@ -86,6 +86,8 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .menu .txt b{display:block;font-size:20px;line-height:1.2}
 .menu .txt small{display:block;color:var(--muted);font-size:16px;line-height:1.3;margin-top:3px}
 .menu .flecha{flex:none;width:12px;height:12px;border-right:3px solid var(--leaf);border-top:3px solid var(--leaf);transform:rotate(45deg);margin-right:6px}
+.sugerencias{margin:28px 0 8px;text-align:center;font-size:15px;color:var(--muted)}
+.sugerencias a{color:var(--leaf);font-weight:700;white-space:nowrap}
 .tip{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px dashed var(--line);border-radius:18px;padding:14px 16px;font-size:17px;color:var(--muted)}
 .tip span{font-size:24px}
 /* barra de sección */
@@ -207,6 +209,7 @@ a.herra:active{background:var(--soft)}
     <nav class="menu" aria-label="Secciones"></nav>
 
     <div class="tip"><span>💡</span><div><b>Guardala en tu celular.</b> Abrí el menú del navegador y elegí «Agregar a la pantalla de inicio» para tenerla siempre a mano.</div></div>
+    <p class="sugerencias">¿Se te ocurre algo para mejorar la página? <a href="https://forms.gle/XanErSHSpXLDXqaJ8" target="_blank" rel="noopener">Dejanos tu sugerencia 💬</a></p>
   </div>
 
   <div class="barra" id="barra" hidden><a href="#inicio">Inicio</a><span class="donde" id="donde"></span></div>
@@ -414,13 +417,11 @@ const SECCIONES = [
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
-  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."},
-  {url: "https://forms.gle/XanErSHSpXLDXqaJ8", ico: "💬", nombre: "Sugerencias", desc: "Contanos qué te gustaría encontrar en la página."}
+  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
 ];
-// las que tienen url abren un link afuera de la página (no tienen vista propia)
-const itemMenu = s => `<a href="${s.url || "#" + s.v}"${s.url ? ' target="_blank" rel="noopener"' : ""}><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
+const itemMenu = s => `<a href="#${s.v}"><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
 $("#v-inicio .menu").innerHTML = SECCIONES.map(itemMenu).join("");
-SECCIONES.filter(s => s.v).forEach(s => $("#v-" + s.v).insertAdjacentHTML("beforeend", `<section class="seguir"><h2>Seguí con…</h2><nav class="menu">${SECCIONES.filter(o => o !== s).map(itemMenu).join("")}</nav></section>`));
+SECCIONES.forEach(s => $("#v-" + s.v).insertAdjacentHTML("beforeend", `<section class="seguir"><h2>Seguí con…</h2><nav class="menu">${SECCIONES.filter(o => o !== s).map(itemMenu).join("")}</nav></section>`));
 
 // vistas
 function mostrar(){

@@ -167,13 +167,13 @@ window.LINEAS = [
     {archivo: "fotos/lineas/esencias-de-armonizacion/equilibrio.jpg", texto: "Esencia de Armonización Equilibrio · aromatizante 300 ml $29.499 🌙"}
   ]},
   {nombre: "Línea Hogar", fotos: [
-    {archivo: "fotos/lineas/hogar/limpiador-multiuso-800.jpg", texto: "Limpiador Multiuso 800 ml · $29.499 · colaborás con TECHO 🏠"},
+    {archivo: "fotos/lineas/hogar/limpiador-multiuso.jpg", texto: "Limpiador Multiuso · 800 ml $29.499 · 300 ml $14.499 · colaborás con TECHO 🏠"},
     {archivo: "fotos/lineas/hogar/limpiador-electronicos.jpg", texto: "Limpiador para Electrónicos 100 ml · $10.399 (30% OFF) · incluye paño 📱"},
     {archivo: "fotos/lineas/hogar/liquido-lavado-ropa.jpg", texto: "Líquido para Lavado de Ropa 800 ml · $36.499 · rinde 26 lavados 👕"},
     {archivo: "fotos/lineas/hogar/limpiador-automovil.jpg", texto: "Limpiador para Automóvil · 800 ml $29.799 · 300 ml $14.999 🚗"},
     {archivo: "fotos/lineas/hogar/limpiador-vidrios.jpg", texto: "Limpiador para Vidrios, Alfombras y Tapizados · 800 ml $24.999 · 300 ml $12.999 ✨"},
     {archivo: "fotos/lineas/hogar/lavavajillas.jpg", texto: "Líquido Lavavajillas Limón o Menta · 800 ml $29.499 · 300 ml $14.499 🍋"},
-    {archivo: "fotos/lineas/hogar/pano-y-multiuso-300.jpg", texto: "Paño Multiuso $11.499 · Limpiador Multiuso 300 ml $14.499 🧽"}
+    {archivo: "fotos/lineas/hogar/pano-multiuso.jpg", texto: "Paño Multiuso · $11.499 🧽"}
   ]},
   {nombre: "Bidones", fotos: [
     {archivo: "fotos/lineas/bidones/energia.jpg", texto: "Esencia de Armonización Energía · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},

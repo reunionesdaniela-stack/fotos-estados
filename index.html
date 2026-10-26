@@ -230,7 +230,7 @@ a.herra:active{background:var(--soft)}
       <p class="sub" id="nov-vigencia"></p>
       <div id="novedades"></div>
     </section>
-    <section class="semana">
+    <section class="semana" id="sec-semana">
       <h2 id="titulo">Fotos de esta semana</h2>
       <p class="sub" id="fecha"></p>
       <div id="fotos"></div>
@@ -409,6 +409,7 @@ if(N.fotos.length){
   $("#novedades").innerHTML = N.fotos.map((f, i) => fotoHTML(f, i, N.fotos.length)).join("");
 }
 
+$("#sec-semana").hidden = S.mostrar === false;
 $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
 
 // secciones: la portada las lista y cada sección muestra las otras al final

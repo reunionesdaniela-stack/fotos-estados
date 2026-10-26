@@ -1,6 +1,7 @@
 /* Fotos de la semana. Para actualizar: cambiar el título y la lista de fotos.
    Cada foto: archivo (dentro de /fotos) y un texto corto que se muestra debajo. */
 window.SEMANA = {
+  mostrar: false,               // false = esta semana no se muestran; true = vuelven a aparecer
   titulo: "Fotos de esta semana",
   desde: "2026-10-26",
   fotos: [

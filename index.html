@@ -180,7 +180,7 @@ a.herra:active{background:var(--soft)}
       <span class="marca">Biogreen</span>
       <h1>Tu negocio Biogreen</h1>
       <p>Este es tu espacio para hacer crecer tu negocio. Acá encontrás todo lo que necesitás para vender, en un solo lugar y siempre actualizado.</p>
-      <p>Fotos listas para tus estados, el catálogo con precios, una guía para empezar y una calculadora para saber cuánto podés ganar.</p>
+      <p>Fotos listas para tus estados, el catálogo con precios, posteos para tus redes, una guía para empezar y una calculadora para saber cuánto podés ganar.</p>
       <div class="firma">
         <p>Esta página fue creada por la <b>Organización Salvador Gaviota</b>. Si tenés alguna duda, nos podés consultar.</p>
         <p>Te mando un saludo,<br><b>Daniela Cazayous</b> 🌿</p>
@@ -224,6 +224,23 @@ a.herra:active{background:var(--soft)}
       <p class="sub">El catálogo de Biogreen siempre actualizado, para mirar precios o mandárselo a tus clientas.</p>
       <a class="boton-grande" href="https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1" target="_blank" rel="noopener">VER EL CATÁLOGO</a>
       <button class="boton-grande secundario" id="compCat">COMPARTIR EL CATÁLOGO</button>
+    </section>
+  </div>
+
+  <div class="vista" id="v-posteos">
+    <div class="cab"><h1>Posteos para redes sociales</h1></div>
+    <section class="catalogo" aria-label="Posteos para redes sociales">
+      <h2>Listos para publicar</h2>
+      <p class="sub">Los posteos que publica Biogreen, para que los compartas en tu Instagram, Facebook o donde quieras.</p>
+      <a class="boton-grande" href="https://drive.google.com/drive/folders/19pHMK1xzHBGsDsnseQ0LbxUXeN0T7k9X" target="_blank" rel="noopener">VER LOS POSTEOS</a>
+    </section>
+    <section class="ayuda" aria-label="Cómo se usa">
+      <h2>¿Cómo se usa?</h2>
+      <ol>
+        <li>Tocá <b>VER LOS POSTEOS</b>: se abre la carpeta de Google Drive.</li>
+        <li>Elegí el posteo que te guste y descargalo.</li>
+        <li>Publicalo en tus redes desde la galería de tu celular.</li>
+      </ol>
     </section>
   </div>
 
@@ -368,6 +385,7 @@ $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.
 const SECCIONES = [
   {v: "fotos", ico: "📸", nombre: "Fotos para estados", desc: "Fotos listas para compartir en tu WhatsApp."},
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
+  {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
   {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
 ];

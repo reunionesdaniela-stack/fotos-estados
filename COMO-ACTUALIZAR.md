@@ -47,6 +47,8 @@ El formato es `"feed"`, `"historia"` o `"reel"`. `\n` es un salto de línea en e
 
 Si cambia el valor del punto, se cambia el número `PUNTO` al principio de `negocio.js` (por ejemplo `20999`) y la calculadora se recalcula sola. Acordate de cambiar también el texto «1 punto = $…» en Primeros pasos (`index.html`).
 
+Los **premios por productividad** también están en `negocio.js` (`premios` y `premiosVigencia`). Sus valores salen del punto y de `ESENCIAL_240` (el precio del Esencial 240 ml): si cambia ese precio, actualizalo ahí. Cuando termine el desafío, cambiá la vigencia o los premios.
+
 ## 5. Publicar
 
 Los cambios se publican solos unos segundos después de subirlos a GitHub (repositorio `fotos-estados`).

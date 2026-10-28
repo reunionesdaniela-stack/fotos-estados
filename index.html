@@ -207,8 +207,14 @@ a.herra:active{background:var(--soft)}
 .msj p{margin:0 0 10px;font-size:17px}
 .msj button{min-height:46px;padding:0 18px;border-radius:12px;border:2px solid var(--leaf);background:var(--leaf);color:var(--leaf-ink);font:inherit;font-size:16px;font-weight:800;cursor:pointer}
 .msj button.ok{background:var(--surface);color:var(--leaf-dark)}
-.oro-extra{border:2px solid var(--oro);border-radius:16px;padding:12px 14px;margin:0 0 12px;font-size:17px}
-.oro-extra b:first-child{color:var(--oro)}
+.premios{border:2px solid var(--oro);border-radius:16px;padding:14px;margin:0 0 12px}
+.premios h3{margin:0 0 4px;font-size:20px}
+.premios .vig{display:inline-block;font-size:13px;font-weight:800;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:3px 10px;margin:4px 0 8px}
+.premio{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding:10px 0}
+.premio .pts{flex:none;width:74px;text-align:center;font-weight:900;font-size:17px;line-height:1.15;color:var(--oro)}
+.premio .pts small{display:block;font-size:12px;font-weight:700;color:var(--muted)}
+.premio div{font-size:16px;line-height:1.3}
+.premio b{display:block;color:var(--leaf-dark);font-size:17px;margin-top:2px}
 .final{background:linear-gradient(160deg,var(--hero1) 0%,var(--leaf-deep) 100%);color:#fff;border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:8px}
 .final h2{font-size:24px;margin:0 0 6px;color:#fff}
 .final p{margin:0 0 6px;color:rgba(255,255,255,.92)}
@@ -385,7 +391,12 @@ a.herra:active{background:var(--soft)}
           <div class="medalla" style="--c:var(--oro)"><div class="nom">Oro</div><div class="desde">desde 20 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span></div>
         </div>
         <p class="nota">El <b>pedido mínimo es de 5 pts</b>.</p>
-        <div class="oro-extra"><b>¿Por qué llegar a Oro?</b> Tiene el mismo 30% que Plata, pero <b>además ganás premios en productos</b>. Por ejemplo, con 20 pts te llevás <b>1 Capullos de Lino de 500 ml de regalo</b>: lo vendés a <span data-punto></span> y es todo ganancia. Y hay más premios al llegar a 30, 40 y 60 pts.</div>
+        <div class="premios">
+          <h3>🎁 Premios por productividad</h3>
+          <span class="vig" id="premios-vig"></span>
+          <p class="nota" style="margin:0 0 4px">Oro tiene el mismo 30% que Plata, pero <b>además ganás productos de regalo</b> según tu venta personal del ciclo. Los vendés a precio de catálogo y es todo ganancia.</p>
+          <div id="premios-lista"></div>
+        </div>
         <div class="ejemplo"><span class="e">💰</span><div id="ejemplo-ganancia"></div></div>
         <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
       </div>
@@ -542,6 +553,8 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => 
 
 // calculadora
 const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;
+const premio = pts => NG.premios.find(p => pts >= p.desde && pts <= p.hasta);
+const premioHTML = pts => { const p = premio(pts); return p ? `<p>🎁 Además ganás <b>${p.premio}</b>: un premio por <b>${plata(p.valor)}</b>.</p>` : ""; };
 const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0};
 function contador(k, label){ return `<label class="campo" for="c-${k}">${label}</label><div class="contador"><button data-menos="${k}" aria-label="Menos">−</button><input id="c-${k}" data-k="${k}" type="number" inputmode="numeric" min="0" value="${calc[k]}"><button data-mas="${k}" aria-label="Más">+</button></div>`; }
 function pintar(){
@@ -552,7 +565,7 @@ function pintar(){
     if(!cat) h += `<div class="resultado"><div class="grande">Te faltan ${5 - p} pts</div><p>El pedido mínimo es de 5 puntos. Desde ahí ya tenés 20% de ganancia.</p></div>`;
     else {
       const gana = (NG.precioPublico - cat.compra) * p;
-      h += `<div class="resultado"><p>Sos <b>Distribuidora ${cat.nombre}</b> (${cat.descuento}% en productos regulares)</p><div class="grande">Ganás ${plata(gana)}</div><p>por ciclo · unos <b>${plata(mes(gana))} por mes</b></p><p>Vendés ${plata(NG.precioPublico * p)} a precio de catálogo y lo comprás a ${plata(cat.compra * p)}.</p>${cat.extra ? `<p>${cat.extra}</p>` : ""}</div>`;
+      h += `<div class="resultado"><p>Sos <b>Distribuidora ${cat.nombre}</b> (${cat.descuento}% en productos regulares)</p><div class="grande">Ganás ${plata(gana)}</div><p>por ciclo · unos <b>${plata(mes(gana))} por mes</b></p><p>Vendés ${plata(NG.precioPublico * p)} a precio de catálogo y lo comprás a ${plata(cat.compra * p)}.</p>${premioHTML(p)}${cat.extra ? `<p>${cat.extra}</p>` : ""}</div>`;
       if(sig){ const g2 = (NG.precioPublico - sig.compra) * sig.desde; h += `<p>Con <b>${sig.desde - p} pts más</b> pasás a <b>${sig.nombre}</b> y ganarías ${plata(g2)} por ciclo.</p>`; }
     }
   } else {
@@ -564,10 +577,10 @@ function pintar(){
     } else {
       const c = r.compra, gp = n("pers") * (NG.precioPublico - c), gd = n("dist") * (NG.distribuidoras[1].compra - c), glp = n("lp") * Math.max(0, NG.lideres[0].compra - c), glo = n("lo") * Math.max(0, NG.lideres[1].compra - c), t = gp + gd + glp + glo;
       h += `<div class="resultado"><p>Con ${total} pts sos <b>${r.nombre}</b></p><div class="grande">Ganás ${plata(t)}</div><p>por ciclo · unos <b>${plata(mes(t))} por mes</b></p>
-        <p>Tu venta: ${plata(gp)} · Tus distribuidoras: ${plata(gd)}${glp ? ` · Tus Líderes Plata: ${plata(glp)}` : ""}${glo ? ` · Tus Líderes Oro: ${plata(glo)}` : ""}</p>${r.extra ? `<p>${r.extra}</p>` : ""}</div>`;
+        <p>Tu venta: ${plata(gp)} · Tus distribuidoras: ${plata(gd)}${glp ? ` · Tus Líderes Plata: ${plata(glp)}` : ""}${glo ? ` · Tus Líderes Oro: ${plata(glo)}` : ""}</p>${premioHTML(n("pers"))}${r.extra ? `<p>${r.extra}</p>` : ""}</div>`;
       if(sig) h += `<p>Con <b>${sig.desde - total} pts más</b> entre todo tu equipo llegás a <b>${sig.nombre}</b>.</p>`;
     }
-    h += `<p class="nota">Cálculo con el modelo delegado: tus distribuidoras te compran a vos con el 30%. Además suman los premios por productividad.</p>`;
+    h += `<p class="nota">Cálculo con el modelo delegado: tus distribuidoras te compran a vos con el 30%. Los premios por productividad se calculan con tu venta personal.</p>`;
   }
   $("#calc").innerHTML = h;
   document.querySelectorAll("#calc [data-k]").forEach(i => i.oninput = () => { calc[i.dataset.k] = i.value; const y = i.selectionStart; pintar(); const n = $("#c-" + i.dataset.k); n.focus(); try{ n.setSelectionRange(y, y); }catch(e){} });
@@ -580,8 +593,9 @@ pintar();
 
 { // ejemplo del Paso 2, con los mismos números que la calculadora
   const plataC = NG.distribuidoras[1], oro = NG.distribuidoras[2];
-  $("#ejemplo-ganancia").innerHTML = `Si vendés <b>10 pts</b> este ciclo, ganás aprox. <b>${plata((NG.precioPublico - plataC.compra) * 10)}</b>. Con <b>20 pts</b> pasás a Oro y ganás aprox. <b>${plata((NG.precioPublico - oro.compra) * 20)}</b>, más el premio.`;
-  document.querySelectorAll("[data-punto]").forEach(e => e.textContent = plata(NG.precioPublico));
+  $("#ejemplo-ganancia").innerHTML = `Si vendés <b>10 pts</b> este ciclo, ganás aprox. <b>${plata((NG.precioPublico - plataC.compra) * 10)}</b>. Con <b>20 pts</b> pasás a Oro y ganás aprox. <b>${plata((NG.precioPublico - oro.compra) * 20)}</b>, más un premio por <b>${plata(premio(20).valor)}</b>.`;
+  $("#premios-vig").textContent = NG.premiosVigencia;
+  $("#premios-lista").innerHTML = NG.premios.map(p => `<div class="premio"><span class="pts">${p.hasta === Infinity ? p.desde + " o más" : p.desde + " a " + Math.floor(p.hasta)}<small>puntos</small></span><div>${p.premio}<b>Ganás premio por ${plata(p.valor)}</b></div></div>`).join("");
 }
 
 // posteos para redes

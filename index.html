@@ -396,6 +396,7 @@ a.herra:active{background:var(--soft)}
           <span class="vig" id="premios-vig"></span>
           <p class="nota" style="margin:0 0 4px">Oro tiene el mismo 30% que Plata, pero <b>además ganás productos de regalo</b> según tu venta personal del ciclo. Los vendés a precio de catálogo y es todo ganancia.</p>
           <div id="premios-lista"></div>
+          <a href="#desafios">Ver todos los desafíos ›</a>
         </div>
         <div class="ejemplo"><span class="e">💰</span><div id="ejemplo-ganancia"></div></div>
         <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
@@ -455,6 +456,12 @@ a.herra:active{background:var(--soft)}
     </section>
   </div>
 
+  <div class="vista" id="v-desafios">
+    <div class="cab"><h1>Desafíos</h1><p class="sub">Los desafíos vigentes de Biogreen y los premios que podés ganar.</p></div>
+    <div id="desafios"></div>
+    <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
+  </div>
+
   <div class="vista" id="v-calculadora">
     <div class="cab"><h1>Calculá tu ganancia</h1><p class="sub">Elegí tu caso y cargá tus puntos.</p></div>
     <section class="tarjeta">
@@ -469,6 +476,7 @@ a.herra:active{background:var(--soft)}
 <script src="novedades.js"></script>
 <script src="lineas.js"></script>
 <script src="negocio.js"></script>
+<script src="desafios.js"></script>
 <script src="posteos.js"></script>
 <script>
 const S = window.SEMANA || {fotos: []};
@@ -515,7 +523,8 @@ const SECCIONES = [
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
-  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
+  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."},
+  {v: "desafios", ico: "🏆", nombre: "Desafíos", desc: "Los premios vigentes por tu venta del ciclo."}
 ];
 const itemMenu = s => `<a href="#${s.v}"><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
 $("#v-inicio .menu").innerHTML = SECCIONES.map(itemMenu).join("");
@@ -553,6 +562,7 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => 
 
 // calculadora
 const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;
+const nivelesHTML = ns => ns.map(p => `<div class="premio"><span class="pts">${p.hasta === Infinity ? p.desde + " o más" : p.desde + " a " + Math.floor(p.hasta)}<small>puntos</small></span><div>${esc(p.premio)}<b>Ganás premio por ${plata(p.valor)}</b></div></div>`).join("");
 const premio = pts => NG.premios.find(p => pts >= p.desde && pts <= p.hasta);
 const premioHTML = pts => { const p = premio(pts); return p ? `<p>🎁 Además ganás <b>${p.premio}</b>: un premio por <b>${plata(p.valor)}</b>.</p>` : ""; };
 const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0};
@@ -595,7 +605,14 @@ pintar();
   const plataC = NG.distribuidoras[1], oro = NG.distribuidoras[2];
   $("#ejemplo-ganancia").innerHTML = `Si vendés <b>10 pts</b> este ciclo, ganás aprox. <b>${plata((NG.precioPublico - plataC.compra) * 10)}</b>. Con <b>20 pts</b> pasás a Oro y ganás aprox. <b>${plata((NG.precioPublico - oro.compra) * 20)}</b>, más un premio por <b>${plata(premio(20).valor)}</b>.`;
   $("#premios-vig").textContent = NG.premiosVigencia;
-  $("#premios-lista").innerHTML = NG.premios.map(p => `<div class="premio"><span class="pts">${p.hasta === Infinity ? p.desde + " o más" : p.desde + " a " + Math.floor(p.hasta)}<small>puntos</small></span><div>${p.premio}<b>Ganás premio por ${plata(p.valor)}</b></div></div>`).join("");
+  $("#premios-lista").innerHTML = nivelesHTML(NG.premios);
+  const D = window.DESAFIOS || [];
+  $("#desafios").innerHTML = D.length ? D.map(d => `<section class="premios">
+      <h3>🏆 ${esc(d.titulo)}</h3>
+      <span class="vig">${esc(d.vigencia)}</span>
+      <p class="nota" style="margin:0 0 4px"><b>Para:</b> ${esc(d.para)}. ${esc(d.detalle)}</p>
+      ${nivelesHTML(d.niveles)}
+    </section>`).join("") : `<p class="vacio">Por ahora no hay desafíos vigentes. ¡Pronto vienen más!</p>`;
 }
 
 // posteos para redes

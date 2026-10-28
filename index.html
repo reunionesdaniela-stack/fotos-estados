@@ -112,19 +112,21 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .selector{appearance:none;-webkit-appearance:none;border-color:var(--leaf);background-image:linear-gradient(45deg,transparent 50%,var(--leaf) 50%),linear-gradient(135deg,var(--leaf) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 15px) 50%;background-size:7px 7px;background-repeat:no-repeat;padding-right:40px}
 .buscador{font-weight:600}
 .pr-resumen{background:var(--leaf);color:var(--leaf-ink);border-radius:16px;padding:12px 16px;margin:0 0 14px;font-size:18px}
-.pr-filtros{display:grid;grid-template-columns:1fr;gap:4px;margin-bottom:16px}
-.pr-linea{font-size:20px;margin:22px 0 8px}
-.pr-item{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px}
-.pr-item h3{font-size:18px;line-height:1.25;margin:0 0 10px}
+.pr-filtros{margin-bottom:16px}
+.pr-item{padding:12px 4px;border-bottom:1px solid var(--line)}
+.pr-item:last-child{border-bottom:0}
+.pr-fila{display:flex;align-items:center;gap:12px}
+.pr-fila .txt{flex:1;min-width:0}
+.pr-item h3{font-size:18px;line-height:1.25;margin:0}
 .pr-item h3 small{color:var(--muted);font-weight:600;font-size:15px}
 .pr-item .etq{display:inline-block;vertical-align:middle;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:2px 8px;margin-left:4px}
-.pr-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0}
-.pr-nums div{display:flex;flex-direction:column;justify-content:space-between;background:var(--bg);border-radius:12px;padding:8px 6px;text-align:center;min-width:0}
-.pr-nums dt{font-size:13px;color:var(--muted);font-weight:700;line-height:1.2}
-.pr-nums dd{margin:2px 0 0;font-size:clamp(16px,4.6vw,19px);font-weight:900;white-space:nowrap}
-.pr-nums .gan{background:var(--soft)}
-.pr-nums .gan dd{color:var(--leaf-dark)}
-.pr-nums .consultar dd{font-size:14px;white-space:normal;color:var(--muted)}
+.pr-sub{display:block;font-size:15px;color:var(--muted);margin-top:2px}
+.pr-gan{flex:none;text-align:right;line-height:1.1}
+.pr-gan small{display:block;font-size:13px;font-weight:700;color:var(--muted)}
+.pr-gan b{font-size:22px;font-weight:900;color:var(--leaf-dark);white-space:nowrap}
+.pr-gan.consultar b{font-size:14px;color:var(--muted);white-space:normal;display:block;max-width:90px}
+.pr-nombres{font-size:15px;color:var(--muted);margin:8px 0 0;line-height:1.4}
+.pr-nombres button{border:0;background:none;padding:0;color:var(--leaf);font:inherit;font-weight:800;cursor:pointer}
 .seguir h2{font-size:20px;margin:0 0 4px;color:var(--muted)}
 .seguir .menu a{min-height:72px}
 .seguir .menu .ico{width:46px;height:46px;font-size:24px;border-radius:12px}
@@ -493,8 +495,8 @@ a.herra:active{background:var(--soft)}
     <p class="pr-resumen" id="pr-resumen" role="status"></p>
     <div class="pr-filtros">
       <input class="buscador" id="pr-buscar" type="search" placeholder="🔎 Buscá un producto" aria-label="Buscar producto">
-      <select class="selector" id="pr-linea" aria-label="Filtrar por línea"><option value="">Todas las líneas</option></select>
     </div>
+    <p class="nota" style="margin:0 0 10px">Tocá una línea para ver sus productos.</p>
     <div id="pr-lista"><p class="vacio">Cargando precios…</p></div>
     <p class="nota" id="pr-pie"></p>
   </div>
@@ -704,30 +706,51 @@ pintar();
   try{ elegido = JSON.parse(localStorage.getItem("tus-precios") || "{}"); }catch(e){}
   sel("mia").innerHTML = cats.map(c => `<option value="${esc(c)}">${esc(nombreCat(c))}</option>`).join("");
   sel("mia").value = cats.includes(elegido.mia) ? elegido.mia : cats[cats.length - 1];
-  const lineas = [...new Set(prods.map(p => p.linea))];
-  sel("linea").insertAdjacentHTML("beforeend", lineas.map(l => `<option>${esc(l)}</option>`).join(""));
+  const lineas = [...new Set(prods.map(p => p.linea))], abiertas = new Set(), sinTilde = t => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  // los productos de una línea que valen lo mismo van juntos: el título es lo que tienen en común y abajo van los nombres
+  function agrupar(ps){
+    const grupos = new Map();
+    ps.forEach(p => { const k = [p.pres, p.promo, ...cab.slice(iPub, iCod < 0 ? undefined : iCod).map(c => p.precio[c])].join("|"); if(!grupos.has(k)) grupos.set(k, []); grupos.get(k).push(p); });
+    return [...grupos.values()].map(g => {
+      if(g.length === 1) return {titulo: g[0].nombre, nombres: [], p: g[0]};
+      const pal = g.map(p => p.nombre.split(" "));
+      let n = 0; while(pal.every(w => w.length > n + 1 && w[n] === pal[0][n])) n++;
+      return {titulo: pal[0].slice(0, n).join(" "), nombres: pal.map(w => w.slice(n).join(" ")), p: g[0]};
+    });
+  }
   function opciones(){
     const os = clientes(sel("mia").value), antes = sel("a").value || elegido.a;
     sel("a").innerHTML = os.map(c => `<option value="${esc(c)}">${esc(c === FINAL ? FINAL : nombreCat(c))}</option>`).join("");
     sel("a").value = os.includes(antes) ? antes : os[0];
   }
   function pintarPrecios(){
-    const mia = sel("mia").value, a = sel("a").value, busca = sel("buscar").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""), linea = sel("linea").value;
+    const mia = sel("mia").value, a = sel("a").value, busca = sinTilde(sel("buscar").value.trim());
     try{ localStorage.setItem("tus-precios", JSON.stringify({mia, a})); }catch(e){}
     sel("resumen").innerHTML = `Sos <b>${esc(nombreCat(mia))}</b> y le vendés a <b>${esc(nombreCat(a))}</b>.`;
-    const vistos = prods.filter(p => (!linea || p.linea === linea) && (!busca || (p.nombre + " " + p.linea).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(busca)));
-    let h = "", ultima = "";
-    vistos.forEach(p => {
-      const costo = Math.round(p.precio[mia]), venta = Math.round(a === FINAL ? p.precio["Precio público"] : p.precio[a]), gana = venta - costo;
-      if(p.linea !== ultima){ h += `<h2 class="pr-linea">${esc(p.linea)}</h2>`; ultima = p.linea; }
-      h += `<article class="pr-item"><h3>${esc(p.nombre)} ${p.pres ? `<small>${esc(p.pres)}</small>` : ""}${p.promo ? `<span class="etq">Promo</span>` : ""}</h3>
-        <dl class="pr-nums"><div><dt>Mi costo</dt><dd>${pesos(costo)}</dd></div><div><dt>Precio de venta</dt><dd>${pesos(venta)}</dd></div>${gana > 0 ? `<div class="gan"><dt>Mi ganancia</dt><dd>${pesos(gana)}</dd></div>` : `<div class="consultar"><dt>Mi ganancia</dt><dd>Consultá a tu líder</dd></div>`}</dl></article>`;
+    const fila = gr => {
+      const p = gr.p, costo = Math.round(p.precio[mia]), venta = Math.round(a === FINAL ? p.precio["Precio público"] : p.precio[a]), gana = venta - costo;
+      const titulo = gr.titulo || p.pres || "Mismo precio", cant = gr.nombres.length, mas = cant > 8 ? cant - 6 : 0;
+      return `<article class="pr-item"><div class="pr-fila"><div class="txt">
+          <h3>${esc(titulo)} ${gr.titulo && p.pres ? `<small>${esc(p.pres)}</small>` : ""}${cant ? ` <small>· ${cant} productos</small>` : ""}${p.promo ? `<span class="etq">Promo</span>` : ""}</h3>
+          <span class="pr-sub">costo ${pesos(costo)} · vendés a ${pesos(venta)}</span></div>
+          ${gana > 0 ? `<div class="pr-gan"><small>ganás</small><b>${pesos(gana)}</b></div>` : `<div class="pr-gan consultar"><small>ganancia</small><b>Consultá a tu líder</b></div>`}</div>
+        ${cant ? `<p class="pr-nombres">${esc(gr.nombres.slice(0, mas ? 6 : cant).join(" · "))}${mas ? `<span hidden> · ${esc(gr.nombres.slice(6).join(" · "))}</span> <button type="button" data-mas>+ ${mas} más</button>` : ""}</p>` : ""}</article>`;
+    };
+    let h = "";
+    lineas.forEach(l => {
+      const ps = prods.filter(p => p.linea === l && (!busca || sinTilde(p.nombre + " " + p.linea).includes(busca)));
+      if(!ps.length) return;
+      h += `<details class="linea" data-linea="${esc(l)}"${busca || abiertas.has(l) ? " open" : ""}>
+        <summary><span>${esc(l)}</span><span class="cant">${ps.length} ${ps.length === 1 ? "producto" : "productos"}</span></summary>
+        <div class="linea-cuerpo">${agrupar(ps).map(fila).join("")}</div></details>`;
     });
     sel("lista").innerHTML = h || `<p class="vacio">No encontramos productos con «${esc(sel("buscar").value)}».</p>`;
   }
+  sel("lista").addEventListener("toggle", e => { const l = e.target.dataset.linea; if(l && !sel("buscar").value.trim()) e.target.open ? abiertas.add(l) : abiertas.delete(l); }, true);
+  sel("lista").addEventListener("click", e => { const b = e.target.closest("[data-mas]"); if(b){ b.previousElementSibling.hidden = false; b.remove(); } });
   opciones(); pintarPrecios();
   sel("mia").onchange = () => { opciones(); pintarPrecios(); };
-  sel("a").onchange = sel("linea").onchange = pintarPrecios;
+  sel("a").onchange = pintarPrecios;
   sel("buscar").oninput = pintarPrecios;
   sel("pie").textContent = `Precios vigentes desde ${vig ? new Date(vig + "T00:00").toLocaleDateString("es-AR", {day: "numeric", month: "long", year: "numeric"}) : "el último cambio de lista"}. Pueden cambiar con las promociones de cada ciclo. Ante cualquier duda, consultá a tu líder.`;
 })();

@@ -32,10 +32,21 @@ Las fotos de la semana anterior las podés borrar de la carpeta.
 2. En `lineas.js`, buscá la línea (por ejemplo `Botica Natural`) y agregá las fotos dentro de `fotos: [ ]`, igual que en la Línea Esenciales.
 3. Las líneas sin fotos siguen mostrando «Pronto».
 
-## 3. Precios de la calculadora
+## 3. Posteos para redes
+
+1. Guardá la imagen (o el video `.mp4`) en `fotos/posteos`.
+2. En `posteos.js`, agregala en `ciclo` (los del ciclo actual) o en la línea que corresponda, con su formato y el texto para copiar:
+
+```js
+{archivo: "fotos/posteos/difusor-union.jpg", formato: "feed", texto: "Texto del posteo 🌿\n\n#Biogreen #Aromas"}
+```
+
+El formato es `"feed"`, `"historia"` o `"reel"`. `\n` es un salto de línea en el texto. Las líneas sin posteos muestran «Pronto».
+
+## 4. Precios de la calculadora
 
 Si cambia el valor del punto, se cambia el número `PUNTO` al principio de `negocio.js` (por ejemplo `20999`) y la calculadora se recalcula sola. Acordate de cambiar también el texto «1 punto = $…» en Primeros pasos (`index.html`).
 
-## 4. Publicar
+## 5. Publicar
 
 Los cambios se publican solos unos segundos después de subirlos a GitHub (repositorio `fotos-estados`).

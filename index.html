@@ -49,6 +49,13 @@ button.compartir svg{width:32px;height:32px;flex:none}
 .aviso.ver{display:block}
 .novedades{margin-bottom:28px}
 .nuevo{display:inline-block;vertical-align:middle;font-size:13px;font-weight:900;letter-spacing:1px;background:#C2185B;color:#fff;border-radius:999px;padding:3px 10px;margin-right:4px}
+.formatos{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.formatos button{border-radius:999px;border:2px solid var(--leaf);background:var(--surface);color:var(--leaf-dark);padding:8px 16px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer}
+.formatos button[aria-pressed="true"]{background:var(--leaf);color:var(--leaf-ink)}
+.foto .formato{float:right;font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:3px 10px}
+.foto video{display:block;width:100%;border-radius:12px;background:var(--line)}
+.foto .copy{white-space:pre-line;font-size:17px}
+.copiar-texto{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin-bottom:10px;border-radius:14px;border:2px solid var(--leaf);background:var(--surface);color:var(--leaf-dark);font-size:18px;font-weight:800;font-family:inherit;cursor:pointer}
 .vacio{text-align:center;color:var(--muted);padding:40px 10px}
 .catalogo{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:24px}
 .catalogo h2{font-size:22px;margin:0 0 6px}
@@ -269,18 +276,65 @@ a.herra:active{background:var(--soft)}
   </div>
 
   <div class="vista" id="v-posteos">
-    <div class="cab"><h1>Posteos para redes sociales</h1></div>
-    <section class="catalogo" aria-label="Posteos para redes sociales">
-      <p class="sub">Los posteos que publica Biogreen, listos para que los compartas en tu Instagram, Facebook o donde quieras.</p>
-      <a class="boton-grande" href="https://drive.google.com/drive/folders/19pHMK1xzHBGsDsnseQ0LbxUXeN0T7k9X" target="_blank" rel="noopener">VER LOS POSTEOS</a>
-    </section>
+    <div class="cab"><h1>Posteos para redes sociales</h1><p class="sub">Posteos listos para tu Instagram, Facebook o donde quieras, con el texto para copiar.</p></div>
     <section class="ayuda" aria-label="Cómo se usa">
       <h2>¿Cómo se usa?</h2>
       <ol>
-        <li>Tocá <b>VER LOS POSTEOS</b>: se abre la carpeta de Google Drive.</li>
-        <li>Elegí el posteo que te guste y descargalo.</li>
-        <li>Publicalo en tus redes desde la galería de tu celular.</li>
+        <li>Tocá <b>COMPARTIR</b> debajo del posteo (o guardalo en tu celular).</li>
+        <li>Tocá <b>COPIAR TEXTO</b> y pegalo como descripción.</li>
+        <li>Fijate el formato: <b>Feed</b> va como publicación, <b>Historia</b> como historia y <b>Reel</b> como reel.</li>
       </ol>
+    </section>
+
+    <div class="formatos" role="group" aria-label="Formato">
+      <button data-formato="" aria-pressed="true">Todos</button>
+      <button data-formato="feed" aria-pressed="false">Feed</button>
+      <button data-formato="historia" aria-pressed="false">Historias</button>
+      <button data-formato="reel" aria-pressed="false">Reels</button>
+    </div>
+
+    <section class="semana novedades" aria-label="Posteos de este ciclo">
+      <h2><span class="nuevo">NUEVO</span> <span id="pos-titulo"></span></h2>
+      <p class="sub" id="pos-vigencia" hidden></p>
+      <div id="pos-ciclo"></div>
+    </section>
+
+    <section class="lineas" aria-label="Posteos según línea">
+      <h2>Posteos según línea</h2>
+      <div id="pos-lineas"></div>
+    </section>
+
+    <details class="etapa">
+      <summary class="etapa-cab"><span class="big">🗓️</span><div><small>Guía</small><h2>Qué publicar en el ciclo</h2></div></summary>
+      <div class="etapa-cuerpo">
+        <p>Un ciclo dura 21 días. Si no sabés por dónde arrancar, seguí este ritmo:</p>
+        <ol class="linea-tiempo">
+          <li><span class="n">🚀</span><div><b>Día 1: el lanzamiento</b>Arrancá con la novedad o el lanzamiento del ciclo.</div></li>
+          <li><span class="n">📸</span><div><b>Primera semana: los productos</b>Historias cortas mostrando productos y precios del catálogo.</div></li>
+          <li><span class="n">💚</span><div><b>Mitad de ciclo: lo personal</b>Tu producto favorito o una experiencia propia. Es lo que más conecta.</div></li>
+          <li><span class="n">🗣️</span><div><b>Segunda semana: tus clientas</b>Lo que te dicen tus clientas (siempre con su permiso).</div></li>
+          <li><span class="n">⏰</span><div><b>Cierre: la promo</b>Recordá la promo vigente y avisá hasta cuándo te pueden pedir.</div></li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="etapa">
+      <summary class="etapa-cab"><span class="big">💡</span><div><small>Ideas</small><h2>Contenido propio</h2></div></summary>
+      <div class="etapa-cuerpo">
+        <p>Además de los posteos oficiales, mostrá lo tuyo: <b>lo personal suele vender más que la placa de marca.</b></p>
+        <div class="puntos">
+          <div class="punto"><span class="e">📦</span><div><b>Tu pedido llegando</b>Mostrá cuando abrís la caja y lo que vino.</div></div>
+          <div class="punto"><span class="e">🌸</span><div><b>Tu aroma favorito</b>Contá cuál es y por qué te gusta.</div></div>
+          <div class="punto"><span class="e">🎥</span><div><b>Oliendo el muestrario</b>Un video corto probando los aromas.</div></div>
+          <div class="punto"><span class="e">🏡</span><div><b>Tu casa perfumada</b>Dónde y cómo usás los productos en tu día a día.</div></div>
+          <div class="punto"><span class="e">🛍️</span><div><b>Armando un pedido</b>Prepará los paquetes de tus clientas frente a la cámara.</div></div>
+        </div>
+      </div>
+    </details>
+
+    <section class="catalogo" aria-label="Todos los posteos" style="margin-top:20px">
+      <p class="sub">¿Querés ver todo el archivo de posteos de Biogreen?</p>
+      <a class="boton-grande secundario" href="https://drive.google.com/drive/folders/19pHMK1xzHBGsDsnseQ0LbxUXeN0T7k9X" target="_blank" rel="noopener">VER TODOS LOS POSTEOS</a>
     </section>
   </div>
 
@@ -404,6 +458,7 @@ a.herra:active{background:var(--soft)}
 <script src="novedades.js"></script>
 <script src="lineas.js"></script>
 <script src="negocio.js"></script>
+<script src="posteos.js"></script>
 <script>
 const S = window.SEMANA || {fotos: []};
 const $ = s => document.querySelector(s);
@@ -527,6 +582,38 @@ pintar();
   const plataC = NG.distribuidoras[1], oro = NG.distribuidoras[2];
   $("#ejemplo-ganancia").innerHTML = `Si vendés <b>10 pts</b> este ciclo, ganás aprox. <b>${plata((NG.precioPublico - plataC.compra) * 10)}</b>. Con <b>20 pts</b> pasás a Oro y ganás aprox. <b>${plata((NG.precioPublico - oro.compra) * 20)}</b>, más el premio.`;
   document.querySelectorAll("[data-punto]").forEach(e => e.textContent = plata(NG.precioPublico));
+}
+
+// posteos para redes
+{
+  const P = window.POSTEOS || {ciclo: {posteos: []}, lineas: []}, FORMATO = {feed: "Feed", historia: "Historia", reel: "Reel"};
+  const posteoHTML = (f, i, total) => { const id = nAviso++, video = /\.mp4$/i.test(f.archivo); return `
+  <article class="foto" data-formato="${esc(f.formato)}">
+    <span class="num">Posteo ${i + 1} de ${total}</span>${FORMATO[f.formato] ? `<span class="formato">${FORMATO[f.formato]}</span>` : ""}
+    ${video ? `<video src="${esc(f.archivo)}" controls playsinline preload="metadata"></video>` : `<img src="${esc(f.archivo)}" alt="Posteo ${i + 1}" loading="lazy">`}
+    ${f.texto ? `<p class="copy">${esc(f.texto)}</p><button class="copiar-texto" type="button">COPIAR TEXTO</button>` : `<div style="height:12px"></div>`}
+    <button class="compartir" data-src="${esc(f.archivo)}" data-aviso="${id}">${ICONO}COMPARTIR</button>
+    <div class="aviso" id="aviso-${id}" role="status"></div>
+  </article>`; };
+  const lista = (ps, vacio) => ps.length ? ps.map((f, i) => posteoHTML(f, i, ps.length)).join("") : `<p class="pista">${vacio}</p>`;
+  $("#pos-titulo").textContent = P.ciclo.titulo || "Posteos de este ciclo";
+  if(P.ciclo.vigencia){ $("#pos-vigencia").textContent = P.ciclo.vigencia; $("#pos-vigencia").hidden = false; }
+  $("#pos-ciclo").innerHTML = lista(P.ciclo.posteos, "Pronto vas a encontrar acá los posteos de este ciclo.");
+  $("#pos-lineas").innerHTML = P.lineas.map(l => `
+  <details class="linea">
+    <summary><span>${esc(l.nombre)}</span><span class="cant">${l.posteos.length ? l.posteos.length + (l.posteos.length === 1 ? " posteo" : " posteos") : "Pronto"}</span></summary>
+    <div class="linea-cuerpo">${lista(l.posteos, "Pronto vas a encontrar posteos de esta línea acá.")}</div>
+  </details>`).join("");
+  document.querySelectorAll(".copiar-texto").forEach(b => b.onclick = async () => {
+    const texto = b.previousElementSibling.textContent;
+    try{ await navigator.clipboard.writeText(texto); }
+    catch(e){ const t = document.createElement("textarea"); t.value = texto; document.body.appendChild(t); t.select(); try{ document.execCommand("copy"); }catch(e2){} t.remove(); }
+    b.textContent = "¡TEXTO COPIADO!"; setTimeout(() => b.textContent = "COPIAR TEXTO", 2000);
+  });
+  document.querySelectorAll("[data-formato]").forEach(b => { if(b.tagName !== "BUTTON") return; b.onclick = () => {
+    document.querySelectorAll(".formatos button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    document.querySelectorAll("#v-posteos article.foto").forEach(a => a.hidden = !!b.dataset.formato && a.dataset.formato !== b.dataset.formato);
+  }; });
 }
 
 $("#compCat").onclick = async () => {

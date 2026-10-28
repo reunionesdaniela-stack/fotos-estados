@@ -183,6 +183,26 @@ a.herra:active{background:var(--soft)}
 .forma ul{list-style:none;margin:0;padding:0}
 .forma li{position:relative;padding-left:28px;margin-bottom:6px;font-size:17px}
 .forma li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--leaf);font-weight:900}
+.checklist{background:var(--surface);border:2px solid var(--leaf);border-radius:22px;padding:16px 18px;margin-bottom:22px}
+.checklist h2{font-size:22px;margin:0 0 4px}
+.checklist .progreso{height:14px;border-radius:999px;background:var(--soft);overflow:hidden;margin:10px 0 4px}
+.checklist .progreso span{display:block;height:100%;width:0;background:var(--leaf);border-radius:999px;transition:width .3s}
+.checklist .cuenta{font-size:15px;font-weight:700;color:var(--leaf-dark);margin:0 0 8px}
+.checklist label{display:flex;gap:12px;align-items:center;min-height:52px;padding:6px 0;border-top:1px solid var(--line);font-size:17px;cursor:pointer}
+.checklist input{flex:none;width:26px;height:26px;accent-color:var(--leaf)}
+.checklist input:checked + span{text-decoration:line-through;color:var(--muted)}
+.checklist a{color:var(--leaf-dark);font-weight:700}
+.checklist .listo{display:none;margin:10px 0 0;font-weight:800;color:var(--leaf-dark)}
+.checklist.completo .listo{display:block}
+.etapa-cuerpo h3{font-size:20px;margin:18px 0 4px}
+.msjs{display:flex;flex-direction:column;gap:10px;margin:6px 0 14px}
+.msj{border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.msj small{display:block;font-size:14px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--leaf-dark);margin-bottom:4px}
+.msj p{margin:0 0 10px;font-size:17px}
+.msj button{min-height:46px;padding:0 18px;border-radius:12px;border:2px solid var(--leaf);background:var(--leaf);color:var(--leaf-ink);font:inherit;font-size:16px;font-weight:800;cursor:pointer}
+.msj button.ok{background:var(--surface);color:var(--leaf-dark)}
+.oro-extra{border:2px solid var(--oro);border-radius:16px;padding:12px 14px;margin:0 0 12px;font-size:17px}
+.oro-extra b:first-child{color:var(--oro)}
 .final{background:linear-gradient(160deg,var(--hero1) 0%,var(--leaf-deep) 100%);color:#fff;border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:8px}
 .final h2{font-size:24px;margin:0 0 6px;color:#fff}
 .final p{margin:0 0 6px;color:rgba(255,255,255,.92)}
@@ -272,9 +292,21 @@ a.herra:active{background:var(--soft)}
       <button data-ir="p1"><i>1</i>Empezá conectando</button>
       <button data-ir="p2"><i>2</i>Categorías y ganancias</button>
       <button data-ir="p3"><i>3</i>Tus herramientas</button>
-      <button data-ir="p4"><i>4</i>Cómo funciona un ciclo</button>
-      <button data-ir="p5"><i>5</i>Dos formas de trabajar</button>
+      <button data-ir="p4"><i>4</i>Dos formas de trabajar</button>
+      <button data-ir="p5"><i>5</i>Cómo funciona un ciclo</button>
     </nav>
+
+    <section class="checklist" id="checklist">
+      <h2>✅ Tu primera semana</h2>
+      <p class="nota">Tildá cada paso cuando lo hagas. Queda guardado en tu celular.</p>
+      <div class="progreso"><span></span></div>
+      <p class="cuenta"></p>
+      <label><input type="checkbox" data-tarea="contactos"><span>Hacé tu lista de 20 contactos</span></label>
+      <label><input type="checkbox" data-tarea="fotos"><span>Compartí tus primeras 3 <a href="#fotos">fotos en tu estado</a></span></label>
+      <label><input type="checkbox" data-tarea="muestrario"><span>Ofrecé el muestrario a 5 personas</span></label>
+      <label><input type="checkbox" data-tarea="pedido"><span>Hacé tu primer pedido</span></label>
+      <p class="listo">¡Felicitaciones, completaste tu primera semana! 🎉</p>
+    </section>
 
     <section class="etapa" id="p1">
       <div class="etapa-cab"><span class="big">1</span><div><small>Paso 1</small><h2>Empezá conectando</h2></div></div>
@@ -284,6 +316,13 @@ a.herra:active{background:var(--soft)}
           <div class="punto"><span class="e">👨‍👩‍👧</span><div><b>Tu círculo cercano</b>Familia, amistades, compañeros de trabajo y tus contactos. Ya te conocen y confían en vos: son tus primeras ventas.</div></div>
           <div class="punto"><span class="e">🤝</span><div><b>Pedí recomendaciones</b>Preguntale a cada clienta si conoce a alguien a quien le pueda interesar. Así tu red crece más allá de tus conocidos.</div></div>
           <div class="punto"><span class="e">📱</span><div><b>Usá tus redes</b>Mostrá los productos, contá tu experiencia y mantené el contacto. <a href="#fotos">Las fotos para estados</a> son para eso.</div></div>
+        </div>
+        <h3>Mensajes listos para mandar</h3>
+        <p class="nota">Tocá COPIAR, pegalo en WhatsApp y cambiá lo que quieras.</p>
+        <div class="msjs">
+          <div class="msj"><small>Contá que arrancaste</small><p>¡Hola! 🌿 Te cuento que empecé a vender Biogreen: aromatizantes, fragancias, aromaterapia y productos para el hogar. Si querés te paso el catálogo con los precios, sin compromiso.</p><button type="button" data-copiar>COPIAR</button></div>
+          <div class="msj"><small>Ofrecé probar un aroma</small><p>¡Hola! 😊 Tengo el muestrario de aromas de Biogreen y me encantaría que pruebes alguno. ¿Cuándo te viene bien que te lo acerque?</p><button type="button" data-copiar>COPIAR</button></div>
+          <div class="msj"><small>Pedí una recomendación</small><p>¡Gracias por tu compra! 💚 Si conocés a alguien a quien le puedan gustar los productos de Biogreen, ¿me pasarías su contacto o le compartirías el mío?</p><button type="button" data-copiar>COPIAR</button></div>
         </div>
         <div class="destacado">Cada contacto es una oportunidad. Cada oportunidad bien acompañada puede ser una venta.</div>
       </div>
@@ -300,7 +339,9 @@ a.herra:active{background:var(--soft)}
           <div class="medalla" style="--c:var(--plata)"><div class="nom">Plata</div><div class="desde">desde 10 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span></div>
           <div class="medalla" style="--c:var(--oro)"><div class="nom">Oro</div><div class="desde">desde 20 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span></div>
         </div>
-        <p class="nota">El <b>pedido mínimo es de 5 pts</b>. Con Oro, además sumás premios en productos para vender.</p>
+        <p class="nota">El <b>pedido mínimo es de 5 pts</b>.</p>
+        <div class="oro-extra"><b>¿Por qué llegar a Oro?</b> Tiene el mismo 30% que Plata, pero <b>además ganás premios en productos</b>. Por ejemplo, con 20 pts te llevás <b>1 Capullos de Lino de 500 ml de regalo</b>: lo vendés a <span data-punto></span> y es todo ganancia. Y hay más premios al llegar a 30, 40 y 60 pts.</div>
+        <div class="ejemplo"><span class="e">💰</span><div id="ejemplo-ganancia"></div></div>
         <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
       </div>
     </section>
@@ -320,7 +361,20 @@ a.herra:active{background:var(--soft)}
     </section>
 
     <section class="etapa" id="p4">
-      <div class="etapa-cab"><span class="big">4</span><div><small>Paso 4</small><h2>Cómo funciona un ciclo</h2></div></div>
+      <div class="etapa-cab"><span class="big">4</span><div><small>Paso 4</small><h2>Dos formas de trabajar</h2></div></div>
+      <div class="etapa-cuerpo">
+        <div class="formas">
+          <div class="forma"><span class="tag">Modelo delegado</span><h3>Con tu patrocinante</h3>
+            <ul><li>Hacés tu pedido.</li><li>Lo abonás previamente.</li><li>Ella lo prepara y lo despacha.</li><li>Vos te dedicás a vender y atender a tus clientas.</li></ul></div>
+          <div class="forma"><span class="tag">Biogreen Te Impulsa</span><h3>Directa con Biogreen</h3>
+            <ul><li>Biogreen recibe, prepara, cobra, factura y te envía el pedido.</li><li>Stock en línea.</li><li>Varios medios de pago y opciones de envío.</li></ul></div>
+        </div>
+        <div class="destacado">¿No sabés cuál te conviene? Consultá a tu líder 🌿</div>
+      </div>
+    </section>
+
+    <section class="etapa" id="p5">
+      <div class="etapa-cab"><span class="big">5</span><div><small>Paso 5</small><h2>Cómo funciona un ciclo</h2></div></div>
       <div class="etapa-cuerpo">
         <div class="datos">
           <div class="dato"><b>17</b><span>ciclos por año</span></div>
@@ -334,19 +388,6 @@ a.herra:active{background:var(--soft)}
           <li><span class="n">🛍️</span><div><b>Entregá y cobrá</b>a cada clienta.</div></li>
           <li><span class="n">💬</span><div><b>Seguí en contacto</b>Preguntá cómo les fue, pedí recomendaciones y planificá el próximo ciclo.</div></li>
         </ol>
-      </div>
-    </section>
-
-    <section class="etapa" id="p5">
-      <div class="etapa-cab"><span class="big">5</span><div><small>Paso 5</small><h2>Dos formas de trabajar</h2></div></div>
-      <div class="etapa-cuerpo">
-        <div class="formas">
-          <div class="forma"><span class="tag">Modelo delegado</span><h3>Con tu patrocinante</h3>
-            <ul><li>Hacés tu pedido.</li><li>Lo abonás previamente.</li><li>Ella lo prepara y lo despacha.</li><li>Vos te dedicás a vender y atender a tus clientas.</li></ul></div>
-          <div class="forma"><span class="tag">Biogreen Te Impulsa</span><h3>Directa con Biogreen</h3>
-            <ul><li>Biogreen recibe, prepara, cobra, factura y te envía el pedido.</li><li>Stock en línea.</li><li>Varios medios de pago y opciones de envío.</li></ul></div>
-        </div>
-        <div class="destacado">¿No sabés cuál te conviene? Consultá a tu líder 🌿</div>
       </div>
     </section>
 
@@ -434,6 +475,26 @@ window.addEventListener("hashchange", () => { mostrar(); window.scrollTo(0, 0); 
 mostrar();
 document.querySelectorAll("[data-ir]").forEach(b => b.onclick = () => document.getElementById(b.dataset.ir).scrollIntoView({behavior: "smooth"}));
 
+// primeros pasos: checklist (se guarda en el celular), mensajes para copiar y ejemplo de ganancia
+const tareas = document.querySelectorAll("#checklist [data-tarea]");
+let hechas = {};
+try{ hechas = JSON.parse(localStorage.getItem("primera-semana") || "{}"); }catch(e){}
+function progreso(){
+  const n = [...tareas].filter(t => t.checked).length;
+  $("#checklist .progreso span").style.width = (n / tareas.length * 100) + "%";
+  $("#checklist .cuenta").textContent = n + " de " + tareas.length + " listos";
+  $("#checklist").classList.toggle("completo", n === tareas.length);
+}
+tareas.forEach(t => { t.checked = !!hechas[t.dataset.tarea]; t.onchange = () => { hechas[t.dataset.tarea] = t.checked; try{ localStorage.setItem("primera-semana", JSON.stringify(hechas)); }catch(e){} progreso(); }; });
+progreso();
+document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => {
+  const texto = b.previousElementSibling.textContent;
+  try{ await navigator.clipboard.writeText(texto); }
+  catch(e){ const t = document.createElement("textarea"); t.value = texto; document.body.appendChild(t); t.select(); try{ document.execCommand("copy"); }catch(e2){} t.remove(); }
+  b.textContent = "¡COPIADO!"; b.classList.add("ok");
+  setTimeout(() => { b.textContent = "COPIAR"; b.classList.remove("ok"); }, 2000);
+});
+
 // calculadora
 const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;
 const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0};
@@ -471,6 +532,12 @@ function pintar(){
 }
 document.querySelectorAll("[data-modo]").forEach(b => b.onclick = () => { calc.modo = b.dataset.modo; document.querySelectorAll("[data-modo]").forEach(x => x.setAttribute("aria-pressed", x === b)); pintar(); });
 pintar();
+
+{ // ejemplo del Paso 2, con los mismos números que la calculadora
+  const plataC = NG.distribuidoras[1], oro = NG.distribuidoras[2];
+  $("#ejemplo-ganancia").innerHTML = `Si vendés <b>10 pts</b> este ciclo, ganás aprox. <b>${plata((NG.precioPublico - plataC.compra) * 10)}</b>. Con <b>20 pts</b> pasás a Oro y ganás aprox. <b>${plata((NG.precioPublico - oro.compra) * 20)}</b>, más el premio.`;
+  document.querySelectorAll("[data-punto]").forEach(e => e.textContent = plata(NG.precioPublico));
+}
 
 $("#compCat").onclick = async () => {
   const url = "https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1", texto = "Mirá el catálogo de Biogreen con los precios 🌿";

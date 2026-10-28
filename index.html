@@ -134,12 +134,11 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .campo{display:block;font-weight:700;margin:12px 0 0;font-size:17px}
 .nota{font-size:15px;color:var(--muted)}
 /* primeros pasos */
-.indice{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:6px 8px;margin-bottom:22px}
-.indice button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:6px 8px;border:0;background:none;color:var(--ink);font:inherit;font-size:18px;font-weight:700;text-align:left;cursor:pointer;border-bottom:1px solid var(--line)}
-.indice button:last-child{border-bottom:0}
-.indice button i{flex:none;font-style:normal;width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--leaf-dark);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
-.etapa{background:var(--surface);border:2px solid var(--line);border-radius:22px;margin-bottom:20px;overflow:hidden;scroll-margin-top:84px}
-.etapa-cab{display:flex;align-items:center;gap:14px;padding:18px 18px 14px;background:var(--soft)}
+.etapa{background:var(--surface);border:2px solid var(--line);border-radius:22px;margin-bottom:12px;overflow:hidden;scroll-margin-top:84px}
+.etapa-cab{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--soft);list-style:none;cursor:pointer}
+.etapa-cab::-webkit-details-marker{display:none}
+.etapa-cab::after{content:"";margin-left:auto;width:12px;height:12px;border-right:3px solid var(--leaf);border-bottom:3px solid var(--leaf);transform:rotate(45deg);flex:none;margin-right:4px;transition:transform .2s}
+.etapa[open]>.etapa-cab::after{transform:rotate(-135deg)}
 .etapa-cab .big{flex:none;width:52px;height:52px;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900}
 .etapa-cab small{display:block;font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--leaf-dark)}
 .etapa-cab h2{font-size:23px;line-height:1.15;margin:2px 0 0}
@@ -286,15 +285,7 @@ a.herra:active{background:var(--soft)}
   </div>
 
   <div class="vista" id="v-primeros">
-    <div class="cab"><h1>Primeros pasos</h1><p class="sub">Tu guía para empezar con Biogreen, en 5 pasos simples. Tocá un paso para ir directo.</p></div>
-
-    <nav class="indice" aria-label="Pasos">
-      <button data-ir="p1"><i>1</i>Empezá conectando</button>
-      <button data-ir="p2"><i>2</i>Categorías y ganancias</button>
-      <button data-ir="p3"><i>3</i>Tus herramientas</button>
-      <button data-ir="p4"><i>4</i>Dos formas de trabajar</button>
-      <button data-ir="p5"><i>5</i>Cómo funciona un ciclo</button>
-    </nav>
+    <div class="cab"><h1>Primeros pasos</h1><p class="sub">Tu guía para empezar con Biogreen, en 5 pasos simples. Tocá cada paso para abrirlo.</p></div>
 
     <section class="checklist" id="checklist">
       <h2>✅ Tu primera semana</h2>
@@ -308,8 +299,8 @@ a.herra:active{background:var(--soft)}
       <p class="listo">¡Felicitaciones, completaste tu primera semana! 🎉</p>
     </section>
 
-    <section class="etapa" id="p1">
-      <div class="etapa-cab"><span class="big">1</span><div><small>Paso 1</small><h2>Empezá conectando</h2></div></div>
+    <details class="etapa" id="p1">
+      <summary class="etapa-cab"><span class="big">1</span><div><small>Paso 1</small><h2>Empezá conectando</h2></div></summary>
       <div class="etapa-cuerpo">
         <p>El negocio crece cuando más personas conocen la propuesta. <b>El primer paso no es vender: es conectar.</b></p>
         <div class="puntos">
@@ -326,10 +317,10 @@ a.herra:active{background:var(--soft)}
         </div>
         <div class="destacado">Cada contacto es una oportunidad. Cada oportunidad bien acompañada puede ser una venta.</div>
       </div>
-    </section>
+    </details>
 
-    <section class="etapa" id="p2">
-      <div class="etapa-cab"><span class="big">2</span><div><small>Paso 2</small><h2>Categorías y ganancias</h2></div></div>
+    <details class="etapa" id="p2">
+      <summary class="etapa-cab"><span class="big">2</span><div><small>Paso 2</small><h2>Categorías y ganancias</h2></div></summary>
       <div class="etapa-cuerpo">
         <p>Todo se mide en <b>puntos</b>: cada producto suma puntos según su precio (figuran en el catálogo).</p>
         <div class="ejemplo"><span class="e">🧴</span><div>Hoy <b>1 punto = $20.999</b> a precio de catálogo. Por ejemplo, un Capullos de Lino de 500 ml = 1 punto.</div></div>
@@ -344,10 +335,10 @@ a.herra:active{background:var(--soft)}
         <div class="ejemplo"><span class="e">💰</span><div id="ejemplo-ganancia"></div></div>
         <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
       </div>
-    </section>
+    </details>
 
-    <section class="etapa" id="p3">
-      <div class="etapa-cab"><span class="big">3</span><div><small>Paso 3</small><h2>Tus herramientas</h2></div></div>
+    <details class="etapa" id="p3">
+      <summary class="etapa-cab"><span class="big">3</span><div><small>Paso 3</small><h2>Tus herramientas</h2></div></summary>
       <div class="etapa-cuerpo">
         <div class="herrs">
           <a class="herra" href="#catalogo"><span class="e">📖</span><b>Catálogo</b>Para mostrar los productos y compartir por WhatsApp.<span class="ir">Ver ›</span></a>
@@ -358,10 +349,10 @@ a.herra:active{background:var(--soft)}
           <a class="herra" href="#posteos"><span class="e">📲</span><b>Posteos</b>Lo que publica Biogreen, listo para tus redes.<span class="ir">Ver ›</span></a>
         </div>
       </div>
-    </section>
+    </details>
 
-    <section class="etapa" id="p4">
-      <div class="etapa-cab"><span class="big">4</span><div><small>Paso 4</small><h2>Dos formas de trabajar</h2></div></div>
+    <details class="etapa" id="p4">
+      <summary class="etapa-cab"><span class="big">4</span><div><small>Paso 4</small><h2>Dos formas de trabajar</h2></div></summary>
       <div class="etapa-cuerpo">
         <div class="formas">
           <div class="forma"><span class="tag">Modelo delegado</span><h3>Con tu patrocinante</h3>
@@ -371,10 +362,10 @@ a.herra:active{background:var(--soft)}
         </div>
         <div class="destacado">¿No sabés cuál te conviene? Consultá a tu líder 🌿</div>
       </div>
-    </section>
+    </details>
 
-    <section class="etapa" id="p5">
-      <div class="etapa-cab"><span class="big">5</span><div><small>Paso 5</small><h2>Cómo funciona un ciclo</h2></div></div>
+    <details class="etapa" id="p5">
+      <summary class="etapa-cab"><span class="big">5</span><div><small>Paso 5</small><h2>Cómo funciona un ciclo</h2></div></summary>
       <div class="etapa-cuerpo">
         <div class="datos">
           <div class="dato"><b>17</b><span>ciclos por año</span></div>
@@ -389,7 +380,7 @@ a.herra:active{background:var(--soft)}
           <li><span class="n">💬</span><div><b>Seguí en contacto</b>Preguntá cómo les fue, pedí recomendaciones y planificá el próximo ciclo.</div></li>
         </ol>
       </div>
-    </section>
+    </details>
 
     <section class="final">
       <h2>¡Ya podés empezar! 🌱</h2>
@@ -473,7 +464,6 @@ function mostrar(){
 }
 window.addEventListener("hashchange", () => { mostrar(); window.scrollTo(0, 0); });
 mostrar();
-document.querySelectorAll("[data-ir]").forEach(b => b.onclick = () => document.getElementById(b.dataset.ir).scrollIntoView({behavior: "smooth"}));
 
 // primeros pasos: checklist (se guarda en el celular), mensajes para copiar y ejemplo de ganancia
 const tareas = document.querySelectorAll("#checklist [data-tarea]");

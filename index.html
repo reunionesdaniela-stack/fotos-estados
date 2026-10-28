@@ -107,6 +107,24 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .cab h1{margin:0 0 6px}
 .cab .sub{margin:0}
 .seguir{margin-top:30px}
+/* tus precios */
+.selector,.buscador{display:block;width:100%;height:58px;margin:6px 0 4px;padding:0 14px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-size:19px;font-weight:700;font-family:inherit}
+.selector{appearance:none;-webkit-appearance:none;border-color:var(--leaf);background-image:linear-gradient(45deg,transparent 50%,var(--leaf) 50%),linear-gradient(135deg,var(--leaf) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 15px) 50%;background-size:7px 7px;background-repeat:no-repeat;padding-right:40px}
+.buscador{font-weight:600}
+.pr-resumen{background:var(--leaf);color:var(--leaf-ink);border-radius:16px;padding:12px 16px;margin:0 0 14px;font-size:18px}
+.pr-filtros{display:grid;grid-template-columns:1fr;gap:4px;margin-bottom:16px}
+.pr-linea{font-size:20px;margin:22px 0 8px}
+.pr-item{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+.pr-item h3{font-size:18px;line-height:1.25;margin:0 0 10px}
+.pr-item h3 small{color:var(--muted);font-weight:600;font-size:15px}
+.pr-item .etq{display:inline-block;vertical-align:middle;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:2px 8px;margin-left:4px}
+.pr-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0}
+.pr-nums div{display:flex;flex-direction:column;justify-content:space-between;background:var(--bg);border-radius:12px;padding:8px 6px;text-align:center;min-width:0}
+.pr-nums dt{font-size:13px;color:var(--muted);font-weight:700;line-height:1.2}
+.pr-nums dd{margin:2px 0 0;font-size:clamp(16px,4.6vw,19px);font-weight:900;white-space:nowrap}
+.pr-nums .gan{background:var(--soft)}
+.pr-nums .gan dd{color:var(--leaf-dark)}
+.pr-nums .consultar dd{font-size:14px;white-space:normal;color:var(--muted)}
 .seguir h2{font-size:20px;margin:0 0 4px;color:var(--muted)}
 .seguir .menu a{min-height:72px}
 .seguir .menu .ico{width:46px;height:46px;font-size:24px;border-radius:12px}
@@ -400,6 +418,7 @@ a.herra:active{background:var(--soft)}
           <a href="#desafios">Ver todos los desafíos ›</a>
         </div>
         <div class="ejemplo"><span class="e">💰</span><div id="ejemplo-ganancia"></div></div>
+        <p><a href="#precios">Ver tus precios producto por producto ›</a></p>
         <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
       </div>
     </details>
@@ -463,6 +482,23 @@ a.herra:active{background:var(--soft)}
     <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
   </div>
 
+  <div class="vista" id="v-precios">
+    <div class="cab"><h1>Tus precios</h1><p class="sub">Elegí tu categoría y a quién le vendés: vas a ver cuánto te cuesta cada producto, a cuánto venderlo y cuánto ganás.</p></div>
+    <section class="tarjeta">
+      <label class="campo" for="pr-mia">Mi categoría</label>
+      <select class="selector" id="pr-mia"></select>
+      <label class="campo" for="pr-a">Le vendo a</label>
+      <select class="selector" id="pr-a"></select>
+    </section>
+    <p class="pr-resumen" id="pr-resumen" role="status"></p>
+    <div class="pr-filtros">
+      <input class="buscador" id="pr-buscar" type="search" placeholder="🔎 Buscá un producto" aria-label="Buscar producto">
+      <select class="selector" id="pr-linea" aria-label="Filtrar por línea"><option value="">Todas las líneas</option></select>
+    </div>
+    <div id="pr-lista"><p class="vacio">Cargando precios…</p></div>
+    <p class="nota" id="pr-pie"></p>
+  </div>
+
   <div class="vista" id="v-calculadora">
     <div class="cab"><h1>Calculá tu ganancia</h1><p class="sub">Elegí tu caso y cargá tus puntos.</p></div>
     <section class="tarjeta">
@@ -522,6 +558,7 @@ $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.
 const SECCIONES = [
   {v: "fotos", ico: "📸", nombre: "Fotos para estados", desc: "Novedades y fotos listas para tu WhatsApp."},
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
+  {v: "precios", ico: "🏷️", nombre: "Tus precios", desc: "Tu costo, el precio de venta y tu ganancia en cada producto."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
   {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."},
@@ -647,6 +684,53 @@ pintar();
     document.querySelectorAll("#v-posteos article.foto").forEach(a => a.hidden = !!b.dataset.formato && a.dataset.formato !== b.dataset.formato);
   }; });
 }
+
+// tus precios: los datos salen de precios.csv (se reemplaza cada vez que cambia la lista)
+(async () => {
+  const pesos = n => "$" + Math.round(n).toLocaleString("es-AR"), sel = id => $("#pr-" + id);
+  let texto;
+  try{ texto = await (await fetch("precios.csv", {cache: "no-cache"})).text(); }
+  catch(e){ $("#pr-lista").innerHTML = `<p class="vacio">No se pudieron cargar los precios. Probá de nuevo en un rato.</p>`; return; }
+  const filas = texto.split(/\r?\n/), vig = (texto.match(/Vigente desde:\s*(\d{4}-\d{2}-\d{2})/) || [])[1];
+  const datos = filas.filter(f => f.trim() && !f.startsWith("#")).map(f => f.split(";").map(x => x.trim()));
+  const cab = datos.shift(), iPub = cab.indexOf("Precio público"), iCod = cab.indexOf("codigo");
+  const cats = cab.slice(iPub + 1, iCod < 0 ? undefined : iCod); // de mayor a menor
+  const prods = datos.map(d => ({linea: d[0], nombre: d[1], pres: d[2], promo: d[3] === "promo", precio: Object.fromEntries(cab.map((c, i) => [c, +d[i]]))}));
+  const FINAL = "Cliente final", nombreCat = c => c === FINAL ? "tu cliente final" : /^líder/i.test(c) ? c : "Distribuidora " + c;
+  const mismoCosto = (a, b) => prods.every(p => p.precio[a] === p.precio[b]);
+  // le vendo a: las categorías de abajo (sin las que tienen el mismo costo, porque no ganarías nada) y el cliente final
+  const clientes = mia => cats.slice(cats.indexOf(mia) + 1).filter(c => !mismoCosto(c, mia)).concat(FINAL);
+  let elegido = {};
+  try{ elegido = JSON.parse(localStorage.getItem("tus-precios") || "{}"); }catch(e){}
+  sel("mia").innerHTML = cats.map(c => `<option value="${esc(c)}">${esc(nombreCat(c))}</option>`).join("");
+  sel("mia").value = cats.includes(elegido.mia) ? elegido.mia : cats[cats.length - 1];
+  const lineas = [...new Set(prods.map(p => p.linea))];
+  sel("linea").insertAdjacentHTML("beforeend", lineas.map(l => `<option>${esc(l)}</option>`).join(""));
+  function opciones(){
+    const os = clientes(sel("mia").value), antes = sel("a").value || elegido.a;
+    sel("a").innerHTML = os.map(c => `<option value="${esc(c)}">${esc(c === FINAL ? FINAL : nombreCat(c))}</option>`).join("");
+    sel("a").value = os.includes(antes) ? antes : os[0];
+  }
+  function pintarPrecios(){
+    const mia = sel("mia").value, a = sel("a").value, busca = sel("buscar").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""), linea = sel("linea").value;
+    try{ localStorage.setItem("tus-precios", JSON.stringify({mia, a})); }catch(e){}
+    sel("resumen").innerHTML = `Sos <b>${esc(nombreCat(mia))}</b> y le vendés a <b>${esc(nombreCat(a))}</b>.`;
+    const vistos = prods.filter(p => (!linea || p.linea === linea) && (!busca || (p.nombre + " " + p.linea).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(busca)));
+    let h = "", ultima = "";
+    vistos.forEach(p => {
+      const costo = Math.round(p.precio[mia]), venta = Math.round(a === FINAL ? p.precio["Precio público"] : p.precio[a]), gana = venta - costo;
+      if(p.linea !== ultima){ h += `<h2 class="pr-linea">${esc(p.linea)}</h2>`; ultima = p.linea; }
+      h += `<article class="pr-item"><h3>${esc(p.nombre)} ${p.pres ? `<small>${esc(p.pres)}</small>` : ""}${p.promo ? `<span class="etq">Promo</span>` : ""}</h3>
+        <dl class="pr-nums"><div><dt>Mi costo</dt><dd>${pesos(costo)}</dd></div><div><dt>Precio de venta</dt><dd>${pesos(venta)}</dd></div>${gana > 0 ? `<div class="gan"><dt>Mi ganancia</dt><dd>${pesos(gana)}</dd></div>` : `<div class="consultar"><dt>Mi ganancia</dt><dd>Consultá a tu líder</dd></div>`}</dl></article>`;
+    });
+    sel("lista").innerHTML = h || `<p class="vacio">No encontramos productos con «${esc(sel("buscar").value)}».</p>`;
+  }
+  opciones(); pintarPrecios();
+  sel("mia").onchange = () => { opciones(); pintarPrecios(); };
+  sel("a").onchange = sel("linea").onchange = pintarPrecios;
+  sel("buscar").oninput = pintarPrecios;
+  sel("pie").textContent = `Precios vigentes desde ${vig ? new Date(vig + "T00:00").toLocaleDateString("es-AR", {day: "numeric", month: "long", year: "numeric"}) : "el último cambio de lista"}. Pueden cambiar con las promociones de cada ciclo. Ante cualquier duda, consultá a tu líder.`;
+})();
 
 $("#compCat").onclick = async () => {
   const url = "https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg/page/1", texto = "Mirá el catálogo de Biogreen con los precios 🌿";

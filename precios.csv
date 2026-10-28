@@ -1,0 +1,357 @@
+# Lista de precios por categoría. Vigente desde: 2026-08-27
+# Las columnas de categorías van de mayor a menor. Precios en pesos, con punto decimal.
+linea;producto;presentacion;tipo;Precio público;Líder;Oro;Plata;Bronce;codigo
+Esencias de Armonización;Purificación;300 ml;;28499;18353.36;19949.3;19949.3;22799.2;10277
+Esencias de Armonización;Equilibrio;300 ml;;28499;18353.36;19949.3;19949.3;22799.2;10278
+Esencias de Armonización;Unión;300 ml;promo;22899;17036.86;18319.2;18319.2;20609.1;10279
+Esencias de Armonización;Protección;300 ml;;28499;18353.36;19949.3;19949.3;22799.2;10280
+Esencias de Armonización;Energía;300 ml;;28499;18353.36;19949.3;19949.3;22799.2;10381
+Esencias de Armonización;Prosperidad;300 ml;;28499;18353.36;19949.3;19949.3;22799.2;10382
+Esencias de Armonización;Repuesto Bidon Purificación;900 ml;promo;64499;47987.26;51599.2;51599.2;58049.1;10288
+Esencias de Armonización;Repuesto Bidon Equilibrio;900 ml;promo;64499;47987.26;51599.2;51599.2;58049.1;10289
+Esencias de Armonización;Repuesto Bidon Unión;900 ml;promo;64499;47987.26;51599.2;51599.2;58049.1;10290
+Esencias de Armonización;Repuesto Bidon Protección;900 ml;promo;64499;47987.26;51599.2;51599.2;58049.1;10291
+Esencias de Armonización;Repuesto Bidon Energía;900 ml;promo;64499;47987.26;51599.2;51599.2;58049.1;10292
+Esencias de Armonización;Repuesto Bidon Prosperidad;900 ml;promo;64499;47987.26;51599.2;51599.2;58049.1;10293
+Línea Esenciales;Capullos de Lino;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00521
+Línea Esenciales;Asarina;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00524
+Línea Esenciales;Vainilla & Caramelo;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00525
+Línea Esenciales;Lavanda;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00529
+Línea Esenciales;Papaya & Frambuesa;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00530
+Línea Esenciales;Te Verde & Cedron;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00531
+Línea Esenciales;Cedro & Jazmin;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00532
+Línea Esenciales;Jengibre, Limon & Rosas;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00535
+Línea Esenciales;Coco & Avellanas;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00537
+Línea Esenciales;Verbena & Petitgrain;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00538
+Línea Esenciales;Praliné & Rosa China;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;10541
+Línea Esenciales;Mango y Anana;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;10543
+Línea Esenciales;Nardos y Magnolias;500 ml;promo;15999;11903.26;12799.2;12799.2;14399.1;10583
+Línea Esenciales;Peonias y Oud;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;10546
+Línea Esenciales;Lima y Menta;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;10547
+Línea Esenciales;Glicinas y Violetas;500 ml;;19999;12879.36;13999.3;13999.3;15999.2;10260
+Línea Esenciales;Capullos de Lino;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10222
+Línea Esenciales;Vainilla & Caramelo;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10236
+Línea Esenciales;Asarina;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10233
+Línea Esenciales;Lavanda;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10247
+Línea Esenciales;Papaya & Frambuesa;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10248
+Línea Esenciales;Te Verde & Cedron;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10249
+Línea Esenciales;Cedro & Jazmin;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10250
+Línea Esenciales;Jengibre, Limon & Rosas;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10252
+Línea Esenciales;Coco & Avellanas;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10253
+Línea Esenciales;Verbena & Petitgrain;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10254
+Línea Esenciales;Praliné & Rosa China;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10256
+Línea Esenciales;Mango y Ananá;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10257
+Línea Esenciales;Nardos y Magnolias;240 ml;promo;9599;7141.66;7679.2;7679.2;8639.1;10246
+Línea Esenciales;Peonias y Oud;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10270
+Línea Esenciales;Lima y Menta;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10271
+Línea Esenciales;Glicinas y Violetas;240 ml;;11899;7662.96;8329.3;8329.3;9519.2;10259
+Alma Botánica;Aromatizante Alma Botanica Sandalo;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;A00103
+Alma Botánica;Aromatizante Alma Botanica Lemongrass;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;A00104
+Alma Botánica;Aromatizante Alma Botanica Rosa Bulgara;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;A00105
+Alma Botánica;Aromatizante Alma Botanica Haba Tonka;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;A00106
+Alma Botánica;Aromatizante Alma Botanica Jazmin del Cabo;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;A00107
+Alma Botánica;Aromatizante Alma Botanica Flor de Cerezo;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10109
+Alma Botánica;Aromatizante Alma Botanica Árbol de Higo;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10110
+Alma Botánica;Aromatizante Alma Botanica Tangerina;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10123
+Alma Botánica;Aromatizante Alma Botanica Canela de Ceylan;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10128
+Alma Botánica;Aromatizante Alma Botánica Flor de Níspero;;;18499;11913.36;12949.3;12949.3;14799.2;A00108
+Alma Botánica;Aromatizante Alma Botánica Maracuya ¡Nuevo!;330 ml;promo;14899;11084.86;11919.2;11919.2;13409.1;90109
+Línea Premium;Andalucia;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;10212
+Línea Premium;Alerces;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;A00213
+Línea Premium;Serrana;330 ml;promo;14399;10712.86;11519.2;11519.2;12959.1;A00216
+Línea Premium;Parisina;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;A00219
+Línea Premium;Toscana;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;10220
+Línea Premium;Indonesia;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;10232
+Línea Premium;Ipanema;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;10240
+Línea Premium;Arabia;330 ml;;17899;11526.96;12529.3;12529.3;14319.2;10295
+30 Años;30 Años;330 ml;;21999;14167.36;15399.3;15399.3;17599.2;10286
+30 Años;Difusor de Aromas 30 Años;120 ml;;37999;24471.36;26599.3;26599.3;30399.2;10755
+30 Años;Recarga Difusor de Aromas 30 Años;120 ml;;25499;16421.36;17849.3;17849.3;20399.2;10855
+Hamsa;Hamsa Flowers;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10283
+Hamsa;Hamsa;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10284
+Hamsa;Hamsa Woods;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10285
+Hamsa;Hamsa Spices;330 ml;;18499;11913.36;12949.3;12949.3;14799.2;10287
+Aromatizantes para auto;Aromatizante de Automovil Citrus y Maderas;100 ml;;9299;5988.56;6509.3;6509.3;7439.2;A00001
+Aromatizantes para auto;Aromatizante de Automovil Pomelo y Neroli;100 ml;;9299;5988.56;6509.3;6509.3;7439.2;A00003
+Aromatizantes para auto;Aromatizante de Automovil Magnolia y Osmanthus;100 ml;;9299;5988.56;6509.3;6509.3;7439.2;A00004
+Aromatizantes para auto;Aromatizante de Automovil Aqua & Brisa;100 ml;promo;7499;5579.26;5999.2;5999.2;6749.1;A00006
+Aromatizantes para auto;Aromatizante de Automovil Coco & Lima;100 ml;;9299;5988.56;6509.3;6509.3;7439.2;A00007
+Aromatizantes para auto;Aromatizante de Automóvil Ambar y Frutas;100 ml;;9299;5988.56;6509.3;6509.3;7439.2;10294
+Agua de Ropa;Aromatizante Textil Frescura Matinal;500 ml;;21499;13845.36;15049.3;15049.3;17199.2;A00561
+Agua de Ropa;Aromatizante Textil Caricias de Algodon;500 ml;;21499;13845.36;15049.3;15049.3;17199.2;A00562
+Agua de Ropa;Aromatizante Textil Pompas de Jabon;500 ml;;21499;13845.36;15049.3;15049.3;17199.2;A00563
+Agua de Ropa;Aromatizante Textil Toque de Sol;500 ml;;21499;13845.36;15049.3;15049.3;17199.2;A00564
+Agua de Ropa;Aromatizante Textil Brisa Pura;500 ml;;21499;13845.36;15049.3;15049.3;17199.2;10568
+Agua de Ropa;Aromatizante Textil Abrazo de Suavidad;500 ml;;21499;13845.36;15049.3;15049.3;17199.2;10569
+Armonía Textil;Aromatizante Textil Armonia Textil Algodon;250 ml;;15499;9981.36;10849.3;10849.3;12399.2;A00565
+Armonía Textil;Aromatizante Textil Armonia Textil Lino;250 ml;;15499;9981.36;10849.3;10849.3;12399.2;A00566
+Armonía Textil;Aromatizante Textil Armonia Textil Seda;250 ml;;15499;9981.36;10849.3;10849.3;12399.2;A00567
+Armonía Textil;Aromatizante Textil Armonia Textil Organza;250 ml;promo;12499;9299.26;9999.2;9999.2;11249.1;10570
+Sueños;Aromatizante Textil Sueños Amor Repuesto;100 ml;;9999;6439.36;6999.3;6999.3;7999.2;A00300
+Sueños;Aromatizante Textil Sueños Calma Repuesto;100 ml;;9999;6439.36;6999.3;6999.3;7999.2;A00301
+Sueños;Aromatizante Textil Sueños Alegria Repuesto;100 ml;;9999;6439.36;6999.3;6999.3;7999.2;A00302
+Sueños;Aromatizante Textil Sueños Abundancia Repuesto;100 ml;;9999;6439.36;6999.3;6999.3;7999.2;A00303
+Sueños;Aromatizante Textil Sueños Amor con Estuche;100 ml;;11899;7662.96;8329.3;8329.3;9519.2;A00304
+Sueños;Aromatizante Textil Sueños Calma con Estuche;100 ml;;11899;7662.96;8329.3;8329.3;9519.2;A00305
+Sueños;Aromatizante Textil Sueños Alegria con Estuche;100 ml;;11899;7662.96;8329.3;8329.3;9519.2;A00306
+Sueños;Aromatizante Textil Sueños Abundancia con Estuche;100 ml;;11899;7662.96;8329.3;8329.3;9519.2;A00307
+Sueños;Aromatizante Textil Sueños Estuche Regalable con 4 Brumas;;promo;38299;28494.46;30639.2;30639.2;34469.1;A00308
+Piedras Aromáticas;Piedras Aromaticas Capullos de Lino;65 gr;;15999;10303.36;11199.3;11199.3;12799.2;A00621
+Piedras Aromáticas;Piedras Aromaticas Frescura Matinal;65 gr;;15999;10303.36;11199.3;11199.3;12799.2;A00661
+Piedras Aromáticas;Piedras Aromaticas Toque de Sol;65 gr;;15999;10303.36;11199.3;11199.3;12799.2;A00662
+Piedras Aromáticas;Piedras Aromaticas Brisa Pura;65 gr;;15999;10303.36;11199.3;11199.3;12799.2;10669
+Piedras Aromáticas;Piedras Aromaticas Seda;;;15999;10303.36;11199.3;11199.3;12799.2;10664
+Piedras Aromáticas;Piedras Aromaticas Lino;;;15999;10303.36;11199.3;11199.3;12799.2;10665
+Piedras Aromáticas;Piedras Aromaticas Organza;;;15999;10303.36;11199.3;11199.3;12799.2;10670
+Regalables;Regalable Aromatizante Auto Flor +arom Hornillo Rosa Búlgara;;promo;36999;27527.26;29599.2;29599.2;33299.1;24125
+Regalables;Regalable Aromatizante Auto Flor +arom Hornillo Sándalo;;promo;36999;27527.26;29599.2;29599.2;33299.1;24126
+Regalables;Promo Madres C.H la Bomba Inspiración la Bomba + Perfumero Recargable + Bolsa ¡Nuevo!;;promo;36799;27378.46;29439.2;29439.2;33119.1;R00103
+Regalables;Difusor Ultrasónico + Arom. para Hornillo X2: Jazmín del Cabo + Rosa Búlgara ¡Nuevo!;;promo;85799;63834.46;68639.2;68639.2;77219.1;R00106
+Regalables;Kit Difusor Ultrasonico Infantil + Aromatizante para Hornillo Infantil;;promo;78499;58403.26;62799.2;62799.2;70649.1;45372
+Cuidados Esenciales;Sanitizante Uso Familiar;330 ml;;8299;5344.56;5809.3;5809.3;6639.2;A30001
+Cuidados Esenciales;Desinfectante para Superficies Repuesto;500 ml;;10999;7083.36;7699.3;7699.3;8799.2;A30002
+Cuidados Esenciales;Sanitizante Natureza;100 ml;;6199;3992.16;4339.3;4339.3;4959.2;N10011
+Línea Hogar;Limpiador Multiuso;300 ml;;13999;9015.36;9799.3;9799.3;11199.2;H00301
+Línea Hogar;Limpiador para Vidrios, Alfombras y Tapizados;300 ml;;12599;8113.76;8819.3;8819.3;10079.2;H00303
+Línea Hogar;Limpiador para Automovil;300 ml;;14499;9337.36;10149.3;10149.3;11599.2;H00304
+Línea Hogar;Liquido Lavavajillas Menta;300 ml;;13999;9015.36;9799.3;9799.3;11199.2;H00305
+Línea Hogar;Liquido Lavavajillas Limon;300 ml;promo;10999;8183.26;8799.2;8799.2;9899.1;H00306
+Línea Hogar;Limpiador Multiuso;800 ml;promo;28299;21054.46;22639.2;22639.2;25469.1;H00801
+Línea Hogar;Limpiador para Vidrios, Alfombras y Tapizados;800 ml;;23999;15455.36;16799.3;16799.3;19199.2;H00803
+Línea Hogar;Limpiador para Automovil;800 ml;;28699;18482.16;20089.3;20089.3;22959.2;H00804
+Línea Hogar;Liquido Lavavajillas Menta;800 ml;;28299;18224.56;19809.3;19809.3;22639.2;H00805
+Línea Hogar;Liquido Lavavajillas Limon;800 ml;;28299;18224.56;19809.3;19809.3;22639.2;H00806
+Línea Hogar;Liquido para Lavado de Ropa;800 ml;;35399;22796.96;24779.3;24779.3;28319.2;H00807
+Línea Hogar;Limpiador para Electronicos;100 ml;;12599;8113.76;8819.3;8819.3;10079.2;H00126
+Línea Hogar;Paño Multiuso;;;10999;7083.36;7699.3;7699.3;8799.2;H00808
+Difusores;Difusor de Aromas Jengibre, Limon & Rosas;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;A00743
+Difusores;Difusor de Aromas Te Verde & Cedron;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;A00746
+Difusores;Difusor de Aromas Vainilla & Caramelo;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;A00747
+Difusores;Difusor de Aromas Asarina;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10750
+Difusores;Difusor de Aromas Mango y Ananá;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10751
+Difusores;Difusor de Aromas Capullos de Lino;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10753
+Difusores;Difusor de Aromas Nardos y Magnolias;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10752
+Difusores;Difusor de Aromas Lima y Menta;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10756
+Difusores;Difusor de Aromas Papaya y Frambuesa;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10794
+Difusores;Difusor de Aromas Glicinas y Violetas;100 ml;;29899;19254.96;20929.3;20929.3;23919.2;10261
+Difusores;Recarga Difusor Jengibre, Limon & Rosas;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00843
+Difusores;Recarga Difusor Te Verde & Cedron;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00846
+Difusores;Recarga Difusor Vainilla & Caramelo;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;A00847
+Difusores;Recarga Difusor Asarina;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;10850
+Difusores;Recarga Difusor Mango y Ananá;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;10851
+Difusores;Recarga Difusor Capullos de Lino;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;10853
+Difusores;Recarga Difusor Nardos & Magnolias;100 ml;promo;15999;11903.26;12799.2;12799.2;14399.1;10852
+Difusores;Recarga Difusor Lima y Menta;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;10854
+Difusores;Recarga Difusor Papaya y Frambuesa;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;10856
+Difusores;Recarga Difusor Glicinas y Violetas;100 ml;;19999;12879.36;13999.3;13999.3;15999.2;10262
+Difusores;Difusor de Aromas Alma Botanica Lemongrass;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00785
+Difusores;Difusor de Aromas Alma Botanica Rosa Bulgara;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00787
+Difusores;Difusor de Aromas Alma Botanica Jazmin del Cabo;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00788
+Difusores;Difusor de Aromas Alma Botanica Flor de Cerezo;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;10789
+Difusores;Difusor de Aromas Alma Botanica Árbol de Higo;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;10790
+Difusores;Difusor de Aromas Alma Botanica Tangerina;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;10791
+Difusores;Difusor de Aromas Alma Botanica Canela de Ceylan;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;10792
+Difusores;Difusor de Aromas Alma Botanica Flor de Níspero;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00753
+Difusores;Difusor Alma Botanica Maracuya ¡Nuevo!;250 ml;promo;29999;22319.26;23999.2;23999.2;26999.1;90754
+Difusores;Difusor de Aromas Armonia Textil Algodon;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00738
+Difusores;Difusor de Aromas Armonia Textil Lino;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00739
+Difusores;Difusor de Aromas Armonia Textil Seda;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00740
+Difusores;Difusor de Aromas Armonia Textil Organza;250 ml;promo;29999;22319.26;23999.2;23999.2;26999.1;10754
+Difusores;Difusor de Aromas Hamsa;200 ml;;34999;22539.36;24499.3;24499.3;27999.2;A00781
+Difusores;Difusor de Aromas Hamsa Flowers;200 ml;promo;27999;20831.26;22399.2;22399.2;25199.1;A00784
+Difusores;Difusor de Aromas la Patisserie Lemon Pie;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00782
+Difusores;Difusor de Aromas la Patisserie Cookies;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;A00783
+Difusores;Difusor de Aromas la Patisserie Apple Crumble;250 ml;promo;29999;22319.26;23999.2;23999.2;26999.1;10780
+Difusores;Difusor de Aromas la Patisserie Crème Brûlée;250 ml;;37799;24342.56;26459.3;26459.3;30239.2;10793
+Hornillo;Aromatizante para Hornillo Alegria;10 ml;;10499;6761.36;7349.3;7349.3;8399.2;10910
+Hornillo;Aromatizante para Hornillo Relax;10 ml;;10499;6761.36;7349.3;7349.3;8399.2;10911
+Hornillo;Aromatizante para Hornillo Serenidad;10 ml;promo;8399;6248.86;6719.2;6719.2;7559.1;10912
+Hornillo;Aromatizante para Hornillo Prosperidad;10 ml;;10499;6761.36;7349.3;7349.3;8399.2;10913
+Hornillo;Aromatizante para Hornillo Energia;10 ml;;10499;6761.36;7349.3;7349.3;8399.2;10914
+Hornillo;Aromatizante para Hornillo Equilibrio;10 ml;;10499;6761.36;7349.3;7349.3;8399.2;10915
+Hornillo;Aromatizante para Hornillo Calidez;10 ml;;10499;6761.36;7349.3;7349.3;8399.2;10916
+Hornillo;Aromatizante para Hornillo Hamsa;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;A00981
+Hornillo;Aromatizante para Hornillo Hamsa Flowers;10 ml;promo;8899;6620.86;7119.2;7119.2;8009.1;A00982
+Hornillo;Aromatizante para Hornillo Rosa Bulgara;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;A00983
+Hornillo;Aromatizante para Hornillo Jazmin del Cabo;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;A00984
+Hornillo;Aromatizante para Hornillo Sandalo;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;A00985
+Hornillo;Aromatizante para Hornillo Haba Tonka;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;A00986
+Hornillo;Aromatizante para Hornillo Árbol de Higo;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;10987
+Hornillo;Aromatizante para Hornillo Tangerina;10 ml;;10999;7083.36;7699.3;7699.3;8799.2;10988
+Hornillo;Hornillo para Esencias;;promo;37799;28122.46;30239.2;30239.2;34019.1;A00990
+Botica Natural;Anfora Botica Natural;;promo;5299;3942.46;4239.2;4239.2;4769.1;D00100
+Botica Natural;Spray de Hierbas Bioaliv;;;44999;28979.36;31499.3;31499.3;35999.2;D00701
+Botica Natural;Repelente para Insectos;100 ml;;27299;17580.56;19109.3;19109.3;21839.2;D00704
+Botica Natural;Spray Biocalm;100 ml;;19799;12750.56;13859.3;13859.3;15839.2;40705
+Botica Natural;Spray Biofeet ¡Nuevo!;100 ml;promo;17999;13391.26;14399.2;14399.2;16199.1;40706
+Botica Natural;Elixir Vitalidad;10 ml;;22299;14360.56;15609.3;15609.3;17839.2;D00801
+Botica Natural;Elixir Claridad;10 ml;;22299;14360.56;15609.3;15609.3;17839.2;D00802
+Botica Natural;Elixir Seduccion;10 ml;;22299;14360.56;15609.3;15609.3;17839.2;D00803
+Botica Natural;Elixir Alivio;10 ml;;22299;14360.56;15609.3;15609.3;17839.2;D00804
+Botica Natural;Elixir Dulces Sueños;10 ml;promo;17899;13316.86;14319.2;14319.2;16109.1;D00805
+Botica Natural;Aceite Esencial de Naranja;10 ml;promo;14999;11159.26;11999.2;11999.2;13499.1;D00960
+Botica Natural;Aceite Esencial de Limon;10 ml;;18699;12042.16;13089.3;13089.3;14959.2;D00961
+Botica Natural;Aceite Esencial de Eucalipto;10 ml;;23699;15262.16;16589.3;16589.3;18959.2;D00962
+Botica Natural;Aceite Esencial de Menta;10 ml;;23699;15262.16;16589.3;16589.3;18959.2;D00963
+Botica Natural;Aceite Esencial de Lavanda;10 ml;;34399;22152.96;24079.3;24079.3;27519.2;D00965
+Botica Natural;Aceite Puro de Almendras Dulces;55 ml;;34399;22152.96;24079.3;24079.3;27519.2;D00966
+Botica Natural;Aceite Esencial de Romero;10 ml;;23999;15455.36;16799.3;16799.3;19199.2;D00968
+Botica Natural;Aceite Esencial de Enebro;10 ml;;43399;27948.96;30379.3;30379.3;34719.2;D00967
+Botica Natural;Aceite Esencial Óleo 35+;10 ml;;27299;17580.56;19109.3;19109.3;21839.2;900974
+Botica Natural;Tea Tree Blend de Aceites Esenciales;10 ml;;27699;17838.16;19389.3;19389.3;22159.2;900975
+Botica Natural;Jabon Liquido Botica Naranja con Valvula;250 ml;;21999;14167.36;15399.3;15399.3;17599.2;D10703
+Botica Natural;Jabon Liquido Botica Naranja Repuesto;250 ml;;19899;12814.96;13929.3;13929.3;15919.2;D00703
+Botica Natural;Emulsion Corporal Almendras Dulces;200 ml;;24599;15841.76;17219.3;17219.3;19679.2;26704
+Botica Natural;Exfoliante Manos y Cuerpo Almendras Dulces;100 gr;;18299;11784.56;12809.3;12809.3;14639.2;26705
+Botica Natural;Crema para Manos y Uñas Almendras Dulces;75 gr;;18299;11784.56;12809.3;12809.3;14639.2;26706
+Botica Natural;Emulsion Corporal Lavanda;200 ml;;24599;15841.76;17219.3;17219.3;19679.2;26707
+Botica Natural;Crema para Manos y Uñas Lavanda;75 gr;;18299;11784.56;12809.3;12809.3;14639.2;26708
+Botica Natural;Emulsión Corporal Enebro;100 ml;;31199;20092.16;21839.3;21839.3;24959.2;26710
+Bebé;Agua de Colonia Bebe;115 ml;;25999;16743.36;18199.3;18199.3;20799.2;E00702
+Bebé;Baño Líquido Bebé;190 ml;;24899;16034.96;17429.3;17429.3;19919.2;E00703
+Bebé;Aromatizante Textil Bebe;190 ml;;14699;9466.16;10289.3;10289.3;11759.2;E00704
+Bebé;Difusor de Aromas Bebe;190 ml;;34899;22474.96;24429.3;24429.3;27919.2;E00705
+Bebé;Piedras Aromaticas Bebe;65 gr;;16599;10689.76;11619.3;11619.3;13279.2;E00706
+Bebé;Set Regalable Bebé;;promo;57329;52969.82;56956.8;56956.8;64076.4;E00707
+Infantil;Colonia Infantil Conejo;100 ml;promo;12599;9373.66;10079.2;10079.2;11339.1;13301
+Infantil;Aromatizante Infantil Oso;200 ml;promo;13999;10415.26;11199.2;11199.2;12599.1;13302
+Infantil;Difusor Infantil Jirafa;200 ml;promo;35599;26485.66;28479.2;28479.2;32039.1;13303
+Infantil;Aromatizante para Hornillo Infantil;10 ml;promo;10999;8183.26;8799.2;8799.2;9899.1;13304
+Dermaelia;Emulsion Hidratante Dia Dermaelia - Pieles Normales / Secas;;;29999;19319.36;20999.3;20999.3;23999.2;30015
+Dermaelia;Emulsion Hidratante Dia Dermaelia - Pieles Mixtas / Oleosas;;promo;23999;17855.26;19199.2;19199.2;21599.1;30016
+Dermaelia;Emulsion Hidratante Noche Dermaelia;;;29999;19319.36;20999.3;20999.3;23999.2;30017
+Dermaelia;Exfoliante Facial Dermaelia;;;24399;15712.96;17079.3;17079.3;19519.2;30018
+Dermaelia;Gel de Limpieza Facial Dermaelia;95 ml;;22299;14360.56;15609.3;15609.3;17839.2;30019
+Dermaelia;Emulsión de Limpieza Dermaelia;95 ml;;22899;14746.96;16029.3;16029.3;18319.2;30022
+Dermaelia;Serum y Contorno de Ojos Dermaelia;30 ml;;42999;27691.36;30099.3;30099.3;34399.2;30023
+Dermaelia;Agua Micelar Dermaelia;100 ml;;22999;14811.36;16099.3;16099.3;18399.2;30024
+Dermaelia;Desmaquillante Bifásico Dermaelia;100 ml;promo;18999;14135.26;15199.2;15199.2;17099.1;30029
+Dermaelia;Serum Facial Antioxidante Dermaelia;30 ml;;47299;30460.56;33109.3;33109.3;37839.2;30025
+Labiales;Labial Líquido Gloss Sweet Berry;;;19999;12879.36;13999.3;13999.3;15999.2;20299
+Labiales;Labial Líquido Gloss Red Wine;;promo;15599;11605.66;12479.2;12479.2;14039.1;20301
+Labiales;Labial Líquido Gloss Rose Petal;;promo;15599;11605.66;12479.2;12479.2;14039.1;20302
+Labiales;Labial Líquido Gloss Toffee Glow;;;19999;12879.36;13999.3;13999.3;15999.2;20303
+Labiales;Labial Líquido Gloss Toasted Coffee;;;19999;12879.36;13999.3;13999.3;15999.2;20304
+Esmaltes;Base Primer Fortalecedor para Uñas;10 ml;;13699;8822.16;9589.3;9589.3;10959.2;30796
+Esmaltes;Base para Uñas Hidratante con Magnesio, Aloe Vera y Aceite de Coco;10 ml;;13699;8822.16;9589.3;9589.3;10959.2;B00400
+Esmaltes;Esmalte en Gel Top Coat;10 ml;;13999;9015.36;9799.3;9799.3;11199.2;31000
+Esmaltes;Esmalte en Gel Aruba;;;13999;9015.36;9799.3;9799.3;11199.2;31031
+Esmaltes;Esmalte en Gel Brownie;;;13999;9015.36;9799.3;9799.3;11199.2;31040
+Esmaltes;Esmalte en Gel Biscuit;;;13999;9015.36;9799.3;9799.3;11199.2;31041
+Esmaltes;Esmalte en Gel Soft Olive;;;13999;9015.36;9799.3;9799.3;11199.2;31042
+Esmaltes;Esmalte en Gel Redvolution;;;13999;9015.36;9799.3;9799.3;11199.2;31043
+Esmaltes;Esmalte en Gel Gray Storm;;;13999;9015.36;9799.3;9799.3;11199.2;31044
+Body Splash;Body Splash Addicted To Love;150 ml;;17699;11398.16;12389.3;12389.3;14159.2;70154
+Body Splash;Body Splash Sparkling Star;150 ml;;17699;11398.16;12389.3;12389.3;14159.2;70155
+Body Splash;Body Splash Midnight Seduction;150 ml;promo;13999;10415.26;11199.2;11199.2;12599.1;70156
+Body Splash;Body Splash Blue Ocean;150 ml;;17699;11398.16;12389.3;12389.3;14159.2;70157
+Body Splash;Body Splash Loving Dream;150 ml;;17699;11398.16;12389.3;12389.3;14159.2;70158
+Body Splash;Body Splash Best Celebration;150 ml;;17699;11398.16;12389.3;12389.3;14159.2;70160
+Body Splash;Body Splash Coconut Bliss;150 ml;;17699;11398.16;12389.3;12389.3;14159.2;70161
+Fragancias Inspira;Eau de Parfum Inspira Siento;100 ml;;52499;33809.36;36749.3;36749.3;41999.2;70304
+Fragancias Inspira;Eau de Parfum Inspira Conecto;100 ml;;52499;33809.36;36749.3;36749.3;41999.2;70305
+Fragancias Inspira;Eau de Parfum Inspira Vibro;100 ml;promo;41999;31247.26;33599.2;33599.2;37799.1;70306
+Fragancias Inspira;Eau de Parfum Inspira Creo;100 ml;;52499;33809.36;36749.3;36749.3;41999.2;70307
+Fragancias Inspira;Eau de Parfum Inspira Descubro;100 ml;;52499;33809.36;36749.3;36749.3;41999.2;70308
+Fragancias BE;212 Sexy Femenino;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F0012S
+Fragancias BE;212 VIP Femenino;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F0012V
+Fragancias BE;212;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00212
+Fragancias BE;5TA Avenida;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F005AV
+Fragancias BE;Acqua Di Gioa;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00ADG
+Fragancias BE;Anais Anais;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00ANA
+Fragancias BE;Ange Ou Demon;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00AOD
+Fragancias BE;Si;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00ASI
+Fragancias BE;BE Delicious;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00BDE
+Fragancias BE;Good Girl;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00CGG
+Fragancias BE;Chanel Nº 5;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00CH5
+Fragancias BE;CH;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00CHE
+Fragancias BE;Carolina Herrera Woman;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00CHW
+Fragancias BE;Cool Water Femenino;60 ml;promo;27999;20831.26;22399.2;22399.2;25199.1;F00CWA
+Fragancias BE;Poison Girl;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00DPG
+Fragancias BE;Flower;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00FLO
+Fragancias BE;Givenchy, Very Irresistible;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00GVI
+Fragancias BE;J'Adore;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00JAD
+Fragancias BE;L'Elixir;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00KLE
+Fragancias BE;Light Blue;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LBL
+Fragancias BE;Linterdit;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LIN
+Fragancias BE;Lady Million;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LMI
+Fragancias BE;La Vie Est Belle;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LVB
+Fragancias BE;Nina;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00NIN
+Fragancias BE;Nina L'Extase;60 ml;promo;27999;20831.26;22399.2;22399.2;25199.1;F00NLE
+Fragancias BE;Paco Rabanne, Olympea Intense;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00OIN
+Fragancias BE;Olympea;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00OLY
+Fragancias BE;Ralph;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00RAL
+Fragancias BE;Tommy;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00TOM
+Fragancias BE;Tresor;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00TRE
+Fragancias BE;Idôle;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00IDO
+Fragancias BE;La Vie Est Belle Intensamente;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LBI
+Fragancias BE;My Way;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00MWA
+Fragancias BE;Fame;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00FAM
+Fragancias BE;Libre;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LIB
+Fragancias BE;H. Boss The Scent Elixir;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00BSE
+Fragancias BE;L.Yara;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00LYA
+Fragancias BE;La Bomba C.H ¡Nuevo!;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;F00CLB
+Fragancias BE;212 Sexy Masculino;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M0012S
+Fragancias BE;212 VIP Masculino;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M0012V
+Fragancias BE;212 Men;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00212
+Fragancias BE;Acqua Di Gio;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00ADG
+Fragancias BE;Hugo Boss;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00BOS
+Fragancias BE;Carolina Herrena Man;60 ml;promo;27999;20831.26;22399.2;22399.2;25199.1;M00CHM
+Fragancias BE;One Calvin Klein;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00CKO
+Fragancias BE;Paco Rabanne, Invictus Intense;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00INI
+Fragancias BE;Invictus;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00INV
+Fragancias BE;One Million Intense;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00IOM
+Fragancias BE;Kenzo Pour Homme;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00KPH
+Fragancias BE;One Million;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00OMI
+Fragancias BE;One Million Lucky Masculino;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00OML
+Fragancias BE;One Million Prive;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00OMP
+Fragancias BE;Polo Black;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00PBL
+Fragancias BE;Polo Blue;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00PBU
+Fragancias BE;Sauvage EDT;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00SAU
+Fragancias BE;Bad Boy;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00BBO
+Fragancias BE;Phantom;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00PHA
+Fragancias BE;Acqua Di Gio Profondo;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00PRO
+Fragancias BE;Y YSL;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00YSL
+Fragancias BE;H.boss Bottled Absolu;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00BOA
+Fragancias BE;L.Asad;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00LAS
+Fragancias BE;Wazeer;60 ml;;34999;22539.36;24499.3;24499.3;27999.2;M00LWA
+Bidones;Alerces;5 lt;promo;215799;160554.46;172639.2;172639.2;194219.1;W00501
+Bidones;Serrana;5 lt;promo;215799;160554.46;172639.2;172639.2;194219.1;W00506
+Bidones;Andalucía;5 lt;promo;215799;160554.46;172639.2;172639.2;194219.1;W00508
+Bidones;Parisina;5 lt;promo;215799;160554.46;172639.2;172639.2;194219.1;W00507
+Bidones;Capullos de Lino;5 lt;promo;157099;116881.66;125679.2;125679.2;141389.1;W00521
+Bidones;Lavanda;5 lt;promo;157099;116881.66;125679.2;125679.2;141389.1;W00529
+Bidones;Te Verde & Cedron;5 lt;promo;157099;116881.66;125679.2;125679.2;141389.1;W00531
+Bidones;Jengibre, Limon & Rosas;5 lt;promo;157099;116881.66;125679.2;125679.2;141389.1;W00535
+Bidones;Coco & Avellanas;5 lt;promo;157099;116881.66;125679.2;125679.2;141389.1;W00537
+Bidones;Aromatizante Textil Caricias de Algodon;5 lt;promo;172499;128339.26;137999.2;137999.2;155249.1;W00562
+Bidones;Aromatizante Textil Toque de Sol;5 lt;promo;172499;128339.26;137999.2;137999.2;155249.1;W00564
+Bidones;Aromatizante Textil Brisa Pura;5 lt;promo;172499;128339.26;137999.2;137999.2;155249.1;W00566
+Bidones;Aromatizante Textil Frescura Matinal;5 lt;promo;172499;128339.26;137999.2;137999.2;155249.1;W00565
+Bidones;Hamsa;5 lt;promo;222599;165613.66;178079.2;178079.2;200339.1;W00581
+Bidones;Hamsa Flowers;5 lt;promo;222599;165613.66;178079.2;178079.2;200339.1;W00582
+Bidones;Limpiador Multiuso;5 lt;promo;141999;105647.26;113599.2;113599.2;127799.1;H00511
+Bidones;Limpiador para Vidrios, Alfombras y Tapizados;5 lt;promo;114799;85410.46;91839.2;91839.2;103319.1;H00513
+Bidones;Limpiador para Automovil;5 lt;promo;143999;107135.26;115199.2;115199.2;129599.1;H00514
+Bidones;Liquido Lavavajillas Menta;5 lt;promo;141599;105349.66;113279.2;113279.2;127439.1;H00515
+Bidones;Liquido Lavavajillas Limon;5 lt;promo;141599;105349.66;113279.2;113279.2;127439.1;H00516
+Bidones;Liquido para Lavado de Ropa;5 lt;promo;180299;134142.46;144239.2;144239.2;162269.1;H00517
+Bidones;Aromatizante Alma Botanica Rosa Bulgara;5 lt;promo;222599;165613.66;178079.2;178079.2;200339.1;W00105
+Bidones;Aromatizante Alma Botanica Jazmin del Cabo;5 lt;promo;222599;165613.66;178079.2;178079.2;200339.1;W00111
+Bidones;Alerces;20 lt;promo;754599;561421.66;603679.2;603679.2;679139.1;Z00201
+Bidones;Serrana;20 lt;promo;754599;561421.66;603679.2;603679.2;679139.1;Z00206
+Bidones;Parisina;20 lt;promo;754599;561421.66;603679.2;603679.2;679139.1;25268
+Bidones;Capullos de Lino;20 lt;promo;550299;409422.46;440239.2;440239.2;495269.1;Z00221
+Bidones;Lavanda;20 lt;promo;550299;409422.46;440239.2;440239.2;495269.1;Z00229
+Bidones;Te Verde & Cedron;20 lt;promo;550299;409422.46;440239.2;440239.2;495269.1;Z00231
+Bidones;Jengibre, Limon & Rosas;20 lt;promo;550299;409422.46;440239.2;440239.2;495269.1;Z00235
+Bidones;Coco & Avellanas;20 lt;promo;550299;409422.46;440239.2;440239.2;495269.1;Z00237
+Bidones;Papaya y Frambuesa;20 lt;promo;550299;409422.46;440239.2;440239.2;495269.1;25267
+Bidones;Aromatizante Textil Frescura Matinal;20 lt;promo;607999;452351.26;486399.2;486399.2;547199.1;Z00261
+Bidones;Aromatizante Textil Caricias de Algodon;20 lt;promo;607999;452351.26;486399.2;486399.2;547199.1;Z00262
+Bidones;Aromatizante Textil Toque de Sol;20 lt;promo;607999;452351.26;486399.2;486399.2;547199.1;Z00264
+Bidones;Aromatizante Armonía Textil Seda;20 lt;promo;582899;433676.86;466319.2;466319.2;524609.1;25265
+Bidones;Aromatizante Armonía Textil Lino;20 lt;promo;582899;433676.86;466319.2;466319.2;524609.1;25266
+Bidones;Aromatizante Alma Botanica Rosa Bulgara;20 lt;promo;777499;578459.26;621999.2;621999.2;699749.1;Z00105
+Bidones;Aromatizante Alma Botanica Jazmin del Cabo;20 lt;promo;777499;578459.26;621999.2;621999.2;699749.1;Z00111
+Bidones;Aromatizante Alma Botanica Flor de Cerezo;20 lt;promo;777499;578459.26;621999.2;621999.2;699749.1;Z00112

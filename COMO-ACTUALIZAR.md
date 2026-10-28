@@ -49,6 +49,15 @@ Si cambia el valor del punto, se cambia el número `PUNTO` al principio de `nego
 
 Los **premios por productividad** también están en `negocio.js` (`premios` y `premiosVigencia`). Sus valores salen del punto y de `ESENCIAL_240` (el precio del Esencial 240 ml): si cambia ese precio, actualizalo ahí. Cuando termine el desafío, cambiá la vigencia o los premios. Los desafíos que se ven en la sección **Desafíos** están en `desafios.js`: para sumar uno nuevo, agregá otro bloque con título, para quién es, vigencia y niveles.
 
-## 5. Publicar
+## 5. Tus precios (cada vez que cambia la lista de precios)
+
+Los precios por categoría están en `precios.csv`. Se puede abrir con Excel o Google Sheets.
+
+1. Cambiá la fecha de la primera línea: `# Lista de precios por categoría. Vigente desde: 2026-11-01` (año-mes-día).
+2. Una fila por producto: `linea;producto;presentacion;tipo;Precio público;Líder;Oro;Plata;Bronce;codigo`. En `tipo` va `promo` si el producto está en promoción (si no, vacío).
+3. Las columnas de categorías van **de mayor a menor**. Si se suma una categoría nueva, agregá su columna en el lugar que le toca y la página la muestra sola.
+4. Los precios van sin signo $ y con punto decimal (por ejemplo `12879.36`). Guardalo como CSV separado por punto y coma (`;`).
+
+## 6. Publicar
 
 Los cambios se publican solos unos segundos después de subirlos a GitHub (repositorio `fotos-estados`).

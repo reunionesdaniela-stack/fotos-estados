@@ -700,7 +700,7 @@ pintar();
   const cab = datos.shift(), iPub = cab.indexOf("Precio público"), iCod = cab.indexOf("codigo");
   const cats = cab.slice(iPub + 1, iCod < 0 ? undefined : iCod); // de mayor a menor
   const prods = datos.map(d => ({linea: d[0], nombre: d[1], pres: d[2], promo: d[3] === "promo", precio: Object.fromEntries(cab.map((c, i) => [c, +d[i]]))}));
-  const FINAL = "Cliente final", nombreCat = c => c === FINAL ? "tu cliente final" : /^líder/i.test(c) ? c : "Distribuidora " + c;
+  const FINAL = "Cliente final", nombreCat = c => c === FINAL ? "tu cliente final" : /^(líder|coordinadora|directora)/i.test(c) ? c : "Distribuidora " + c;
   const mismoCosto = (a, b) => prods.every(p => p.precio[a] === p.precio[b]);
   // le vendo a: las categorías de abajo (sin las que tienen el mismo costo, porque no ganarías nada) y el cliente final
   const clientes = mia => cats.slice(cats.indexOf(mia) + 1).filter(c => !mismoCosto(c, mia)).concat(FINAL);

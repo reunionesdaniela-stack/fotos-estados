@@ -21,10 +21,12 @@ window.NEGOCIO = {
     {desde: 60, hasta: Infinity, premio: "1 Capullos de Lino 500 ml + 1 Esencial 500 ml + 1 Esencial 240 ml", valor: PUNTO * 2 + ESENCIAL_240}
   ],
   lideres: [                       // por puntos totales del ciclo (tu venta + la de tu equipo)
-    {nombre: "Líder Plata", desde: 50, hasta: 99, compra: compra(0.644), extra: "Si sos directa de la empresa: bono de $60.000 por 3 ciclos consecutivos."},
-    {nombre: "Líder Oro", desde: 100, hasta: 249, compra: compra(0.616), extra: "Si sos directa de la empresa: bono de $60.000 por 3 ciclos consecutivos."},
-    {nombre: "Coordinadora", desde: 250, hasta: 499, compra: compra(0.581)},
-    {nombre: "Directora Plata", desde: 500, hasta: 749, compra: compra(0.525)},
-    {nombre: "Directora Oro", desde: 750, hasta: Infinity, compra: compra(0.504)}
+    // bti = comisión cuando alguien de tu equipo compra directo a Biogreen, sobre lo que paga ella (tabla BTI)
+    {nombre: "Líder Plata", desde: 50, hasta: 99, compra: compra(0.644), bti: {bronce: 10, plataOro: 5, liderPlata: 0}, extra: "Si sos directa de la empresa: bono de $60.000 por 3 ciclos consecutivos."},
+    {nombre: "Líder Oro", desde: 100, hasta: 249, compra: compra(0.616), bti: {bronce: 14, plataOro: 9, liderPlata: 3}, extra: "Si sos directa de la empresa: bono de $60.000 por 3 ciclos consecutivos."},
+    {nombre: "Coordinadora Oro", desde: 250, hasta: 499, compra: compra(0.581), bti: {bronce: 19, plataOro: 14, liderPlata: 7}},
+    {nombre: "Directora Plata", desde: 500, hasta: 749, compra: compra(0.525), bti: {bronce: 25, plataOro: 20, liderPlata: 14}},
+    {nombre: "Directora Oro", desde: 750, hasta: 1499, compra: compra(0.504), bti: {bronce: 27, plataOro: 22, liderPlata: 17}},
+    {nombre: "Directora Platino", desde: 1500, hasta: Infinity, compra: compra(0.49), bti: {bronce: 27, plataOro: 22, liderPlata: 18}}
   ]
 };

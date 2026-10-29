@@ -645,7 +645,7 @@ const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-A
 const nivelesHTML = ns => ns.map(p => `<div class="premio"><span class="pts">${p.hasta === Infinity ? p.desde + " o más" : p.desde + " a " + Math.floor(p.hasta)}<small>puntos</small></span><div>${esc(p.premio)}<b>Ganás premio por ${plata(p.valor)}</b></div></div>`).join("");
 const premio = pts => NG.premios.find(p => pts >= p.desde && pts <= p.hasta);
 const premioHTML = pts => { const p = premio(pts); return p ? `<p>🎁 Además ganás <b>${p.premio}</b>: un premio por <b>${plata(p.valor)}</b>.</p>` : ""; };
-const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0};
+const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0, bb:0, bpo:0, blp:0};
 function contador(k, label){ return `<label class="campo" for="c-${k}">${label}</label><div class="contador"><button data-menos="${k}" aria-label="Menos">−</button><input id="c-${k}" data-k="${k}" type="number" inputmode="numeric" min="0" value="${calc[k]}"><button data-mas="${k}" aria-label="Más">+</button></div>`; }
 function pintar(){
   let h = "";
@@ -659,18 +659,23 @@ function pintar(){
       if(sig){ const g2 = (NG.precioPublico - sig.compra) * sig.desde; h += `<p>Con <b>${sig.desde - p} pts más</b> pasás a <b>${sig.nombre}</b> y ganarías ${plata(g2)} por ciclo.</p>`; }
     }
   } else {
-    const n = k => Math.max(0, +calc[k] || 0), total = n("pers") + n("dist") + n("lp") + n("lo");
+    const n = k => Math.max(0, +calc[k] || 0), total = n("pers") + n("dist") + n("lp") + n("lo") + n("bb") + n("bpo") + n("blp");
     const r = NG.lideres.find(c => total >= c.desde && total <= c.hasta), sig = NG.lideres.find(c => c.desde > total);
-    h += contador("pers", "Tu venta personal (pts)") + contador("dist", "Lo que venden tus distribuidoras (pts)") + contador("lp", "Lo que venden tus Líderes Plata (pts)") + contador("lo", "Lo que venden tus Líderes Oro (pts)");
+    h += contador("pers", "Tu venta personal (pts)")
+      + `<h3>Te compran a vos</h3>` + contador("dist", "Tus distribuidoras (pts)") + contador("lp", "Tus Líderes Plata (pts)") + contador("lo", "Tus Líderes Oro (pts)")
+      + `<h3>Compran directo a Biogreen (BTI)</h3>` + contador("bb", "Tus distribuidoras Bronce (pts)") + contador("bpo", "Tus distribuidoras Plata u Oro (pts)") + contador("blp", "Tus Líderes Plata (pts)");
     if(!r){
       h += `<div class="resultado"><div class="grande">${total} pts en total</div><p>Para ser <b>Líder Plata</b> necesitás <b>50 pts</b> entre tu venta y la de tu equipo: te faltan <b>${50 - total}</b>.</p></div>`;
     } else {
-      const c = r.compra, gp = n("pers") * (NG.precioPublico - c), gd = n("dist") * (NG.distribuidoras[1].compra - c), glp = n("lp") * Math.max(0, NG.lideres[0].compra - c), glo = n("lo") * Math.max(0, NG.lideres[1].compra - c), t = gp + gd + glp + glo;
+      const c = r.compra, gp = n("pers") * (NG.precioPublico - c), gd = n("dist") * (NG.distribuidoras[1].compra - c), glp = n("lp") * Math.max(0, NG.lideres[0].compra - c), glo = n("lo") * Math.max(0, NG.lideres[1].compra - c);
+      // BTI: comisión de la tabla sobre lo que paga cada una al comprar directo
+      const comision = (pts, pct, compra) => pts * compra * pct / 100, DB = NG.distribuidoras;
+      const gb = comision(n("bb"), r.bti.bronce, DB[0].compra) + comision(n("bpo"), r.bti.plataOro, DB[1].compra) + comision(n("blp"), r.bti.liderPlata, NG.lideres[0].compra), t = gp + gd + glp + glo + gb;
       h += `<div class="resultado"><p>Con ${total} pts sos <b>${r.nombre}</b></p><div class="grande">Ganás ${plata(t)}</div><p>por ciclo · unos <b>${plata(mes(t))} por mes</b></p>
-        <p>Tu venta: ${plata(gp)} · Tus distribuidoras: ${plata(gd)}${glp ? ` · Tus Líderes Plata: ${plata(glp)}` : ""}${glo ? ` · Tus Líderes Oro: ${plata(glo)}` : ""}</p>${premioHTML(n("pers"))}${r.extra ? `<p>${r.extra}</p>` : ""}</div>`;
+        <p>Tu venta: ${plata(gp)} · Tus distribuidoras: ${plata(gd)}${glp ? ` · Tus Líderes Plata: ${plata(glp)}` : ""}${glo ? ` · Tus Líderes Oro: ${plata(glo)}` : ""}${gb ? ` · Comisiones BTI: ${plata(gb)}` : ""}</p>${premioHTML(n("pers"))}${r.extra ? `<p>${r.extra}</p>` : ""}</div>`;
       if(sig) h += `<p>Con <b>${sig.desde - total} pts más</b> entre todo tu equipo llegás a <b>${sig.nombre}</b>.</p>`;
     }
-    h += `<p class="nota">Cálculo con el modelo delegado: tus distribuidoras te compran a vos con el 30%. Los premios por productividad se calculan con tu venta personal.</p>`;
+    h += `<p class="nota">Las que te compran a vos: tus distribuidoras te compran con el 30% y ganás la diferencia. Las que compran directo a Biogreen (BTI): ganás la comisión de la tabla BTI según tu nivel, sobre lo que paga cada una, y sus puntos cuentan para tu categoría. Los premios por productividad se calculan con tu venta personal.</p>`;
   }
   $("#calc").innerHTML = h;
   document.querySelectorAll("#calc [data-k]").forEach(i => i.oninput = () => { calc[i.dataset.k] = i.value; const y = i.selectionStart; pintar(); const n = $("#c-" + i.dataset.k); n.focus(); try{ n.setSelectionRange(y, y); }catch(e){} });

@@ -61,3 +61,39 @@ Los precios por categoría están en `precios.csv`. Se puede abrir con Excel o G
 ## 6. Publicar
 
 Los cambios se publican solos unos segundos después de subirlos a GitHub (repositorio `fotos-estados`).
+
+## 7. Panel de administradoras (/admin/)
+
+Las administradoras autorizadas pueden cambiar las **Fotos de esta semana** y los **Posteos** desde
+`https://recursos-biogreen.pages.dev/admin/`, sin tocar archivos. Entran con su mail y un código que les llega
+al correo. Cada vez que publican, el cambio queda en GitHub con su mail y la página se actualiza en ~1 minuto.
+Las fotos que se quitan de la lista no se borran del repositorio.
+
+Mientras no esté activado, el panel muestra «El panel todavía no está activado» y no deja cambiar nada.
+
+### Activarlo (una sola vez)
+
+1. **Login (Cloudflare Access)**
+   - En Cloudflare, entrá a **Zero Trust** y elegí el plan **Free**. Elegí un nombre de equipo
+     (por ejemplo `biogreen`): queda `biogreen.cloudflareaccess.com`.
+   - **Settings › Authentication**: dejá activado **One-time PIN**.
+   - **Access › Applications › Add an application › Self-hosted**:
+     - Domain: `recursos-biogreen.pages.dev`, path: `admin`.
+     - Policy: Action **Allow**, Include **Emails** y cargá los mails de las administradoras.
+   - Guardá y copiá el **Application Audience (AUD) Tag** de la aplicación.
+2. **Llave de GitHub**
+   - En GitHub: **Settings › Developer settings › Fine-grained tokens › Generate new token**.
+   - Repository access: **Only select repositories › fotos-estados**.
+   - Permissions › Repository › **Contents: Read and write**.
+   - Expiración: la más larga posible, y anotá cuándo vence.
+3. **Variables en Cloudflare Pages** (proyecto `recursos-biogreen` › Settings › Variables and Secrets, en Production):
+   - `GITHUB_TOKEN` (tipo **Secret**): la llave de GitHub.
+   - `ACCESS_TEAM_DOMAIN`: `biogreen.cloudflareaccess.com` (el tuyo).
+   - `ACCESS_AUD`: el AUD Tag del paso 1.
+4. **Volvé a publicar**: Deployments › el último › **Retry deployment**, para que tome las variables.
+
+### Sumar o sacar administradoras
+Zero Trust › Access › Applications › la aplicación del panel › Policies: agregá o borrá el mail. No hace falta tocar nada más.
+
+### Si la llave de GitHub vence
+El panel va a decir «No se pudo publicar». Generá una nueva (paso 2) y reemplazá `GITHUB_TOKEN` (paso 3 y 4).

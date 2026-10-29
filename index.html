@@ -261,6 +261,7 @@ a.herra:active{background:var(--soft)}
 
     <div class="tip"><span>💡</span><div><b>Guardala en tu celular.</b> Abrí el menú del navegador y elegí «Agregar a la pantalla de inicio» para tenerla siempre a mano.</div></div>
     <p class="sugerencias">¿Se te ocurre algo para mejorar la página? <a href="https://forms.gle/XanErSHSpXLDXqaJ8" target="_blank" rel="noopener">Dejanos tu sugerencia 💬</a></p>
+    <p class="sugerencias" id="admin-link" hidden><a href="admin/">Administrar ›</a></p>
   </div>
 
   <div class="barra" id="barra" hidden><a href="#inicio">Inicio</a><span class="donde" id="donde"></span></div>
@@ -553,6 +554,9 @@ if(N.fotos.length){
 
 $("#sec-semana").hidden = S.mostrar === false;
 $("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
+
+// link al panel: solo aparece en el celular de quien ya entró como administradora
+try{ if(localStorage.getItem("admin-biogreen") === "1") $("#admin-link").hidden = false; }catch(e){}
 
 // secciones: la portada las lista y cada sección muestra las otras al final
 const SECCIONES = [

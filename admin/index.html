@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel de administradoras</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../img/icono.png">
+<meta name="theme-color" content="#2E6A44">
+<style>
+:root{
+  --bg:#EDF2EA; --surface:#FFFFFF; --ink:#17291D; --muted:#4F6155; --line:#D3DECF;
+  --leaf:#2E6A44; --leaf-ink:#FFFFFF; --leaf-dark:#1F4E31; --leaf-deep:#1A4029; --soft:#E3EEDF; --peligro:#A3322D;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#0F1712; --surface:#17231B; --ink:#E4EEE5; --muted:#A9BCAE; --line:#2A3B2F; --leaf:#6FB585; --leaf-ink:#0F1712; --leaf-dark:#8FCBA2; --leaf-deep:#173323; --soft:#213328; --peligro:#F09595; }
+}
+:root[data-theme="dark"]{ --bg:#0F1712; --surface:#17231B; --ink:#E4EEE5; --muted:#A9BCAE; --line:#2A3B2F; --leaf:#6FB585; --leaf-ink:#0F1712; --leaf-dark:#8FCBA2; --leaf-deep:#173323; --soft:#213328; --peligro:#F09595; }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:18px;line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding:16px 16px 120px}
+a{color:var(--leaf-dark)}
+h1{font-size:28px;line-height:1.15;margin:10px 0 4px}
+h2{font-size:20px;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:16px}
+.volver{font-size:16px;font-weight:700;text-decoration:none}
+.tarjeta{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px;margin-bottom:18px}
+.mensaje{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;text-align:center;color:var(--muted)}
+.pestanas{display:flex;gap:8px;margin:0 0 16px}
+.pestanas button{flex:1;border-radius:999px;border:2px solid var(--leaf);background:var(--surface);color:var(--leaf-dark);padding:10px 8px;font:inherit;font-size:16px;font-weight:800;cursor:pointer}
+.pestanas button[aria-pressed="true"]{background:var(--leaf);color:var(--leaf-ink)}
+label.campo{display:block;font-size:14px;font-weight:700;color:var(--muted);margin:12px 0 4px}
+input[type=text],input[type=date],select,textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:10px 12px}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--leaf)}
+.interruptor{display:flex;align-items:center;gap:12px;font-weight:700}
+.interruptor input{width:26px;height:26px;accent-color:var(--leaf)}
+.item{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.mini{width:92px;height:120px;object-fit:cover;border-radius:10px;background:var(--line);display:block}
+.item .num{font-size:14px;font-weight:800;color:var(--leaf-dark)}
+.item .nuevo{font-size:12px;font-weight:800;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:2px 8px;margin-left:6px}
+.item textarea{min-height:80px;font-size:16px;margin-top:6px}
+.item select{margin-top:6px;font-size:16px;padding:8px 10px}
+.acciones{display:flex;gap:6px;margin-top:8px}
+.acciones button{font:inherit;font-size:15px;font-weight:700;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px;cursor:pointer}
+.acciones button.quitar{color:var(--peligro);margin-left:auto}
+.acciones button:disabled{opacity:.35}
+.agregar{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;margin-top:12px;border-radius:14px;border:2px dashed var(--leaf);background:var(--soft);color:var(--leaf-dark);font-size:18px;font-weight:800;cursor:pointer}
+.agregar input{display:none}
+.vaciar{display:block;margin:14px auto 0;font:inherit;font-size:15px;font-weight:700;color:var(--peligro);background:none;border:0;cursor:pointer;text-decoration:underline}
+.vacio{text-align:center;color:var(--muted);padding:20px 6px;margin:0}
+.barra{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:2px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.barra .in{max-width:560px;margin:0 auto}
+.publicar{width:100%;min-height:60px;border:0;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);font:inherit;font-size:22px;font-weight:900;cursor:pointer}
+.publicar:disabled{opacity:.5;cursor:default}
+.estado{margin:8px 0 0;text-align:center;font-size:15px;color:var(--muted);min-height:1.2em}
+.estado.ok{color:var(--leaf-dark);font-weight:700}
+.estado.error{color:var(--peligro);font-weight:700}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="volver" href="../">‹ Volver a la página</a>
+  <h1>Panel de administradoras</h1>
+  <p class="sub" id="quien">Cargando…</p>
+
+  <div class="mensaje" id="mensaje">Cargando los datos…</div>
+
+  <div id="panel" hidden>
+    <div class="pestanas" role="group" aria-label="Qué querés editar">
+      <button type="button" data-ed="semana" aria-pressed="true">Fotos de la semana</button>
+      <button type="button" data-ed="posteos" aria-pressed="false">Posteos</button>
+    </div>
+
+    <section id="ed-semana">
+      <div class="tarjeta">
+        <label class="interruptor"><input type="checkbox" id="se-mostrar"> Mostrar la sección en la página</label>
+        <label class="campo" for="se-titulo">Título</label>
+        <input type="text" id="se-titulo" placeholder="Fotos de esta semana">
+        <label class="campo" for="se-desde">Desde</label>
+        <input type="date" id="se-desde">
+      </div>
+      <div class="tarjeta">
+        <h2>Fotos</h2>
+        <div id="se-lista"></div>
+        <label class="agregar">+ Agregar fotos<input type="file" id="se-sumar" accept="image/*" multiple></label>
+        <button type="button" class="vaciar" id="se-vaciar">Quitar todas las fotos</button>
+      </div>
+    </section>
+
+    <section id="ed-posteos" hidden>
+      <div class="tarjeta">
+        <label class="campo" for="po-destino" style="margin-top:0">¿Dónde va el posteo?</label>
+        <select id="po-destino"></select>
+        <div id="po-ciclo">
+          <label class="campo" for="po-titulo">Título</label>
+          <input type="text" id="po-titulo" placeholder="Posteos de este ciclo">
+          <label class="campo" for="po-vigencia">Texto debajo del título</label>
+          <input type="text" id="po-vigencia" placeholder="Lanzamientos del catálogo de noviembre 🌿">
+        </div>
+      </div>
+      <div class="tarjeta">
+        <h2>Posteos</h2>
+        <div id="po-lista"></div>
+        <label class="agregar">+ Agregar posteos<input type="file" id="po-sumar" accept="image/*,video/mp4" multiple></label>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="barra" id="barra" hidden><div class="in">
+  <button type="button" class="publicar" id="publicar" disabled>PUBLICAR CAMBIOS</button>
+  <p class="estado" id="estado" role="status">No hay cambios sin publicar.</p>
+</div></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const FORMATO = {feed: "Feed", historia: "Historia", reel: "Reel"};
+const MAX_VIDEO = 20 * 1024 * 1024;
+
+let semana, posteos, destino = "ciclo";
+const cambios = {semana: false, posteos: false};
+const pendientes = new Map(); // ruta → {blob, url}: fotos nuevas que todavía no se publicaron
+const locales = new Map();    // ruta → url: fotos ya publicadas en esta visita (la página tarda un minuto en tenerlas)
+
+const avisar = (texto, clase = "") => { const e = $("#estado"); e.textContent = texto; e.className = "estado " + clase; };
+const hayCambios = () => cambios.semana || cambios.posteos;
+const marcar = que => { cambios[que] = true; $("#publicar").disabled = false; avisar("Tenés cambios sin publicar."); };
+const ver = ruta => pendientes.get(ruta)?.url || locales.get(ruta) || "../" + ruta;
+const esVideo = ruta => /\.mp4$/i.test(ruta);
+
+// nombres de archivo: fotos/semana/2026-10-29-promo-x7k2.jpg · fotos/posteos/feed-promo-x7k2.jpg
+const hoy = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+const slug = nombre => nombre.replace(/\.[^.]+$/, "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30) || "foto";
+const azar = () => Math.random().toString(36).slice(2, 6).replace(/[^a-z0-9]/g, "x").padEnd(4, "0");
+
+const cargarImagen = file => new Promise((ok, mal) => { const img = new Image(), url = URL.createObjectURL(file);
+  img.onload = () => { URL.revokeObjectURL(url); ok(img); }; img.onerror = () => { URL.revokeObjectURL(url); mal(new Error("imagen")); }; img.src = url; });
+
+// achica la foto a 1600 px como máximo, en JPEG sobre fondo blanco
+async function achicar(file){
+  const img = await cargarImagen(file), k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+  const c = document.createElement("canvas"); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+  const g = c.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+  const blob = await new Promise(ok => c.toBlob(ok, "image/jpeg", 0.88));
+  return {blob, vertical: img.naturalHeight / img.naturalWidth >= 1.5};
+}
+
+const aBase64 = blob => new Promise((ok, mal) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(",")[1]); r.onerror = mal; r.readAsDataURL(blob); });
+
+// ---------- fotos de la semana ----------
+function pintarSemana(){
+  $("#se-mostrar").checked = semana.mostrar !== false;
+  $("#se-titulo").value = semana.titulo || "";
+  $("#se-desde").value = semana.desde || "";
+  $("#se-lista").innerHTML = semana.fotos.length ? semana.fotos.map((f, i) => `
+    <article class="item" data-i="${i}">
+      <img class="mini" src="${esc(ver(f.archivo))}" alt="">
+      <div>
+        <span class="num">Foto ${i + 1}</span>${pendientes.has(f.archivo) ? `<span class="nuevo">Nueva</span>` : ""}
+        <textarea data-campo="texto" placeholder="Texto que va debajo de la foto (opcional)">${esc(f.texto)}</textarea>
+        <div class="acciones">
+          <button type="button" data-mover="-1" aria-label="Subir" ${i ? "" : "disabled"}>↑</button>
+          <button type="button" data-mover="1" aria-label="Bajar" ${i < semana.fotos.length - 1 ? "" : "disabled"}>↓</button>
+          <button type="button" class="quitar" data-quitar>Quitar</button>
+        </div>
+      </div>
+    </article>`).join("") : `<p class="vacio">No hay fotos. Agregá las de esta semana.</p>`;
+  $("#se-vaciar").hidden = !semana.fotos.length;
+}
+
+// ---------- posteos ----------
+const listaPosteos = () => destino === "ciclo" ? posteos.ciclo.posteos : posteos.lineas[+destino.slice(1)].posteos;
+
+function pintarPosteos(){
+  $("#po-destino").innerHTML = `<option value="ciclo">Posteos de este ciclo (${posteos.ciclo.posteos.length})</option>` +
+    posteos.lineas.map((l, i) => `<option value="l${i}">${esc(l.nombre)} (${l.posteos.length})</option>`).join("");
+  $("#po-destino").value = destino;
+  $("#po-ciclo").hidden = destino !== "ciclo";
+  $("#po-titulo").value = posteos.ciclo.titulo || "";
+  $("#po-vigencia").value = posteos.ciclo.vigencia || "";
+  const ps = listaPosteos();
+  $("#po-lista").innerHTML = ps.length ? ps.map((p, i) => `
+    <article class="item" data-i="${i}">
+      ${esVideo(p.archivo) ? `<video class="mini" src="${esc(ver(p.archivo))}" muted playsinline preload="metadata"></video>` : `<img class="mini" src="${esc(ver(p.archivo))}" alt="">`}
+      <div>
+        <span class="num">Posteo ${i + 1}</span>${pendientes.has(p.archivo) ? `<span class="nuevo">Nuevo</span>` : ""}
+        <select data-campo="formato" aria-label="Formato">${Object.entries(FORMATO).map(([v, n]) => `<option value="${v}" ${p.formato === v ? "selected" : ""}>${n}</option>`).join("")}</select>
+        <textarea data-campo="texto" placeholder="Texto para copiar, con los hashtags (opcional)">${esc(p.texto)}</textarea>
+        <div class="acciones">
+          <button type="button" data-mover="-1" aria-label="Subir" ${i ? "" : "disabled"}>↑</button>
+          <button type="button" data-mover="1" aria-label="Bajar" ${i < ps.length - 1 ? "" : "disabled"}>↓</button>
+          <button type="button" class="quitar" data-quitar>Quitar</button>
+        </div>
+      </div>
+    </article>`).join("") : `<p class="vacio">Todavía no hay posteos acá.</p>`;
+}
+
+// mover, quitar y editar textos de cualquiera de las dos listas
+function conectarLista(sel, que, lista, pintar){
+  $(sel).addEventListener("input", e => {
+    const it = e.target.closest(".item"), campo = e.target.dataset.campo; if(!it || !campo) return;
+    const o = lista()[+it.dataset.i];
+    if(campo === "texto" && !e.target.value.trim() && que === "posteos") delete o.texto; else o[campo] = e.target.value;
+    marcar(que);
+  });
+  $(sel).addEventListener("click", e => {
+    const b = e.target.closest("button"), it = e.target.closest(".item"); if(!b || !it) return;
+    const l = lista(), i = +it.dataset.i;
+    if(b.dataset.mover){ const j = i + +b.dataset.mover; [l[i], l[j]] = [l[j], l[i]]; }
+    else if("quitar" in b.dataset){ if(!confirm("¿Quitar esta de la lista?")) return; const [fuera] = l.splice(i, 1); pendientes.delete(fuera.archivo); }
+    else return;
+    marcar(que); pintar();
+  });
+}
+
+async function sumar(files, que){
+  for(const file of files){
+    try{
+      if(/^video\//.test(file.type)){
+        if(que === "semana") continue;
+        if(file.size > MAX_VIDEO){ alert(`«${file.name}» pesa más de 20 MB. Achicalo antes de subirlo.`); continue; }
+        const ruta = `fotos/posteos/reel-${slug(file.name)}-${azar()}.mp4`;
+        pendientes.set(ruta, {blob: file, url: URL.createObjectURL(file)});
+        listaPosteos().push({archivo: ruta, formato: "reel"});
+      }else{
+        const {blob, vertical} = await achicar(file);
+        const ruta = que === "semana" ? `fotos/semana/${hoy()}-${slug(file.name)}-${azar()}.jpg` : `fotos/posteos/${vertical ? "historia" : "feed"}-${slug(file.name)}-${azar()}.jpg`;
+        pendientes.set(ruta, {blob, url: URL.createObjectURL(blob)});
+        if(que === "semana") semana.fotos.push({archivo: ruta, texto: ""});
+        else listaPosteos().push({archivo: ruta, formato: vertical ? "historia" : "feed"});
+      }
+      marcar(que);
+    }catch(e){ alert(`No se pudo leer «${file.name}». Probá con otra foto.`); }
+  }
+  que === "semana" ? pintarSemana() : pintarPosteos();
+}
+
+// ---------- publicar ----------
+async function publicar(){
+  const boton = $("#publicar"); boton.disabled = true; avisar("Publicando… no cierres la página.");
+  try{
+    const usadas = [...semana.fotos, ...posteos.ciclo.posteos, ...posteos.lineas.flatMap(l => l.posteos)].map(f => f.archivo);
+    const archivos = [];
+    for(const [ruta, p] of pendientes) if(usadas.includes(ruta)) archivos.push({ruta, base64: await aBase64(p.blob)});
+    const cuerpo = {archivos};
+    if(cambios.semana) cuerpo.semana = semana;
+    if(cambios.posteos) cuerpo.posteos = posteos;
+    const r = await fetch("api/guardar", {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify(cuerpo), credentials: "same-origin"});
+    const res = await r.json().catch(() => ({error: "Tu sesión venció. Recargá la página para volver a entrar (lo que no publicaste se pierde)."}));
+    if(!r.ok || !res.ok) throw new Error(res.error || "No se pudo publicar.");
+    for(const [ruta, p] of pendientes) locales.set(ruta, p.url);
+    pendientes.clear(); cambios.semana = cambios.posteos = false;
+    pintarSemana(); pintarPosteos();
+    avisar("¡Listo! En un minuto está en la página. 🌿", "ok");
+  }catch(e){
+    boton.disabled = false; avisar(e.message, "error");
+  }
+}
+
+// ---------- arranque ----------
+const leerJS = (texto, nombre) => { const w = {}; new Function("window", texto)(w); return w[nombre]; };
+
+(async () => {
+  let r, res;
+  try{ r = await fetch("api/datos", {credentials: "same-origin", cache: "no-store"}); res = await r.json(); }
+  catch(e){ res = {error: r ? "Tu sesión venció o no tenés acceso. Recargá la página para entrar con tu mail." : "No hay conexión. Probá de nuevo en un rato."}; }
+  if(!r || !r.ok){ $("#mensaje").textContent = res.error || "No se pudo abrir el panel."; $("#quien").textContent = "Solo para administradoras autorizadas."; return; }
+  try{ localStorage.setItem("admin-biogreen", "1"); }catch(e){}
+  semana = leerJS(res.semana, "SEMANA") || {};
+  semana = {mostrar: semana.mostrar !== false, titulo: semana.titulo || "", desde: semana.desde || "", fotos: semana.fotos || []};
+  posteos = leerJS(res.posteos, "POSTEOS") || {};
+  posteos = {ciclo: Object.assign({titulo: "", vigencia: "", posteos: []}, posteos.ciclo), lineas: posteos.lineas || []};
+  $("#quien").textContent = "Entraste como " + res.email;
+  $("#mensaje").hidden = true; $("#panel").hidden = false; $("#barra").hidden = false;
+  pintarSemana(); pintarPosteos();
+})();
+
+document.querySelectorAll(".pestanas button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".pestanas button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $("#ed-semana").hidden = b.dataset.ed !== "semana"; $("#ed-posteos").hidden = b.dataset.ed !== "posteos";
+});
+$("#se-mostrar").onchange = e => { semana.mostrar = e.target.checked; marcar("semana"); };
+$("#se-titulo").oninput = e => { semana.titulo = e.target.value; marcar("semana"); };
+$("#se-desde").oninput = e => { semana.desde = e.target.value; marcar("semana"); };
+$("#se-vaciar").onclick = () => { if(!confirm("¿Quitar todas las fotos de la semana?")) return; semana.fotos.forEach(f => pendientes.delete(f.archivo)); semana.fotos = []; marcar("semana"); pintarSemana(); };
+$("#se-sumar").onchange = e => { sumar([...e.target.files], "semana"); e.target.value = ""; };
+$("#po-destino").onchange = e => { destino = e.target.value; pintarPosteos(); };
+$("#po-titulo").oninput = e => { posteos.ciclo.titulo = e.target.value; marcar("posteos"); };
+$("#po-vigencia").oninput = e => { posteos.ciclo.vigencia = e.target.value; marcar("posteos"); };
+$("#po-sumar").onchange = e => { sumar([...e.target.files], "posteos"); e.target.value = ""; };
+conectarLista("#se-lista", "semana", () => semana.fotos, pintarSemana);
+conectarLista("#po-lista", "posteos", listaPosteos, pintarPosteos);
+$("#publicar").onclick = publicar;
+addEventListener("beforeunload", e => { if(hayCambios()){ e.preventDefault(); e.returnValue = ""; } });
+</script>
+</body>
+</html>

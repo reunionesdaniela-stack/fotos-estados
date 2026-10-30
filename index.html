@@ -124,6 +124,11 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .pr-gan{flex:none;text-align:right;line-height:1.1}
 .pr-gan small{display:block;font-size:13px;font-weight:700;color:var(--muted)}
 .pr-gan b{font-size:22px;font-weight:900;color:var(--leaf-dark);white-space:nowrap}
+.pe-cat{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:6px 10px;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:10px 12px;margin:0 0 12px;font-size:15px}
+.pe-cat label{font-weight:800;color:var(--leaf-dark)}
+.pe-cat input{width:100%;min-width:0;height:40px;padding:0 10px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font-size:16px;font-weight:700;font-family:inherit}
+.pe-cat p{grid-column:1/-1;margin:0;color:var(--muted)}
+.pe-cat p b{color:var(--ink)}
 .pe-minimo{background:#FBF0CF;color:#4A3B0B;border-radius:16px;padding:12px 16px;margin:0 0 14px;font-size:17px}
 .pe-res-fila{display:flex;justify-content:space-between;gap:10px;margin:6px 0 0;font-size:17px}
 .pe-res-fila b{white-space:nowrap}
@@ -291,16 +296,14 @@ a.herra:active{background:var(--soft)}
         <li>Tocá <b>Mi estado</b> y después la flechita para enviar.</li>
       </ol>
     </section>
-    <section class="semana novedades" id="sec-novedades" hidden>
-      <h2><span class="nuevo">NUEVO</span> <span id="nov-titulo">Novedades</span></h2>
-      <p class="sub" id="nov-vigencia"></p>
-      <div id="novedades"></div>
-    </section>
-    <section class="semana" id="sec-semana">
-      <h2 id="titulo">Fotos de esta semana</h2>
-      <p class="sub" id="fecha"></p>
-      <div id="fotos"></div>
-    </section>
+    <details class="linea" id="sec-novedades" hidden>
+      <summary><span><span class="nuevo">NUEVO</span> <span id="nov-titulo">Novedades</span></span><span class="cant" id="nov-cant"></span></summary>
+      <div class="linea-cuerpo"><p class="pista" id="nov-vigencia"></p><div id="novedades"></div></div>
+    </details>
+    <details class="linea" id="sec-semana">
+      <summary><span id="titulo">Fotos de esta semana</span><span class="cant" id="fotos-cant"></span></summary>
+      <div class="linea-cuerpo"><p class="pista" id="fecha"></p><div id="semana-fotos"></div></div>
+    </details>
     <section class="lineas" style="margin-top:28px" aria-label="Fotos de estados según línea">
       <h2>Fotos de estados según línea</h2>
       <div id="lineas"></div>
@@ -517,6 +520,11 @@ a.herra:active{background:var(--soft)}
 
   <div class="vista" id="v-pedido">
     <div class="cab"><h1>Mi pedido</h1><p class="sub">Cargá lo que vas vendiendo en el ciclo y la página hace las cuentas: tus puntos, tu categoría, cuánto pagás y cuánto ganás.</p></div>
+    <section class="pe-cat">
+      <label for="pe-ciclo">¿Qué categoría soy?</label>
+      <input id="pe-ciclo" type="text" inputmode="decimal" autocomplete="off" placeholder="Tus puntos del ciclo">
+      <p id="pe-cat-res" role="status"></p>
+    </section>
     <p class="pe-minimo">⚠️ <b>El pedido mínimo es de 5 puntos.</b> Con menos de 5 puntos no podés hacer el pedido.</p>
     <div id="pe-resumen" role="status"><p class="vacio">Cargando la lista…</p></div>
     <section class="tarjeta">
@@ -587,10 +595,12 @@ if(N.fotos.length){
   if(N.titulo) $("#nov-titulo").textContent = N.titulo;
   if(N.vigencia) $("#nov-vigencia").textContent = N.vigencia;
   $("#novedades").innerHTML = N.fotos.map((f, i) => fotoHTML(f, i, N.fotos.length)).join("");
+  $("#nov-cant").textContent = N.fotos.length + (N.fotos.length === 1 ? " foto" : " fotos");
 }
 
 $("#sec-semana").hidden = S.mostrar === false;
-$("#fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
+$("#fotos-cant").textContent = S.fotos.length ? S.fotos.length + (S.fotos.length === 1 ? " foto" : " fotos") : "Pronto";
+$("#semana-fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
 
 // link al panel: solo aparece en el celular de quien ya entró como administradora
 try{ if(localStorage.getItem("admin-biogreen") === "1") $("#admin-link").hidden = false; }catch(e){}
@@ -809,6 +819,18 @@ pintar();
   const pagar = (items, cat) => items.reduce((s, i) => s + porCod[i.cod].costo[cat.nombre] * i.cant, 0);
   pe("clienta").value = ped.clienta;
 
+  // ¿qué categoría soy?: con los puntos que hizo en el ciclo
+  function miCategoria(){
+    const v = pe("ciclo").value.replace(",", "."), pts = Math.max(0, +v || 0), cat = categoria(pts), sig = CATS.find(c => c.desde > pts);
+    let h = "Poné los puntos que hiciste en el ciclo y te decimos tu categoría.";
+    if(v.trim() !== "") h = !cat ? `Con ${ptos(pts)} todavía no llegás al mínimo: te faltan <b>${ptos(MINIMO - pts)}</b> para ser <b>${CATS[0].nombre}</b>.`
+      : `Sos <b>Distribuidora ${cat.nombre}</b>: ${cat.descuento}% en regulares y ${cat.promo}% en promos.` + (sig ? ` Te faltan <b>${ptos(sig.desde - pts)}</b> para ${sig.nombre}.` : "");
+    pe("cat-res").innerHTML = h;
+  }
+  pe("ciclo").value = ped.ciclo ?? "";
+  pe("ciclo").oninput = () => { ped.ciclo = pe("ciclo").value; guardar(); miCategoria(); };
+  miCategoria();
+
   function resumen(){
     const items = validos(), pts = items.reduce((s, i) => s + porCod[i.cod].pts * i.cant, 0), cobra = items.reduce((s, i) => s + porCod[i.cod].pub * i.cant, 0);
     if(!items.length){ pe("resumen").innerHTML = `<div class="resultado"><div class="grande">0 pts</div><p>Buscá abajo los productos que vendiste y sumalos. La página hace todas las cuentas.</p></div>`; return; }
@@ -888,8 +910,8 @@ pintar();
     window.open("https://wa.me/?text=" + encodeURIComponent(msj), "_blank");
   };
   pe("borrar").onclick = () => {
-    if(!ped.items.length || !confirm("¿Borrar todo lo que cargaste y empezar un pedido nuevo?")) return;
-    ped = {items: [], clienta: ""}; pe("clienta").value = ""; pe("aviso").classList.remove("ver"); pintar();
+    if(!ped.items.length && !ped.ciclo || !confirm("¿Borrar todo lo que cargaste y empezar un pedido nuevo?")) return;
+    ped = {items: [], clienta: ""}; pe("clienta").value = ""; pe("ciclo").value = ""; miCategoria(); pe("aviso").classList.remove("ver"); pintar();
   };
   pe("pie").textContent = `Cuentas con la lista de precios vigente desde ${vig ? new Date(vig + "T00:00").toLocaleDateString("es-AR", {day: "numeric", month: "long", year: "numeric"}) : "el último cambio"}. Lo que cargás queda guardado en tu celular. Ante cualquier duda, consultá a tu líder.`;
   pintar();

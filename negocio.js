@@ -8,9 +8,9 @@ window.NEGOCIO = {
   precioPublico: PUNTO,
   diasCiclo: 21,
   distribuidoras: [               // compra = lo que paga ella por cada punto
-    {nombre: "Bronce", desde: 5, hasta: 9, descuento: 20, compra: compra(0.80)},
-    {nombre: "Plata", desde: 10, hasta: 19, descuento: 30, compra: compra(0.70)},
-    {nombre: "Oro", desde: 20, hasta: Infinity, descuento: 30, compra: compra(0.70)}
+    {nombre: "Bronce", desde: 5, hasta: 9, descuento: 20, promo: 10, compra: compra(0.80)},
+    {nombre: "Plata", desde: 10, hasta: 19, descuento: 30, promo: 20, compra: compra(0.70)},
+    {nombre: "Oro", desde: 20, hasta: Infinity, descuento: 30, promo: 20, compra: compra(0.70)}
   ],
   // premios por productividad: según la venta personal del ciclo (distribuidoras y líderes)
   premiosVigencia: "Desafío de venta personal · ciclos 16, 17 y 01",

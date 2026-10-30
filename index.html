@@ -86,6 +86,11 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .hero .logo{display:block;width:150px;height:auto;margin:0 0 14px -4px}
 .titulo-sec{font-size:22px;margin:0 0 4px}
 .menu{display:flex;flex-direction:column;gap:12px;margin:12px 0 24px}
+.grupo-menu{font-size:17px;font-weight:800;color:var(--leaf-dark);margin:14px 0 -2px}
+.grupo-menu:first-child{margin-top:0}
+.empezar{display:flex;align-items:center;gap:12px;background:var(--soft);border:2px solid var(--leaf);border-radius:18px;padding:12px 16px;margin:14px 0 4px;color:var(--leaf-dark);text-decoration:none;font-size:18px;font-weight:700}
+.empezar span{font-size:26px}
+.empezar b{display:block;font-size:19px}
 .menu a{display:flex;align-items:center;gap:14px;min-height:92px;padding:14px 16px;border-radius:20px;background:var(--surface);border:2px solid var(--line);color:var(--ink);text-decoration:none}
 .menu a:active{transform:scale(.99)}
 .menu .ico{flex:none;width:58px;height:58px;border-radius:16px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:30px}
@@ -268,7 +273,7 @@ a.herra:active{background:var(--soft)}
       <img class="logo" src="img/logo-blanco.png" alt="Biogreen, creadores de bienestar" width="150" height="90">
       <h1>Tu negocio Biogreen</h1>
       <p>Este es tu espacio para hacer crecer tu negocio. Acá encontrás todo lo que necesitás para vender, en un solo lugar y siempre actualizado.</p>
-      <p>Fotos listas para tus estados, el catálogo con precios, posteos para tus redes, una guía para empezar y una calculadora para saber cuánto podés ganar.</p>
+      <p>Fotos y posteos para tus redes, el catálogo, tus precios, tu pedido con los puntos calculados, los desafíos del ciclo y una guía para empezar.</p>
       <div class="firma">
         <p>Esta página fue creada por la <b>Organización Salvador Gaviota</b>. Si tenés alguna duda, nos podés consultar.</p>
         <p>Te mando un saludo,<br><b>Daniela Cazayous</b> 🌿</p>
@@ -277,6 +282,7 @@ a.herra:active{background:var(--soft)}
 
     <h2 class="titulo-sec">¿Qué necesitás hoy?</h2>
     <p class="sub">Tocá una opción para entrar.</p>
+    <a class="empezar" href="#primeros"><span>🌱</span><div><b>¿Recién empezás?</b>Empezá por acá: todo lo que necesitás saber, paso a paso. ›</div></a>
     <nav class="menu" aria-label="Secciones"></nav>
 
     <div class="tip"><span>💡</span><div><b>Guardala en tu celular.</b> Abrí el menú del navegador y elegí «Agregar a la pantalla de inicio» para tenerla siempre a mano.</div></div>
@@ -607,17 +613,17 @@ try{ if(localStorage.getItem("admin-biogreen") === "1") $("#admin-link").hidden 
 
 // secciones: la portada las lista y cada sección muestra las otras al final
 const SECCIONES = [
-  {v: "fotos", ico: "📸", nombre: "Fotos para estados", desc: "Novedades y fotos listas para tu WhatsApp."},
-  {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
-  {v: "precios", ico: "🏷️", nombre: "Tus precios", desc: "Tu costo, el precio de venta y tu ganancia en cada producto."},
-  {v: "pedido", ico: "🧾", nombre: "Mi pedido", desc: "Cargá lo que vendiste y mirá tus puntos, cuánto pagás y cuánto ganás."},
+  {v: "fotos", grupo: "📣 Para vender todos los días", ico: "📸", nombre: "Fotos para estados", desc: "Novedades y fotos listas para tu WhatsApp."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
-  {v: "primeros", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
-  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."},
-  {v: "desafios", ico: "🏆", nombre: "Desafíos", desc: "Los premios vigentes por tu venta del ciclo."}
+  {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
+  {v: "pedido", grupo: "💰 Tu negocio en cada ciclo", ico: "🧾", nombre: "Mi pedido", desc: "Cargá lo que vendiste y mirá tus puntos, cuánto pagás y cuánto ganás."},
+  {v: "precios", ico: "🏷️", nombre: "Tus precios", desc: "Tu costo, el precio de venta y tu ganancia en cada producto."},
+  {v: "desafios", ico: "🏆", nombre: "Desafíos", desc: "Los premios vigentes por tu venta del ciclo."},
+  {v: "primeros", grupo: "🌱 Para empezar y crecer", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
+  {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
 ];
 const itemMenu = s => `<a href="#${s.v}"><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
-$("#v-inicio .menu").innerHTML = SECCIONES.map(itemMenu).join("");
+$("#v-inicio .menu").innerHTML = SECCIONES.map(s => (s.grupo ? `<h3 class="grupo-menu">${s.grupo}</h3>` : "") + itemMenu(s)).join("");
 SECCIONES.forEach(s => $("#v-" + s.v).insertAdjacentHTML("beforeend", `<section class="seguir"><h2>Seguí con…</h2><nav class="menu">${SECCIONES.filter(o => o !== s).map(itemMenu).join("")}</nav></section>`));
 
 // vistas

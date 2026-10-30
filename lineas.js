@@ -208,8 +208,6 @@ window.LINEAS = [
     {archivo: "fotos/lineas/body-splash/blue-ocean.jpg", texto: "Body Splash Blue Ocean · 150 ml $17.999 💗"},
     {archivo: "fotos/lineas/body-splash/midnight-seduction.jpg", texto: "Body Splash Midnight Seduction · 150 ml $17.999 💗"}
   ]},
-  {nombre: "Promociones", fotos: [
-    {archivo: "fotos/ejemplo/kit-de-inicio.jpg", texto: "Kit de Inicio promocional: empezá con $19.000 🌿"}
-  ]},
+  {nombre: "Promociones", fotos: []},
   {nombre: "Green Week", fotos: []}
 ];

@@ -273,7 +273,7 @@ a.herra:active{background:var(--soft)}
       <img class="logo" src="img/logo-blanco.png" alt="Biogreen, creadores de bienestar" width="150" height="90">
       <h1>Tu negocio Biogreen</h1>
       <p>Este es tu espacio para hacer crecer tu negocio. Acá encontrás todo lo que necesitás para vender, en un solo lugar y siempre actualizado.</p>
-      <p>Fotos y posteos para tus redes, el catálogo, tus precios, tu pedido con los puntos calculados, los desafíos del ciclo y una guía para empezar.</p>
+      <p>Fotos y posteos para tus redes, el catálogo, tus precios, tu planilla de venta con los puntos calculados, los desafíos del ciclo y una guía para empezar.</p>
       <div class="firma">
         <p>Esta página fue creada por la <b>Organización Salvador Gaviota</b>. Si tenés alguna duda, nos podés consultar.</p>
         <p>Te mando un saludo,<br><b>Daniela Cazayous</b> 🌿</p>
@@ -434,7 +434,7 @@ a.herra:active{background:var(--soft)}
           <div class="medalla" style="--c:var(--plata)"><div class="nom">Plata</div><div class="desde">desde 10 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span></div>
           <div class="medalla" style="--c:var(--oro)"><div class="nom">Oro</div><div class="desde">desde 20 pts</div><div class="pct">30%</div><div class="lbl">regulares</div><span class="promo">20% promos</span><span class="extra">+ premios por productividad 🎁</span></div>
         </div>
-        <p class="nota">El <b>pedido mínimo es de 5 pts</b>: con menos no podés hacer el pedido. <a href="#pedido">Armá tu pedido y mirá tus puntos ›</a></p>
+        <p class="nota">El <b>pedido mínimo es de 5 pts</b>: con menos no podés hacer el pedido. <a href="#pedido">Usá tu planilla de venta y mirá tus puntos ›</a></p>
         <div class="premios">
           <h3>🎁 Premios por productividad</h3>
           <span class="vig" id="premios-vig"></span>
@@ -525,7 +525,7 @@ a.herra:active{background:var(--soft)}
   </div>
 
   <div class="vista" id="v-pedido">
-    <div class="cab"><h1>Mi pedido</h1><p class="sub">Cargá lo que vas vendiendo en el ciclo y la página hace las cuentas: tus puntos, tu categoría, cuánto pagás y cuánto ganás.</p></div>
+    <div class="cab"><h1>Planilla de venta</h1><p class="sub">Es tu planilla de venta del ciclo: anotá lo que vas vendiendo y la página hace las cuentas. Tus puntos, tu categoría, cuánto pagás y cuánto ganás.</p></div>
     <section class="pe-cat">
       <label for="pe-ciclo">¿Qué categoría soy?</label>
       <input id="pe-ciclo" type="text" inputmode="decimal" autocomplete="off" placeholder="Tus puntos del ciclo">
@@ -544,10 +544,12 @@ a.herra:active{background:var(--soft)}
     </section>
     <div id="pe-lista"></div>
     <div class="pe-botones">
-      <button class="boton-grande" id="pe-whatsapp" type="button">MANDAR PEDIDO A MI LÍDER</button>
+      <p class="nota pe-bionet">Tu pedido lo cargás en <b>Bionet</b>. Tené a mano esta planilla: ahí están los códigos y las cantidades.</p>
+      <button class="boton-grande" id="pe-bionet" type="button">CARGAR MI PEDIDO EN BIONET</button>
       <div class="aviso" id="pe-aviso" role="status"></div>
       <button class="boton-grande secundario" id="pe-borrar" type="button">EMPEZAR DE NUEVO</button>
     </div>
+    <p class="nota" id="pe-instructivo" hidden><a target="_blank" rel="noopener">📘 ¿Cómo cargo mi pedido en Bionet? Mirá el instructivo ›</a></p>
     <p class="nota" id="pe-pie"></p>
   </div>
 
@@ -616,7 +618,7 @@ const SECCIONES = [
   {v: "fotos", grupo: "📣 Para vender todos los días", ico: "📸", nombre: "Fotos para estados", desc: "Novedades y fotos listas para tu WhatsApp."},
   {v: "posteos", ico: "📲", nombre: "Posteos para redes sociales", corto: "Posteos", desc: "Posteos de Biogreen listos para tus redes."},
   {v: "catalogo", ico: "📖", nombre: "Catálogo", desc: "Mirá los precios y mandáselo a tus clientas."},
-  {v: "pedido", grupo: "💰 Tu negocio en cada ciclo", ico: "🧾", nombre: "Mi pedido", desc: "Cargá lo que vendiste y mirá tus puntos, cuánto pagás y cuánto ganás."},
+  {v: "pedido", grupo: "💰 Tu negocio en cada ciclo", ico: "🧾", nombre: "Planilla de venta", desc: "Anotá lo que vendiste: tus puntos, cuánto pagás y cuánto ganás. Después lo cargás en Bionet."},
   {v: "precios", ico: "🏷️", nombre: "Tus precios", desc: "Tu costo, el precio de venta y tu ganancia en cada producto."},
   {v: "desafios", ico: "🏆", nombre: "Desafíos", desc: "Los premios vigentes por tu venta del ciclo."},
   {v: "primeros", grupo: "🌱 Para empezar y crecer", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
@@ -812,6 +814,8 @@ pintar();
   const vig = (texto.match(/Vigente desde:\s*(\d{4}-\d{2}-\d{2})/) || [])[1];
   const datos = texto.split(/\r?\n/).filter(f => f.trim() && !f.startsWith("#")).map(f => f.split(";").map(x => x.trim()));
   const cab = datos.shift(), col = n => cab.indexOf(n);
+  const BIONET = "https://bionet.vgs.com.ar/movistock/public/login";
+  const INSTRUCTIVO_BIONET = ""; // link al instructivo de cómo cargar el pedido en Bionet (vacío = no se muestra)
   const CATS = window.NEGOCIO.distribuidoras, MINIMO = CATS[0].desde; // Bronce, Plata y Oro: desde cuántos puntos
   const prods = datos.map(d => ({nombre: d[1], pres: d[2], promo: d[3] === "promo", linea: d[0], cod: d[col("codigo")], pts: +d[col("puntos")], pub: +d[col("Precio público")], costo: Object.fromEntries(CATS.map(c => [c.nombre, +d[col(c.nombre)]]))}));
   const porCod = Object.fromEntries(prods.map(p => [p.cod, p]));
@@ -888,7 +892,7 @@ pintar();
       : `<p class="nota">No encontramos ese producto. Probá con otra palabra o con el código.</p>`;
   }
 
-  const pintar = () => { resumen(); lista(); guardar(); };
+  const pintar = () => { resumen(); lista(); guardar(); pe("aviso").classList.remove("ver"); };
   pe("buscar").oninput = resultados;
   pe("clienta").oninput = () => { ped.clienta = pe("clienta").value.trim(); guardar(); };
   $("#v-pedido").addEventListener("click", e => {
@@ -905,20 +909,22 @@ pintar();
     }
     pintar();
   });
-  pe("whatsapp").onclick = () => {
+  pe("bionet").onclick = () => {
     const items = validos(), pts = items.reduce((s, i) => s + porCod[i.cod].pts * i.cant, 0), cat = categoria(pts), av = pe("aviso");
     if(!cat){ av.textContent = items.length ? `Todavía no llegás al mínimo de ${MINIMO} puntos: te faltan ${ptos(MINIMO - pts)}.` : "Primero sumá los productos que vendiste."; av.classList.add("ver"); return; }
     av.classList.remove("ver");
     const juntos = {};
     items.forEach(i => juntos[i.cod] = (juntos[i.cod] || 0) + i.cant);
-    const msj = "¡Hola! Te paso mi pedido 🌿\n\n" + Object.entries(juntos).map(([c, n]) => `• ${n} x ${nombre(porCod[c])} (cód. ${c})`).join("\n")
-      + `\n\nTotal: ${ptos(pts)} · Distribuidora ${cat.nombre}\nA pagar: ${pesos(pagar(items, cat))}`;
-    window.open("https://wa.me/?text=" + encodeURIComponent(msj), "_blank");
+    av.innerHTML = `<b>Cargá estos códigos en Bionet:</b><br>` + Object.entries(juntos).map(([c, n]) => `${esc(c)} × ${n} · ${esc(nombre(porCod[c]))}`).join("<br>")
+      + `<br>Total: ${ptos(pts)} · A pagar: ${pesos(pagar(items, cat))}`;
+    av.classList.add("ver");
+    window.open(BIONET, "_blank");
   };
   pe("borrar").onclick = () => {
     if(!ped.items.length && !ped.ciclo || !confirm("¿Borrar todo lo que cargaste y empezar un pedido nuevo?")) return;
     ped = {items: [], clienta: ""}; pe("clienta").value = ""; pe("ciclo").value = ""; miCategoria(); pe("aviso").classList.remove("ver"); pintar();
   };
+  if(INSTRUCTIVO_BIONET){ pe("instructivo").querySelector("a").href = INSTRUCTIVO_BIONET; pe("instructivo").hidden = false; }
   pe("pie").textContent = `Cuentas con la lista de precios vigente desde ${vig ? new Date(vig + "T00:00").toLocaleDateString("es-AR", {day: "numeric", month: "long", year: "numeric"}) : "el último cambio"}. Lo que cargás queda guardado en tu celular. Ante cualquier duda, consultá a tu líder.`;
   pintar();
 })();

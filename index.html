@@ -262,8 +262,15 @@ a.herra:active{background:var(--soft)}
 .premios{border:2px solid var(--oro);border-radius:16px;padding:14px;margin:0 0 12px}
 .premios h3{margin:0 0 4px;font-size:20px}
 .premios .vig{display:inline-block;font-size:13px;font-weight:800;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:3px 10px;margin:4px 0 8px}
+.des-img{display:block;width:100%;height:auto;border-radius:12px;margin:8px 0 4px}
+.des-kit{border-top:1px solid var(--line);padding:12px 0 4px}
+.des-kit img{display:block;width:100%;height:auto;border-radius:12px;margin-bottom:10px}
+.des-kit h4{margin:0 0 2px;font-size:18px}
+.des-kit .des-precio{margin:6px 0;font-size:26px;font-weight:900;color:var(--leaf-dark)}
+.des-kit ul{margin:0 0 8px;padding-left:22px;font-size:16px}
+.des-placa{margin:14px 0 0}
 .premio{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding:10px 0}
-.premio .pts{flex:none;width:74px;text-align:center;font-weight:900;font-size:17px;line-height:1.15;color:var(--oro)}
+.premio .pts{flex:none;min-width:74px;text-align:center;font-weight:900;font-size:17px;line-height:1.15;color:var(--oro)}
 .premio .pts small{display:block;font-size:12px;font-weight:700;color:var(--muted)}
 .premio div{font-size:16px;line-height:1.3}
 .premio b{display:block;color:var(--leaf-dark);font-size:17px;margin-top:2px}
@@ -674,7 +681,7 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => 
 
 // calculadora
 const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;
-const nivelesHTML = ns => ns.map(p => `<div class="premio"><span class="pts">${p.hasta === Infinity ? p.desde + " o más" : p.desde + " a " + Math.floor(p.hasta)}<small>puntos</small></span><div>${esc(p.premio)}<b>Ganás premio por ${plata(p.valor)}</b></div></div>`).join("");
+const nivelesHTML = (ns, unidad = "puntos") => ns.map(p => `<div class="premio"><span class="pts">${p.etiqueta ? esc(p.etiqueta) : p.hasta === Infinity ? p.desde + " o más" : p.desde + " a " + Math.floor(p.hasta)}<small>${esc(unidad)}</small></span><div>${esc(p.premio)}${p.valor ? `<b>Ganás premio por ${plata(p.valor)}</b>` : ""}</div></div>`).join("");
 const premio = pts => NG.premios.find(p => pts >= p.desde && pts <= p.hasta);
 const premioHTML = pts => { const p = premio(pts); return p ? `<p>🎁 Además ganás <b>${p.premio}</b>: un premio por <b>${plata(p.valor)}</b>.</p>` : ""; };
 const calc = {modo:"dist", pts:10, pers:20, dist:40, lp:0, lo:0, bb:0, bpo:0, blp:0};
@@ -728,7 +735,21 @@ pintar();
       <h3>🏆 ${esc(d.titulo)}</h3>
       <span class="vig">${esc(d.vigencia)}</span>
       <p class="nota" style="margin:0 0 4px"><b>Para:</b> ${esc(d.para)}. ${esc(d.detalle)}</p>
-      ${nivelesHTML(d.niveles)}
+      ${d.imagen ? `<img class="des-img" src="${esc(d.imagen)}" alt="Premio del desafío ${esc(d.titulo)}" loading="lazy">` : ""}
+      ${nivelesHTML(d.niveles, d.unidad)}
+      ${d.kit ? `<div class="des-kit">
+        <img src="${esc(d.kit.imagen)}" alt="${esc(d.kit.titulo)}" loading="lazy">
+        <h4>🎁 ${esc(d.kit.titulo)}</h4>
+        <p class="pr-sub">cód. ${esc(d.kit.codigo)} · suma ${esc(d.kit.puntos)} punto</p>
+        <p class="des-precio">${plata(d.kit.precio)}</p>
+        <ul>${d.kit.incluye.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+        <p class="nota" style="margin:0">${esc(d.kit.nota)}</p>
+      </div>` : ""}
+      ${d.placa ? (id => `<div class="foto des-placa"><span class="num">Placa del desafío</span>
+        <img src="${esc(d.placa)}" alt="Placa del desafío ${esc(d.titulo)}" loading="lazy">
+        <div style="height:12px"></div>
+        <button class="compartir" data-src="${esc(d.placa)}" data-aviso="${id}">${ICONO}COMPARTIR</button>
+        <div class="aviso" id="aviso-${id}" role="status"></div></div>`)(nAviso++) : ""}
     </section>`).join("") : `<p class="vacio">Por ahora no hay desafíos vigentes. ¡Pronto vienen más!</p>`;
 }
 

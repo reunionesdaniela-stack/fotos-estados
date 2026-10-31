@@ -13,7 +13,7 @@ window.NEGOCIO = {
     {nombre: "Oro", desde: 20, hasta: Infinity, descuento: 30, promo: 20, compra: compra(0.70)}
   ],
   // premios por productividad: según la venta personal del ciclo (distribuidoras y líderes)
-  premiosVigencia: "Desafío de venta personal · ciclos 16, 17 y 01",
+  premiosVigencia: "Desafío de venta personal · ciclos 2, 3 y 4",
   premios: [
     {desde: 20, hasta: 29.99, premio: "1 Capullos de Lino 500 ml", valor: PUNTO},
     {desde: 30, hasta: 39.99, premio: "1 Capullos de Lino 500 ml + 1 Esencial 240 ml", valor: PUNTO + ESENCIAL_240},

@@ -53,6 +53,7 @@ window.LINEAS = [
     {archivo: "fotos/lineas/be-masculinas/02-212-men.jpg", texto: "BE inspirado en 212 Men de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"},
     {archivo: "fotos/lineas/be-masculinas/03-212-sexy.jpg", texto: "BE inspirado en 212 Sexy Men de Carolina Herrera · Eau de Parfum 60 ml $28.999 (30% OFF) 🖤"},
     {archivo: "fotos/lineas/be-masculinas/04-212-vip.jpg", texto: "BE inspirado en 212 VIP Men de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"},
+    {archivo: "fotos/lineas/be-masculinas/05-acqua-di-gio.jpg", texto: "BE inspirado en Acqua di Giò de Giorgio Armani · Eau de Parfum 60 ml $28.999 (30% OFF) 🖤"},
     {archivo: "fotos/lineas/be-masculinas/06-acqua-di-gio-profondo.jpg", texto: "BE inspirado en Acqua di Giò Profondo de Giorgio Armani · Eau de Parfum 60 ml $35.999 🖤"},
     {archivo: "fotos/lineas/be-masculinas/07-ch-men.jpg", texto: "BE inspirado en Carolina Herrera Men · Eau de Parfum 60 ml $35.999 🖤"},
     {archivo: "fotos/lineas/be-masculinas/08-boss.jpg", texto: "BE inspirado en Boss de Hugo Boss · Eau de Parfum 60 ml $35.999 🖤"},

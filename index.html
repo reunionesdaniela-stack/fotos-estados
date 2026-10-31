@@ -524,6 +524,7 @@ a.herra:active{background:var(--soft)}
 
   <div class="vista" id="v-desafios">
     <div class="cab"><h1>Desafíos</h1><p class="sub">Los desafíos vigentes de Biogreen y los premios que podés ganar.</p></div>
+    <p class="nota" style="margin:0 0 10px">Tocá un desafío para ver los premios.</p>
     <div id="desafios"></div>
     <a class="boton-grande" href="#calculadora">CALCULÁ TU GANANCIA</a>
   </div>
@@ -572,6 +573,22 @@ a.herra:active{background:var(--soft)}
     </div>
     <p class="nota" id="pe-instructivo" hidden><a target="_blank" rel="noopener">📘 ¿Cómo cargo mi pedido en Bionet? Mirá el instructivo ›</a></p>
     <p class="nota" id="pe-pie"></p>
+  </div>
+
+  <div class="vista" id="v-incorporaciones">
+    <div class="cab"><h1>Incorporaciones</h1><p class="sub">Cómo sumar gente nueva a tu equipo, paso a paso.</p></div>
+    <section class="tarjeta" style="text-align:center">
+      <p style="font-size:44px;margin:0">🚧</p>
+      <h2>Pronto</h2>
+      <p>Estamos preparando el paso a paso para que sumes gente a tu equipo. Muy pronto lo vas a encontrar acá.</p>
+    </section>
+    <section class="tarjeta">
+      <h2>Mientras tanto</h2>
+      <div class="herrs">
+        <a class="herra" href="#desafios"><span class="e">🏆</span><b>Desafío Biogreen +1</b>Por tus incorporaciones de los ciclos 2, 3 y 4 te llevás kits de verano.<span class="ir">Ver ›</span></a>
+        <a class="herra" href="https://docs.google.com/presentation/d/1cott8zfiU3FYZ6FclP10KlLmQbEDQ_Dt/edit" target="_blank" rel="noopener"><span class="e">👥</span><b>Bioportunidad</b>Presentación para mostrar el negocio y sumar personas.<span class="ir">Ver ›</span></a>
+      </div>
+    </section>
   </div>
 
   <div class="vista" id="v-calculadora">
@@ -643,6 +660,7 @@ const SECCIONES = [
   {v: "precios", ico: "🏷️", nombre: "Tus precios", desc: "Tu costo, el precio de venta y tu ganancia en cada producto."},
   {v: "desafios", ico: "🏆", nombre: "Desafíos", desc: "Los premios vigentes por tu venta del ciclo."},
   {v: "primeros", grupo: "🌱 Para empezar y crecer", ico: "🌱", nombre: "Primeros pasos", desc: "Todo lo que necesitás saber para empezar."},
+  {v: "incorporaciones", ico: "🤝", nombre: "Incorporaciones", desc: "Cómo sumar gente nueva a tu equipo, paso a paso."},
   {v: "calculadora", ico: "🧮", nombre: "Calculá tu ganancia", desc: "Descubrí cuánto podés ganar por ciclo."}
 ];
 const itemMenu = s => `<a href="#${s.v}"><span class="ico">${s.ico}</span><span class="txt"><b>${s.nombre}</b><small>${s.desc}</small></span><span class="flecha"></span></a>`;
@@ -731,9 +749,9 @@ pintar();
   $("#premios-vig").textContent = NG.premiosVigencia;
   $("#premios-lista").innerHTML = nivelesHTML(NG.premios);
   const D = window.DESAFIOS || [];
-  $("#desafios").innerHTML = D.length ? D.map(d => `<section class="premios">
-      <h3>🏆 ${esc(d.titulo)}</h3>
-      <span class="vig">${esc(d.vigencia)}</span>
+  $("#desafios").innerHTML = D.length ? D.map(d => `<details class="linea">
+    <summary><span>🏆 ${esc(d.titulo)}</span><span class="cant">${esc(d.vigencia)}</span></summary>
+    <div class="linea-cuerpo">
       <p class="nota" style="margin:0 0 4px"><b>Para:</b> ${esc(d.para)}. ${esc(d.detalle)}</p>
       ${d.imagen ? `<img class="des-img" src="${esc(d.imagen)}" alt="Premio del desafío ${esc(d.titulo)}" loading="lazy">` : ""}
       ${nivelesHTML(d.niveles, d.unidad)}
@@ -750,7 +768,8 @@ pintar();
         <div style="height:12px"></div>
         <button class="compartir" data-src="${esc(d.placa)}" data-aviso="${id}">${ICONO}COMPARTIR</button>
         <div class="aviso" id="aviso-${id}" role="status"></div></div>`)(nAviso++) : ""}
-    </section>`).join("") : `<p class="vacio">Por ahora no hay desafíos vigentes. ¡Pronto vienen más!</p>`;
+    </div>
+  </details>`).join("") : `<p class="vacio">Por ahora no hay desafíos vigentes. ¡Pronto vienen más!</p>`;
 }
 
 // posteos para redes

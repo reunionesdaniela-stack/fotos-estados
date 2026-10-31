@@ -45,6 +45,14 @@ h1{font-size:30px;line-height:1.15;margin:4px 0 6px}
 button.compartir{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:72px;border:0;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);font-size:28px;font-weight:900;letter-spacing:1px;cursor:pointer;box-shadow:0 4px 0 var(--leaf-dark)}
 button.compartir:active{transform:translateY(3px);box-shadow:0 1px 0 var(--leaf-dark)}
 button.compartir svg{width:32px;height:32px;flex:none}
+.foto .elegir{float:right;display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;color:var(--leaf-dark);background:var(--soft);border:2px solid var(--line);border-radius:999px;padding:4px 14px 4px 8px;cursor:pointer}
+.foto .elegir input{width:24px;height:24px;margin:0;accent-color:var(--leaf)}
+.foto.elegida{border-color:var(--leaf);box-shadow:0 0 0 2px var(--leaf)}
+.multi{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--surface);border-top:2px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.12)}
+.multi-in{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.multi button.compartir{min-height:64px;font-size:24px}
+.multi .limpiar{border:0;background:none;color:var(--leaf-dark);font-weight:800;font-size:17px;text-decoration:underline;cursor:pointer;padding:4px}
+#v-fotos.con-multi{padding-bottom:150px}
 .aviso{display:none;margin:12px 4px 0;padding:12px 14px;border-radius:12px;background:#FBF0CF;color:#4A3B0B;font-size:17px}
 .aviso.ver{display:block}
 .novedades{margin-bottom:28px}
@@ -301,6 +309,7 @@ a.herra:active{background:var(--soft)}
         <li>Elegí <b>WhatsApp</b>.</li>
         <li>Tocá <b>Mi estado</b> y después la flechita para enviar.</li>
       </ol>
+      <p style="margin:10px 0 0">📚 <b>¿Querés subir varias juntas?</b> Tocá <b>Elegir</b> en cada foto y después <b>COMPARTIR</b> en la barra de abajo.</p>
     </section>
     <details class="linea" id="sec-novedades" hidden>
       <summary><span><span class="nuevo">NUEVO</span> <span id="nov-titulo">Novedades</span></span><span class="cant" id="nov-cant"></span></summary>
@@ -314,6 +323,11 @@ a.herra:active{background:var(--soft)}
       <h2>Fotos de estados según línea</h2>
       <div id="lineas"></div>
     </section>
+    <div class="multi" id="multi" hidden><div class="multi-in">
+      <button class="compartir" id="multi-compartir" type="button"></button>
+      <div class="aviso" id="multi-aviso" role="status"></div>
+      <button class="limpiar" id="multi-limpiar" type="button">Desmarcar todas</button>
+    </div></div>
   </div>
 
   <div class="vista" id="v-catalogo">
@@ -582,7 +596,7 @@ const L = window.LINEAS || [];
 let nAviso = 0;
 const fotoHTML = (f, i, total) => { const id = nAviso++; return `
   <article class="foto">
-    <span class="num">Foto ${i + 1} de ${total}</span>
+    <span class="num">Foto ${i + 1} de ${total}</span><label class="elegir"><input type="checkbox" data-elegir="${esc(f.archivo)}"> Elegir</label>
     <img src="${esc(f.archivo)}" alt="${esc(f.texto || "Foto " + (i + 1))}" loading="lazy">
     ${f.texto ? `<p>${esc(f.texto)}</p>` : `<div style="height:12px"></div>`}
     <button class="compartir" data-src="${esc(f.archivo)}" data-aviso="${id}">${ICONO}COMPARTIR</button>
@@ -934,29 +948,55 @@ $("#compCat").onclick = async () => {
   try{ if(navigator.share){ await navigator.share({title: "Catálogo Biogreen", text: texto, url}); return; } }catch(e){ if(e && e.name === "AbortError") return; }
   location.href = "https://wa.me/?text=" + encodeURIComponent(texto + " " + url);
 };
-document.querySelectorAll("button.compartir").forEach(b => b.onclick = async () => {
-  const f = {archivo: b.dataset.src}, aviso = $("#aviso-" + b.dataset.aviso);
+// comparte una o varias fotos juntas; si el celular no deja, las guarda
+async function compartir(archivos, aviso){
+  const una = archivos.length === 1;
   aviso.classList.remove("ver");
   try{
-    const blob = await (await fetch(f.archivo)).blob();
-    const nombre = f.archivo.split("/").pop();
-    const file = new File([blob], nombre, {type: blob.type || "image/jpeg"});
-    try{ navigator.sendBeacon("https://salvadorgaviota.netlify.app/api/compartir", JSON.stringify({f: f.archivo})); }catch(e){} // solo cuenta cuántas veces se comparte cada foto
-    if(navigator.canShare && navigator.canShare({files: [file]})){
-      await navigator.share({files: [file]});
-      return;
+    const files = await Promise.all(archivos.map(async src => {
+      const blob = await (await fetch(src)).blob();
+      try{ navigator.sendBeacon("https://salvadorgaviota.netlify.app/api/compartir", JSON.stringify({f: src})); }catch(e){} // solo cuenta cuántas veces se comparte cada foto
+      return new File([blob], src.split("/").pop(), {type: blob.type || "image/jpeg"});
+    }));
+    if(navigator.canShare && navigator.canShare({files})){
+      await navigator.share({files});
+      return true;
     }
-    // si el celular no deja compartir directo, se guarda la foto
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob); a.download = nombre; document.body.appendChild(a); a.click(); a.remove();
-    aviso.textContent = "La foto se guardó en tu celular. Abrí WhatsApp, entrá a Estados y elegila de la galería.";
+    files.forEach(file => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(file); a.download = file.name; document.body.appendChild(a); a.click(); a.remove();
+    });
+    aviso.textContent = una ? "La foto se guardó en tu celular. Abrí WhatsApp, entrá a Estados y elegila de la galería."
+      : "Las fotos se guardaron en tu celular. Abrí WhatsApp, entrá a Estados y elegilas de la galería.";
     aviso.classList.add("ver");
   }catch(e){
-    if(e && e.name === "AbortError") return; // cerró el menú de compartir
-    aviso.textContent = "No se pudo compartir. Mantené apretada la foto y elegí «Guardar imagen».";
+    if(e && e.name === "AbortError") return false; // cerró el menú de compartir
+    aviso.textContent = una ? "No se pudo compartir. Mantené apretada la foto y elegí «Guardar imagen»."
+      : "No se pudieron compartir juntas. Probá con menos fotos o compartilas de a una.";
     aviso.classList.add("ver");
   }
-});
+  return false;
+}
+document.querySelectorAll("button.compartir[data-src]").forEach(b => b.onclick = () => compartir([b.dataset.src], $("#aviso-" + b.dataset.aviso)));
+
+// elegir varias fotos para compartirlas juntas
+{
+  const MAX = 10, elegidas = new Set(), cajas = [...document.querySelectorAll("#v-fotos [data-elegir]")];
+  const pintar = () => {
+    cajas.forEach(c => { c.checked = elegidas.has(c.dataset.elegir); c.closest(".foto").classList.toggle("elegida", c.checked); });
+    const n = elegidas.size;
+    $("#multi").hidden = !n; $("#v-fotos").classList.toggle("con-multi", !!n);
+    $("#multi-compartir").innerHTML = `${ICONO}COMPARTIR ${n} ${n === 1 ? "FOTO" : "FOTOS"}`;
+  };
+  cajas.forEach(c => c.onchange = () => {
+    const av = $("#multi-aviso"); av.classList.remove("ver");
+    if(c.checked && elegidas.size >= MAX){ c.checked = false; av.textContent = `Podés elegir hasta ${MAX} fotos por vez.`; av.classList.add("ver"); return; }
+    c.checked ? elegidas.add(c.dataset.elegir) : elegidas.delete(c.dataset.elegir);
+    pintar();
+  });
+  $("#multi-compartir").onclick = async () => { if(await compartir([...elegidas], $("#multi-aviso"))){ elegidas.clear(); pintar(); } };
+  $("#multi-limpiar").onclick = () => { elegidas.clear(); $("#multi-aviso").classList.remove("ver"); pintar(); };
+}
 </script>
 </body>
 </html>

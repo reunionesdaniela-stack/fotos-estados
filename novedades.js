@@ -5,8 +5,10 @@ window.NOVEDADES = {
   vigencia: "Promos vigentes del 29/10 al 30/12 o hasta agotar stock",
   fotos: [
     {archivo: "fotos/novedades/esmaltes-en-gel.jpg", texto: "Esmaltes en Gel · $11.599 c/u (31% OFF) 💅"},
+    {archivo: "fotos/novedades/esmaltes-seis-tonos.jpg", texto: "Esmaltes en Gel 10 ml · seis tonos para enamorarte · $11.599 c/u 💅"},
     {archivo: "fotos/novedades/amo-inspira.jpg", texto: "AMO de Inspira · Eau de Parfum 100 ml + perfumero · $43.599 (30% OFF) 💜"},
     {archivo: "fotos/novedades/labiales-gloss.jpg", texto: "Labiales Gloss · $16.599 c/u (31% OFF) 💋"},
+    {archivo: "fotos/novedades/gloss-toque-de-brillo.jpg", texto: "Labial líquido Gloss 2,5 g · brillo e hidratación · $16.599 c/u 💋"},
     {archivo: "fotos/novedades/lamparas-cataliticas.jpg", texto: "Lámparas Catalíticas + Aromatizante 240 ml · $83.999 (30% OFF) ✨"},
     {archivo: "fotos/novedades/travel-size.jpg", texto: "Travel Size · Set de 4 aromatizantes x 60 ml · $22.999 🧳"},
     {archivo: "fotos/novedades/difusor-energia.jpg", texto: "Difusor Energía 150 ml · $47.999 · Kit con aromatizante $61.999 (30% OFF) 🍊"},

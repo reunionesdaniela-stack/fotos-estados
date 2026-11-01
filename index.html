@@ -786,12 +786,15 @@ pintar();
   const lista = (ps, vacio) => ps.length ? ps.map((f, i) => posteoHTML(f, i, ps.length)).join("") : `<p class="pista">${vacio}</p>`;
   $("#pos-titulo").textContent = P.ciclo.titulo || "Posteos de este ciclo";
   if(P.ciclo.vigencia){ $("#pos-vigencia").textContent = P.ciclo.vigencia; $("#pos-vigencia").hidden = false; }
-  $("#pos-ciclo").innerHTML = lista(P.ciclo.posteos, "Pronto vas a encontrar acá los posteos de este ciclo.");
-  $("#pos-lineas").innerHTML = P.lineas.map(l => `
+  const desplegable = (nombre, ps, vacio) => `
   <details class="linea">
-    <summary><span>${esc(l.nombre)}</span><span class="cant">${l.posteos.length ? l.posteos.length + (l.posteos.length === 1 ? " posteo" : " posteos") : "Pronto"}</span></summary>
-    <div class="linea-cuerpo">${lista(l.posteos, "Pronto vas a encontrar posteos de esta línea acá.")}</div>
-  </details>`).join("");
+    <summary><span>${esc(nombre)}</span><span class="cant">${ps.length ? ps.length + (ps.length === 1 ? " posteo" : " posteos") : "Pronto"}</span></summary>
+    <div class="linea-cuerpo">${lista(ps, vacio)}</div>
+  </details>`;
+  const grupos = P.ciclo.grupos || (P.ciclo.posteos ? [{nombre: "Posteos", posteos: P.ciclo.posteos}] : []);
+  $("#pos-ciclo").innerHTML = grupos.length ? `<p class="pista">Tocá un lanzamiento para ver sus posteos.</p>` + grupos.map(g => desplegable(g.nombre, g.posteos, "Pronto vas a encontrar acá estos posteos.")).join("")
+    : `<p class="pista">Pronto vas a encontrar acá los posteos de este ciclo.</p>`;
+  $("#pos-lineas").innerHTML = P.lineas.map(l => desplegable(l.nombre, l.posteos, "Pronto vas a encontrar posteos de esta línea acá.")).join("");
   document.querySelectorAll(".copiar-texto").forEach(b => b.onclick = async () => {
     const texto = b.previousElementSibling.textContent;
     try{ await navigator.clipboard.writeText(texto); }

@@ -58,6 +58,12 @@ Los precios por categoría están en `precios.csv`. Se puede abrir con Excel o G
 3. Las columnas de categorías van **de mayor a menor**. Si se suma una categoría nueva, agregá su columna en el lugar que le toca y la página la muestra sola.
 4. Los precios van sin signo $ y con punto decimal (por ejemplo `12879.36`). Guardalo como CSV separado por punto y coma (`;`).
 
+## Kits (sección Incorporaciones)
+
+Los kits están en `kits.js` y sus placas en `fotos/kits`. Cuando cambian (cada vez que sale una placa nueva):
+cambiá la `vigencia`, y en cada kit el precio, los puntos y lo que trae. El «Kit promocional» tiene `pronto: true`:
+cuando tengas la placa, reemplazalo por un kit con sus datos, como el Kit Incorporación Crece Biogreen.
+
 ## 6. Publicar
 
 Los cambios se publican solos unos segundos después de subirlos a GitHub (repositorio `fotos-estados`).

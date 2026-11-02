@@ -279,6 +279,52 @@ a.herra:active{background:var(--soft)}
 .final p{margin:0 0 6px;color:rgba(255,255,255,.92)}
 .final .boton-grande{background:#fff;color:var(--leaf-deep);box-shadow:none}
 .final .boton-grande.secundario{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+/* incorporaciones */
+.frase-oro{display:flex;gap:12px;align-items:flex-start;background:var(--soft);border-radius:18px;padding:14px 16px;margin-bottom:24px;font-size:18px}
+.frase-oro span{font-size:28px;line-height:1}
+.frase-oro p{margin:0}
+.guia{margin-bottom:22px}
+.guia h3{font-size:19px;margin:16px 4px 6px}
+.guia h3:first-child{margin-top:0}
+.guia .linea-cuerpo>p{margin:0 4px 12px;font-size:17px}
+.guia summary span{font-size:20px;margin-right:auto}
+ul.tildes{list-style:none;margin:0 0 12px;padding:0 4px}
+ul.tildes li{position:relative;padding-left:28px;margin-bottom:8px;font-size:17px}
+ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--leaf);font-weight:900}
+.reglas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;margin:0 0 14px;font-size:15px;line-height:1.3}
+.reglas div{border-radius:10px;padding:8px 10px}
+.reglas .si{background:var(--soft)}
+.reglas .no{background:#FBE9E7;color:#5C1A12}
+.gana-ej{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
+.gana-ej div{border:2px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.gana-ej small{display:block;font-size:14px;color:var(--muted)}
+.gana-ej b{display:block;font-size:28px;color:var(--leaf-dark);line-height:1.2}
+.gana-ej span{font-size:15px}
+.guia .nota{margin:0 4px 12px}
+.guia q,.dudas q{display:block;quotes:none;margin:8px 0 4px;padding:8px 12px;border-left:4px solid var(--leaf);background:var(--soft);border-radius:0;font-style:italic;font-size:17px}
+.guia .linea-tiempo div{font-size:17px}
+.dudas details{border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+.dudas summary{cursor:pointer;padding:12px 14px;font-weight:800;font-size:17px}
+.dudas details[open] summary{border-bottom:1px solid var(--line)}
+.dudas details>*:not(summary){margin:8px 14px}
+.dudas .detras{font-size:15px;color:var(--muted)}
+.checklist .reiniciar{margin-top:12px;font:inherit;font-size:15px;font-weight:700;color:var(--leaf-dark);background:none;border:0;padding:6px 0;text-decoration:underline;cursor:pointer}
+.kits-grupo{font-size:18px;margin:16px 4px 8px;color:var(--muted)}
+.kit .kit-datos{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.kit .pill{font-size:14px;font-weight:800;background:var(--soft);color:var(--leaf-dark);border-radius:999px;padding:3px 10px}
+.kit-precios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px;text-align:center}
+.kit-precios div{border:2px solid var(--line);border-radius:12px;padding:6px 2px}
+.kit-precios small{display:block;font-size:13px;color:var(--muted)}
+.kit-precios b{font-size:clamp(14px,4.2vw,17px)}
+.kit .recupera{font-size:17px;margin:0 0 10px}
+.kit .precio{font-size:24px;font-weight:900;color:var(--leaf-dark);margin:0 0 10px}
+.kit h4{font-size:16px;margin:10px 0 4px;color:var(--leaf-dark)}
+.kit .foto{margin-top:12px}
+.lista10 .fila{display:flex;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.lista10 .fila input[type=text]{flex:1;min-width:0;font:inherit;font-size:17px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.lista10 .fila input[type=checkbox]{flex:none;width:26px;height:26px;accent-color:var(--leaf)}
+.lista10 .fila input:checked+input{text-decoration:line-through;color:var(--muted)}
+.lista10 .n10{flex:none;width:22px;text-align:right;font-weight:800;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -577,16 +623,149 @@ a.herra:active{background:var(--soft)}
 
   <div class="vista" id="v-incorporaciones">
     <div class="cab"><h1>Incorporaciones</h1><p class="sub">Cómo sumar gente nueva a tu equipo, paso a paso.</p></div>
-    <section class="tarjeta" style="text-align:center">
-      <p style="font-size:44px;margin:0">🚧</p>
-      <h2>Pronto</h2>
-      <p>Estamos preparando el paso a paso para que sumes gente a tu equipo. Muy pronto lo vas a encontrar acá.</p>
+    <div class="frase-oro"><span>🌿</span><p><b>Invitás a conocer, no a convencer.</b> Si la persona prueba un producto y le gusta, la mitad del trabajo ya está hecho.</p></div>
+
+    <h2 class="titulo-sec">La guía, paso a paso</h2>
+    <p class="sub">Tocá cada parte para abrirla.</p>
+    <div class="guia">
+      <details class="linea">
+        <summary><span>🤔 Antes de invitar</span></summary>
+        <div class="linea-cuerpo">
+          <h3>A quién invitar</h3>
+          <p>Las mejores incorporaciones no son las que «necesitan plata ya», sino las que tienen ganas de crecer. Pensá en personas que:</p>
+          <ul class="tildes">
+            <li>Ya usan y recomiendan los productos: tus mejores clientas suelen ser tus mejores futuras distribuidoras.</li>
+            <li>Son sociables, tienen un círculo amplio o un trabajo con mucho contacto con gente.</li>
+            <li>Te dijeron alguna vez que les gustaría tener algo propio.</li>
+            <li>Tienen otro emprendimiento y podrían sumar una segunda línea.</li>
+          </ul>
+          <h3>Reglas de oro</h3>
+          <div class="reglas">
+            <div class="si"><b>✅ Sí</b></div><div class="no"><b>🚫 No</b></div>
+            <div class="si">Invitar a probar los productos</div><div class="no">Insistir o presionar</div>
+            <div class="si">Contar tu experiencia real</div><div class="no">Prometer cifras de ganancia</div>
+            <div class="si">Explicar cómo se gana, con el ejemplo por producto</div><div class="no">Decir «cupos limitados» o «solo por hoy»</div>
+            <div class="si">Hablar de productos sustentables y ecológicos, para todo público</div><div class="no">Presentarlo como «venta directa» o «multinivel»</div>
+            <div class="si">Responder con honestidad si te preguntan si es multinivel</div><div class="no">Negarlo o esquivar la pregunta</div>
+            <div class="si">Respetar un «no» y dejar la puerta abierta</div><div class="no">Volver a escribir todos los días</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="linea">
+        <summary><span>💡 Lo que tenés que saber</span></summary>
+        <div class="linea-cuerpo">
+          <p>Biogreen es una empresa argentina que nació en Bahía Blanca en 1994. Hoy tiene sede en CABA y hace envíos a todo el país. Es <b>Empresa B Certificada</b> y trabaja con productos sustentables y ecológicos: aromatizantes y difusores, aromaterapia, perfumería, cuidado personal, limpieza biodegradable y regalables. Más de 30.000 personas ya emprenden con la marca.</p>
+          <h3>Cómo se gana</h3>
+          <p>La distribuidora compra con descuento y vende a precio público. El descuento depende de cuánto compra en cada ciclo de 21 días. Por ejemplo, con un aromatizante de $19.999:</p>
+          <div class="gana-ej">
+            <div><small>De 5 a 9 productos</small><b>20%</b><span>ganás alrededor de $4.000</span></div>
+            <div><small>10 productos o más</small><b>30%</b><span>ganás alrededor de $6.000</span></div>
+          </div>
+          <p class="nota">Usá siempre el ejemplo por producto. Nunca prometas cuánto va a ganar alguien por mes: depende de cuánto venda cada persona.</p>
+          <p><a href="#precios">Ver la ganancia en cada producto ›</a><br><a href="#calculadora">Calcular la ganancia de un ciclo ›</a></p>
+          <h3>El kit para empezar</h3>
+          <p>El <b>Kit Inicio Perfecto</b> trae productos para vender, herramientas para hacer probar y todo para arrancar. Vendiendo los productos a precio público se recupera casi todo lo invertido. <a href="#incorporaciones" data-ir="kits">Ver los kits vigentes ›</a></p>
+          <h3>Pedidos y envíos</h3>
+          <p>Después del alta, cada distribuidora puede pedir a través de su patrocinante o directo con Biogreen (Biogreen Te Impulsa). <a href="#primeros">Ver las dos formas de pedir en Primeros pasos ›</a></p>
+        </div>
+      </details>
+
+      <details class="linea">
+        <summary><span>☕ El encuentro con aromas</span></summary>
+        <div class="linea-cuerpo">
+          <p>Lo que más funciona: un café o una reunión chica en casa, con los productos sobre la mesa. Dura entre 20 y 30 minutos. Lo importante no es lo que decís, sino lo que la persona huele y siente.</p>
+          <p class="nota"><b>Qué llevar:</b> los testers del kit, tiras olfativas, el catálogo y tu celular con el catálogo digital abierto.</p>
+          <ol class="linea-tiempo">
+            <li><span class="n">1</span><div><b>Conectar · 5 min</b>Empezá por ella, no por Biogreen. Escuchá si menciona ganas de tener algo propio o de crecer.<q>¿Cómo venís? Contame, ¿en qué andás ahora?</q></div></li>
+            <li><span class="n">2</span><div><b>Hacer probar · 10 min</b>Pasale las tiras y los testers de a uno, y dejá que elija su preferido. No hables de precios todavía.<q>Probá este. Cerrá los ojos y decime qué te hace acordar.</q><q>Este es el que más vendo. ¿Cuál te gustó más a vos?</q></div></li>
+            <li><span class="n">3</span><div><b>Contar tu historia · 5 min</b>En dos o tres frases, con honestidad.<q>Yo empecé porque [tu motivo real]. Hoy lo que más me gusta es [lo que te da: tiempo, un proyecto propio, la gente que conocí].</q></div></li>
+            <li><span class="n">4</span><div><b>Invitar · 5 min</b>Si notaste interés, preguntá antes de explicar. Si dice que sí, contale cómo se gana con el ejemplo por producto y mostrale el Kit Inicio Perfecto.<q>¿Alguna vez pensaste en tener algo propio? Esto que te hice probar lo podrías hacer vos también.</q></div></li>
+            <li><span class="n">5</span><div><b>Cerrar con una pregunta</b>Las dos respuestas están bien. Si quiere pensarlo, acordá un día concreto para volver a hablar.<q>¿Te gustaría arrancar, o preferís pensarlo y lo hablamos en unos días?</q></div></li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="linea">
+        <summary><span>💬 Por WhatsApp</span></summary>
+        <div class="linea-cuerpo">
+          <p>Por WhatsApp no se puede hacer oler, así que el chat tiene un solo objetivo: conseguir un encuentro (o una videollamada corta) o que la persona pruebe un producto. Mensajes cortos, uno por vez, esperando respuesta.</p>
+          <p class="nota">Copiá el mensaje, pegalo en el chat y cambiá lo que está entre corchetes.</p>
+          <div class="msjs">
+            <div class="msj"><small>1 · Primer contacto</small><p>¡Hola [nombre]! ¿Cómo estás? Me acordé de vos porque [motivo real: te encantó el aroma que te regalé / me dijiste que querías algo propio]. Estoy armando mi equipo en Biogreen y pensé que te podría gustar. ¿Te cuento?</p><button type="button" data-copiar>COPIAR</button></div>
+            <div class="msj"><small>2 · Si responde que sí</small><p>Biogreen es una empresa argentina de productos sustentables: aromatizantes, perfumes, cuidado personal. Vos los comprás con descuento y los vendés a tu gente. Te paso el catálogo así ves los productos: https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg</p><button type="button" data-copiar>COPIAR</button></div>
+            <div class="msj"><small>3 · Proponer el encuentro</small><p>Lo mejor es que los pruebes, porque estos productos se eligen por el aroma. ¿Te parece si nos tomamos un café esta semana y te llevo algunos? ¿Qué día te queda mejor?</p><button type="button" data-copiar>COPIAR</button></div>
+            <div class="msj"><small>3 · Si vive lejos</small><p>¿Hacemos una videollamada de 15 minutos y te cuento todo?</p><button type="button" data-copiar>COPIAR</button></div>
+            <div class="msj"><small>4 · Si no responde (a los 3 días)</small><p>¡Hola [nombre]! No te quiero llenar de mensajes 😊 Si en algún momento te da curiosidad, acá estoy. ¡Que tengas lindo día!</p><button type="button" data-copiar>COPIAR</button></div>
+            <div class="msj"><small>5 · Después del encuentro (el mismo día)</small><p>¡Qué lindo haberte visto! ¿Qué te quedó dando vueltas? Si tenés alguna duda, preguntame lo que quieras.</p><button type="button" data-copiar>COPIAR</button></div>
+          </div>
+          <p class="nota">Si no vuelve a responder después del mensaje 4, no insistas más. Dejá pasar unas semanas y retomá con algo distinto, como una novedad del catálogo.</p>
+        </div>
+      </details>
+
+      <details class="linea">
+        <summary><span>🙋 Dudas frecuentes</span></summary>
+        <div class="linea-cuerpo">
+          <p>Una duda casi nunca es un «no»: es algo que todavía no se resolvió. Antes de responder, validá lo que siente («Te entiendo, a mí me pasó lo mismo») y después respondé con calma.</p>
+          <div class="dudas">
+            <details><summary>«No sé vender»</summary><p class="detras">Detrás suele haber: miedo a hacer el ridículo o a molestar.</p><q>Yo tampoco sabía. Acá no se trata de convencer a nadie: hacés probar los aromas y el producto se elige solo. Y te acompaño desde el primer día.</q></details>
+            <details><summary>«No tengo tiempo»</summary><p class="detras">Detrás suele haber: se imagina un trabajo de horario fijo.</p><q>Lo organizás vos, alrededor de tu vida. Hay quienes le dedican un par de horas por semana y lo hacen en paralelo a su trabajo.</q></details>
+            <details><summary>«¿Es multinivel?» / «¿Es una estafa?»</summary><p class="detras">Detrás suele haber: desconfianza por malas experiencias ajenas.</p><q>Es una empresa argentina con más de 30 años, Empresa B Certificada. Ganás por vender productos reales que la gente usa y vuelve a comprar. Si en algún momento querés, también podés formar tu equipo, pero no es obligatorio.</q></details>
+            <details><summary>«No tengo plata para el kit»</summary><p class="detras">Detrás suele haber: el monto le parece alto o no ve el retorno.</p><q>El kit trae productos para vender que, a precio público, te devuelven casi todo lo que invertiste. Además te quedan los testers para seguir haciendo probar.</q></details>
+            <details><summary>«¿Y si no vendo nada?»</summary><p class="detras">Detrás suele haber: miedo a perder la inversión.</p><q>Los productos de venta los podés usar vos o regalarlos, no se pierden. Y vamos a armar juntas tu primera lista de clientas antes de que llegue el kit.</q></details>
+            <details><summary>«No conozco a tanta gente»</summary><p class="detras">Detrás suele haber: cree que necesita un círculo enorme.</p><q>Con 10 personas que prueben y se enamoren de un aroma ya arrancás. La recompra hace el resto.</q></details>
+            <details><summary>«Tengo que consultarlo»</summary><p class="detras">Detrás suele haber: necesita el aval de alguien de su entorno.</p><q>¡Claro! ¿Querés que te pase la información por escrito para que la vean juntos? Si quieren, lo charlamos los tres.</q></details>
+            <details><summary>«Lo pienso y te aviso»</summary><p class="detras">Detrás suele haber: no está convencida o le falta información.</p><q>Perfecto, tomate tu tiempo. ¿Hay algo que te haga dudar y que te pueda aclarar ahora?</q><p>Y acordá un día para volver a hablar.</p></details>
+          </div>
+          <p class="nota">Si aparece una pregunta que no sabés responder, decí «Lo consulto y te digo» y preguntale a tu líder. Nunca inventes una respuesta.</p>
+        </div>
+      </details>
+    </div>
+
+    <section class="checklist" id="si-check">
+      <h2>🎉 Después del sí</h2>
+      <p class="nota">Tildá cada paso con tu nueva distribuidora. Queda guardado en tu celular.</p>
+      <div class="progreso"><span></span></div>
+      <p class="cuenta"></p>
+      <label><input type="checkbox" data-tarea="bienvenida"><span><b>Felicitala y dale la bienvenida.</b> Que se sienta acompañada desde el primer minuto.</span></label>
+      <label><input type="checkbox" data-tarea="link"><span><b>Pasale tu link de patrocinio</b> para que se registre en Bionet. Así queda en tu equipo y tiene su usuario.</span></label>
+      <label><input type="checkbox" data-tarea="impulsa"><span><b>Si va a pedir directo con Biogreen,</b> ayudala a completar el formulario de Biogreen Te Impulsa en el menú de Bionet, con su dirección. Sin ese formulario solo puede comprar a través tuyo.</span></label>
+      <label><input type="checkbox" data-tarea="pago"><span><b>Coordiná el pago del kit.</b> Directo: con el botón de Mercado Pago en Bionet, dentro de las 48 h. A través tuyo: pago anticipado, como lo arreglen.</span></label>
+      <label><input type="checkbox" data-tarea="llegada"><span><b>Avisale cuándo llega.</b> Directo: el despacho se avisa por mail. A través tuyo: se entrega martes y miércoles.</span></label>
+      <label><input type="checkbox" data-tarea="lista"><span><b>Mientras espera el kit,</b> armen juntas su primera lista de clientas: familia, amigas, compañeras, vecinas. Diez nombres alcanzan.</span></label>
+      <label><input type="checkbox" data-tarea="encuentro"><span><b>Cuando llegue el kit,</b> hacé con ella su primer encuentro con aromas. Aprende viéndote.</span></label>
+      <p class="listo">¡Bienvenida al equipo! 🌿</p>
+      <button type="button" class="reiniciar" id="si-reiniciar">Empezar de nuevo con otra persona</button>
     </section>
+
     <section class="tarjeta">
-      <h2>Mientras tanto</h2>
-      <div class="herrs">
+      <h2>🤔 Si dice «lo pienso»</h2>
+      <ul class="tildes">
+        <li>Acordá un día concreto para volver a hablar («¿Te escribo el jueves?») y cumplilo.</li>
+        <li>En ese mensaje, preguntá qué le quedó dando vueltas, no si ya decidió.</li>
+        <li>Si dice que no, agradecele con cariño y dejá la puerta abierta: puede seguir siendo tu clienta, y muchas vuelven más adelante.</li>
+        <li>Nunca más de dos seguimientos sin respuesta. Respetar sus tiempos también es parte de cómo te ven como líder.</li>
+      </ul>
+    </section>
+
+    <h2 class="titulo-sec" id="kits">🎁 Los kits vigentes</h2>
+    <p class="sub" id="kits-vigencia"></p>
+    <div id="kits-lista"></div>
+
+    <section class="checklist lista10" id="lista10">
+      <h2>📝 Mi lista de 10 nombres</h2>
+      <p class="nota">Anotá a quién te gustaría invitar y tildá cuando le escribas. Queda guardado solo en tu celular.</p>
+      <div id="lista10-filas"></div>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Herramientas</h2>
+      <a class="boton-grande" id="mandar-catalogo" href="https://wa.me/?text=" target="_blank" rel="noopener">MANDALE EL CATÁLOGO POR WHATSAPP</a>
+      <div class="herrs" style="margin-top:12px">
         <a class="herra" href="#desafios"><span class="e">🏆</span><b>Desafío Biogreen +1</b>Por tus incorporaciones de los ciclos 2, 3 y 4 te llevás kits de verano.<span class="ir">Ver ›</span></a>
         <a class="herra" href="https://docs.google.com/presentation/d/1cott8zfiU3FYZ6FclP10KlLmQbEDQ_Dt/edit" target="_blank" rel="noopener"><span class="e">👥</span><b>Bioportunidad</b>Presentación para mostrar el negocio y sumar personas.<span class="ir">Ver ›</span></a>
+        <a class="herra" href="#precios"><span class="e">🏷️</span><b>Tus precios</b>La ganancia en cada producto, para dar el ejemplo.<span class="ir">Ver ›</span></a>
+        <a class="herra" href="#calculadora"><span class="e">🧮</span><b>Calculá tu ganancia</b>Cuánto se puede ganar en un ciclo.<span class="ir">Ver ›</span></a>
       </div>
     </section>
   </div>
@@ -607,6 +786,7 @@ a.herra:active{background:var(--soft)}
 <script src="negocio.js"></script>
 <script src="desafios.js"></script>
 <script src="posteos.js"></script>
+<script src="kits.js"></script>
 <script>
 const S = window.SEMANA || {fotos: []};
 const $ = s => document.querySelector(s);
@@ -696,6 +876,47 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => 
   b.textContent = "¡COPIADO!"; b.classList.add("ok");
   setTimeout(() => { b.textContent = "COPIAR"; b.classList.remove("ok"); }, 2000);
 });
+
+// incorporaciones: kits vigentes, checklist «después del sí», lista de 10 nombres y catálogo por WhatsApp
+{
+  const K = window.KITS || {grupos: []}, CAT = "https://catalogo.biogreen.com.ar/biogreen/cat/cat-arg";
+  if(K.vigencia) $("#kits-vigencia").textContent = "Vigentes: " + K.vigencia + ".";
+  const kitHTML = k => { if(k.pronto) return `<details class="linea"><summary><span>${esc(k.nombre)}</span><span class="cant">Pronto</span></summary><div class="linea-cuerpo"><p class="pista">Pronto vas a encontrar acá este kit.</p></div></details>`;
+    const id = nAviso++;
+    return `<details class="linea kit"><summary><span>${esc(k.nombre)}</span><span class="cant">${esc(k.precio || "")}</span></summary><div class="linea-cuerpo">
+      <div class="kit-datos"><span class="pill">Código ${esc(k.codigo)}</span>${k.puntos ? `<span class="pill">Suma ${esc(k.puntos)} ${k.puntos === "1" ? "punto" : "puntos"}</span>` : ""}</div>
+      ${k.precios ? `<div class="kit-precios"><div><small>Bronce</small><b>${esc(k.precios.bronce)}</b></div><div><small>Plata y Oro</small><b>${esc(k.precios.plataOro)}</b></div><div><small>Líder</small><b>${esc(k.precios.lider)}</b></div></div>
+        <p class="recupera">Vendiendo los productos de venta recuperás <b>${esc(k.recuperas)}</b>.</p>` : `<p class="precio">${esc(k.precio)}</p>`}
+      ${(k.trae || []).map(g => `<h4>${esc(g.grupo)}</h4><ul class="tildes">${g.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>`).join("")}
+      ${k.nota ? `<p class="nota">${esc(k.nota)}</p>` : ""}
+      <article class="foto"><img src="${esc(k.imagen)}" alt="${esc(k.nombre)}" loading="lazy">
+        <button class="compartir" data-src="${esc(k.imagen)}" data-aviso="${id}">${ICONO}COMPARTIR</button><div class="aviso" id="aviso-${id}" role="status"></div></article>
+    </div></details>`; };
+  $("#kits-lista").innerHTML = K.grupos.map(g => `<h3 class="kits-grupo">${esc(g.titulo)}</h3>` + g.kits.map(kitHTML).join("")).join("");
+  document.querySelectorAll("[data-ir]").forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById(a.dataset.ir).scrollIntoView({behavior: "smooth"}); });
+
+  const tareas = document.querySelectorAll("#si-check [data-tarea]");
+  let hechas = {};
+  try{ hechas = JSON.parse(localStorage.getItem("despues-del-si") || "{}"); }catch(e){}
+  const progreso = () => { const n = [...tareas].filter(t => t.checked).length;
+    $("#si-check .progreso span").style.width = (n / tareas.length * 100) + "%";
+    $("#si-check .cuenta").textContent = n + " de " + tareas.length + " listos";
+    $("#si-check").classList.toggle("completo", n === tareas.length); };
+  const guardar = () => { try{ localStorage.setItem("despues-del-si", JSON.stringify(hechas)); }catch(e){} };
+  tareas.forEach(t => { t.checked = !!hechas[t.dataset.tarea]; t.onchange = () => { hechas[t.dataset.tarea] = t.checked; guardar(); progreso(); }; });
+  $("#si-reiniciar").onclick = () => { hechas = {}; tareas.forEach(t => t.checked = false); guardar(); progreso(); };
+  progreso();
+
+  let lista = [];
+  try{ lista = JSON.parse(localStorage.getItem("lista-10") || "[]"); }catch(e){}
+  $("#lista10-filas").innerHTML = Array.from({length: 10}, (_, i) => `<div class="fila"><span class="n10">${i + 1}</span><input type="checkbox" aria-label="Ya le escribí" data-i="${i}"><input type="text" data-i="${i}" placeholder="Nombre" value="${esc(lista[i]?.nombre)}"></div>`).join("");
+  document.querySelectorAll("#lista10 input[type=checkbox]").forEach(c => c.checked = !!lista[c.dataset.i]?.escribi);
+  $("#lista10").addEventListener("input", e => { const i = e.target.dataset.i; if(i == null) return;
+    lista[i] = lista[i] || {}; if(e.target.type === "checkbox") lista[i].escribi = e.target.checked; else lista[i].nombre = e.target.value;
+    try{ localStorage.setItem("lista-10", JSON.stringify(lista)); }catch(e2){} });
+
+  $("#mandar-catalogo").href = "https://wa.me/?text=" + encodeURIComponent("¡Hola! 🌿 Te paso el catálogo de Biogreen para que veas los productos: " + CAT);
+}
 
 // calculadora
 const NG = window.NEGOCIO, plata = n => "$" + Math.round(n).toLocaleString("es-AR"), mes = n => n * 30 / NG.diasCiclo;

@@ -214,7 +214,8 @@ window.LINEAS = [
     {archivo: "fotos/incorporaciones/recomenda-marca-verificable.jpg", texto: "Recomendá una marca que podés verificar: Empresa B Certificada 🌿"},
     {archivo: "fotos/incorporaciones/mas-facil-vender.jpg", texto: "Es más fácil vender lo que vos misma usás 💚"},
     {archivo: "fotos/incorporaciones/casa-oliera-increible.jpg", texto: "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿"},
-    {archivo: "fotos/incorporaciones/lo-que-ya-amas-asarina.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio. Usalos, recomendalos y vendelos 🌿"}
+    {archivo: "fotos/incorporaciones/lo-que-ya-amas-asarina.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio. Usalos, recomendalos y vendelos 🌿"},
+    {archivo: "fotos/incorporaciones/consumo-consciente.jpg", texto: "Tu consumo consciente, convertido en tu emprendimiento 🌿"}
   ]},
   {nombre: "Promociones", fotos: []},
   {nombre: "Green Week", fotos: []}

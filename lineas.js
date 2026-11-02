@@ -210,9 +210,7 @@ window.LINEAS = [
   ]},
   {nombre: "Incorporaciones 🤝", fotos: [
     {archivo: "fotos/incorporaciones/casa-oliera-increible.jpg", texto: "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿"},
-    {archivo: "fotos/incorporaciones/lo-que-ya-amas.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio 🌿"},
-    {archivo: "fotos/incorporaciones/propio-ingreso-verde.jpg", texto: "Tu propio ingreso, a tu ritmo 🌱"},
-    {archivo: "fotos/incorporaciones/propio-ingreso-claro.jpg", texto: "Tu propio ingreso, a tu ritmo 🌱"}
+    {archivo: "fotos/incorporaciones/lo-que-ya-amas.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio 🌿"}
   ]},
   {nombre: "Promociones", fotos: []},
   {nombre: "Green Week", fotos: []}

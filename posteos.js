@@ -70,6 +70,12 @@ window.POSTEOS = {
     ]
   },
   lineas: [
+    {nombre: "Incorporaciones 🤝", posteos: [
+      {archivo: "fotos/incorporaciones/casa-oliera-increible.jpg", formato: "historia", texto: "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿\nCon Biogreen comprás a precio de distribuidora productos ecoamigables que la gente ama.\n\nEscribime y te explico cómo 💚\n\n#Biogreen #Emprendimiento #IngresosExtra #Aromas"},
+      {archivo: "fotos/incorporaciones/lo-que-ya-amas.jpg", formato: "historia", texto: "Lo que ya amás en tu casa, también puede ser tu negocio ✨\nAromatizantes, fragancias y aromaterapia a precio de distribuidora.\n\nEscribime QUIERO y te cuento 🌿\n\n#Biogreen #Emprendimiento #TuNegocio #Aromas"},
+      {archivo: "fotos/incorporaciones/propio-ingreso-verde.jpg", formato: "historia", texto: "Tu propio ingreso, a tu ritmo 🌱\nArrancá sin dejar lo que ya hacés. Vos elegís tus horarios y cuánto tiempo le dedicás.\n\nEscribime QUIERO por mensaje 💚\n\n#Biogreen #Emprendimiento #IngresosExtra #EmpresaB"},
+      {archivo: "fotos/incorporaciones/propio-ingreso-claro.jpg", formato: "historia", texto: "Tu propio ingreso, a tu ritmo 🌱\nArrancá sin dejar lo que ya hacés. Vos elegís tus horarios y cuánto tiempo le dedicás.\n\nEscribime QUIERO por mensaje 💚\n\n#Biogreen #Emprendimiento #IngresosExtra #EmpresaB"}
+    ]},
     {nombre: "Línea Esenciales", posteos: []},
     {nombre: "Botica Natural", posteos: []},
     {nombre: "Fragancias BE", posteos: []},

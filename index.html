@@ -706,6 +706,15 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
       </details>
 
       <details class="linea">
+        <summary><span>📣 Placas para invitar</span></summary>
+        <div class="linea-cuerpo">
+          <p>Subilas a tus estados o redes. Quien te responda «QUIERO» ya está interesada: escribile con el mensaje «2 · Si responde que sí» de Por WhatsApp.</p>
+          <div id="inv-placas"></div>
+          <p class="nota">También las encontrás en <a href="#fotos">Fotos para estados</a> y en <a href="#posteos">Posteos</a>, con el texto listo para copiar.</p>
+        </div>
+      </details>
+
+      <details class="linea">
         <summary><span>🙋 Dudas frecuentes</span></summary>
         <div class="linea-cuerpo">
           <p>Una duda casi nunca es un «no»: es algo que todavía no se resolvió. Antes de responder, validá lo que siente («Te entiendo, a mí me pasó lo mismo») y después respondé con calma.</p>
@@ -897,6 +906,10 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => 
       <article class="foto"><img src="${esc(k.imagen)}" alt="${esc(k.nombre)}" loading="lazy">
         <button class="compartir" data-src="${esc(k.imagen)}" data-aviso="${id}">${ICONO}COMPARTIR</button><div class="aviso" id="aviso-${id}" role="status"></div></article>
     </div></details>`; };
+  const placas = (L.find(l => /^Incorporaciones/.test(l.nombre)) || {fotos: []}).fotos;
+  $("#inv-placas").innerHTML = placas.map((f, i) => { const id = nAviso++; return `<article class="foto"><span class="num">Placa ${i + 1} de ${placas.length}</span>
+    <img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="lazy">
+    <button class="compartir" data-src="${esc(f.archivo)}" data-aviso="${id}">${ICONO}COMPARTIR</button><div class="aviso" id="aviso-${id}" role="status"></div></article>`; }).join("");
   $("#kits-lista").innerHTML = K.grupos.map(g => `<h3 class="kits-grupo">${esc(g.titulo)}</h3>` + g.kits.map(kitHTML).join("")).join("");
   document.querySelectorAll("[data-ir]").forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById(a.dataset.ir).scrollIntoView({behavior: "smooth"}); });
 

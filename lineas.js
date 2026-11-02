@@ -208,6 +208,12 @@ window.LINEAS = [
     {archivo: "fotos/lineas/body-splash/blue-ocean.jpg", texto: "Body Splash Blue Ocean · 150 ml $17.999 💗"},
     {archivo: "fotos/lineas/body-splash/midnight-seduction.jpg", texto: "Body Splash Midnight Seduction · 150 ml $17.999 💗"}
   ]},
+  {nombre: "Incorporaciones 🤝", fotos: [
+    {archivo: "fotos/incorporaciones/casa-oliera-increible.jpg", texto: "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿"},
+    {archivo: "fotos/incorporaciones/lo-que-ya-amas.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio 🌿"},
+    {archivo: "fotos/incorporaciones/propio-ingreso-verde.jpg", texto: "Tu propio ingreso, a tu ritmo 🌱"},
+    {archivo: "fotos/incorporaciones/propio-ingreso-claro.jpg", texto: "Tu propio ingreso, a tu ritmo 🌱"}
+  ]},
   {nombre: "Promociones", fotos: []},
   {nombre: "Green Week", fotos: []}
 ];

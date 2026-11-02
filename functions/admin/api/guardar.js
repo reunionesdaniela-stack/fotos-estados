@@ -9,7 +9,7 @@ const CAB_SEMANA = `/* Fotos de la semana. Para actualizar: cambiar el título y
    También se puede editar desde el panel de administradoras (/admin/). */
 `;
 const CAB_POSTEOS = `/* Posteos para redes. Para sumar uno: guardá la imagen (o el video .mp4) en fotos/posteos
-   y agregá una línea en el ciclo o en la línea que corresponda.
+   y agregá una línea en el lanzamiento del ciclo (grupos) o en la línea que corresponda.
    Cada posteo: archivo, formato ("feed", "historia" o "reel") y el texto para copiar
    (el copy con los hashtags). Las listas vacías muestran «Pronto».
    También se puede editar desde el panel de administradoras (/admin/). */
@@ -40,9 +40,10 @@ function limpiarPosteo(p){
 }
 
 function limpiarPosteos(p){
-  if(!p || !p.ciclo || !Array.isArray(p.lineas)) throw new Invalido("posteos inválidos");
+  if(!p || !p.ciclo || !Array.isArray(p.ciclo.grupos) || !Array.isArray(p.lineas)) throw new Invalido("posteos inválidos");
   return {
-    ciclo: {titulo: txt(p.ciclo.titulo, 120), vigencia: txt(p.ciclo.vigencia, 200), posteos: lista(p.ciclo.posteos).map(limpiarPosteo)},
+    ciclo: {titulo: txt(p.ciclo.titulo, 120), vigencia: txt(p.ciclo.vigencia, 200),
+      grupos: lista(p.ciclo.grupos).map(g => ({nombre: txt(g && g.nombre, 120), posteos: lista(g.posteos).map(limpiarPosteo)}))},
     lineas: lista(p.lineas).map(l => ({nombre: txt(l && l.nombre, 120), posteos: lista(l.posteos).map(limpiarPosteo)}))
   };
 }

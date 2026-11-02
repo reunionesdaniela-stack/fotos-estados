@@ -95,7 +95,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--leaf)}
         <label class="campo" for="po-destino" style="margin-top:0">¿Dónde va el posteo?</label>
         <select id="po-destino"></select>
         <div id="po-ciclo">
-          <label class="campo" for="po-titulo">Título</label>
+          <label class="campo" for="po-grupo">Nombre del lanzamiento</label>
+          <input type="text" id="po-grupo" placeholder="Inspira AMO 💜">
+          <button type="button" class="vaciar" id="po-quitar-grupo">Quitar este lanzamiento</button>
+          <label class="campo" for="po-titulo">Título de los posteos del ciclo</label>
           <input type="text" id="po-titulo" placeholder="Posteos de este ciclo">
           <label class="campo" for="po-vigencia">Texto debajo del título</label>
           <input type="text" id="po-vigencia" placeholder="Lanzamientos del catálogo de noviembre 🌿">
@@ -121,7 +124,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const FORMATO = {feed: "Feed", historia: "Historia", reel: "Reel"};
 const MAX_VIDEO = 20 * 1024 * 1024;
 
-let semana, posteos, destino = "ciclo";
+let semana, posteos, destino = "g0";
 const cambios = {semana: false, posteos: false};
 const pendientes = new Map(); // ruta → {blob, url}: fotos nuevas que todavía no se publicaron
 const locales = new Map();    // ruta → url: fotos ya publicadas en esta visita (la página tarda un minuto en tenerlas)
@@ -173,16 +176,21 @@ function pintarSemana(){
 }
 
 // ---------- posteos ----------
-const listaPosteos = () => destino === "ciclo" ? posteos.ciclo.posteos : posteos.lineas[+destino.slice(1)].posteos;
+// el ciclo se divide en lanzamientos (grupos); destino es "g<n>" para un lanzamiento o "l<n>" para una línea
+const destinoActual = () => { const g = posteos.ciclo.grupos, n = +destino.slice(1);
+  if(destino[0] === "g" && g[n] || destino[0] === "l" && posteos.lineas[n]) return destino;
+  return destino = g.length ? "g0" : "l0"; };
+const listaPosteos = () => { const d = destinoActual(), n = +d.slice(1); return (d[0] === "g" ? posteos.ciclo.grupos[n] : posteos.lineas[n]).posteos; };
 
 function pintarPosteos(){
-  $("#po-destino").innerHTML = `<option value="ciclo">Posteos de este ciclo (${posteos.ciclo.posteos.length})</option>` +
-    posteos.lineas.map((l, i) => `<option value="l${i}">${esc(l.nombre)} (${l.posteos.length})</option>`).join("");
+  const ps = listaPosteos(), opcion = (v, x) => `<option value="${v}">${esc(x.nombre)} (${x.posteos.length})</option>`;
+  $("#po-destino").innerHTML = `<optgroup label="Lanzamientos del ciclo">${posteos.ciclo.grupos.map((g, i) => opcion("g" + i, g)).join("")}<option value="nuevo">+ Nuevo lanzamiento…</option></optgroup>` +
+    `<optgroup label="Por línea">${posteos.lineas.map((l, i) => opcion("l" + i, l)).join("")}</optgroup>`;
   $("#po-destino").value = destino;
-  $("#po-ciclo").hidden = destino !== "ciclo";
+  $("#po-ciclo").hidden = destino[0] !== "g";
+  if(destino[0] === "g") $("#po-grupo").value = posteos.ciclo.grupos[+destino.slice(1)].nombre || "";
   $("#po-titulo").value = posteos.ciclo.titulo || "";
   $("#po-vigencia").value = posteos.ciclo.vigencia || "";
-  const ps = listaPosteos();
   $("#po-lista").innerHTML = ps.length ? ps.map((p, i) => `
     <article class="item" data-i="${i}">
       ${esVideo(p.archivo) ? `<video class="mini" src="${esc(ver(p.archivo))}" muted playsinline preload="metadata"></video>` : `<img class="mini" src="${esc(ver(p.archivo))}" alt="">`}
@@ -243,7 +251,7 @@ async function sumar(files, que){
 async function publicar(){
   const boton = $("#publicar"); boton.disabled = true; avisar("Publicando… no cierres la página.");
   try{
-    const usadas = [...semana.fotos, ...posteos.ciclo.posteos, ...posteos.lineas.flatMap(l => l.posteos)].map(f => f.archivo);
+    const usadas = [...semana.fotos, ...posteos.ciclo.grupos.flatMap(g => g.posteos), ...posteos.lineas.flatMap(l => l.posteos)].map(f => f.archivo);
     const archivos = [];
     for(const [ruta, p] of pendientes) if(usadas.includes(ruta)) archivos.push({ruta, base64: await aBase64(p.blob)});
     const cuerpo = {archivos};
@@ -273,7 +281,9 @@ const leerJS = (texto, nombre) => { const w = {}; new Function("window", texto)(
   semana = leerJS(res.semana, "SEMANA") || {};
   semana = {mostrar: semana.mostrar !== false, titulo: semana.titulo || "", desde: semana.desde || "", fotos: semana.fotos || []};
   posteos = leerJS(res.posteos, "POSTEOS") || {};
-  posteos = {ciclo: Object.assign({titulo: "", vigencia: "", posteos: []}, posteos.ciclo), lineas: posteos.lineas || []};
+  const ciclo = posteos.ciclo || {};
+  // formato viejo (una sola lista en el ciclo): pasa a ser un lanzamiento, igual que como lo muestra la página
+  posteos = {ciclo: {titulo: ciclo.titulo || "", vigencia: ciclo.vigencia || "", grupos: ciclo.grupos || (ciclo.posteos && ciclo.posteos.length ? [{nombre: "Posteos", posteos: ciclo.posteos}] : [])}, lineas: posteos.lineas || []};
   $("#quien").textContent = "Entraste como " + res.email;
   $("#mensaje").hidden = true; $("#panel").hidden = false; $("#barra").hidden = false;
   pintarSemana(); pintarPosteos();
@@ -288,7 +298,18 @@ $("#se-titulo").oninput = e => { semana.titulo = e.target.value; marcar("semana"
 $("#se-desde").oninput = e => { semana.desde = e.target.value; marcar("semana"); };
 $("#se-vaciar").onclick = () => { if(!confirm("¿Quitar todas las fotos de la semana?")) return; semana.fotos.forEach(f => pendientes.delete(f.archivo)); semana.fotos = []; marcar("semana"); pintarSemana(); };
 $("#se-sumar").onchange = e => { sumar([...e.target.files], "semana"); e.target.value = ""; };
-$("#po-destino").onchange = e => { destino = e.target.value; pintarPosteos(); };
+$("#po-destino").onchange = e => {
+  if(e.target.value !== "nuevo") destino = e.target.value;
+  else{ const nombre = (prompt("¿Cómo se llama el lanzamiento? (por ejemplo: Inspira AMO 💜)") || "").trim();
+    if(nombre){ posteos.ciclo.grupos.push({nombre, posteos: []}); destino = "g" + (posteos.ciclo.grupos.length - 1); marcar("posteos"); } }
+  pintarPosteos();
+};
+$("#po-grupo").oninput = e => { posteos.ciclo.grupos[+destino.slice(1)].nombre = e.target.value; marcar("posteos"); };
+$("#po-quitar-grupo").onclick = () => {
+  const n = +destino.slice(1), g = posteos.ciclo.grupos[n];
+  if(!confirm(`¿Quitar el lanzamiento «${g.nombre}» con sus ${g.posteos.length} posteos?`)) return;
+  g.posteos.forEach(p => pendientes.delete(p.archivo)); posteos.ciclo.grupos.splice(n, 1); destino = "g0"; marcar("posteos"); pintarPosteos();
+};
 $("#po-titulo").oninput = e => { posteos.ciclo.titulo = e.target.value; marcar("posteos"); };
 $("#po-vigencia").oninput = e => { posteos.ciclo.vigencia = e.target.value; marcar("posteos"); };
 $("#po-sumar").onchange = e => { sumar([...e.target.files], "posteos"); e.target.value = ""; };

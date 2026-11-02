@@ -209,7 +209,12 @@ window.LINEAS = [
     {archivo: "fotos/lineas/body-splash/midnight-seduction.jpg", texto: "Body Splash Midnight Seduction · 150 ml $17.999 💗"}
   ]},
   {nombre: "Incorporaciones 🤝", fotos: [
+    {archivo: "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg", texto: "Emprendé con una marca que hace las cosas bien 🌿"},
+    {archivo: "fotos/incorporaciones/productos-que-se-regalan-solos.jpg", texto: "Productos que se regalan solos. Vendelos vos 🎁"},
+    {archivo: "fotos/incorporaciones/recomenda-marca-verificable.jpg", texto: "Recomendá una marca que podés verificar: Empresa B Certificada 🌿"},
+    {archivo: "fotos/incorporaciones/mas-facil-vender.jpg", texto: "Es más fácil vender lo que vos misma usás 💚"},
     {archivo: "fotos/incorporaciones/casa-oliera-increible.jpg", texto: "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿"},
+    {archivo: "fotos/incorporaciones/lo-que-ya-amas-asarina.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio. Usalos, recomendalos y vendelos 🌿"},
     {archivo: "fotos/incorporaciones/lo-que-ya-amas.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio 🌿"}
   ]},
   {nombre: "Promociones", fotos: []},

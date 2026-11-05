@@ -910,7 +910,9 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.onclick = async () => 
   $("#inv-placas").innerHTML = placas.map((f, i) => { const id = nAviso++; return `<article class="foto"><span class="num">Placa ${i + 1} de ${placas.length}</span>
     <img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="lazy">
     <button class="compartir" data-src="${esc(f.archivo)}" data-aviso="${id}">${ICONO}COMPARTIR</button><div class="aviso" id="aviso-${id}" role="status"></div></article>`; }).join("");
-  $("#kits-lista").innerHTML = K.grupos.map(g => `<h3 class="kits-grupo">${esc(g.titulo)}</h3>` + g.kits.map(kitHTML).join("")).join("");
+  const placaGrupo = g => { if(!g.imagen) return ""; const id = nAviso++; return `<article class="foto"><img src="${esc(g.imagen)}" alt="${esc(g.titulo)}" loading="lazy">
+    <button class="compartir" data-src="${esc(g.imagen)}" data-aviso="${id}">${ICONO}COMPARTIR</button><div class="aviso" id="aviso-${id}" role="status"></div></article>`; };
+  $("#kits-lista").innerHTML = K.grupos.map(g => `<h3 class="kits-grupo">${esc(g.titulo)}</h3>` + placaGrupo(g) + g.kits.map(kitHTML).join("")).join("");
   document.querySelectorAll("[data-ir]").forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById(a.dataset.ir).scrollIntoView({behavior: "smooth"}); });
 
   const tareas = document.querySelectorAll("#si-check [data-tarea]");

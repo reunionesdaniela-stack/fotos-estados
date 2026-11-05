@@ -1,11 +1,12 @@
 /* Kits vigentes, en la sección Incorporaciones. Para actualizar: cambiar la vigencia y los kits.
    Cada kit: nombre, codigo, imagen (dentro de fotos/kits), puntos y precio (un solo precio)
    o precios por categoría (DBRO = Bronce, DPLA/DOR = Plata y Oro, LIDP = Líder) con lo que recuperás.
-   "trae" es la lista de lo que incluye, por grupos. Un kit con pronto: true muestra «Pronto». */
+   "trae" es la lista de lo que incluye, por grupos. Un kit con pronto: true muestra «Pronto».
+   Un grupo puede tener imagen: una placa que se muestra arriba de sus kits, para compartir. */
 window.KITS = {
   vigencia: "Ciclos 2, 3 y 4 o hasta agotar stock",
   grupos: [
-    {titulo: "Kit Inicio Perfecto, en 4 pasos", kits: [
+    {titulo: "Kit Inicio Perfecto, en 4 pasos", imagen: "fotos/kits/inicio-perfecto-resumen.jpg", kits: [
       {nombre: "Primer paso: Conectar con la esencia", codigo: "X00301", imagen: "fotos/kits/inicio-perfecto-1.jpg", puntos: "4",
        precios: {bronce: "$81.899,10", plataOro: "$72.799,20", lider: "$67.703,26"}, recuperas: "$80.996",
        trae: [

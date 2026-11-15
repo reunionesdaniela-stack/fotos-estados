@@ -1,238 +1,835 @@
 /* Fotos de estados según línea. Cada línea tiene su lista de fotos:
-   {archivo: "fotos/lineas/...jpg", texto: "Nombre del producto · $precio"} */
+   {archivo: "fotos/lineas/...jpg", texto: "Nombre del producto · $precio"}
+   También se puede editar desde el panel de administradoras (/admin/). */
 window.LINEAS = [
-  {nombre: "Línea Esenciales", fotos: [
-    {archivo: "fotos/lineas/esenciales/capullos-de-lino.jpg", texto: "Capullos de Lino · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/capullos-de-lino-anterior.jpg", texto: "Capullos de Lino · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/glicinas-y-violetas.jpg", texto: "Glicinas & Violetas · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/glicinas-y-violetas-anterior.jpg", texto: "Glicinas & Violetas · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/lavanda.jpg", texto: "Lavanda · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/lavanda-anterior.jpg", texto: "Lavanda · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/nardos-y-magnolias.jpg", texto: "Nardos & Magnolias · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/nardos-y-magnolias-anterior.jpg", texto: "Nardos & Magnolias · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/asarina.jpg", texto: "Asarina · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/asarina-anterior.jpg", texto: "Asarina · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/cedro-y-jazmin.jpg", texto: "Cedro & Jazmín · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/cedro-y-jazmin-anterior.jpg", texto: "Cedro & Jazmín · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/peonias-y-oud.jpg", texto: "Peonías & Oud · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/peonias-y-oud-anterior.jpg", texto: "Peonías & Oud · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/jengibre-limon-y-rosas.jpg", texto: "Jengibre, Limón & Rosas · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/jengibre-limon-y-rosas-anterior.jpg", texto: "Jengibre, Limón & Rosas · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/praline-y-rosa-china.jpg", texto: "Praliné & Rosa China · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/praline-y-rosa-china-anterior.jpg", texto: "Praliné & Rosa China · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/vainilla-y-caramelo.jpg", texto: "Vainilla & Caramelo · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/vainilla-y-caramelo-anterior.jpg", texto: "Vainilla & Caramelo · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/coco-y-avellanas.jpg", texto: "Coco & Avellanas · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/coco-y-avellanas-anterior.jpg", texto: "Coco & Avellanas · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/lima-y-menta.jpg", texto: "Lima & Menta · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/lima-y-menta-anterior.jpg", texto: "Lima & Menta · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/verbena-y-petitgrain.jpg", texto: "Verbena & Petitgrain · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/verbena-y-petitgrain-anterior.jpg", texto: "Verbena & Petitgrain · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/te-verde-y-cedron.jpg", texto: "Té Verde & Cedrón · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/te-verde-y-cedron-anterior.jpg", texto: "Té Verde & Cedrón · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/mango-y-anana.jpg", texto: "Mango & Ananá · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/mango-y-anana-anterior.jpg", texto: "Mango & Ananá · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/papaya-y-frambuesa.jpg", texto: "Papaya & Frambuesa · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/papaya-y-frambuesa-anterior.jpg", texto: "Papaya & Frambuesa · 500 ml $20.999 · 240 ml $12.499 🌿"}
-  ]},
-  {nombre: "Botica Natural", fotos: [
-    {archivo: "fotos/lineas/botica/biofeet.jpg", texto: "Spray Biofeet 100 ml · $23.499 🌱"},
-    {archivo: "fotos/lineas/botica/biofree.jpg", texto: "Spray Biofree 100 ml · $28.499 🌱"},
-    {archivo: "fotos/lineas/botica/bioaliv.jpg", texto: "Spray Bioaliv 100 ml · $46.799 🌱"},
-    {archivo: "fotos/lineas/botica/biocalm.jpg", texto: "Spray Biocalm 100 ml · $20.499 🌱"},
-    {archivo: "fotos/lineas/botica/jabon-liquido-naranja.jpg", texto: "Jabón Líquido Naranja 250 ml · con bomba $22.899 · repuesto $20.699 🌱"},
-    {archivo: "fotos/lineas/botica/roll-on-dulces-suenos.jpg", texto: "Aceite corporal Dulces Sueños 10 ml · $22.999 🌱"},
-    {archivo: "fotos/lineas/botica/roll-on-alivio.jpg", texto: "Aceite corporal Alivio 10 ml · $22.999 🌱"},
-    {archivo: "fotos/lineas/botica/roll-on-seduccion.jpg", texto: "Aceite corporal Seducción 10 ml · $22.999 🌱"},
-    {archivo: "fotos/lineas/botica/roll-on-vitalidad.jpg", texto: "Aceite corporal Vitalidad 10 ml · $22.999 🌱"},
-    {archivo: "fotos/lineas/botica/roll-on-claridad.jpg", texto: "Aceite corporal Claridad 10 ml · $22.999 🌱"},
-    {archivo: "fotos/lineas/botica/oleo-35.jpg", texto: "Óleo 35+ · blend 10 ml $28.499 🌱"},
-    {archivo: "fotos/lineas/botica/tea-tree-tomillo-oregano.jpg", texto: "Tea Tree, Tomillo & Orégano · blend 10 ml $28.799 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-lavanda.jpg", texto: "Aceite esencial de Lavanda 10 ml · $35.699 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-eucalipto.jpg", texto: "Aceite esencial de Eucalipto 10 ml · $24.499 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-enebro.jpg", texto: "Aceite esencial de Enebro 10 ml · $35.999 (30% OFF) 🌱"},
-    {archivo: "fotos/lineas/botica/anfora.jpg", texto: "Ánfora para Aromaterapia · $5.299 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-naranja.jpg", texto: "Aceite esencial de Naranja 10 ml · $19.499 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-limon.jpg", texto: "Aceite esencial de Limón 10 ml · $15.699 (30% OFF) 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-romero.jpg", texto: "Aceite esencial de Romero 10 ml · $24.899 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-menta.jpg", texto: "Aceite esencial de Menta 10 ml · $24.499 🌱"},
-    {archivo: "fotos/lineas/botica/aceite-almendras-dulces.jpg", texto: "Aceite Puro de Almendras Dulces 55 ml · $35.699 🌱"},
-    {archivo: "fotos/lineas/botica/crema-manos-almendras.jpg", texto: "Crema Manos y Uñas Almendras Dulces 75 ml · $18.999 🌱"},
-    {archivo: "fotos/lineas/botica/exfoliante-almendras.jpg", texto: "Exfoliante Manos y Cuerpo Almendras Dulces 100 ml · $18.999 🌱"},
-    {archivo: "fotos/lineas/botica/emulsion-almendras.jpg", texto: "Emulsión Corporal Almendras Dulces 200 ml · $25.499 🌱"},
-    {archivo: "fotos/lineas/botica/emulsion-lavanda.jpg", texto: "Emulsión Corporal Lavanda 200 ml · $20.499 (30% OFF) 🌱"},
-    {archivo: "fotos/lineas/botica/crema-manos-lavanda.jpg", texto: "Crema Manos y Uñas Lavanda 75 ml · $18.999 🌱"},
-    {archivo: "fotos/lineas/botica/emulsion-enebro.jpg", texto: "Emulsión Corporal Enebro 100 ml · $32.499 🌱"}
-  ]},
-  {nombre: "Fragancias BE Masculinas", fotos: [
-    {archivo: "fotos/lineas/be-masculinas/01-ysl.jpg", texto: "BE inspirado en Y de Yves Saint Laurent · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/02-212-men.jpg", texto: "BE inspirado en 212 Men de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/03-212-sexy.jpg", texto: "BE inspirado en 212 Sexy Men de Carolina Herrera · Eau de Parfum 60 ml $28.999 (30% OFF) 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/04-212-vip.jpg", texto: "BE inspirado en 212 VIP Men de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/05-acqua-di-gio.jpg", texto: "BE inspirado en Acqua di Giò de Giorgio Armani · Eau de Parfum 60 ml $28.999 (30% OFF) 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/06-acqua-di-gio-profondo.jpg", texto: "BE inspirado en Acqua di Giò Profondo de Giorgio Armani · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/07-ch-men.jpg", texto: "BE inspirado en Carolina Herrera Men · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/08-boss.jpg", texto: "BE inspirado en Boss de Hugo Boss · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/09-boss-bottled-absolu.jpg", texto: "BE inspirado en Boss Bottled Absolu de Hugo Boss · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/10-invictus.jpg", texto: "BE inspirado en Invictus de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/11-invictus-intense.jpg", texto: "BE inspirado en Invictus Intense de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/12-bad-boy.jpg", texto: "BE inspirado en Bad Boy de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/13-kenzo-pour-homme.jpg", texto: "BE inspirado en Kenzo pour Homme · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/14-ck-one.jpg", texto: "BE inspirado en CK One de Calvin Klein · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/15-one-million-lucky.jpg", texto: "BE inspirado en One Million Lucky de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/16-one-million.jpg", texto: "BE inspirado en One Million de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/17-one-million-intense.jpg", texto: "BE inspirado en One Million Intense de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/18-one-million-prive.jpg", texto: "BE inspirado en One Million Privé de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/19-polo-black.jpg", texto: "BE inspirado en Polo Black de Ralph Lauren · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/20-polo-blue.jpg", texto: "BE inspirado en Polo Blue de Ralph Lauren · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/21-sauvage.jpg", texto: "BE inspirado en Sauvage de Dior · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/22-phantom.jpg", texto: "BE inspirado en Phantom de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/23-asad.jpg", texto: "BE inspirado en Asad de Lattafa · Eau de Parfum 60 ml $35.999 🖤"},
-    {archivo: "fotos/lineas/be-masculinas/24-al-noble-wazeer.jpg", texto: "BE inspirado en Al Noble Wazeer de Lattafa · Eau de Parfum 60 ml $35.999 🖤"}
-  ]},
-  {nombre: "Fragancias BE Femeninas", fotos: [
-    {archivo: "fotos/lineas/be-femeninas/01-212.jpg", texto: "BE inspirado en 212 de Carolina Herrera · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/02-212-sexy.jpg", texto: "BE inspirado en 212 Sexy de Carolina Herrera · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/03-212-vip.jpg", texto: "BE inspirado en 212 VIP de Carolina Herrera · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/04-5th-avenue.jpg", texto: "BE inspirado en 5th Avenue de Elizabeth Arden · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/05-acqua-di-gioia.jpg", texto: "BE inspirado en Acqua di Gioia de Giorgio Armani · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/06-ange-ou-demon.jpg", texto: "BE inspirado en Ange ou Démon de Givenchy · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/07-anais-anais.jpg", texto: "BE inspirado en Anaïs Anaïs de Cacharel · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/08-be-delicious.jpg", texto: "BE inspirado en Be Delicious de DKNY · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/09-ch-woman.jpg", texto: "BE inspirado en CH Woman de Carolina Herrera · Eau de Parfum $28.999 (30% OFF) 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/10-ch.jpg", texto: "BE inspirado en CH de Carolina Herrera · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/11-chanel-n-5.jpg", texto: "BE inspirado en Chanel N° 5 · Eau de Parfum $28.999 (30% OFF) 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/12-cool-water-woman.jpg", texto: "BE inspirado en Cool Water Woman de Davidoff · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/13-flower.jpg", texto: "BE inspirado en Flower de Kenzo · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/14-fame.jpg", texto: "BE inspirado en Fame de Paco Rabanne · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/15-good-girl.jpg", texto: "BE inspirado en Good Girl de Carolina Herrera · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/16-idole.jpg", texto: "BE inspirado en Idôle de Lancôme · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/17-j-adore.jpg", texto: "BE inspirado en J'adore de Dior · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/18-la-vie-est-belle.jpg", texto: "BE inspirado en La Vie Est Belle de Lancôme · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/19-la-vie-est-belle-intensement.jpg", texto: "BE inspirado en La Vie Est Belle Intensément de Lancôme · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/20-lady-million.jpg", texto: "BE inspirado en Lady Million de Paco Rabanne · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/21-l-elixir.jpg", texto: "BE inspirado en L'Elixir de Kenzo · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/22-light-blue.jpg", texto: "BE inspirado en Light Blue de Dolce & Gabbana · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/23-libre.jpg", texto: "BE inspirado en Libre de YSL · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/24-l-interdit.jpg", texto: "BE inspirado en L'Interdit de Givenchy · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/25-my-way.jpg", texto: "BE inspirado en My Way de Giorgio Armani · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/26-nina.jpg", texto: "BE inspirado en Nina de Nina Ricci · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/27-nina-l-extase.jpg", texto: "BE inspirado en Nina L'Extase de Nina Ricci · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/28-olympea.jpg", texto: "BE inspirado en Olympéa de Paco Rabanne · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/29-olympea-intense.jpg", texto: "BE inspirado en Olympéa Intense de Paco Rabanne · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/30-poison-girl.jpg", texto: "BE inspirado en Poison Girl de Dior · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/31-ralph.jpg", texto: "BE inspirado en Ralph de Ralph Lauren · Eau de Parfum $28.999 (30% OFF) 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/32-si.jpg", texto: "BE inspirado en Sì de Giorgio Armani · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/33-tommy-girl.jpg", texto: "BE inspirado en Tommy Girl de Tommy Hilfiger · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/34-tresor.jpg", texto: "BE inspirado en Trésor de Lancôme · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/35-very-irresistible.jpg", texto: "BE inspirado en Very Irrésistible de Givenchy · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/36-the-scent-elixir.jpg", texto: "BE inspirado en The Scent Elixir de Boss · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/37-yara.jpg", texto: "BE inspirado en Yara de Lattafa · Eau de Parfum $35.999 🌸"},
-    {archivo: "fotos/lineas/be-femeninas/38-la-bomba.jpg", texto: "BE inspirado en La Bomba de Carolina Herrera · Eau de Parfum $35.999 🌸"}
-  ]},
-  {nombre: "Fragancias Inspira", fotos: [
-    {archivo: "fotos/lineas/inspira/creo.jpg", texto: "Inspira Creo · cítrica amaderada · Eau de Parfum 100 ml $54.499 ✨"},
-    {archivo: "fotos/lineas/inspira/descubro.jpg", texto: "Inspira Descubro · gourmand · Eau de Parfum 100 ml $54.499 ✨"},
-    {archivo: "fotos/lineas/inspira/siento.jpg", texto: "Inspira Siento · floral especiada · Eau de Parfum 100 ml $54.499 ✨"},
-    {archivo: "fotos/lineas/inspira/conecto.jpg", texto: "Inspira Conecto · amaderada especiada · Eau de Parfum 100 ml $54.499 ✨"},
-    {archivo: "fotos/lineas/inspira/vibro.jpg", texto: "Inspira Vibro · amaderada especiada · Eau de Parfum 100 ml $54.499 ✨"}
-  ]},
-  {nombre: "Alma Botánica", fotos: [
-    {archivo: "fotos/lineas/alma-botanica/maracuya.jpg", texto: "Alma Botánica Maracuyá · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/arbol-de-higo.jpg", texto: "Alma Botánica Árbol de Higo · Repuesto 330 ml $15.699 (30% OFF) · Difusor 250 ml $31.599 (30% OFF) · Hornillo 10 ml $11.499 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/flor-de-cerezo.jpg", texto: "Alma Botánica Flor de Cerezo · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/flor-de-nispero.jpg", texto: "Alma Botánica Flor de Níspero · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/tangerina.jpg", texto: "Alma Botánica Tangerina · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 · Hornillo 10 ml $11.499 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/jazmin-del-cabo.jpg", texto: "Alma Botánica Jazmín del Cabo · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 · Hornillo 10 ml $11.499 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/rosa-bulgara.jpg", texto: "Alma Botánica Rosa Búlgara · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 · Hornillo 10 ml $11.499 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/lemongrass.jpg", texto: "Alma Botánica Lemongrass · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/canela-de-ceylan.jpg", texto: "Alma Botánica Canela de Ceylán · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/sandalo.jpg", texto: "Alma Botánica Sándalo · Repuesto 330 ml $19.499 · Hornillo 10 ml $11.499 🍃"},
-    {archivo: "fotos/lineas/alma-botanica/haba-tonka.jpg", texto: "Alma Botánica Haba Tonka · Repuesto 330 ml $19.499 · Hornillo 10 ml $11.499 🍃"}
-  ]},
-  {nombre: "Armonía Textil", fotos: [
-    {archivo: "fotos/lineas/armonia-textil/algodon.jpg", texto: "Armonía Textil Algodón · Textil 250 ml $15.999 · Difusor 250 ml $39.299 🤍"},
-    {archivo: "fotos/lineas/armonia-textil/organza.jpg", texto: "Armonía Textil Organza · Textil 250 ml $15.999 · Piedras 65 g $16.499 · Difusor 250 ml $39.299 🤍"},
-    {archivo: "fotos/lineas/armonia-textil/lino.jpg", texto: "Armonía Textil Lino · Textil 250 ml $15.999 · Piedras 65 g $13.299 (30% OFF) · Difusor 250 ml $39.299 🤍"},
-    {archivo: "fotos/lineas/armonia-textil/seda.jpg", texto: "Armonía Textil Seda · Textil 250 ml $15.999 · Piedras 65 g $16.499 · Difusor 250 ml $39.299 🤍"}
-  ]},
-  {nombre: "Agua de Ropa", fotos: [
-    {archivo: "fotos/lineas/agua-de-ropa/caricias-de-algodon.jpg", texto: "Agua para Ropa Caricias de Algodón · 500 ml $22.199 👕"},
-    {archivo: "fotos/lineas/agua-de-ropa/toque-de-sol.jpg", texto: "Agua para Ropa Toque de Sol · 500 ml $22.199 👕"},
-    {archivo: "fotos/lineas/agua-de-ropa/brisa-pura.jpg", texto: "Agua para Ropa Brisa Pura · 500 ml $22.199 👕"},
-    {archivo: "fotos/lineas/agua-de-ropa/frescura-matinal.jpg", texto: "Agua para Ropa Frescura Matinal · 500 ml $22.199 👕"},
-    {archivo: "fotos/lineas/agua-de-ropa/pompas-de-jabon.jpg", texto: "Agua para Ropa Pompas de Jabón · 500 ml $22.199 👕"},
-    {archivo: "fotos/lineas/agua-de-ropa/abrazo-de-suavidad.jpg", texto: "Agua para Ropa Abrazo de Suavidad · 500 ml $22.199 👕"}
-  ]},
-  {nombre: "Línea Premium", fotos: [
-    {archivo: "fotos/lineas/premium/arabia.jpg", texto: "Línea Premium Arabia · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/toscana.jpg", texto: "Línea Premium Toscana · $14.899 (30% OFF) 🌍"},
-    {archivo: "fotos/lineas/premium/serrana.jpg", texto: "Línea Premium Serrana · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/alerces.jpg", texto: "Línea Premium Alerces · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/ipanema.jpg", texto: "Línea Premium Ipanema · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/indonesia.jpg", texto: "Línea Premium Indonesia · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/andalucia.jpg", texto: "Línea Premium Andalucía · $18.499 🌍"},
-    {archivo: "fotos/lineas/premium/parisina.jpg", texto: "Línea Premium Parisina · $18.499 🌍"}
-  ]},
-  {nombre: "Esencias de Armonización", fotos: [
-    {archivo: "fotos/lineas/esencias-de-armonizacion/union.jpg", texto: "Esencia de Armonización Unión · aromatizante 300 ml $29.499 🌙"},
-    {archivo: "fotos/lineas/esencias-de-armonizacion/prosperidad.jpg", texto: "Esencia de Armonización Prosperidad · aromatizante 300 ml $29.499 🌙"},
-    {archivo: "fotos/lineas/esencias-de-armonizacion/energia.jpg", texto: "Esencia de Armonización Energía · aromatizante 300 ml $29.499 🌙"},
-    {archivo: "fotos/lineas/esencias-de-armonizacion/proteccion.jpg", texto: "Esencia de Armonización Protección · aromatizante 300 ml $29.499 🌙"},
-    {archivo: "fotos/lineas/esencias-de-armonizacion/purificacion.jpg", texto: "Esencia de Armonización Purificación · aromatizante 300 ml $29.499 🌙"},
-    {archivo: "fotos/lineas/esencias-de-armonizacion/equilibrio.jpg", texto: "Esencia de Armonización Equilibrio · aromatizante 300 ml $29.499 🌙"}
-  ]},
-  {nombre: "Línea Hogar", fotos: [
-    {archivo: "fotos/lineas/hogar/limpiador-multiuso.jpg", texto: "Limpiador Multiuso · 800 ml $29.499 · 300 ml $14.499 · colaborás con TECHO 🏠"},
-    {archivo: "fotos/lineas/hogar/limpiador-electronicos.jpg", texto: "Limpiador para Electrónicos 100 ml · $10.399 (30% OFF) · incluye paño 📱"},
-    {archivo: "fotos/lineas/hogar/liquido-lavado-ropa.jpg", texto: "Líquido para Lavado de Ropa 800 ml · $36.499 · rinde 26 lavados 👕"},
-    {archivo: "fotos/lineas/hogar/limpiador-automovil.jpg", texto: "Limpiador para Automóvil · 800 ml $29.799 · 300 ml $14.999 🚗"},
-    {archivo: "fotos/lineas/hogar/limpiador-vidrios.jpg", texto: "Limpiador para Vidrios, Alfombras y Tapizados · 800 ml $24.999 · 300 ml $12.999 ✨"},
-    {archivo: "fotos/lineas/hogar/lavavajillas.jpg", texto: "Líquido Lavavajillas Limón o Menta · 800 ml $29.499 · 300 ml $14.499 🍋"},
-    {archivo: "fotos/lineas/hogar/pano-multiuso.jpg", texto: "Paño Multiuso · $11.499 🧽"}
-  ]},
-  {nombre: "Bidones", fotos: [
-    {archivo: "fotos/lineas/bidones/energia.jpg", texto: "Esencia de Armonización Energía · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},
-    {archivo: "fotos/lineas/bidones/union.jpg", texto: "Esencia de Armonización Unión · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},
-    {archivo: "fotos/lineas/bidones/equilibrio.jpg", texto: "Esencia de Armonización Equilibrio · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},
-    {archivo: "fotos/lineas/bidones/prosperidad.jpg", texto: "Esencia de Armonización Prosperidad · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},
-    {archivo: "fotos/lineas/bidones/purificacion.jpg", texto: "Esencia de Armonización Purificación · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},
-    {archivo: "fotos/lineas/bidones/proteccion.jpg", texto: "Esencia de Armonización Protección · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"},
-    {archivo: "fotos/lineas/bidones/rosa-bulgara.jpg", texto: "Alma Botánica Rosa Búlgara · Bidón 20 lts $810.599 · 5 lts $232.199 🌿"},
-    {archivo: "fotos/lineas/bidones/jazmin-del-cabo.jpg", texto: "Alma Botánica Jazmín del Cabo · Bidón 20 lts $810.599 · 5 lts $232.199 🌿"},
-    {archivo: "fotos/lineas/bidones/alerces.jpg", texto: "Línea Premium Alerces · Bidón 20 lts $784.299 · 5 lts $224.299 🌍"},
-    {archivo: "fotos/lineas/bidones/serrana.jpg", texto: "Línea Premium Serrana · Bidón 20 lts $784.299 · 5 lts $224.299 🌍"},
-    {archivo: "fotos/lineas/bidones/capullos-de-lino.jpg", texto: "Capullos de Lino · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"},
-    {archivo: "fotos/lineas/bidones/lavanda.jpg", texto: "Lavanda · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"},
-    {archivo: "fotos/lineas/bidones/te-verde-y-cedron.jpg", texto: "Té Verde & Cedrón · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"},
-    {archivo: "fotos/lineas/bidones/jengibre-limon-y-rosas.jpg", texto: "Jengibre, Limón & Rosas · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"},
-    {archivo: "fotos/lineas/bidones/coco-y-avellanas.jpg", texto: "Coco & Avellanas · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"},
-    {archivo: "fotos/lineas/bidones/frescura-matinal.jpg", texto: "Agua para Ropa Frescura Matinal · Bidón 20 lts $633.599 👕"},
-    {archivo: "fotos/lineas/bidones/caricias-de-algodon.jpg", texto: "Agua para Ropa Caricias de Algodón · Bidón 20 lts $633.599 · 5 lts $179.699 👕"},
-    {archivo: "fotos/lineas/bidones/toque-de-sol.jpg", texto: "Agua para Ropa Toque de Sol · Bidón 20 lts $633.599 · 5 lts $179.699 👕"},
-    {archivo: "fotos/lineas/bidones/hamsa.jpg", texto: "Hamsa y Hamsa Flowers · Bidón 5 lts $232.199 🧡"},
-    {archivo: "fotos/lineas/bidones/limpiadores.jpg", texto: "Limpiador Multiuso 5 lts $146.999 · Limpiador para Vidrios, Alfombras y Tapizados 5 lts $118.499 · rinden 50 litros 🏠"},
-    {archivo: "fotos/lineas/bidones/lavavajillas.jpg", texto: "Líquido Lavavajillas Menta o Limón · Bidón 5 lts $146.699 🍋"},
-    {archivo: "fotos/lineas/bidones/automovil-y-ropa.jpg", texto: "Limpiador para Automóvil 5 lts $148.899 · Líquido para Lavado de Ropa 5 lts $186.499 🚗"}
-  ]},
-  {nombre: "Body Splash", fotos: [
-    {archivo: "fotos/lineas/body-splash/loving-dream.jpg", texto: "Body Splash Loving Dream · 150 ml $17.999 💗"},
-    {archivo: "fotos/lineas/body-splash/addicted-to-love.jpg", texto: "Body Splash Addicted to Love · 150 ml $17.999 💗"},
-    {archivo: "fotos/lineas/body-splash/coconut-bliss.jpg", texto: "Body Splash Coconut Bliss · 150 ml $17.999 💗"},
-    {archivo: "fotos/lineas/body-splash/best-celebration.jpg", texto: "Body Splash Best Celebration · 150 ml $17.999 💗"},
-    {archivo: "fotos/lineas/body-splash/sparkling-star.jpg", texto: "Body Splash Sparkling Star · 150 ml $17.999 💗"},
-    {archivo: "fotos/lineas/body-splash/blue-ocean.jpg", texto: "Body Splash Blue Ocean · 150 ml $17.999 💗"},
-    {archivo: "fotos/lineas/body-splash/midnight-seduction.jpg", texto: "Body Splash Midnight Seduction · 150 ml $17.999 💗"}
-  ]},
-  {nombre: "Incorporaciones 🤝", fotos: [
-    {archivo: "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg", texto: "Emprendé con una marca que hace las cosas bien 🌿"},
-    {archivo: "fotos/incorporaciones/productos-que-se-regalan-solos.jpg", texto: "Productos que se regalan solos. Vendelos vos 🎁"},
-    {archivo: "fotos/incorporaciones/recomenda-marca-verificable.jpg", texto: "Recomendá una marca que podés verificar: Empresa B Certificada 🌿"},
-    {archivo: "fotos/incorporaciones/mas-facil-vender.jpg", texto: "Es más fácil vender lo que vos misma usás 💚"},
-    {archivo: "fotos/incorporaciones/casa-oliera-increible.jpg", texto: "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿"},
-    {archivo: "fotos/incorporaciones/lo-que-ya-amas-asarina.jpg", texto: "Lo que ya amás en tu casa, también puede ser tu negocio. Usalos, recomendalos y vendelos 🌿"},
-    {archivo: "fotos/incorporaciones/consumo-consciente.jpg", texto: "Tu consumo consciente, convertido en tu emprendimiento 🌿"}
-  ]},
-  {nombre: "Promociones", fotos: []},
-  {nombre: "Green Week", fotos: []}
+  {
+    "nombre": "Línea Esenciales",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/esenciales/capullos-de-lino.jpg",
+        "texto": "Capullos de Lino · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/glicinas-y-violetas.jpg",
+        "texto": "Glicinas & Violetas · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/lavanda.jpg",
+        "texto": "Lavanda · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/nardos-y-magnolias.jpg",
+        "texto": "Nardos & Magnolias · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/asarina.jpg",
+        "texto": "Asarina · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/cedro-y-jazmin.jpg",
+        "texto": "Cedro & Jazmín · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/peonias-y-oud.jpg",
+        "texto": "Peonías & Oud · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/jengibre-limon-y-rosas.jpg",
+        "texto": "Jengibre, Limón & Rosas · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/praline-y-rosa-china.jpg",
+        "texto": "Praliné & Rosa China · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/vainilla-y-caramelo.jpg",
+        "texto": "Vainilla & Caramelo · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/coco-y-avellanas.jpg",
+        "texto": "Coco & Avellanas · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/lima-y-menta.jpg",
+        "texto": "Lima & Menta · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/verbena-y-petitgrain.jpg",
+        "texto": "Verbena & Petitgrain · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/te-verde-y-cedron.jpg",
+        "texto": "Té Verde & Cedrón · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/mango-y-anana.jpg",
+        "texto": "Mango & Ananá · 500 ml $20.999 · 240 ml $12.499 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/esenciales/papaya-y-frambuesa.jpg",
+        "texto": "Papaya & Frambuesa · 500 ml $20.999 · 240 ml $12.499 🌿"
+      }
+    ]
+  },
+  {
+    "nombre": "Botica Natural",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/botica/biofeet.jpg",
+        "texto": "Spray Biofeet 100 ml · $23.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/biofree.jpg",
+        "texto": "Spray Biofree 100 ml · $28.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/bioaliv.jpg",
+        "texto": "Spray Bioaliv 100 ml · $46.799 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/biocalm.jpg",
+        "texto": "Spray Biocalm 100 ml · $20.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/jabon-liquido-naranja.jpg",
+        "texto": "Jabón Líquido Naranja 250 ml · con bomba $22.899 · repuesto $20.699 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/roll-on-dulces-suenos.jpg",
+        "texto": "Aceite corporal Dulces Sueños 10 ml · $22.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/roll-on-alivio.jpg",
+        "texto": "Aceite corporal Alivio 10 ml · $22.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/roll-on-seduccion.jpg",
+        "texto": "Aceite corporal Seducción 10 ml · $22.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/roll-on-vitalidad.jpg",
+        "texto": "Aceite corporal Vitalidad 10 ml · $22.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/roll-on-claridad.jpg",
+        "texto": "Aceite corporal Claridad 10 ml · $22.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/oleo-35.jpg",
+        "texto": "Óleo 35+ · blend 10 ml $28.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/tea-tree-tomillo-oregano.jpg",
+        "texto": "Tea Tree, Tomillo & Orégano · blend 10 ml $28.799 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-lavanda.jpg",
+        "texto": "Aceite esencial de Lavanda 10 ml · $35.699 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-eucalipto.jpg",
+        "texto": "Aceite esencial de Eucalipto 10 ml · $24.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-enebro.jpg",
+        "texto": "Aceite esencial de Enebro 10 ml · $35.999 (30% OFF) 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/anfora.jpg",
+        "texto": "Ánfora para Aromaterapia · $5.299 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-naranja.jpg",
+        "texto": "Aceite esencial de Naranja 10 ml · $19.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-limon.jpg",
+        "texto": "Aceite esencial de Limón 10 ml · $15.699 (30% OFF) 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-romero.jpg",
+        "texto": "Aceite esencial de Romero 10 ml · $24.899 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-menta.jpg",
+        "texto": "Aceite esencial de Menta 10 ml · $24.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/aceite-almendras-dulces.jpg",
+        "texto": "Aceite Puro de Almendras Dulces 55 ml · $35.699 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/crema-manos-almendras.jpg",
+        "texto": "Crema Manos y Uñas Almendras Dulces 75 ml · $18.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/exfoliante-almendras.jpg",
+        "texto": "Exfoliante Manos y Cuerpo Almendras Dulces 100 ml · $18.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/emulsion-almendras.jpg",
+        "texto": "Emulsión Corporal Almendras Dulces 200 ml · $25.499 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/emulsion-lavanda.jpg",
+        "texto": "Emulsión Corporal Lavanda 200 ml · $20.499 (30% OFF) 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/crema-manos-lavanda.jpg",
+        "texto": "Crema Manos y Uñas Lavanda 75 ml · $18.999 🌱"
+      },
+      {
+        "archivo": "fotos/lineas/botica/emulsion-enebro.jpg",
+        "texto": "Emulsión Corporal Enebro 100 ml · $32.499 🌱"
+      }
+    ]
+  },
+  {
+    "nombre": "Fragancias BE Masculinas",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/be-masculinas/01-ysl.jpg",
+        "texto": "BE inspirado en Y de Yves Saint Laurent · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/02-212-men.jpg",
+        "texto": "BE inspirado en 212 Men de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/03-212-sexy.jpg",
+        "texto": "BE inspirado en 212 Sexy Men de Carolina Herrera · Eau de Parfum 60 ml $28.999 (30% OFF) 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/04-212-vip.jpg",
+        "texto": "BE inspirado en 212 VIP Men de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/05-acqua-di-gio.jpg",
+        "texto": "BE inspirado en Acqua di Giò de Giorgio Armani · Eau de Parfum 60 ml $28.999 (30% OFF) 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/06-acqua-di-gio-profondo.jpg",
+        "texto": "BE inspirado en Acqua di Giò Profondo de Giorgio Armani · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/07-ch-men.jpg",
+        "texto": "BE inspirado en Carolina Herrera Men · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/08-boss.jpg",
+        "texto": "BE inspirado en Boss de Hugo Boss · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/09-boss-bottled-absolu.jpg",
+        "texto": "BE inspirado en Boss Bottled Absolu de Hugo Boss · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/10-invictus.jpg",
+        "texto": "BE inspirado en Invictus de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/11-invictus-intense.jpg",
+        "texto": "BE inspirado en Invictus Intense de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/12-bad-boy.jpg",
+        "texto": "BE inspirado en Bad Boy de Carolina Herrera · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/13-kenzo-pour-homme.jpg",
+        "texto": "BE inspirado en Kenzo pour Homme · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/14-ck-one.jpg",
+        "texto": "BE inspirado en CK One de Calvin Klein · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/15-one-million-lucky.jpg",
+        "texto": "BE inspirado en One Million Lucky de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/16-one-million.jpg",
+        "texto": "BE inspirado en One Million de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/17-one-million-intense.jpg",
+        "texto": "BE inspirado en One Million Intense de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/18-one-million-prive.jpg",
+        "texto": "BE inspirado en One Million Privé de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/19-polo-black.jpg",
+        "texto": "BE inspirado en Polo Black de Ralph Lauren · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/20-polo-blue.jpg",
+        "texto": "BE inspirado en Polo Blue de Ralph Lauren · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/21-sauvage.jpg",
+        "texto": "BE inspirado en Sauvage de Dior · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/22-phantom.jpg",
+        "texto": "BE inspirado en Phantom de Paco Rabanne · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/23-asad.jpg",
+        "texto": "BE inspirado en Asad de Lattafa · Eau de Parfum 60 ml $35.999 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/be-masculinas/24-al-noble-wazeer.jpg",
+        "texto": "BE inspirado en Al Noble Wazeer de Lattafa · Eau de Parfum 60 ml $35.999 🖤"
+      }
+    ]
+  },
+  {
+    "nombre": "Fragancias BE Femeninas",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/be-femeninas/01-212.jpg",
+        "texto": "BE inspirado en 212 de Carolina Herrera · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/02-212-sexy.jpg",
+        "texto": "BE inspirado en 212 Sexy de Carolina Herrera · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/03-212-vip.jpg",
+        "texto": "BE inspirado en 212 VIP de Carolina Herrera · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/04-5th-avenue.jpg",
+        "texto": "BE inspirado en 5th Avenue de Elizabeth Arden · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/05-acqua-di-gioia.jpg",
+        "texto": "BE inspirado en Acqua di Gioia de Giorgio Armani · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/06-ange-ou-demon.jpg",
+        "texto": "BE inspirado en Ange ou Démon de Givenchy · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/07-anais-anais.jpg",
+        "texto": "BE inspirado en Anaïs Anaïs de Cacharel · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/08-be-delicious.jpg",
+        "texto": "BE inspirado en Be Delicious de DKNY · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/09-ch-woman.jpg",
+        "texto": "BE inspirado en CH Woman de Carolina Herrera · Eau de Parfum $28.999 (30% OFF) 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/10-ch.jpg",
+        "texto": "BE inspirado en CH de Carolina Herrera · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/11-chanel-n-5.jpg",
+        "texto": "BE inspirado en Chanel N° 5 · Eau de Parfum $28.999 (30% OFF) 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/12-cool-water-woman.jpg",
+        "texto": "BE inspirado en Cool Water Woman de Davidoff · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/13-flower.jpg",
+        "texto": "BE inspirado en Flower de Kenzo · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/14-fame.jpg",
+        "texto": "BE inspirado en Fame de Paco Rabanne · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/15-good-girl.jpg",
+        "texto": "BE inspirado en Good Girl de Carolina Herrera · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/16-idole.jpg",
+        "texto": "BE inspirado en Idôle de Lancôme · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/17-j-adore.jpg",
+        "texto": "BE inspirado en J'adore de Dior · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/18-la-vie-est-belle.jpg",
+        "texto": "BE inspirado en La Vie Est Belle de Lancôme · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/19-la-vie-est-belle-intensement.jpg",
+        "texto": "BE inspirado en La Vie Est Belle Intensément de Lancôme · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/20-lady-million.jpg",
+        "texto": "BE inspirado en Lady Million de Paco Rabanne · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/21-l-elixir.jpg",
+        "texto": "BE inspirado en L'Elixir de Kenzo · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/22-light-blue.jpg",
+        "texto": "BE inspirado en Light Blue de Dolce & Gabbana · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/23-libre.jpg",
+        "texto": "BE inspirado en Libre de YSL · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/24-l-interdit.jpg",
+        "texto": "BE inspirado en L'Interdit de Givenchy · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/25-my-way.jpg",
+        "texto": "BE inspirado en My Way de Giorgio Armani · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/26-nina.jpg",
+        "texto": "BE inspirado en Nina de Nina Ricci · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/27-nina-l-extase.jpg",
+        "texto": "BE inspirado en Nina L'Extase de Nina Ricci · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/28-olympea.jpg",
+        "texto": "BE inspirado en Olympéa de Paco Rabanne · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/29-olympea-intense.jpg",
+        "texto": "BE inspirado en Olympéa Intense de Paco Rabanne · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/30-poison-girl.jpg",
+        "texto": "BE inspirado en Poison Girl de Dior · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/31-ralph.jpg",
+        "texto": "BE inspirado en Ralph de Ralph Lauren · Eau de Parfum $28.999 (30% OFF) 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/32-si.jpg",
+        "texto": "BE inspirado en Sì de Giorgio Armani · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/33-tommy-girl.jpg",
+        "texto": "BE inspirado en Tommy Girl de Tommy Hilfiger · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/34-tresor.jpg",
+        "texto": "BE inspirado en Trésor de Lancôme · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/35-very-irresistible.jpg",
+        "texto": "BE inspirado en Very Irrésistible de Givenchy · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/36-the-scent-elixir.jpg",
+        "texto": "BE inspirado en The Scent Elixir de Boss · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/37-yara.jpg",
+        "texto": "BE inspirado en Yara de Lattafa · Eau de Parfum $35.999 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/be-femeninas/38-la-bomba.jpg",
+        "texto": "BE inspirado en La Bomba de Carolina Herrera · Eau de Parfum $35.999 🌸"
+      }
+    ]
+  },
+  {
+    "nombre": "Fragancias Inspira",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/inspira/creo.jpg",
+        "texto": "Inspira Creo · cítrica amaderada · Eau de Parfum 100 ml $54.499 ✨"
+      },
+      {
+        "archivo": "fotos/lineas/inspira/descubro.jpg",
+        "texto": "Inspira Descubro · gourmand · Eau de Parfum 100 ml $54.499 ✨"
+      },
+      {
+        "archivo": "fotos/lineas/inspira/siento.jpg",
+        "texto": "Inspira Siento · floral especiada · Eau de Parfum 100 ml $54.499 ✨"
+      },
+      {
+        "archivo": "fotos/lineas/inspira/conecto.jpg",
+        "texto": "Inspira Conecto · amaderada especiada · Eau de Parfum 100 ml $54.499 ✨"
+      },
+      {
+        "archivo": "fotos/lineas/inspira/vibro.jpg",
+        "texto": "Inspira Vibro · amaderada especiada · Eau de Parfum 100 ml $54.499 ✨"
+      }
+    ]
+  },
+  {
+    "nombre": "Alma Botánica",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/alma-botanica/maracuya.jpg",
+        "texto": "Alma Botánica Maracuyá · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/arbol-de-higo.jpg",
+        "texto": "Alma Botánica Árbol de Higo · Repuesto 330 ml $15.699 (30% OFF) · Difusor 250 ml $31.599 (30% OFF) · Hornillo 10 ml $11.499 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/flor-de-cerezo.jpg",
+        "texto": "Alma Botánica Flor de Cerezo · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/flor-de-nispero.jpg",
+        "texto": "Alma Botánica Flor de Níspero · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/tangerina.jpg",
+        "texto": "Alma Botánica Tangerina · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 · Hornillo 10 ml $11.499 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/jazmin-del-cabo.jpg",
+        "texto": "Alma Botánica Jazmín del Cabo · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 · Hornillo 10 ml $11.499 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/rosa-bulgara.jpg",
+        "texto": "Alma Botánica Rosa Búlgara · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 · Hornillo 10 ml $11.499 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/lemongrass.jpg",
+        "texto": "Alma Botánica Lemongrass · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/canela-de-ceylan.jpg",
+        "texto": "Alma Botánica Canela de Ceylán · Repuesto 330 ml $19.499 · Difusor 250 ml $39.299 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/sandalo.jpg",
+        "texto": "Alma Botánica Sándalo · Repuesto 330 ml $19.499 · Hornillo 10 ml $11.499 🍃"
+      },
+      {
+        "archivo": "fotos/lineas/alma-botanica/haba-tonka.jpg",
+        "texto": "Alma Botánica Haba Tonka · Repuesto 330 ml $19.499 · Hornillo 10 ml $11.499 🍃"
+      }
+    ]
+  },
+  {
+    "nombre": "Armonía Textil",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/armonia-textil/algodon.jpg",
+        "texto": "Armonía Textil Algodón · Textil 250 ml $15.999 · Difusor 250 ml $39.299 🤍"
+      },
+      {
+        "archivo": "fotos/lineas/armonia-textil/organza.jpg",
+        "texto": "Armonía Textil Organza · Textil 250 ml $15.999 · Piedras 65 g $16.499 · Difusor 250 ml $39.299 🤍"
+      },
+      {
+        "archivo": "fotos/lineas/armonia-textil/lino.jpg",
+        "texto": "Armonía Textil Lino · Textil 250 ml $15.999 · Piedras 65 g $13.299 (30% OFF) · Difusor 250 ml $39.299 🤍"
+      },
+      {
+        "archivo": "fotos/lineas/armonia-textil/seda.jpg",
+        "texto": "Armonía Textil Seda · Textil 250 ml $15.999 · Piedras 65 g $16.499 · Difusor 250 ml $39.299 🤍"
+      }
+    ]
+  },
+  {
+    "nombre": "Agua de Ropa",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/agua-de-ropa/caricias-de-algodon.jpg",
+        "texto": "Agua para Ropa Caricias de Algodón · 500 ml $22.199 👕"
+      },
+      {
+        "archivo": "fotos/lineas/agua-de-ropa/toque-de-sol.jpg",
+        "texto": "Agua para Ropa Toque de Sol · 500 ml $22.199 👕"
+      },
+      {
+        "archivo": "fotos/lineas/agua-de-ropa/brisa-pura.jpg",
+        "texto": "Agua para Ropa Brisa Pura · 500 ml $22.199 👕"
+      },
+      {
+        "archivo": "fotos/lineas/agua-de-ropa/frescura-matinal.jpg",
+        "texto": "Agua para Ropa Frescura Matinal · 500 ml $22.199 👕"
+      },
+      {
+        "archivo": "fotos/lineas/agua-de-ropa/pompas-de-jabon.jpg",
+        "texto": "Agua para Ropa Pompas de Jabón · 500 ml $22.199 👕"
+      },
+      {
+        "archivo": "fotos/lineas/agua-de-ropa/abrazo-de-suavidad.jpg",
+        "texto": "Agua para Ropa Abrazo de Suavidad · 500 ml $22.199 👕"
+      }
+    ]
+  },
+  {
+    "nombre": "Línea Premium",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/premium/arabia.jpg",
+        "texto": "Línea Premium Arabia · $18.499 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/toscana.jpg",
+        "texto": "Línea Premium Toscana · $14.899 (30% OFF) 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/serrana.jpg",
+        "texto": "Línea Premium Serrana · $18.499 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/alerces.jpg",
+        "texto": "Línea Premium Alerces · $18.499 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/ipanema.jpg",
+        "texto": "Línea Premium Ipanema · $18.499 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/indonesia.jpg",
+        "texto": "Línea Premium Indonesia · $18.499 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/andalucia.jpg",
+        "texto": "Línea Premium Andalucía · $18.499 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/premium/parisina.jpg",
+        "texto": "Línea Premium Parisina · $18.499 🌍"
+      }
+    ]
+  },
+  {
+    "nombre": "Esencias de Armonización",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/esencias-de-armonizacion/union.jpg",
+        "texto": "Esencia de Armonización Unión · aromatizante 300 ml $29.499 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/esencias-de-armonizacion/prosperidad.jpg",
+        "texto": "Esencia de Armonización Prosperidad · aromatizante 300 ml $29.499 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/esencias-de-armonizacion/energia.jpg",
+        "texto": "Esencia de Armonización Energía · aromatizante 300 ml $29.499 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/esencias-de-armonizacion/proteccion.jpg",
+        "texto": "Esencia de Armonización Protección · aromatizante 300 ml $29.499 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/esencias-de-armonizacion/purificacion.jpg",
+        "texto": "Esencia de Armonización Purificación · aromatizante 300 ml $29.499 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/esencias-de-armonizacion/equilibrio.jpg",
+        "texto": "Esencia de Armonización Equilibrio · aromatizante 300 ml $29.499 🌙"
+      }
+    ]
+  },
+  {
+    "nombre": "Línea Hogar",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/hogar/limpiador-multiuso.jpg",
+        "texto": "Limpiador Multiuso · 800 ml $29.499 · 300 ml $14.499 · colaborás con TECHO 🏠"
+      },
+      {
+        "archivo": "fotos/lineas/hogar/limpiador-electronicos.jpg",
+        "texto": "Limpiador para Electrónicos 100 ml · $10.399 (30% OFF) · incluye paño 📱"
+      },
+      {
+        "archivo": "fotos/lineas/hogar/liquido-lavado-ropa.jpg",
+        "texto": "Líquido para Lavado de Ropa 800 ml · $36.499 · rinde 26 lavados 👕"
+      },
+      {
+        "archivo": "fotos/lineas/hogar/limpiador-automovil.jpg",
+        "texto": "Limpiador para Automóvil · 800 ml $29.799 · 300 ml $14.999 🚗"
+      },
+      {
+        "archivo": "fotos/lineas/hogar/limpiador-vidrios.jpg",
+        "texto": "Limpiador para Vidrios, Alfombras y Tapizados · 800 ml $24.999 · 300 ml $12.999 ✨"
+      },
+      {
+        "archivo": "fotos/lineas/hogar/lavavajillas.jpg",
+        "texto": "Líquido Lavavajillas Limón o Menta · 800 ml $29.499 · 300 ml $14.499 🍋"
+      },
+      {
+        "archivo": "fotos/lineas/hogar/pano-multiuso.jpg",
+        "texto": "Paño Multiuso · $11.499 🧽"
+      }
+    ]
+  },
+  {
+    "nombre": "Bidones",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/bidones/energia.jpg",
+        "texto": "Esencia de Armonización Energía · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/union.jpg",
+        "texto": "Esencia de Armonización Unión · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/equilibrio.jpg",
+        "texto": "Esencia de Armonización Equilibrio · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/prosperidad.jpg",
+        "texto": "Esencia de Armonización Prosperidad · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/purificacion.jpg",
+        "texto": "Esencia de Armonización Purificación · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/proteccion.jpg",
+        "texto": "Esencia de Armonización Protección · Repuesto Bidón 900 ml $66.999 · rinde 3 recargas 🌙"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/rosa-bulgara.jpg",
+        "texto": "Alma Botánica Rosa Búlgara · Bidón 20 lts $810.599 · 5 lts $232.199 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/jazmin-del-cabo.jpg",
+        "texto": "Alma Botánica Jazmín del Cabo · Bidón 20 lts $810.599 · 5 lts $232.199 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/alerces.jpg",
+        "texto": "Línea Premium Alerces · Bidón 20 lts $784.299 · 5 lts $224.299 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/serrana.jpg",
+        "texto": "Línea Premium Serrana · Bidón 20 lts $784.299 · 5 lts $224.299 🌍"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/capullos-de-lino.jpg",
+        "texto": "Capullos de Lino · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/lavanda.jpg",
+        "texto": "Lavanda · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/te-verde-y-cedron.jpg",
+        "texto": "Té Verde & Cedrón · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/jengibre-limon-y-rosas.jpg",
+        "texto": "Jengibre, Limón & Rosas · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/coco-y-avellanas.jpg",
+        "texto": "Coco & Avellanas · Bidón 20 lts $572.299 · 5 lts $163.399 🌿"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/frescura-matinal.jpg",
+        "texto": "Agua para Ropa Frescura Matinal · Bidón 20 lts $633.599 👕"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/caricias-de-algodon.jpg",
+        "texto": "Agua para Ropa Caricias de Algodón · Bidón 20 lts $633.599 · 5 lts $179.699 👕"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/toque-de-sol.jpg",
+        "texto": "Agua para Ropa Toque de Sol · Bidón 20 lts $633.599 · 5 lts $179.699 👕"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/hamsa.jpg",
+        "texto": "Hamsa y Hamsa Flowers · Bidón 5 lts $232.199 🧡"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/limpiadores.jpg",
+        "texto": "Limpiador Multiuso 5 lts $146.999 · Limpiador para Vidrios, Alfombras y Tapizados 5 lts $118.499 · rinden 50 litros 🏠"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/lavavajillas.jpg",
+        "texto": "Líquido Lavavajillas Menta o Limón · Bidón 5 lts $146.699 🍋"
+      },
+      {
+        "archivo": "fotos/lineas/bidones/automovil-y-ropa.jpg",
+        "texto": "Limpiador para Automóvil 5 lts $148.899 · Líquido para Lavado de Ropa 5 lts $186.499 🚗"
+      }
+    ]
+  },
+  {
+    "nombre": "Body Splash",
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/body-splash/loving-dream.jpg",
+        "texto": "Body Splash Loving Dream · 150 ml $17.999 💗"
+      },
+      {
+        "archivo": "fotos/lineas/body-splash/addicted-to-love.jpg",
+        "texto": "Body Splash Addicted to Love · 150 ml $17.999 💗"
+      },
+      {
+        "archivo": "fotos/lineas/body-splash/coconut-bliss.jpg",
+        "texto": "Body Splash Coconut Bliss · 150 ml $17.999 💗"
+      },
+      {
+        "archivo": "fotos/lineas/body-splash/best-celebration.jpg",
+        "texto": "Body Splash Best Celebration · 150 ml $17.999 💗"
+      },
+      {
+        "archivo": "fotos/lineas/body-splash/sparkling-star.jpg",
+        "texto": "Body Splash Sparkling Star · 150 ml $17.999 💗"
+      },
+      {
+        "archivo": "fotos/lineas/body-splash/blue-ocean.jpg",
+        "texto": "Body Splash Blue Ocean · 150 ml $17.999 💗"
+      },
+      {
+        "archivo": "fotos/lineas/body-splash/midnight-seduction.jpg",
+        "texto": "Body Splash Midnight Seduction · 150 ml $17.999 💗"
+      }
+    ]
+  },
+  {
+    "nombre": "Incorporaciones 🤝",
+    "fotos": [
+      {
+        "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
+        "texto": "Emprendé con una marca que hace las cosas bien 🌿"
+      },
+      {
+        "archivo": "fotos/incorporaciones/productos-que-se-regalan-solos.jpg",
+        "texto": "Productos que se regalan solos. Vendelos vos 🎁"
+      },
+      {
+        "archivo": "fotos/incorporaciones/recomenda-marca-verificable.jpg",
+        "texto": "Recomendá una marca que podés verificar: Empresa B Certificada 🌿"
+      },
+      {
+        "archivo": "fotos/incorporaciones/mas-facil-vender.jpg",
+        "texto": "Es más fácil vender lo que vos misma usás 💚"
+      },
+      {
+        "archivo": "fotos/incorporaciones/casa-oliera-increible.jpg",
+        "texto": "¿Y si tu casa oliera increíble y además te generara ingresos? 🌿"
+      },
+      {
+        "archivo": "fotos/incorporaciones/lo-que-ya-amas-asarina.jpg",
+        "texto": "Lo que ya amás en tu casa, también puede ser tu negocio. Usalos, recomendalos y vendelos 🌿"
+      },
+      {
+        "archivo": "fotos/incorporaciones/consumo-consciente.jpg",
+        "texto": "Tu consumo consciente, convertido en tu emprendimiento 🌿"
+      }
+    ]
+  },
+  {
+    "nombre": "Promociones",
+    "fotos": []
+  },
+  {
+    "nombre": "Green Week",
+    "fotos": []
+  }
 ];

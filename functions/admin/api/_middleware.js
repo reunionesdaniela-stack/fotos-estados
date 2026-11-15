@@ -11,24 +11,30 @@ const leer = s => JSON.parse(new TextDecoder().decode(b64u(s)));
 
 async function verificar(token, env){
   const [h, p, firma] = token.split(".");
-  const cab = leer(h), datos = leer(p), equipo = "https://" + env.ACCESS_TEAM_DOMAIN.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const cab = leer(h), datos = leer(p);
+  const equipo = "https://" + env.ACCESS_TEAM_DOMAIN.trim().replace(/^https?:\/\//, "").replace(/\/+$/, "");
+  const audEsperado = env.ACCESS_AUD.replace(/\s+/g, "");
   const certs = await (await fetch(equipo + "/cdn-cgi/access/certs")).json();
   const jwk = (certs.keys || []).find(k => k.kid === cab.kid);
-  if(!jwk) return null;
+  if(!jwk) throw new Error("firma desconocida (equipo " + equipo + ")");
   const clave = await crypto.subtle.importKey("jwk", jwk, {name: "RSASSA-PKCS1-v1_5", hash: "SHA-256"}, false, ["verify"]);
   const ok = await crypto.subtle.verify("RSASSA-PKCS1-v1_5", clave, b64u(firma), new TextEncoder().encode(h + "." + p));
-  const aud = [].concat(datos.aud);
-  if(!ok || !aud.includes(env.ACCESS_AUD) || datos.iss !== equipo || datos.exp * 1000 < Date.now() || !datos.email) return null;
+  if(!ok) throw new Error("firma inválida");
+  if(![].concat(datos.aud).includes(audEsperado)) throw new Error("ACCESS_AUD no coincide");
+  if(datos.iss !== equipo) throw new Error("equipo distinto: " + datos.iss);
+  if(datos.exp * 1000 < Date.now()) throw new Error("sesión vencida");
+  if(!datos.email) throw new Error("sin mail");
   return datos.email.toLowerCase();
 }
 
 export async function onRequest({request, env, next, data}){
   if(!env.ACCESS_TEAM_DOMAIN || !env.ACCESS_AUD || !env.GITHUB_TOKEN)
     return json({error: "El panel todavía no está activado. Falta configurar el login en Cloudflare."}, 503);
-  const token = request.headers.get("Cf-Access-Jwt-Assertion");
-  let email = null;
-  try{ if(token) email = await verificar(token, env); }catch(e){}
-  if(!email) return json({error: "No tenés acceso. Entrá con tu mail desde la página de administración."}, 401);
+  const galleta = (request.headers.get("cookie") || "").match(/(?:^|;\s*)CF_Authorization=([^;]+)/);
+  const token = request.headers.get("Cf-Access-Jwt-Assertion") || (galleta && galleta[1]);
+  let email = null, motivo = token ? "" : "falta el login";
+  try{ if(token) email = await verificar(token, env); }catch(e){ motivo = e.message; }
+  if(!email) return json({error: "No tenés acceso. Entrá con tu mail desde la página de administración. (" + motivo + ")"}, 401);
   data.email = email;
   return next();
 }

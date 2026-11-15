@@ -1,5 +1,5 @@
-/* Publica lo que guardó una administradora: sube las fotos nuevas y reescribe semana.js
-   y/o posteos.js en un solo commit de GitHub. Cloudflare Pages publica solo en ~1 minuto.
+/* Publica lo que guardó una administradora: sube las fotos nuevas y reescribe semana.js,
+   lineas.js y/o posteos.js en un solo commit de GitHub. Cloudflare Pages publica solo en ~1 minuto.
    Las fotos que se quitan de la lista no se borran del repositorio. */
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), {status, headers: {"content-type": "application/json; charset=utf-8", "cache-control": "no-store"}});
@@ -15,7 +15,12 @@ const CAB_POSTEOS = `/* Posteos para redes. Para sumar uno: guardá la imagen (o
    También se puede editar desde el panel de administradoras (/admin/). */
 `;
 
-const NUEVA = /^fotos\/(semana|posteos)\/[a-z0-9-]+\.(jpg|png|mp4)$/;
+const CAB_LINEAS = `/* Fotos de estados según línea. Cada línea tiene su lista de fotos:
+   {archivo: "fotos/lineas/...jpg", texto: "Nombre del producto · $precio"}
+   También se puede editar desde el panel de administradoras (/admin/). */
+`;
+
+const NUEVA = /^fotos\/(semana|posteos|lineas\/[a-z0-9-]+)\/[a-z0-9-]+\.(jpg|png|mp4)$/;
 const ARCHIVO = /^fotos\/[A-Za-z0-9_\/-]+\.(jpe?g|png|webp|mp4)$/i;
 const FORMATOS = ["feed", "historia", "reel"];
 
@@ -30,6 +35,11 @@ function limpiarSemana(s){
   if(desde && !/^\d{4}-\d{2}-\d{2}$/.test(desde)) throw new Invalido("fecha inválida");
   return {mostrar: s.mostrar !== false, titulo: txt(s.titulo, 120), desde,
     fotos: lista(s.fotos).map(f => ({archivo: archivo(f && f.archivo), texto: txt(f.texto, 500)}))};
+}
+
+function limpiarLineas(v){
+  return lista(v).map(l => ({nombre: txt(l && l.nombre, 120),
+    fotos: lista(l.fotos).map(f => ({archivo: archivo(f && f.archivo), texto: txt(f.texto, 500)}))}));
 }
 
 function limpiarPosteo(p){
@@ -57,6 +67,7 @@ export async function onRequestPost({request, env, data}){
       cambios.push({path: a.ruta, base64: a.base64});
     }
     if(cuerpo.semana) cambios.push({path: "semana.js", content: CAB_SEMANA + "window.SEMANA = " + JSON.stringify(limpiarSemana(cuerpo.semana), null, 2) + ";\n"});
+    if(cuerpo.lineas) cambios.push({path: "lineas.js", content: CAB_LINEAS + "window.LINEAS = " + JSON.stringify(limpiarLineas(cuerpo.lineas), null, 2) + ";\n"});
     if(cuerpo.posteos) cambios.push({path: "posteos.js", content: CAB_POSTEOS + "window.POSTEOS = " + JSON.stringify(limpiarPosteos(cuerpo.posteos), null, 2) + ";\n"});
   }catch(e){
     return json({error: "Los datos no son válidos: " + (e instanceof Invalido ? e.message : "no se pudieron leer")}, 400);

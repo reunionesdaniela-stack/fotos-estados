@@ -16,7 +16,6 @@ window.LINEAS = [
     {archivo: "fotos/lineas/esenciales/lima-y-menta.jpg", texto: "Lima & Menta · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/verbena-y-petitgrain.jpg", texto: "Verbena & Petitgrain · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/te-verde-y-cedron.jpg", texto: "Té Verde & Cedrón · 500 ml $20.999 · 240 ml $12.499 🌿"},
-    {archivo: "fotos/lineas/esenciales/oceano-y-savia.jpg", texto: "Océano & Savia · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/mango-y-anana.jpg", texto: "Mango & Ananá · 500 ml $20.999 · 240 ml $12.499 🌿"},
     {archivo: "fotos/lineas/esenciales/papaya-y-frambuesa.jpg", texto: "Papaya & Frambuesa · 500 ml $20.999 · 240 ml $12.499 🌿"}
   ]},

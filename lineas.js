@@ -826,7 +826,48 @@ window.LINEAS = [
   },
   {
     "nombre": "Promociones",
-    "fotos": []
+    "fotos": [
+      {
+        "archivo": "fotos/lineas/promociones/duo-light-blue.jpg",
+        "texto": "Dúo Light Blue · Perfume BE 60 ml inspirado en Light Blue + Esmalte en gel Light Blue · $40.598 (antes $51.698) · hasta el 26/11 💙"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/una-de-dia-otra-de-noche.jpg",
+        "texto": "Una de día, otra de noche · BE inspirado en Acqua di Gioia + BE inspirado en Poison Girl · los dos por $57.998 · hasta el 26/11 🌸"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/noche-en-rojo.jpg",
+        "texto": "Noche en rojo · Perfume BE inspirado en Poison Girl + Esmalte en gel Red Tomato · $40.598 · hasta el 26/11 ❤️"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/un-toque-de-verde.jpg",
+        "texto": "Un toque de verde · Perfume BE inspirado en Be Delicious + Esmalte en gel Green Mood · $40.598 · hasta el 26/11 💚"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/del-bolso-al-escritorio.jpg",
+        "texto": "Del bolso al escritorio · Perfume BE inspirado en Ralph + Crema para manos y uñas Almendras Dulces 75 ml · $47.998 · hasta el 26/11 🤍"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/uno-de-dia-otro-de-noche.jpg",
+        "texto": "Uno de día, otro de noche · BE inspirado en Acqua di Giò + BE inspirado en Bad Boy · los dos por $57.998 (antes $69.998) · hasta el 26/11 🖤"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/para-el-y-su-auto.jpg",
+        "texto": "Para él y su auto · Perfume BE inspirado en Acqua di Giò + Aromatizante para auto Ámbar & Frutas 100 ml · los dos por $36.698 · hasta el 26/11 🚗"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/del-gym-a-la-noche.jpg",
+        "texto": "Del gym a la noche · Body Splash Blue Ocean 150 ml + Perfume BE inspirado en 212 VIP · los dos por $46.998 · hasta el 26/11 💪"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/dos-regalos-pendientes.jpg",
+        "texto": "¿Dos regalos pendientes? · Elegí 2 perfumes BE, femeninos o masculinos · $57.998 · hasta el 26/11 🎁"
+      },
+      {
+        "archivo": "fotos/lineas/promociones/regalos-de-navidad.jpg",
+        "texto": "Regalos de Navidad · perfumes y dúos Biogreen · contame para quién es y te ayudo a elegir 🎄"
+      }
+    ]
   },
   {
     "nombre": "Green Week",

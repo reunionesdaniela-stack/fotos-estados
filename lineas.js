@@ -795,6 +795,14 @@ window.LINEAS = [
     "nombre": "Incorporaciones 🤝",
     "fotos": [
       {
+        "archivo": "fotos/incorporaciones/diciembre-mes-que-mas-se-regala.jpg",
+        "texto": "Diciembre es el mes en que más se regala. Sumate ahora y aprovechalo. Escribime QUIERO 🎁"
+      },
+      {
+        "archivo": "fotos/incorporaciones/nunca-es-tarde.jpg",
+        "texto": "Nunca es tarde para empezar algo propio. Escribime y te cuento cómo 🌿"
+      },
+      {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
         "texto": "Emprendé con una marca que hace las cosas bien 🌿"
       },

@@ -803,6 +803,14 @@ window.LINEAS = [
         "texto": "Nunca es tarde para empezar algo propio. Escribime y te cuento cómo 🌿"
       },
       {
+        "archivo": "fotos/incorporaciones/vendes-desde-tu-celular.jpg",
+        "texto": "No tenés que vender puerta a puerta: vendés desde tu celular, a tu gente. ¿Tenés más dudas? Preguntame 📱"
+      },
+      {
+        "archivo": "fotos/incorporaciones/se-vienen-las-fiestas.jpg",
+        "texto": "Se vienen las fiestas: el momento ideal para empezar. Sumate ahora y llegá con stock 🎄"
+      },
+      {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
         "texto": "Emprendé con una marca que hace las cosas bien 🌿"
       },

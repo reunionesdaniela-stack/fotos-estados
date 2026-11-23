@@ -811,6 +811,14 @@ window.LINEAS = [
         "texto": "Se vienen las fiestas: el momento ideal para empezar. Sumate ahora y llegá con stock 🎄"
       },
       {
+        "archivo": "fotos/incorporaciones/fragancia-favorita-tu-negocio.jpg",
+        "texto": "Tu fragancia favorita, ahora también puede ser tu negocio. Respondé este estado y te cuento ✨"
+      },
+      {
+        "archivo": "fotos/incorporaciones/productos-que-cuidan-el-planeta.jpg",
+        "texto": "Vendé productos que cuidan tu casa y el planeta. Escribime y te cuento 🌿"
+      },
+      {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
         "texto": "Emprendé con una marca que hace las cosas bien 🌿"
       },

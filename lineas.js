@@ -819,6 +819,10 @@ window.LINEAS = [
         "texto": "Vendé productos que cuidan tu casa y el planeta. Escribime y te cuento 🌿"
       },
       {
+        "archivo": "fotos/incorporaciones/estas-fiestas-regala-biogreen.jpg",
+        "texto": "Estas fiestas, regalá Biogreen y armá tu propio emprendimiento. Escribime QUIERO 🎁"
+      },
+      {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
         "texto": "Emprendé con una marca que hace las cosas bien 🌿"
       },

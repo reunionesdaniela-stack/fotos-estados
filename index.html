@@ -325,6 +325,30 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
 .lista10 .fila input[type=checkbox]{flex:none;width:26px;height:26px;accent-color:var(--leaf)}
 .lista10 .fila input:checked+input{text-decoration:line-through;color:var(--muted)}
 .lista10 .n10{flex:none;width:22px;text-align:right;font-weight:800;color:var(--muted)}
+/* aviso destacado (aviso.js): tarjeta en el inicio + ventana al abrir */
+.destacado{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;align-items:center;background:#FFF6D8;color:#2B2306;border:3px solid #E2B93B;border-radius:22px;padding:14px;margin:0 0 22px;box-shadow:0 6px 18px rgba(226,185,59,.35);animation:latido 2.4s ease-in-out infinite}
+.destacado img{width:92px;height:115px;object-fit:cover;border-radius:12px;display:block;cursor:pointer}
+.destacado .et{display:inline-block;font-size:13px;font-weight:900;letter-spacing:1px;text-transform:uppercase;background:#E2B93B;color:#2B2306;border-radius:999px;padding:3px 10px;margin-bottom:6px}
+.destacado b{display:block;font-size:19px;line-height:1.2;margin-bottom:4px}
+.destacado p{margin:0 0 10px;font-size:15px}
+.destacado .acc{display:flex;gap:8px;flex-wrap:wrap}
+.destacado .acc button{font:inherit;font-size:15px;font-weight:800;border-radius:12px;padding:8px 12px;cursor:pointer;border:2px solid #1F4E31;background:#fff;color:#1F4E31}
+.destacado .acc button.compartir-av{background:#1F4E31;color:#fff;display:inline-flex;align-items:center;gap:6px}
+.destacado .acc svg,.ventana .compartir-av svg{width:18px;height:18px}
+.destacado .aviso{grid-column:1/-1;margin:0}
+@keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+@media (prefers-reduced-motion:reduce){.destacado{animation:none}}
+.ventana{border:0;padding:0;border-radius:22px;width:min(92vw,440px);max-height:92vh;background:var(--surface);color:var(--ink);overflow:auto}
+.ventana::backdrop{background:rgba(8,20,12,.72)}
+.ventana .cab{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px 8px}
+.ventana .cab span{font-size:14px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--leaf-dark)}
+.ventana .cerrar{font:inherit;font-size:26px;line-height:1;width:44px;height:44px;border-radius:999px;border:0;background:var(--soft);color:var(--ink);cursor:pointer}
+.ventana img{display:block;width:100%;height:auto}
+.ventana .pie{padding:12px 14px 16px}
+.ventana .pie p{margin:0 0 12px;font-size:16px}
+.ventana .compartir-av{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;border:0;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);font:inherit;font-size:20px;font-weight:900;cursor:pointer}
+.ventana .luego{display:block;margin:10px auto 0;font:inherit;font-size:16px;font-weight:700;color:var(--muted);background:none;border:0;text-decoration:underline;cursor:pointer}
+.ventana .aviso{margin:10px 0 0}
 </style>
 </head>
 <body>
@@ -340,6 +364,8 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
         <p>Te mando un saludo,<br><b>Daniela Cazayous</b> 🌿</p>
       </div>
     </header>
+
+    <div class="destacado" id="destacado" hidden></div>
 
     <h2 class="titulo-sec">¿Qué necesitás hoy?</h2>
     <p class="sub">Tocá una opción para entrar.</p>
@@ -801,6 +827,7 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
 <script src="desafios.js"></script>
 <script src="posteos.js"></script>
 <script src="kits.js"></script>
+<script src="aviso.js"></script>
 <script>
 const S = window.SEMANA || {fotos: []};
 const $ = s => document.querySelector(s);
@@ -1262,6 +1289,39 @@ async function compartir(archivos, aviso){
   return false;
 }
 document.querySelectorAll("button.compartir[data-src]").forEach(b => b.onclick = () => compartir([b.dataset.src], $("#aviso-" + b.dataset.aviso)));
+
+// aviso destacado (aviso.js): tarjeta llamativa en el inicio y ventana al abrir, una vez por día
+{
+  const A = window.AVISO;
+  const vigente = A && A.mostrar !== false && A.imagen && (!A.hasta || new Date() < new Date(A.hasta));
+  if(vigente){
+    const d = $("#destacado");
+    d.innerHTML = `<img src="${esc(A.imagen)}" alt="${esc(A.titulo || A.etiqueta || "Aviso")}">
+      <div><span class="et">🔔 ${esc(A.etiqueta || "Importante")}</span><b>${esc(A.titulo || "")}</b>${A.texto ? `<p>${esc(A.texto)}</p>` : ""}
+        <div class="acc"><button type="button" class="ver-av">Ver</button><button type="button" class="compartir-av">${ICONO}COMPARTIR</button></div></div>
+      <div class="aviso" id="aviso-destacado" role="status"></div>`;
+    d.hidden = false;
+
+    const v = document.createElement("dialog");
+    v.className = "ventana"; v.setAttribute("aria-label", A.etiqueta || "Aviso");
+    v.innerHTML = `<div class="cab"><span>🔔 ${esc(A.etiqueta || "Importante")}</span><button type="button" class="cerrar" aria-label="Cerrar">×</button></div>
+      <img src="${esc(A.imagen)}" alt="${esc(A.titulo || "")}">
+      <div class="pie">${A.texto ? `<p>${esc(A.texto)}</p>` : ""}<button type="button" class="compartir-av">${ICONO}COMPARTIR</button>
+        <div class="aviso" id="aviso-ventana" role="status"></div><button type="button" class="luego">Ahora no</button></div>`;
+    document.body.appendChild(v);
+    const cerrar = () => v.close();
+    v.querySelector(".cerrar").onclick = cerrar; v.querySelector(".luego").onclick = cerrar;
+    v.addEventListener("click", e => { if(e.target === v) cerrar(); }); // tocar afuera cierra
+    v.querySelector(".compartir-av").onclick = () => compartir([A.imagen], $("#aviso-ventana"));
+    d.querySelector(".compartir-av").onclick = () => compartir([A.imagen], $("#aviso-destacado"));
+    const abrir = () => { if(!v.open) v.showModal(); };
+    d.querySelector(".ver-av").onclick = abrir; d.querySelector("img").onclick = abrir;
+
+    const clave = "aviso-visto:" + A.imagen, hoy = new Date().toDateString();
+    let visto = false; try{ visto = localStorage.getItem(clave) === hoy; localStorage.setItem(clave, hoy); }catch(e){}
+    if(!visto) setTimeout(abrir, 600);
+  }
+}
 
 // elegir varias fotos para compartirlas juntas
 {

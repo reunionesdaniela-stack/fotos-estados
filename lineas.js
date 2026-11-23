@@ -823,6 +823,10 @@ window.LINEAS = [
         "texto": "Estas fiestas, regalá Biogreen y armá tu propio emprendimiento. Escribime QUIERO 🎁"
       },
       {
+        "archivo": "fotos/incorporaciones/emprende-desde-casa.jpg",
+        "texto": "Emprendé desde casa, con tus tiempos y tus hijos cerca. Escribime QUIERO 🏡"
+      },
+      {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
         "texto": "Emprendé con una marca que hace las cosas bien 🌿"
       },

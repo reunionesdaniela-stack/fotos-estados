@@ -795,6 +795,14 @@ window.LINEAS = [
     "nombre": "Incorporaciones 🤝",
     "fotos": [
       {
+        "archivo": "fotos/incorporaciones/ingreso-extra.jpg",
+        "texto": "¿Te gustaría tener un ingreso extra sin descuidar tu casa ni tu familia? Sí, contame / Quiero saber más 🏡"
+      },
+      {
+        "archivo": "fotos/incorporaciones/dia-de-pedidos-en-casa.jpg",
+        "texto": "Así se ve un día de pedidos en casa. ¿Te gustaría hacerlo vos también? 📦"
+      },
+      {
         "archivo": "fotos/incorporaciones/diciembre-mes-que-mas-se-regala.jpg",
         "texto": "Diciembre es el mes en que más se regala. Sumate ahora y aprovechalo. Escribime QUIERO 🎁"
       },

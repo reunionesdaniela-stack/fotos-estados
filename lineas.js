@@ -795,6 +795,14 @@ window.LINEAS = [
     "nombre": "Incorporaciones 🤝",
     "fotos": [
       {
+        "archivo": "fotos/incorporaciones/te-jubilaste-del-aula.jpg",
+        "texto": "Te jubilaste del aula, no de tus ganas de crear. Si algo de esto te identifica, escribime 🌿"
+      },
+      {
+        "archivo": "fotos/incorporaciones/construi-lo-tuyo.jpg",
+        "texto": "Construí lo tuyo sin perderte los momentos que importan. Escribime y te cuento 🌷"
+      },
+      {
         "archivo": "fotos/incorporaciones/ingreso-extra.jpg",
         "texto": "¿Te gustaría tener un ingreso extra sin descuidar tu casa ni tu familia? Sí, contame / Quiero saber más 🏡"
       },

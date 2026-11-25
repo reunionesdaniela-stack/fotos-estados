@@ -8,7 +8,7 @@ window.SEMANA = {
   "desde": "",
   "fotos": [
     {
-      "archivo": "fotos/combos-navidad/manos-de-fiesta.jpg",
+      "archivo": "fotos/combos-navidad/manos-de-fiesta-vertical.jpg",
       "texto": "Manos de fiesta · Crema para Manos y Uñas Lavanda + Esmalte en Gel Red Tomato · $30.598 🎄"
     },
     {

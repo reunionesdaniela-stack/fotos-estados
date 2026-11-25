@@ -795,6 +795,18 @@ window.LINEAS = [
     "nombre": "Incorporaciones 🤝",
     "fotos": [
       {
+        "archivo": "fotos/incorporaciones/hace-26-anos-que-vivo-de-biogreen.jpg",
+        "texto": "Hace 26 años que vivo de Biogreen. Te enseño cómo. Escribime y te cuento 🌿"
+      },
+      {
+        "archivo": "fotos/incorporaciones/tu-forma-de-acompanar.jpg",
+        "texto": "Tu forma de acompañar a otras puede ser tu camino. Si algo de esto te identifica, escribime 🌷"
+      },
+      {
+        "archivo": "fotos/incorporaciones/tu-experiencia-tiene-mucho-para-dar.jpg",
+        "texto": "Tu experiencia todavía tiene mucho para dar. Me encantaría conversar con vos 🌿"
+      },
+      {
         "archivo": "fotos/incorporaciones/te-jubilaste-del-aula.jpg",
         "texto": "Te jubilaste del aula, no de tus ganas de crear. Si algo de esto te identifica, escribime 🌿"
       },

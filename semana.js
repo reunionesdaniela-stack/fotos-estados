@@ -20,10 +20,6 @@ window.SEMANA = {
       "texto": "Combo navideño · 6 presentes por $101.594 · Inscribite y comprá como distribuidora 🎁"
     },
     {
-      "archivo": "fotos/combos-navidad/manos-de-fiesta-vertical.jpg",
-      "texto": "Manos de fiesta · Crema para Manos y Uñas Lavanda + Esmalte en Gel Red Tomato · $30.598 🎄"
-    },
-    {
       "archivo": "fotos/promos/be-bm73.jpg",
       "texto": "Regalos de Navidad · perfumes y dúos Biogreen · contame para quién es y te ayudo a elegir 🎄"
     },

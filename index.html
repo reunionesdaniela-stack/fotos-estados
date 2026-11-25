@@ -368,6 +368,9 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
 .ventana .compartir-av{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;border:0;border-radius:16px;background:var(--leaf);color:var(--leaf-ink);font:inherit;font-size:20px;font-weight:900;cursor:pointer}
 .ventana .luego{display:block;margin:10px auto 0;font:inherit;font-size:16px;font-weight:700;color:var(--muted);background:none;border:0;text-decoration:underline;cursor:pointer}
 .ventana .aviso{margin:10px 0 0}
+.ventana .v-titulo{font-size:23px;line-height:1.2;margin:4px 4px 12px;text-align:center}
+.ventana button.compartir.ir-av,.destacado .acc .ir-av{font-size:21px;min-height:60px}
+.destacado .acc .ir-av{min-height:44px;font-size:16px}
 </style>
 </head>
 <body>
@@ -1363,7 +1366,7 @@ async function compartir(archivos, aviso){
 }
 document.querySelectorAll("button.compartir[data-src]").forEach(b => b.onclick = () => compartir([b.dataset.src], $("#aviso-" + b.dataset.aviso)));
 
-// aviso destacado (aviso.js): tarjeta llamativa en el inicio y ventana al abrir, una vez por día
+// aviso destacado (aviso.js): tarjeta llamativa en el inicio y ventana al abrir, una vez por día (o por semana con cada: "semana")
 {
   const A = window.AVISO;
   const vigente = A && A.mostrar !== false && A.imagen && (!A.hasta || new Date() < new Date(A.hasta));
@@ -1371,27 +1374,41 @@ document.querySelectorAll("button.compartir[data-src]").forEach(b => b.onclick =
     const d = $("#destacado");
     d.innerHTML = `<img src="${esc(A.imagen)}" alt="${esc(A.titulo || A.etiqueta || "Aviso")}">
       <div><span class="et">🔔 ${esc(A.etiqueta || "Importante")}</span><b>${esc(A.titulo || "")}</b>${A.texto ? `<p>${esc(A.texto)}</p>` : ""}
-        <div class="acc"><button type="button" class="ver-av">Ver</button><button type="button" class="compartir-av">${ICONO}COMPARTIR</button></div></div>
+        <div class="acc">${A.boton ? `<button type="button" class="compartir-av ir-av">${esc(A.boton.texto)} ›</button>` : `<button type="button" class="ver-av">Ver</button><button type="button" class="compartir-av">${ICONO}COMPARTIR</button>`}</div></div>
       <div class="aviso" id="aviso-destacado" role="status"></div>`;
     d.hidden = false;
 
     const v = document.createElement("dialog");
     v.className = "ventana"; v.setAttribute("aria-label", A.etiqueta || "Aviso");
     v.innerHTML = `<div class="cab"><span>🔔 ${esc(A.etiqueta || "Importante")}</span><button type="button" class="cerrar" aria-label="Cerrar">×</button></div>
-      <img src="${esc(A.imagen)}" alt="${esc(A.titulo || "")}">
-      <div class="pie">${A.texto ? `<p>${esc(A.texto)}</p>` : ""}<button type="button" class="compartir-av">${ICONO}COMPARTIR</button>
+      ${A.boton && A.titulo ? `<h2 class="v-titulo">${esc(A.titulo)}</h2>` : ""}<img src="${esc(A.imagen)}" alt="${esc(A.titulo || "")}">
+      <div class="pie">${A.texto ? `<p>${esc(A.texto)}</p>` : ""}${A.boton ? `<button type="button" class="compartir ir-av">${esc(A.boton.texto)} ›</button>` : `<button type="button" class="compartir-av">${ICONO}COMPARTIR</button>`}
         <div class="aviso" id="aviso-ventana" role="status"></div><button type="button" class="luego">Ahora no</button></div>`;
     document.body.appendChild(v);
     const cerrar = () => v.close();
     v.querySelector(".cerrar").onclick = cerrar; v.querySelector(".luego").onclick = cerrar;
     v.addEventListener("click", e => { if(e.target === v) cerrar(); }); // tocar afuera cierra
-    v.querySelector(".compartir-av").onclick = () => compartir([A.imagen], $("#aviso-ventana"));
-    d.querySelector(".compartir-av").onclick = () => compartir([A.imagen], $("#aviso-destacado"));
     const abrir = () => { if(!v.open) v.showModal(); };
-    d.querySelector(".ver-av").onclick = abrir; d.querySelector("img").onclick = abrir;
+    if(A.boton){
+      const ir = () => {
+        cerrar(); location.hash = A.boton.ir || "#inicio";
+        setTimeout(() => { const s = A.boton.abrir && document.getElementById(A.boton.abrir); if(s){ s.open = true; s.scrollIntoView({block: "start"}); window.scrollBy(0, -70); } }, 400);
+      };
+      v.querySelector(".ir-av").onclick = ir; d.querySelector(".ir-av").onclick = ir; d.querySelector("img").onclick = ir;
+    }else{
+      v.querySelector(".compartir-av").onclick = () => compartir([A.imagen], $("#aviso-ventana"));
+      d.querySelector(".compartir-av").onclick = () => compartir([A.imagen], $("#aviso-destacado"));
+      d.querySelector(".ver-av").onclick = abrir; d.querySelector("img").onclick = abrir;
+    }
 
-    const clave = "aviso-visto:" + A.imagen, hoy = new Date().toDateString();
-    let visto = false; try{ visto = localStorage.getItem(clave) === hoy; localStorage.setItem(clave, hoy); }catch(e){}
+    // una vez por día, o una vez por semana si cada: "semana"
+    const clave = "aviso-visto:" + A.imagen, ahora = Date.now(), espera = A.cada === "semana" ? 7 * 864e5 : 0;
+    let visto = false;
+    try{
+      const antes = localStorage.getItem(clave), t = Number(antes);
+      visto = espera ? (t > 0 && ahora - t < espera) : antes === new Date().toDateString();
+      if(!visto) localStorage.setItem(clave, espera ? String(ahora) : new Date().toDateString());
+    }catch(e){}
     if(!visto) setTimeout(abrir, 600);
   }
 }

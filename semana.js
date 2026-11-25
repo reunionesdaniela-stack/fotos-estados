@@ -8,6 +8,18 @@ window.SEMANA = {
   "desde": "",
   "fotos": [
     {
+      "archivo": "fotos/combos/combo-4-regalos.jpg",
+      "texto": "Combo navideño · 4 regalos por $68.696 ($17.174 c/u) · Inscribite y comprá como distribuidora 🎁"
+    },
+    {
+      "archivo": "fotos/combos/combo-5-presentes.jpg",
+      "texto": "Combo navideño · 5 presentes por $91.995 ($18.399 c/u) · Inscribite y comprá como distribuidora 🎁"
+    },
+    {
+      "archivo": "fotos/combos/combo-6-presentes.jpg",
+      "texto": "Combo navideño · 6 presentes por $101.594 · Inscribite y comprá como distribuidora 🎁"
+    },
+    {
       "archivo": "fotos/combos-navidad/manos-de-fiesta-vertical.jpg",
       "texto": "Manos de fiesta · Crema para Manos y Uñas Lavanda + Esmalte en Gel Red Tomato · $30.598 🎄"
     },

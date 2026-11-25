@@ -86,11 +86,12 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .hero{background:linear-gradient(160deg,var(--hero1) 0%,var(--leaf-deep) 100%);color:#fff;border-radius:26px;padding:26px 22px 24px;margin:4px 0 22px;position:relative;overflow:hidden}
 .hero::after{content:"🌿";position:absolute;right:-14px;bottom:-22px;font-size:120px;opacity:.16;transform:rotate(-18deg)}
 .hero .marca{display:inline-block;font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:rgba(255,255,255,.18);padding:5px 12px;border-radius:999px;margin-bottom:12px}
-.hero h1{color:#fff;font-size:32px;margin:0 0 10px}
+.hero h1{color:#fff;font-size:32px;margin:0;position:relative;z-index:1}
 .hero p{margin:0 0 10px;font-size:18px;color:rgba(255,255,255,.92);position:relative;z-index:1}
 .hero p:last-child{margin-bottom:0}
-.hero .firma{position:relative;z-index:1;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.3)}
-.hero .firma b{color:#fff}
+.creditos{margin:22px 0 6px;padding-top:16px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:16px}
+.creditos p{margin:0 0 8px}
+.creditos b{color:var(--ink)}
 .hero .logo{display:block;width:150px;height:auto;margin:0 0 14px -4px}
 .titulo-sec{font-size:22px;margin:0 0 4px}
 .menu{display:flex;flex-direction:column;gap:12px;margin:12px 0 24px}
@@ -338,6 +339,7 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
 .destacado .aviso{grid-column:1/-1;margin:0}
 @keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
 @media (prefers-reduced-motion:reduce){.destacado{animation:none}}
+.destacado[hidden]{display:none}
 .ventana{border:0;padding:0;border-radius:22px;width:min(92vw,440px);max-height:92vh;background:var(--surface);color:var(--ink);overflow:auto}
 .ventana::backdrop{background:rgba(8,20,12,.72)}
 .ventana .cab{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px 8px}
@@ -357,12 +359,6 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
     <header class="hero">
       <img class="logo" src="img/logo-blanco.png" alt="Biogreen, creadores de bienestar" width="150" height="90">
       <h1>Tu negocio Biogreen</h1>
-      <p>Este es tu espacio para hacer crecer tu negocio. Acá encontrás todo lo que necesitás para vender, en un solo lugar y siempre actualizado.</p>
-      <p>Fotos y posteos para tus redes, el catálogo, tus precios, tu planilla de venta con los puntos calculados, los desafíos del ciclo y una guía para empezar.</p>
-      <div class="firma">
-        <p>Esta página fue creada por la <b>Organización Salvador Gaviota</b>. Si tenés alguna duda, nos podés consultar.</p>
-        <p>Te mando un saludo,<br><b>Daniela Cazayous</b> 🌿</p>
-      </div>
     </header>
 
     <div class="destacado" id="destacado" hidden></div>
@@ -375,6 +371,10 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
     <div class="tip"><span>💡</span><div><b>Guardala en tu celular.</b> Abrí el menú del navegador y elegí «Agregar a la pantalla de inicio» para tenerla siempre a mano.</div></div>
     <p class="sugerencias">¿Se te ocurre algo para mejorar la página? <a href="https://forms.gle/XanErSHSpXLDXqaJ8" target="_blank" rel="noopener">Dejanos tu sugerencia 💬</a></p>
     <p class="sugerencias" id="admin-link">¿Sos administradora? <a href="admin/">Entrá al panel ›</a></p>
+    <footer class="creditos">
+      <p>Esta página fue creada por la <b>Organización Salvador Gaviota</b>. Si tenés alguna duda, nos podés consultar.</p>
+      <p>Te mando un saludo,<br><b>Daniela Cazayous</b> 🌿</p>
+    </footer>
   </div>
 
   <div class="barra" id="barra" hidden><a href="#inicio">Inicio</a><span class="donde" id="donde"></span></div>

@@ -876,6 +876,50 @@ window.LINEAS = [
     "nombre": "Promociones",
     "fotos": [
       {
+        "archivo": "fotos/promos/be-bm73.jpg",
+        "texto": "Regalos de Navidad · perfumes y dúos Biogreen · contame para quién es y te ayudo a elegir 🎄"
+      },
+      {
+        "archivo": "fotos/promos/be-jr4c.jpg",
+        "texto": "¿Dos regalos pendientes? · Elegí 2 perfumes BE, femeninos o masculinos · $71.998. Si elegís dos de los que están en promo (Acqua di Giò, Ralph, Chanel N°5, Carolina Herrera o 212 Sexy Men), quedan en $57.998 · hasta el 26/11 🎁"
+      },
+      {
+        "archivo": "fotos/promos/be-6dbn.jpg",
+        "texto": "Del gym a la noche · Body Splash Blue Ocean 150 ml + Perfume BE inspirado en 212 VIP · los dos por $53.998 · hasta el 26/11 💪"
+      },
+      {
+        "archivo": "fotos/promos/be-r0ot.jpg",
+        "texto": "Para él y su auto · Perfume BE inspirado en Acqua di Giò + Aromatizante para auto Ámbar & Frutas 100 ml · los dos por $36.698 · hasta el 26/11 🚗"
+      },
+      {
+        "archivo": "fotos/promos/be-12an.jpg",
+        "texto": "Del bolso al escritorio · Perfume BE inspirado en Ralph + Crema para manos y uñas Almendras Dulces 75 ml · $47.998 · hasta el 26/11 🤍"
+      },
+      {
+        "archivo": "fotos/promos/be-l5hv.jpg",
+        "texto": "Un toque de verde · Perfume BE inspirado en Be Delicious + Esmalte en gel Green Mood · $47.598 · hasta el 26/11 💚"
+      },
+      {
+        "archivo": "fotos/promos/be-gk7e.jpg",
+        "texto": "Noche en rojo · Perfume BE inspirado en Poison Girl + Esmalte en gel Red Tomato · $47.598 · hasta el 26/11 ❤️"
+      },
+      {
+        "archivo": "fotos/promos/be-qumd.jpg",
+        "texto": "Hoy salgo · Perfume BE inspirado en Fame + Esmalte en gel Passion Pink · $47.598 · hasta el 26/11 💖"
+      },
+      {
+        "archivo": "fotos/promos/be-2mki.jpg",
+        "texto": "Una de día, otra de noche · BE inspirado en Acqua di Gioia + BE inspirado en Poison Girl · los dos por $71.998 · hasta el 26/11 🌸"
+      },
+      {
+        "archivo": "fotos/promos/be-urso.jpg",
+        "texto": "Uno de día, otro de noche · BE inspirado en Acqua di Giò + BE inspirado en Bad Boy · los dos por $64.998 · hasta el 26/11 🖤"
+      },
+      {
+        "archivo": "fotos/promos/be-o34t.jpg",
+        "texto": "Dúo Light Blue · Perfume BE 60 ml inspirado en Light Blue + Esmalte en gel Light Blue · $47.598 · hasta el 26/11 💙"
+      },
+      {
         "archivo": "fotos/promos/arbol-de-higo.jpg",
         "texto": "Árbol de Higo: perfumina $15.699 y difusor $31.599 🌿"
       },

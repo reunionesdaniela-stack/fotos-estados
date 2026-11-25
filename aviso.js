@@ -2,7 +2,7 @@
    y como tarjeta llamativa arriba de todo en el inicio.
    Para sacarlo: mostrar: false. Se oculta solo después de la fecha «hasta». */
 window.AVISO = {
-  mostrar: true,
+  mostrar: false,
   etiqueta: "Charla gratuita",
   titulo: "Descubrí cómo generar ingresos con Biogreen",
   texto: "Martes 24/11 a las 15 hs por Google Meet. Compartila en tus estados e invitá a quien quiera empezar 🌿",

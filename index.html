@@ -112,6 +112,11 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .menu .flecha{flex:none;width:12px;height:12px;border-right:3px solid var(--leaf);border-top:3px solid var(--leaf);transform:rotate(45deg);margin-right:6px}
 .sugerencias{margin:28px 0 8px;text-align:center;font-size:15px;color:var(--muted)}
 .sugerencias a{color:var(--leaf);font-weight:700;white-space:nowrap}
+.pasala{background:var(--soft);border:2px solid var(--line);border-radius:20px;padding:18px 16px;margin:22px 0 18px}
+.pasala h2{font-size:21px;margin:0 0 6px}
+.pasala p{margin:0 0 14px;font-size:17px;color:var(--muted)}
+.pasala button.compartir{font-size:21px;min-height:64px;letter-spacing:.5px}
+.pasala button.compartir svg{width:26px;height:26px}
 .tip{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px dashed var(--line);border-radius:18px;padding:14px 16px;font-size:17px;color:var(--muted)}
 .tip span{font-size:24px}
 /* barra de sección */
@@ -375,6 +380,13 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
     <p class="sub">Tocá una opción para entrar.</p>
     <a class="empezar" href="#primeros"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 7-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 5.5 7 5.5z"/></svg></span><div><b>¿Recién empezás?</b>Empezá por acá: todo lo que necesitás saber, paso a paso. ›</div></a>
     <nav class="menu" aria-label="Secciones"></nav>
+
+    <section class="pasala" aria-label="Compartir la página">
+      <h2>Pasale la página a tu equipo</h2>
+      <p>Mandásela a tus distribuidoras para que tengan las fotos, los precios y la planilla siempre a mano.</p>
+      <button class="compartir" id="pasar-pagina" type="button"></button>
+      <div class="aviso" id="pasar-aviso" role="status"></div>
+    </section>
 
     <div class="tip"><span>💡</span><div><b>Guardala en tu celular.</b> Abrí el menú del navegador y elegí «Agregar a la pantalla de inicio» para tenerla siempre a mano.</div></div>
     <p class="sugerencias">¿Se te ocurre algo para mejorar la página? <a href="https://forms.gle/XanErSHSpXLDXqaJ8" target="_blank" rel="noopener">Dejanos tu sugerencia 💬</a></p>
@@ -905,6 +917,22 @@ $("#semana-fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f
     const txt = esc(e.target.value.trim());
     $("#fo-cant").innerHTML = n ? `${n} ${n === 1 ? "foto" : "fotos"} de <b>${txt}</b>` : `No encontramos fotos de <b>${txt}</b>. Probá con otra palabra.`;
   });
+}
+
+// compartir la página: abre el menú de compartir del celular (o WhatsApp si no hay)
+{
+  const url = "https://recursos-biogreen.pages.dev/";
+  const msj = "Te paso la página de nuestro equipo Biogreen 🌿 Ahí tenés fotos para tus estados, los precios, la planilla de venta y todo para tu negocio:";
+  const b = $("#pasar-pagina"), av = $("#pasar-aviso");
+  b.innerHTML = ICONO + "COMPARTIR LA PÁGINA";
+  b.onclick = async () => {
+    av.classList.remove("ver");
+    if(navigator.share){
+      try{ await navigator.share({title: "Tu negocio Biogreen", text: msj, url}); return; }
+      catch(e){ if(e.name === "AbortError") return; }
+    }
+    location.href = "https://wa.me/?text=" + encodeURIComponent(msj + " " + url);
+  };
 }
 
 // link al panel: siempre visible (el panel pide login con mail)

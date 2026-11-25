@@ -33,7 +33,7 @@ function limpiarSemana(s){
   if(!s || typeof s !== "object") throw new Invalido("semana inválida");
   const desde = txt(s.desde, 10);
   if(desde && !/^\d{4}-\d{2}-\d{2}$/.test(desde)) throw new Invalido("fecha inválida");
-  return {mostrar: s.mostrar !== false, titulo: txt(s.titulo, 120), desde,
+  return {mostrar: s.mostrar !== false, titulo: txt(s.titulo, 120), texto: txt(s.texto, 600), desde,
     fotos: lista(s.fotos).map(f => ({archivo: archivo(f && f.archivo), texto: txt(f.texto, 500)}))};
 }
 

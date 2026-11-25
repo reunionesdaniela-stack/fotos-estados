@@ -4,6 +4,7 @@
 window.SEMANA = {
   "mostrar": true,
   "titulo": "Combos navideños",
+  "texto": "Combos de regalos para estas fiestas, pensados para sumar gente nueva: quien se inscribe como distribuidora Biogreen los compra a este precio, para regalar o para revender y ganar. Compartilos en tu estado con el mensaje «Inscribite y comprá como distribuidora» 🎁",
   "desde": "",
   "fotos": []
 };

@@ -80,6 +80,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--leaf)}
         <label class="interruptor"><input type="checkbox" id="se-mostrar"> Mostrar la sección en la página</label>
         <label class="campo" for="se-titulo">Título</label>
         <input type="text" id="se-titulo" placeholder="Fotos de esta semana">
+        <label class="campo" for="se-texto">Texto explicativo (opcional)</label>
+        <textarea id="se-texto" rows="3" placeholder="Se muestra arriba de las fotos, por ejemplo qué son y cómo se consiguen."></textarea>
         <label class="campo" for="se-desde">Desde</label>
         <input type="date" id="se-desde">
       </div>
@@ -176,6 +178,7 @@ const aBase64 = blob => new Promise((ok, mal) => { const r = new FileReader(); r
 function pintarSemana(){
   $("#se-mostrar").checked = semana.mostrar !== false;
   $("#se-titulo").value = semana.titulo || "";
+  $("#se-texto").value = semana.texto || "";
   $("#se-desde").value = semana.desde || "";
   $("#se-lista").innerHTML = semana.fotos.length ? semana.fotos.map((f, i) => `
     <article class="item" data-i="${i}">
@@ -326,7 +329,7 @@ const leerJS = (texto, nombre) => { const w = {}; new Function("window", texto)(
   if(!r || !r.ok){ $("#mensaje").textContent = res.error || "No se pudo abrir el panel."; $("#quien").textContent = "Solo para administradoras autorizadas."; return; }
   try{ localStorage.setItem("admin-biogreen", "1"); }catch(e){}
   semana = leerJS(res.semana, "SEMANA") || {};
-  semana = {mostrar: semana.mostrar !== false, titulo: semana.titulo || "", desde: semana.desde || "", fotos: semana.fotos || []};
+  semana = {mostrar: semana.mostrar !== false, titulo: semana.titulo || "", texto: semana.texto || "", desde: semana.desde || "", fotos: semana.fotos || []};
   posteos = leerJS(res.posteos, "POSTEOS") || {};
   const ciclo = posteos.ciclo || {};
   // formato viejo (una sola lista en el ciclo): pasa a ser un lanzamiento, igual que como lo muestra la página
@@ -357,6 +360,7 @@ $("#li-sumar").onchange = e => { sumar([...e.target.files], "lineas"); e.target.
 conectarLista("#li-lista", "lineas", fotosLinea, pintarLineas);
 $("#se-mostrar").onchange = e => { semana.mostrar = e.target.checked; marcar("semana"); };
 $("#se-titulo").oninput = e => { semana.titulo = e.target.value; marcar("semana"); };
+$("#se-texto").oninput = e => { semana.texto = e.target.value; marcar("semana"); };
 $("#se-desde").oninput = e => { semana.desde = e.target.value; marcar("semana"); };
 $("#se-vaciar").onclick = () => { if(!confirm("¿Quitar todas las fotos de la semana?")) return; semana.fotos.forEach(f => pendientes.delete(f.archivo)); semana.fotos = []; marcar("semana"); pintarSemana(); };
 $("#se-sumar").onchange = e => { sumar([...e.target.files], "semana"); e.target.value = ""; };

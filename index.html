@@ -135,6 +135,8 @@ footer{text-align:center;color:var(--muted);font-size:15px;margin-top:10px}
 .selector,.buscador{display:block;width:100%;height:58px;margin:6px 0 4px;padding:0 14px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-size:19px;font-weight:700;font-family:inherit}
 .selector{appearance:none;-webkit-appearance:none;border-color:var(--leaf);background-image:linear-gradient(45deg,transparent 50%,var(--leaf) 50%),linear-gradient(135deg,var(--leaf) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 15px) 50%;background-size:7px 7px;background-repeat:no-repeat;padding-right:40px}
 .buscador{font-weight:600}
+.explica{margin:4px 0 12px;padding:12px 14px;border-radius:14px;background:var(--soft);color:var(--ink);font-size:18px;line-height:1.4}
+.explica[hidden]{display:none}
 .fo-busca{margin:18px 0 6px}
 .fo-busca .buscador{width:100%}
 .fo-cant{font-size:18px;margin:14px 2px 10px;color:var(--ink)}
@@ -426,7 +428,7 @@ ul.tildes li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--
     </details>
     <details class="linea" id="sec-semana">
       <summary><span id="titulo">Fotos de esta semana</span><span class="cant" id="fotos-cant"></span></summary>
-      <div class="linea-cuerpo"><p class="pista" id="fecha"></p><div id="semana-fotos"></div></div>
+      <div class="linea-cuerpo"><p class="explica" id="se-texto" hidden></p><p class="pista" id="fecha"></p><div id="semana-fotos"></div></div>
     </details>
     <section class="lineas" style="margin-top:28px" aria-label="Fotos de estados según línea">
       <h2>Fotos de estados según línea</h2>
@@ -866,6 +868,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const ICONO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>`;
 
 if(S.titulo) $("#titulo").textContent = S.titulo;
+if(S.texto){ $("#se-texto").textContent = S.texto; $("#se-texto").hidden = false; }
 if(S.desde) $("#fecha").textContent = "Desde el " + new Date(S.desde + "T00:00").toLocaleDateString("es-AR", {weekday:"long", day:"numeric", month:"long"});
 
 const L = window.LINEAS || [];

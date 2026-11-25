@@ -898,7 +898,7 @@ if(N.fotos.length){
 
 $("#sec-semana").hidden = S.mostrar === false;
 $("#fotos-cant").textContent = S.fotos.length ? S.fotos.length + (S.fotos.length === 1 ? " foto" : " fotos") : "Pronto";
-$("#semana-fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Todavía no hay fotos esta semana.</p>`;
+$("#semana-fotos").innerHTML = S.fotos.length ? S.fotos.map((f, i) => fotoHTML(f, i, S.fotos.length)).join("") : `<p class="vacio">Pronto vas a encontrar las fotos acá.</p>`;
 
 // buscador de fotos: busca en el texto de cada foto (y el nombre de la línea) en todas las secciones
 {

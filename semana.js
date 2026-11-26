@@ -32,12 +32,16 @@ window.SEMANA = {
       "texto": ""
     },
     {
-      "archivo": "fotos/combos/combo-4-regalos.jpg",
-      "texto": "Combo navideño · 4 regalos por $68.696 ($17.174 c/u) · Inscribite y comprá como distribuidora 🎁"
+      "archivo": "fotos/semana/2026-11-26-noche-de-calma-411g.jpg",
+      "texto": ""
     },
     {
-      "archivo": "fotos/combos/combo-6-presentes.jpg",
-      "texto": "Combo navideño · 6 presentes por $101.594 · "
+      "archivo": "fotos/semana/2026-11-26-combo-navideno-todo-lavanda-76v3.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combo-navideno-inspira-total-8z0m.jpg",
+      "texto": ""
     },
     {
       "archivo": "fotos/promos/be-jr4c.jpg",
@@ -46,6 +50,14 @@ window.SEMANA = {
     {
       "archivo": "fotos/promos/be-6dbn.jpg",
       "texto": "Del gym a la noche · Body Splash Blue Ocean 150 ml + Perfume BE inspirado en 212 VIP · los dos por $53.998 · hasta el 26/11 💪"
+    },
+    {
+      "archivo": "fotos/combos/combo-4-regalos.jpg",
+      "texto": "Combo navideño · 4 regalos por $68.696 ($17.174 c/u) · "
+    },
+    {
+      "archivo": "fotos/combos/combo-6-presentes.jpg",
+      "texto": "Combo navideño · 6 presentes por $101.594 · "
     },
     {
       "archivo": "fotos/promos/be-r0ot.jpg",
@@ -70,10 +82,6 @@ window.SEMANA = {
     {
       "archivo": "fotos/promos/be-2mki.jpg",
       "texto": "Una de día, otra de noche · BE inspirado en Acqua di Gioia + BE inspirado en Poison Girl · los dos por $71.998 · hasta el 26/11 🌸"
-    },
-    {
-      "archivo": "fotos/semana/2026-11-26-combo-navideno-inspira-total-8z0m.jpg",
-      "texto": ""
     },
     {
       "archivo": "fotos/promos/be-urso.jpg",

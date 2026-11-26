@@ -36,10 +36,6 @@ window.SEMANA = {
       "texto": ""
     },
     {
-      "archivo": "fotos/semana/2026-11-26-combo-navideno-todo-lavanda-76v3.jpg",
-      "texto": ""
-    },
-    {
       "archivo": "fotos/semana/2026-11-26-combo-navideno-inspira-total-8z0m.jpg",
       "texto": ""
     },

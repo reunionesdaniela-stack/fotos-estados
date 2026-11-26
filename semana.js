@@ -64,12 +64,32 @@ window.SEMANA = {
       "texto": ""
     },
     {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-tus-amig-9m64.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-biogreen-para-glx7.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-los-abue-h09u.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-docentes-u8s9.jpg",
+      "texto": ""
+    },
+    {
       "archivo": "fotos/promos/be-jr4c.jpg",
       "texto": "¿Dos regalos pendientes? · Elegí 2 perfumes BE, femeninos o masculinos · $71.998. Si elegís dos de los que están en promo (Acqua di Giò, Ralph, Chanel N°5, Carolina Herrera o 212 Sexy Men), quedan en $57.998 · hasta el 26/11 🎁"
     },
     {
       "archivo": "fotos/promos/be-6dbn.jpg",
       "texto": "Del gym a la noche · Body Splash Blue Ocean 150 ml + Perfume BE inspirado en 212 VIP · los dos por $53.998 · hasta el 26/11 💪"
+    },
+    {
+      "archivo": "fotos/promos/be-l5hv.jpg",
+      "texto": "Un toque de verde · Perfume BE inspirado en Be Delicious + Esmalte en gel Green Mood · $47.598 · hasta el 26/11 💚"
     },
     {
       "archivo": "fotos/promos/be-12an.jpg",
@@ -80,20 +100,12 @@ window.SEMANA = {
       "texto": "Para él y su auto · Perfume BE inspirado en Acqua di Giò + Aromatizante para auto Ámbar & Frutas 100 ml · los dos por $36.698 · hasta el 26/11 🚗"
     },
     {
-      "archivo": "fotos/promos/be-l5hv.jpg",
-      "texto": "Un toque de verde · Perfume BE inspirado en Be Delicious + Esmalte en gel Green Mood · $47.598 · hasta el 26/11 💚"
-    },
-    {
       "archivo": "fotos/promos/be-gk7e.jpg",
       "texto": "Noche en rojo · Perfume BE inspirado en Poison Girl + Esmalte en gel Red Tomato · $47.598 · hasta el 26/11 ❤️"
     },
     {
       "archivo": "fotos/promos/be-qumd.jpg",
       "texto": "Hoy salgo · Perfume BE inspirado en Fame + Esmalte en gel Passion Pink · $47.598 · hasta el 26/11 💖"
-    },
-    {
-      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-tus-amig-9m64.jpg",
-      "texto": ""
     },
     {
       "archivo": "fotos/promos/be-2mki.jpg",
@@ -108,7 +120,11 @@ window.SEMANA = {
       "texto": "Dúo Light Blue · Perfume BE 60 ml inspirado en Light Blue + Esmalte en gel Light Blue · $47.598 · hasta el 26/11 💙"
     },
     {
-      "archivo": "fotos/semana/2026-11-26-para-el-zjso.jpg",
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-dermaelia-yifx.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-los-abuelos-107c.jpg",
       "texto": ""
     },
     {
@@ -128,11 +144,7 @@ window.SEMANA = {
       "texto": ""
     },
     {
-      "archivo": "fotos/semana/2026-11-26-los-abuelos-107c.jpg",
-      "texto": ""
-    },
-    {
-      "archivo": "fotos/semana/2026-11-26-dermaelia-dia-y-noche-xt7q.jpg",
+      "archivo": "fotos/semana/2026-11-26-combo-navideno-para-una-piel-r-y861.jpg",
       "texto": ""
     }
   ]

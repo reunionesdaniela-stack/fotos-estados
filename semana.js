@@ -8,20 +8,36 @@ window.SEMANA = {
   "desde": "",
   "fotos": [
     {
+      "archivo": "fotos/promos/be-bm73.jpg",
+      "texto": "Regalos de Navidad · perfumes y dúos Biogreen · contame para quién es y te ayudo a elegir 🎄"
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-casa-dulce-navidad-pmj8.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combo-navideno-todo-lavanda-j9aa.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-biogreen-para-006a.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combo-prosperidad-2027-biogree-uozk.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-645fd3aa-1eda-4a23-8212-458123-3us7.jpg",
+      "texto": ""
+    },
+    {
       "archivo": "fotos/combos/combo-4-regalos.jpg",
       "texto": "Combo navideño · 4 regalos por $68.696 ($17.174 c/u) · Inscribite y comprá como distribuidora 🎁"
     },
     {
-      "archivo": "fotos/combos/combo-5-presentes.jpg",
-      "texto": "Combo navideño · 5 presentes por $91.995 ($18.399 c/u) · Inscribite y comprá como distribuidora 🎁"
-    },
-    {
       "archivo": "fotos/combos/combo-6-presentes.jpg",
-      "texto": "Combo navideño · 6 presentes por $101.594 · Inscribite y comprá como distribuidora 🎁"
-    },
-    {
-      "archivo": "fotos/promos/be-bm73.jpg",
-      "texto": "Regalos de Navidad · perfumes y dúos Biogreen · contame para quién es y te ayudo a elegir 🎄"
+      "texto": "Combo navideño · 6 presentes por $101.594 · "
     },
     {
       "archivo": "fotos/promos/be-jr4c.jpg",
@@ -54,6 +70,10 @@ window.SEMANA = {
     {
       "archivo": "fotos/promos/be-2mki.jpg",
       "texto": "Una de día, otra de noche · BE inspirado en Acqua di Gioia + BE inspirado en Poison Girl · los dos por $71.998 · hasta el 26/11 🌸"
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combo-navideno-inspira-total-8z0m.jpg",
+      "texto": ""
     },
     {
       "archivo": "fotos/promos/be-urso.jpg",

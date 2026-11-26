@@ -8,14 +8,6 @@ window.SEMANA = {
   "desde": "",
   "fotos": [
     {
-      "archivo": "fotos/combos-navidad/brillo-de-fiesta.jpg",
-      "texto": "Brillo de fiesta · Body Splash Sparkling Star + Gloss Sparkling Stars · $34.598 🎄"
-    },
-    {
-      "archivo": "fotos/combos-navidad/para-el-auto.jpg",
-      "texto": "Para el auto · Limpiador para Automóvil + Aromatizante de auto · $24.698 🎄"
-    },
-    {
       "archivo": "fotos/combos/combo-4-regalos.jpg",
       "texto": "Combo navideño · 4 regalos por $68.696 ($17.174 c/u) · Inscribite y comprá como distribuidora 🎁"
     },

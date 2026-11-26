@@ -795,16 +795,8 @@ window.LINEAS = [
     "nombre": "Incorporaciones 🤝",
     "fotos": [
       {
-        "archivo": "fotos/incorporaciones/hace-26-anos-que-vivo-de-biogreen.jpg",
-        "texto": "Hace 26 años que vivo de Biogreen. Te enseño cómo. Escribime y te cuento 🌿"
-      },
-      {
         "archivo": "fotos/incorporaciones/tu-forma-de-acompanar.jpg",
         "texto": "Tu forma de acompañar a otras puede ser tu camino. Si algo de esto te identifica, escribime 🌷"
-      },
-      {
-        "archivo": "fotos/incorporaciones/tu-experiencia-tiene-mucho-para-dar.jpg",
-        "texto": "Tu experiencia todavía tiene mucho para dar. Me encantaría conversar con vos 🌿"
       },
       {
         "archivo": "fotos/incorporaciones/te-jubilaste-del-aula.jpg",
@@ -819,20 +811,12 @@ window.LINEAS = [
         "texto": "¿Te gustaría tener un ingreso extra sin descuidar tu casa ni tu familia? Sí, contame / Quiero saber más 🏡"
       },
       {
-        "archivo": "fotos/incorporaciones/dia-de-pedidos-en-casa.jpg",
-        "texto": "Así se ve un día de pedidos en casa. ¿Te gustaría hacerlo vos también? 📦"
-      },
-      {
         "archivo": "fotos/incorporaciones/diciembre-mes-que-mas-se-regala.jpg",
         "texto": "Diciembre es el mes en que más se regala. Sumate ahora y aprovechalo. Escribime QUIERO 🎁"
       },
       {
         "archivo": "fotos/incorporaciones/nunca-es-tarde.jpg",
         "texto": "Nunca es tarde para empezar algo propio. Escribime y te cuento cómo 🌿"
-      },
-      {
-        "archivo": "fotos/incorporaciones/vendes-desde-tu-celular.jpg",
-        "texto": "No tenés que vender puerta a puerta: vendés desde tu celular, a tu gente. ¿Tenés más dudas? Preguntame 📱"
       },
       {
         "archivo": "fotos/incorporaciones/se-vienen-las-fiestas.jpg",

@@ -76,7 +76,15 @@ window.SEMANA = {
       "texto": ""
     },
     {
-      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-docentes-u8s9.jpg",
+      "archivo": "fotos/semana/2026-11-26-regalos-navidenos-para-docente-0kbq.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combo-navideno-kit-prosperidad-cfz2.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-biogreen-amig-hozp.jpg",
       "texto": ""
     },
     {

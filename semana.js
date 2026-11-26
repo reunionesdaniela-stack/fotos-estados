@@ -40,6 +40,30 @@ window.SEMANA = {
       "texto": ""
     },
     {
+      "archivo": "fotos/semana/2026-11-26-universo-hamsa-combo-navideno-c6z0.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-toda-la--0b69.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-la-famil-1np3.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-anfitrio-r2k5.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-primera-navidad-del-bebe-h78m.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-el-y-ell-liz9.jpg",
+      "texto": ""
+    },
+    {
       "archivo": "fotos/promos/be-jr4c.jpg",
       "texto": "¿Dos regalos pendientes? · Elegí 2 perfumes BE, femeninos o masculinos · $71.998. Si elegís dos de los que están en promo (Acqua di Giò, Ralph, Chanel N°5, Carolina Herrera o 212 Sexy Men), quedan en $57.998 · hasta el 26/11 🎁"
     },
@@ -48,20 +72,12 @@ window.SEMANA = {
       "texto": "Del gym a la noche · Body Splash Blue Ocean 150 ml + Perfume BE inspirado en 212 VIP · los dos por $53.998 · hasta el 26/11 💪"
     },
     {
-      "archivo": "fotos/combos/combo-4-regalos.jpg",
-      "texto": "Combo navideño · 4 regalos por $68.696 ($17.174 c/u) · "
-    },
-    {
-      "archivo": "fotos/combos/combo-6-presentes.jpg",
-      "texto": "Combo navideño · 6 presentes por $101.594 · "
+      "archivo": "fotos/promos/be-12an.jpg",
+      "texto": "Del bolso al escritorio · Perfume BE inspirado en Ralph + Crema para manos y uñas Almendras Dulces 75 ml · $47.998 · hasta el 26/11 🤍"
     },
     {
       "archivo": "fotos/promos/be-r0ot.jpg",
       "texto": "Para él y su auto · Perfume BE inspirado en Acqua di Giò + Aromatizante para auto Ámbar & Frutas 100 ml · los dos por $36.698 · hasta el 26/11 🚗"
-    },
-    {
-      "archivo": "fotos/promos/be-12an.jpg",
-      "texto": "Del bolso al escritorio · Perfume BE inspirado en Ralph + Crema para manos y uñas Almendras Dulces 75 ml · $47.998 · hasta el 26/11 🤍"
     },
     {
       "archivo": "fotos/promos/be-l5hv.jpg",
@@ -76,6 +92,10 @@ window.SEMANA = {
       "texto": "Hoy salgo · Perfume BE inspirado en Fame + Esmalte en gel Passion Pink · $47.598 · hasta el 26/11 💖"
     },
     {
+      "archivo": "fotos/semana/2026-11-26-combos-navidenos-para-tus-amig-9m64.jpg",
+      "texto": ""
+    },
+    {
       "archivo": "fotos/promos/be-2mki.jpg",
       "texto": "Una de día, otra de noche · BE inspirado en Acqua di Gioia + BE inspirado en Poison Girl · los dos por $71.998 · hasta el 26/11 🌸"
     },
@@ -86,6 +106,34 @@ window.SEMANA = {
     {
       "archivo": "fotos/promos/be-o34t.jpg",
       "texto": "Dúo Light Blue · Perfume BE 60 ml inspirado en Light Blue + Esmalte en gel Light Blue · $47.598 · hasta el 26/11 💙"
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-para-el-zjso.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-piel-renovada-wsgx.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-spa-almendras-326s.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-unas-de-fiesta-completo-hm6n.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-look-de-brindis-ccpz.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-los-abuelos-107c.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-26-dermaelia-dia-y-noche-xt7q.jpg",
+      "texto": ""
     }
   ]
 };

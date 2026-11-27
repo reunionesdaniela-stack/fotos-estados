@@ -154,6 +154,142 @@ window.SEMANA = {
     {
       "archivo": "fotos/semana/2026-11-26-combo-navideno-para-una-piel-r-y861.jpg",
       "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-34-regalos-para-la-oficina-5s61.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-32-amigo-invisible-wp46.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-06-todo-lavanda-04c4.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-28-los-hombres-de-la-familia-j034.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-20-look-de-fiesta-total-x4us.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-21-universo-hamsa-ovj7.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-10-para-el-to47.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-14-casa-dulce-navidad-k1p6.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-30-para-los-anfitriones-23bf.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-25-el-y-ella-premium-fif4.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-13-piel-renovada-so72.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-08-prosperidad-2027-zl14.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-17-el-completo-q6ov.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-15-inspira-total-f5il.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-22-primera-navidad-del-bebe-ebkr.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-03-brillo-de-fiesta-66z6.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-31-para-tus-amigas-3cjg.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-05-para-el-auto-g2at.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-01-manos-de-fiesta-y2er.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-11-rutina-dermaelia-rhiq.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-23-el-y-ella-b8l0.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-12-ritual-almendras-im9v.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-09-look-de-brindis-r81n.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-33-regalos-para-docentes-8sl0.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-29-para-los-abuelos-xkv1.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-04-noche-de-calma-lny1.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-26-regalos-para-toda-la-famili-5rza.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-19-dermaelia-dia-y-noche-u3tt.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-27-regalos-para-toda-la-famili-bnmo.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-18-spa-almendras-n3hl.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-02-rojo-navidad-mjcp.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-16-kit-prosperidad-r1sa.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-07-unas-de-fiesta-g4gw.jpg",
+      "texto": ""
+    },
+    {
+      "archivo": "fotos/semana/2026-11-27-24-el-y-ella-promo-nyrc.jpg",
+      "texto": ""
     }
   ]
 };

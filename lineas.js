@@ -839,6 +839,10 @@ window.LINEAS = [
         "texto": "Emprendé desde casa, con tus tiempos y tus hijos cerca. Escribime QUIERO 🏡"
       },
       {
+        "archivo": "fotos/lineas/incorporaciones/creatividad-despues-del-aula-ac9p.jpg",
+        "texto": "Te jubilaste del aula, no de tus ganas de crear. Si algo de esto te identifica, escribime 🌿"
+      },
+      {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
         "texto": "Emprendé con una marca que hace las cosas bien 🌿"
       },
@@ -853,6 +857,10 @@ window.LINEAS = [
       {
         "archivo": "fotos/incorporaciones/mas-facil-vender.jpg",
         "texto": "Es más fácil vender lo que vos misma usás 💚"
+      },
+      {
+        "archivo": "fotos/lineas/incorporaciones/tu-experiencia-todavia-tiene-m-7hap.jpg",
+        "texto": ""
       },
       {
         "archivo": "fotos/incorporaciones/casa-oliera-increible.jpg",

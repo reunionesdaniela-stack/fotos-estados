@@ -827,6 +827,10 @@ window.LINEAS = [
         "texto": "Tu fragancia favorita, ahora también puede ser tu negocio. Respondé este estado y te cuento ✨"
       },
       {
+        "archivo": "fotos/lineas/incorporaciones/crea-ingresos-con-biogreen-tuz2.jpg",
+        "texto": "Te jubilaste del aula, no de tus ganas de crear. Si algo de esto te identifica, escribime 🌿"
+      },
+      {
         "archivo": "fotos/incorporaciones/productos-que-cuidan-el-planeta.jpg",
         "texto": "Vendé productos que cuidan tu casa y el planeta. Escribime y te cuento 🌿"
       },
@@ -837,10 +841,6 @@ window.LINEAS = [
       {
         "archivo": "fotos/incorporaciones/emprende-desde-casa.jpg",
         "texto": "Emprendé desde casa, con tus tiempos y tus hijos cerca. Escribime QUIERO 🏡"
-      },
-      {
-        "archivo": "fotos/lineas/incorporaciones/creatividad-despues-del-aula-ac9p.jpg",
-        "texto": "Te jubilaste del aula, no de tus ganas de crear. Si algo de esto te identifica, escribime 🌿"
       },
       {
         "archivo": "fotos/incorporaciones/emprende-marca-que-hace-bien.jpg",
